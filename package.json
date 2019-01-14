@@ -17,6 +17,7 @@
     "babel-plugin-transform-es3-property-literals": "^6.22.0",
     "babel-plugin-transform-es5-property-mutators": "^6.24.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
+    "css-loader": "^2.1.0",
     "docz": "^0.13.4",
     "docz-plugin-css": "^0.11.0",
     "docz-theme-default": "^0.13.4",
@@ -30,6 +31,7 @@
     "eslint-plugin-react": "^7.11.1",
     "gulp": "^4.0.0",
     "gulp-rollup-each": "^2.2.0",
+    "happo.io": "^3.6.1",
     "husky": "^1.2.0",
     "jest": "^23.6.0",
     "jest-junit": "^5.2.0",
@@ -42,7 +44,8 @@
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-terser": "^3.0.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1"
   },
   "files": [
     "dist/**",
@@ -70,6 +73,7 @@
     }
   },
   "scripts": {
+    "happo": "./node_modules/.bin/happo",
     "clean": "./node_modules/.bin/rimraf ./dist",
     "start:docs": "./node_modules/.bin/docz dev",
     "build:docs": "./node_modules/.bin/docz build",

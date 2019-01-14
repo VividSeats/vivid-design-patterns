@@ -24,7 +24,6 @@ const Button = ({
 }) => {
     const baseButtonClass = grouped ? 'vp-grouped-button' : 'vp-button';
     const buttonClassNames = classNames(baseButtonClass, {
-        [`--${size}`]: size,
         [`--${importance}`]: importance,
         [`--disabled`]: disabled,
         [`--selected`]: selected,
