@@ -81,7 +81,8 @@ $card-hero-height: 8rem; // 128px
         display: inline-block;
         vertical-align: middle;
     }
-    i {
+
+    .vp-card__header__icon {
         @include vp-text-gradient;
     }
 }
