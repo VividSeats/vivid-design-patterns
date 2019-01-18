@@ -1,5 +1,7 @@
 // Tokens
 @import 'tokens';
+@import 'mixins';
+@import 'prefixes';
 
 // only appears on mobile
 @include size-only-mobile {
@@ -15,7 +17,7 @@
         font-weight: 700;
         height: $sizing-5XL !important;
         max-width: calc(100% - #{$sizing-6XL});
-        opacity: 0;
+        // opacity: 0;
         overflow: hidden;
         z-index: $z-index-fab;
 

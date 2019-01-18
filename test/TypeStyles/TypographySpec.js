@@ -7,6 +7,8 @@ import Subhead from '../../src/components/atoms/Subhead';
 import TinyText from '../../src/components/atoms/TinyText';
 import SmallText from '../../src/components/atoms/SmallText';
 
+/* eslint react/jsx-filename-extension: 0 */
+
 const typographyPropTests = [
         { describes: 'Headline', component: Headline, defaultElement: 'h1', defaultStyle: 'headline1' },
         { describes: 'Subtitle', component: Subtitle, defaultElement: 'p', defaultStyle: 'subtitle1' },

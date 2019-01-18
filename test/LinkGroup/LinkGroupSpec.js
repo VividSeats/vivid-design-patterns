@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 import LinkGroup from '../../src/components/molecules/LinkGroup';
 import Link from '../../src/components/atoms/Link';
 
+/* eslint react/jsx-filename-extension: 0 */
+
 describe('<LinkGroup />', () => {
     it('renders a <ul> tag with three child <li> tags', () => {
         const wrapper = shallow(

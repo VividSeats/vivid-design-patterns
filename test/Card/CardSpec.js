@@ -4,6 +4,9 @@ import Card from '../../src/components/molecules/Card';
 import CardBody from '../../src/components/atoms/CardBody';
 import CardHeader from '../../src/components/atoms/CardHeader';
 import CardFooter from '../../src/components/atoms/CardFooter';
+
+/* eslint react/jsx-filename-extension: 0 */
+
 const subComponentTests = [
     { name: 'Card.Header', component: CardHeader, checkForStyles: ['.vp-card__header'] },
     { name: 'Card.Body', component: CardBody, checkForStyles: ['.vp-card__body'] },
