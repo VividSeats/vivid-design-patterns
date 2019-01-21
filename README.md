@@ -52,14 +52,14 @@ If you are using webpack in your other project, be sure to include this followin
     }
 ```
 
-Alternatively, you can change the reference in the `package.json` of `your-other-project` to the github repo
-
-```
-{
-  "@vividseats/vivid-design-patterns": "git+ssh://git@github.com:VividSeats/vivid-design-patterns.git#<BRANCH_NAME>",
-}
-```
-
 Each time you make a change to vivid-design patterns, rerun `yarn run build:js` to see the changes reflected in `your-other-project`
+
+## Feature Branches
+
+When developing with feature branches, you can publish to NPM using a tag. Run `yarn publish --tag <BRANCH_NAME>` to publish to NPM.
+Note: In the event you need to republish your branch to NPM, increment the version by 1.
+
+On your feature branch in other projects, use `yarn add @vividseats/vivid-design-patterns@<BRANCH_NAME>` to install the tagged version of VDP.
+
 
 
