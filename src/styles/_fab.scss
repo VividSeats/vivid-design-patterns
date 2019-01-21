@@ -22,6 +22,9 @@
             overflow: hidden;
             z-index: $z-index-fab;
 
+            &[data-state*='hidden'] {
+                display: none;
+            }
             > * {
                 padding: 0 1rem;
             }
