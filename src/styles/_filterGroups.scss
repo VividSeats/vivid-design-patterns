@@ -1,0 +1,22 @@
+// Tokens
+@import 'tokens';
+@import 'mixins';
+
+[class^='vp-filter-group']:not([class*='__']) {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+}
+[class^='vp-filter-group__item'] {
+    font-size: $font-size-MD;
+    border-radius: $border-radius-SM;
+    padding: $sizing-SM 0;
+}
+
+.vp-filter-group {
+    .vp-type-subhead {
+        color: #666;
+        padding: 0 5px;
+    }
+}

@@ -1,0 +1,31 @@
+---
+    name: FilterGroup
+---
+
+import { PropsTable, Playground } from 'docz'
+import FilterGroup from '../../src/components/molecules/FilterGroup';
+import Link from '../../src/components/atoms/Link';
+import '../../src/styles/_filterGroups.scss';
+import '../../src/styles/_link.scss';
+import './filterGroupDocs.scss';
+
+# FilterGroup
+## Installation
+Using the react components:
+
+    import FilterGroup from '@vividseats/vivid-design-patterns/dist/molecules/FilterGroup';
+
+## Props
+<PropsTable of={FilterGroup}/>
+
+## Basic Usage
+<Playground>
+  <FilterGroup groupName='Venues' limit={2}>
+    <Link>Link 1</Link>
+    <Link>Link 2</Link>
+    <Link>Link 3</Link>
+    <Link>Link 4</Link>
+    <Link>Link 5</Link>
+    <Link>Link 6</Link>
+  </FilterGroup>
+</Playground>
