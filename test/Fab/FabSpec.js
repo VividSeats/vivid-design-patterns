@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Fab from '../../src/components/molecules/Fab';
 
-/* eslint react/jsx-filename-extension: 0 */
-
 describe('<Fab />', () => {
     it('renders', () => {
         const wrapper = shallow(<Fab />);

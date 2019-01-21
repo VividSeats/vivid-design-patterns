@@ -3,8 +3,6 @@ import { shallow, mount } from 'enzyme';
 import Modal from '../../src/components/molecules/Modal';
 import Button from '../../src/components/atoms/Button';
 
-/* eslint react/jsx-filename-extension: 0 */
-
 describe('<Modal />', () => {
     it('renders an <aside> element', () => {
         const wrapper = shallow(<Modal dataState="opened" />);

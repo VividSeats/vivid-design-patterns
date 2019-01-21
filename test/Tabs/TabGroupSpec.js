@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import TabGroup from '../../src/components/molecules/TabGroup';
 
-/* eslint react/jsx-filename-extension: 0 */
-
 describe('<TabGroup />', () => {
     it('renders a tab group', () => {
         const wrapper = shallow(<TabGroup />);
