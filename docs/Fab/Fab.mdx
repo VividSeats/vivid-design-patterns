@@ -3,12 +3,9 @@
 ---
 
 import { PropsTable, Playground } from 'docz';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 import Fab from '../../src/components/molecules/Fab';
-import '../../src/styles/_fab.scss';
 import './fabDocs.scss';
-import '../../node_modules/material-design-icons/iconfont/material-icons.scss';
 
 # Fab
 ## Installation
@@ -24,12 +21,27 @@ Using the scss files:
 `class="vp-fab"`
 <Playground style={ { minHeight: '200px', height: '100%' } }>
     <Fab>
-        <span>
-            <MaterialIcon icon='location' />
-            All Locations
-        </span>
+        <span>All Locations</span>
     </Fab>
 </Playground>
 
-## Props
+## Fab Props
+### Fab
 <PropsTable of={Fab}/>
+
+### Fab Child
+<PropsTable of={Fab.Child}/>
+
+## Sub-Component Usage
+```
+<Fab>
+    <Fab.Child />
+    <Fab.Child />
+</Fab>
+```
+<Playground style={ { minHeight: '200px', height: '100%' } }>
+    <Fab>
+        <Fab.Child>All Locations</Fab.Child>
+        <Fab.Child>Chicago</Fab.Child>
+    </Fab>
+</Playground>

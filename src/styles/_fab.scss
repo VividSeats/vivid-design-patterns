@@ -3,29 +3,42 @@
 @import 'mixins';
 @import 'prefixes';
 
-// only appears on mobile
-@include size-only-mobile {
+// also used for doc styles - desktop and mobile
+@mixin fab {
     [class^='vp-fab'] {
-        @include flex;
-        @include justify-content(center);
-        @include position(fixed, null null $sizing-XL null);
-        @include transition(bottom $transition-2);
-        background-color: $color-white;
-        box-shadow: $elevation-3;
-        border: 1px solid $color-gray-light;
-        border-radius: $border-radius-XL;
-        font-weight: 700;
-        height: $sizing-5XL !important;
-        max-width: calc(100% - #{$sizing-6XL});
-        // opacity: 0;
-        overflow: hidden;
-        z-index: $z-index-fab;
+        &:not([class*='__']) {
+            @include flex;
+            @include justify-content(center);
+            @include align-items(center);
+            @include position(fixed, null null $sizing-XL null);
+            @include transition(bottom $transition-2);
+            background-color: $color-white;
+            box-shadow: $elevation-3;
+            border: 1px solid $color-gray-light;
+            border-radius: $border-radius-XL;
+            font-weight: 700;
+            height: $sizing-5XL !important;
+            max-width: calc(100% - #{$sizing-6XL});
+            overflow: hidden;
+            z-index: $z-index-fab;
 
-        > * {
-            padding: 0 1rem;
+            > * {
+                padding: 0 1rem;
+            }
+            i {
+                color: $text-color-link;
+            }
         }
-        i {
-            color: $text-color-link;
+
+        [class^='vp-fab__child'] {
+            @include flex;
+            @include justify-content(center);
+            @include align-items(center);
+            height: 100%;
+
+            &:not(:first-child) {
+                border-left: 1px solid $color-gray-light;
+            }
         }
     }
     .vp-fab--double > :first-child {
@@ -34,4 +47,9 @@
     .scroll-hide {
         bottom: -#{$sizing-6XL};
     }
+}
+
+// only appears on mobile
+@include size-only-mobile {
+    @include fab;
 }

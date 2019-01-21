@@ -5,10 +5,6 @@
 import { PropsTable, Playground } from 'docz'
 
 import Modal from '../../src/components/molecules/Modal';
-import ModalHeader from '../../src/components/atoms/ModalHeader';
-import ModalBody from '../../src/components/atoms/ModalBody';
-import ModalFooter from '../../src/components/atoms/ModalFooter';
-import Backdrop from '../../src/components/atoms/Backdrop';
 import Button from '../../src/components/atoms/Button';
 import ModalButtonExample from './ModalButtonExample';
 
@@ -45,16 +41,16 @@ HTML: class="vp-modal" data-state="opened"
 <PropsTable of={Modal}/>
 
 ### Modal Header Props
-<PropsTable of={ModalHeader}/>
+<PropsTable of={Modal.Header}/>
 
 ### Modal Body Props
-<PropsTable of={ModalBody}/>
+<PropsTable of={Modal.Body}/>
 
 ### Modal Footer Props
-<PropsTable of={ModalFooter}/>
+<PropsTable of={Modal.Footer}/>
 
-##s# Backdrop Props
-<PropsTable of={Backdrop}/>
+### Backdrop Props
+<PropsTable of={Modal.Backdrop}/>
 
 ## Props Example
 `dataState="opened" title="Modal Title" type="sheet" onClose={() => window.alert('on close fired')`

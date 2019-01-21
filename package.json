@@ -55,7 +55,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "material-icons-react": "^1.0.4",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
