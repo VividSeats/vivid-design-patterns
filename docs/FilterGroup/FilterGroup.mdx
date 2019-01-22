@@ -20,12 +20,31 @@ Using the react components:
 
 ## Basic Usage
 <Playground>
-  <FilterGroup groupName='Venues' limit={2}>
-    <Link>Link 1</Link>
-    <Link>Link 2</Link>
-    <Link>Link 3</Link>
-    <Link>Link 4</Link>
-    <Link>Link 5</Link>
-    <Link>Link 6</Link>
+
+  <FilterGroup groupName='By Venue' onSelect={(e) => console.log(e.target.innerHTML) }>
+    <Link>All-State Arena</Link>
+    <Link>Soldier Field</Link>
+    <Link>United Center</Link>
+    <Link>AT&T Center</Link>
+    <Link>Madison Square Garden</Link>
+    <Link>Oracle Arena</Link>
+    <Link>Pepsi Center</Link>
+    <Link>Kohl Center</Link>
   </FilterGroup>
+
+</Playground>
+
+### Selection Callback
+`onSelect={(e) => {alert('ID of element:' + e.target.id)`
+<Playground>
+    <FilterGroup groupName='By Teams' onSelect={(e) => {alert('ID of element: ' + e.target.id) }}>
+      <Link id="1">Chicago White Sox</Link>
+      <Link id="2">Chicago Cubs</Link>
+      <Link id="3">Anaheim Angels</Link>
+      <Link id="4">Colorado Rockies</Link>
+      <Link id="5">Atlanta Braves</Link>
+      <Link id="6">LA Dodgers</Link>
+      <Link id="7">New York Yankees</Link>
+      <Link id="8">New York Mets</Link>
+    </FilterGroup>
 </Playground>

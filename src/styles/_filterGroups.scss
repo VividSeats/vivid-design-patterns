@@ -2,21 +2,33 @@
 @import 'tokens';
 @import 'mixins';
 
-[class^='vp-filter-group']:not([class*='__']) {
-    list-style: none;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding: 0;
-}
-[class^='vp-filter-group__item'] {
-    font-size: $font-size-MD;
-    border-radius: $border-radius-SM;
-    padding: $sizing-SM 0;
-}
-
 .vp-filter-group {
-    .vp-type-subhead {
-        color: #666;
-        padding: 0 5px;
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    margin-bottom: 0 !important;
+
+    p {
+        font-size: 0.8125rem;
+        margin: 1rem 0 0.5rem;
+        text-transform: uppercase;
+        color: $text-color-muted;
+    }
+    ul {
+        margin: 0 0;
+        padding: 0 0;
+    }
+    li {
+        position: relative;
+        list-style: none;
+        line-height: 1.5;
+        margin-bottom: 0.3em;
+
+        a {
+            display: inline;
+            font-size: 0.875rem;
+            padding: 0 0;
+            margin: 0;
+        }
     }
 }

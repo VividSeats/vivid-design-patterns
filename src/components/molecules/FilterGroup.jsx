@@ -1,11 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Subhead from '../atoms/Subhead';
 import Link from '../atoms/Link';
+import Subhead from '../atoms/Subhead';
 
 class FilterGroup extends React.Component {
     specifiedLimit = this.props.limit || 5;
     state = { filterLimit: this.specifiedLimit, expanded: false };
+
+    static propTypes = {
+        onSelect: PropTypes.func,
+        limit: PropTypes.number,
+        groupName: PropTypes.string.isRequired,
+        children: PropTypes.node.isRequired,
+        className: PropTypes.string
+    };
+
+    static defaultProps = {
+        groupName: '',
+        limit: 5,
+        onSelect: () => {},
+        className: ''
+    };
 
     filterSelection = () => {
         const { expanded } = this.state;
@@ -13,42 +28,38 @@ class FilterGroup extends React.Component {
         this.setState({ filterLimit: expanded ? this.specifiedLimit : children.length, expanded: !expanded });
     };
 
+    handleSelection = (event, child) => {
+        const { onSelect } = this.props;
+        typeof child.props.onClick === 'function' && child.props.onClick(event);
+        onSelect(event);
+    };
+
     render() {
         const { filterLimit, expanded } = this.state;
         const { groupName, children, className, ...htmlAttributes } = this.props;
-
-        const baseLinkGroupClass = `vp-filter-group`;
-        const props = {
-            className: className ? `${baseLinkGroupClass} ${className}` : baseLinkGroupClass,
-            ...htmlAttributes
-        };
+        const classNames = className ? `vp-filter-group ${className}` : 'vp-filter-group';
         return (
-            <ul {...{ ...props, ...htmlAttributes }}>
-                <li>
-                    <Subhead>{groupName}</Subhead>
-                </li>
-                {React.Children.map(children, (child, index) => (
-                    <li className="vp-filter-group__item">
-                        {index < filterLimit ? child : index === Number(filterLimit) && <Link onClick={this.filterSelection}>more</Link>}
-                    </li>
-                ))}
-                {!!expanded && (
-                    <li className="vp-filter-group__item">
-                        <Link onClick={this.filterSelection}>less</Link>
-                    </li>
-                )}
-            </ul>
+            <div className={classNames} {...htmlAttributes}>
+                <Subhead>{groupName}</Subhead>
+                <ul>
+                    {React.Children.map(children, (child, index) => (
+                        <li>
+                            {index < filterLimit
+                                ? React.cloneElement(child, {
+                                      onClick: event => this.handleSelection(event, child)
+                                  })
+                                : index === Number(filterLimit) && <Link onClick={this.filterSelection}>more</Link>}
+                        </li>
+                    ))}
+                    {!!expanded && (
+                        <li>
+                            <Link onClick={this.filterSelection}>less</Link>
+                        </li>
+                    )}
+                </ul>
+            </div>
         );
     }
 }
-
-FilterGroup.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    groupName: PropTypes.string.isRequired,
-    limit: PropTypes.number
-};
-
-FilterGroup.defaultTypes = {};
 
 export default FilterGroup;
