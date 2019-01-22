@@ -42,15 +42,22 @@ class FilterGroup extends React.Component {
             <div className={classNames} {...htmlAttributes}>
                 <Subhead>{groupName}</Subhead>
                 <ul>
-                    {React.Children.map(children, (child, index) => (
-                        <li>
-                            {index < filterLimit
-                                ? React.cloneElement(child, {
-                                      onClick: event => this.handleSelection(event, child)
-                                  })
-                                : index === Number(filterLimit) && <Link onClick={this.filterSelection}>more</Link>}
-                        </li>
-                    ))}
+                    {React.Children.map(children, (child, index) =>
+                        index < filterLimit ? (
+                            <li>
+                                {' '}
+                                {React.cloneElement(child, {
+                                    onClick: event => this.handleSelection(event, child)
+                                })}
+                            </li>
+                        ) : (
+                            index === Number(filterLimit) && (
+                                <li>
+                                    <Link onClick={this.filterSelection}>more</Link>
+                                </li>
+                            )
+                        )
+                    )}
                     {!!expanded && (
                         <li>
                             <Link onClick={this.filterSelection}>less</Link>
