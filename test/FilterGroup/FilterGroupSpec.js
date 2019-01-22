@@ -1,0 +1,62 @@
+import React from 'react';
+import { mount, shallow } from 'enzyme';
+import Link from '../../src/components/atoms/Link';
+import FilterGroup from '../../src/components/molecules/FilterGroup';
+
+describe('<FilterGroup />', () => {
+    it('renders a <ul> tag with six child <li> tags', () => {
+        const wrapper = shallow(
+            <FilterGroup>
+                <Link href="#">All-State Arena</Link>
+                <Link href="#">Soldier Field</Link>
+                <Link href="#">United Center</Link>
+                <Link href="#">AT&T Center</Link>
+                <Link href="#">Madison Square Garden</Link>
+                <Link href="#">Oracle Arena</Link>
+                <Link href="#">Pepsi Center</Link>
+                <Link href="#">Kohl Center</Link>
+            </FilterGroup>
+        );
+        expect(wrapper.find('ul').exists()).toBe(true);
+        expect(wrapper.find('li').length).toBe(6);
+    });
+
+    it('renders a <ul> tag with a limit of 3 child <li> tags', () => {
+        const wrapper = shallow(
+            <FilterGroup limit={3}>
+                <Link href="#">All-State Arena</Link>
+                <Link href="#">Soldier Field</Link>
+                <Link href="#">United Center</Link>
+                <Link href="#">AT&T Center</Link>
+                <Link href="#">Madison Square Garden</Link>
+                <Link href="#">Oracle Arena</Link>
+                <Link href="#">Pepsi Center</Link>
+                <Link href="#">Kohl Center</Link>
+            </FilterGroup>
+        );
+        expect(wrapper.find('ul').exists()).toBe(true);
+        expect(wrapper.find('li').length).toBe(4);
+    });
+
+    it('renders a filter group with a selection callback', () => {
+        const mockOnClick = jest.fn();
+        const wrapper = mount(
+            <FilterGroup onSelect={mockOnClick}>
+                <Link href="#">To somewhere..</Link>
+            </FilterGroup>
+        );
+        const searchQuery = wrapper.find('a');
+        expect(searchQuery.exists()).toBe(true);
+        searchQuery.simulate('click');
+        expect(mockOnClick).toHaveBeenCalled();
+    });
+
+    it('renders a filter group with custom attributes', () => {
+        const wrapper = shallow(
+            <FilterGroup id="myLinkGroup">
+                <Link href="#">To somewhere..</Link>
+            </FilterGroup>
+        );
+        expect(wrapper.find('#myLinkGroup').hasClass('vp-filter-group')).toBe(true);
+    });
+});
