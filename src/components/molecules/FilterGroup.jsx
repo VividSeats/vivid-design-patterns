@@ -45,7 +45,6 @@ class FilterGroup extends React.Component {
                     {React.Children.map(children, (child, index) =>
                         index < filterLimit ? (
                             <li>
-                                {' '}
                                 {React.cloneElement(child, {
                                     onClick: event => this.handleSelection(event, child)
                                 })}
