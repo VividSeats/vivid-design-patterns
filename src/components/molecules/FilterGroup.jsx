@@ -4,8 +4,7 @@ import Link from '../atoms/Link';
 import Subhead from '../atoms/Subhead';
 
 class FilterGroup extends React.Component {
-    specifiedLimit = this.props.limit;
-    state = { filterLimit: this.specifiedLimit, expanded: false };
+    state = { filterLimit: this.props.limit, expanded: false };
 
     static propTypes = {
         onSelect: PropTypes.func,
@@ -22,11 +21,11 @@ class FilterGroup extends React.Component {
         className: ''
     };
 
-    expandOrUnexpandFilterGroup = e => {
+    toggleFilterGroupExpansion = e => {
         const { expanded } = this.state;
-        const { children } = this.props;
+        const { children, limit } = this.props;
         e.preventDefault();
-        this.setState({ filterLimit: expanded ? this.specifiedLimit : children.length, expanded: !expanded });
+        this.setState({ filterLimit: expanded ? limit : children.length, expanded: !expanded });
     };
 
     handleSelection = (event, child) => {
@@ -53,7 +52,7 @@ class FilterGroup extends React.Component {
                         ) : (
                             index === Number(filterLimit) && (
                                 <li>
-                                    <Link href="#!" onClick={this.expandOrUnexpandFilterGroup}>
+                                    <Link href="#!" onClick={this.toggleFilterGroupExpansion}>
                                         more
                                     </Link>
                                 </li>
@@ -62,7 +61,7 @@ class FilterGroup extends React.Component {
                     )}
                     {!!expanded && (
                         <li>
-                            <Link href="#!" onClick={this.expandOrUnexpandFilterGroup}>
+                            <Link href="#!" onClick={this.toggleFilterGroupExpansion}>
                                 less
                             </Link>
                         </li>
