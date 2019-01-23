@@ -5,6 +5,7 @@
 import { PropsTable, Playground } from 'docz';
 
 import Fab from '../../src/components/molecules/Fab';
+import Icon from '../../src/components/atoms/Icon';
 import './fabDocs.scss';
 
 # Fab
@@ -15,12 +16,12 @@ Using the react components:
 
 Using the scss files:
 
-    @import '@vividseats/vivid-design-patterns/src/styles/fab.scss';
+    @import '@vividseats/vivid-design-patterns/src/styles/fab';
 
 ## Basic Usage
-`class="vp-fab"`
+`class="vp-fab" dataState="visible"`
 <Playground style={ { minHeight: '200px', height: '100%' } }>
-    <Fab>
+    <Fab dataState="visible">
         <span>All Locations</span>
     </Fab>
 </Playground>
@@ -41,7 +42,10 @@ Using the scss files:
 ```
 <Playground style={ { minHeight: '200px', height: '100%' } }>
     <Fab>
-        <Fab.Child>All Locations</Fab.Child>
-        <Fab.Child>Chicago</Fab.Child>
+        <Fab.Child>
+            <Icon type="location_on" />
+            All Locations
+        </Fab.Child>
+        <Fab.Child>Filters</Fab.Child>
     </Fab>
 </Playground>

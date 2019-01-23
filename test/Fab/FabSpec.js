@@ -8,11 +8,6 @@ describe('<Fab />', () => {
         expect(wrapper.hasClass('vp-fab')).toBe(true);
     });
 
-    it('does not render a component with dataState hidden prop', () => {
-        const wrapper = mount(<Fab dataState="hidden" />);
-        expect(wrapper.exists('.vp-fab')).toBe(false);
-    });
-
     it('supports FabChild subcomponents', () => {
         const wrapper = mount(
             <Fab>

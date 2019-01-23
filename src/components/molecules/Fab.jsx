@@ -2,29 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FabChild from '../atoms/FabChild';
 
-const Fab = ({ children, className = '', dataState = Fab.DATA_STATE.VISIBLE, ...htmlAttributes }) => {
-    if (dataState === Fab.DATA_STATE.HIDDEN) {
-        return null;
-    }
+const Fab = ({ children, className = '', dataState = Fab.DATA_STATE.VISIBLE, ...htmlAttributes }) => (
+    <div className={`vp-fab ${className}`} data-state={dataState} {...htmlAttributes}>
+        {React.Children.toArray(children).map(child => {
+            const { type } = child;
+            if (!!type && type.displayName === 'FabChild') {
+                return child;
+            }
 
-    return (
-        <div className={`vp-fab ${className}`} {...htmlAttributes} data-state={dataState}>
-            {React.Children.toArray(children).map(child => {
-                const { type } = child;
-                if (!type || type.displayName === 'FabChild') {
-                    return child;
-                }
-
-                // wrap child in sub-component if not already wrapped
-                return (
-                    <Fab.Child key={`${!!type ? type : 'FabChild'}-${new Date().getTime()}`} {...htmlAttributes}>
-                        {child}
-                    </Fab.Child>
-                );
-            })}
-        </div>
-    );
-};
+            // wrap child in sub-component if not already wrapped
+            return <Fab.Child key={`${!!type ? type : 'FabChild'}-${new Date().getTime()}`}>{child}</Fab.Child>;
+        })}
+    </div>
+);
 
 Fab.DATA_STATE = {
     VISIBLE: 'visible',

@@ -2,6 +2,7 @@
 @import 'tokens';
 @import 'mixins';
 @import 'prefixes';
+@import 'typography';
 
 // also used for doc styles - desktop and mobile
 @mixin fab {
@@ -21,9 +22,11 @@
             max-width: calc(100% - #{$sizing-6XL});
             overflow: hidden;
             z-index: $z-index-fab;
+            left: 50%;
+            transform: translate(-50%, 0);
 
             &[data-state*='hidden'] {
-                display: none;
+                bottom: -#{$sizing-6XL};
             }
             > * {
                 padding: 0 1rem;
@@ -46,9 +49,6 @@
     }
     .vp-fab--double > :first-child {
         @include border(right);
-    }
-    .scroll-hide {
-        bottom: -#{$sizing-6XL};
     }
 }
 
