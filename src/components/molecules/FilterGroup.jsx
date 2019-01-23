@@ -4,7 +4,7 @@ import Link from '../atoms/Link';
 import Subhead from '../atoms/Subhead';
 
 class FilterGroup extends React.Component {
-    specifiedLimit = this.props.limit || 5;
+    specifiedLimit = this.props.limit;
     state = { filterLimit: this.specifiedLimit, expanded: false };
 
     static propTypes = {
@@ -22,9 +22,10 @@ class FilterGroup extends React.Component {
         className: ''
     };
 
-    filterSelection = () => {
+    expandOrUnexpandFilterGroup = e => {
         const { expanded } = this.state;
         const { children } = this.props;
+        e.preventDefault();
         this.setState({ filterLimit: expanded ? this.specifiedLimit : children.length, expanded: !expanded });
     };
 
@@ -52,14 +53,18 @@ class FilterGroup extends React.Component {
                         ) : (
                             index === Number(filterLimit) && (
                                 <li>
-                                    <Link onClick={this.filterSelection}>more</Link>
+                                    <Link href="#!" onClick={this.expandOrUnexpandFilterGroup}>
+                                        more
+                                    </Link>
                                 </li>
                             )
                         )
                     )}
                     {!!expanded && (
                         <li>
-                            <Link onClick={this.filterSelection}>less</Link>
+                            <Link href="#!" onClick={this.expandOrUnexpandFilterGroup}>
+                                less
+                            </Link>
                         </li>
                     )}
                 </ul>

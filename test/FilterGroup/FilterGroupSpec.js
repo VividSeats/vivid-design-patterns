@@ -51,6 +51,47 @@ describe('<FilterGroup />', () => {
         expect(mockOnClick).toHaveBeenCalled();
     });
 
+    it('renders a filter group with a selection callback and a child onClick callback', () => {
+        const mockOnClick = jest.fn();
+        const wrapper = mount(
+            <FilterGroup onSelect={mockOnClick}>
+                <Link href="#" onClick={mockOnClick}>
+                    To somewhere..
+                </Link>
+            </FilterGroup>
+        );
+        const searchQuery = wrapper.find('a');
+        expect(searchQuery.exists()).toBe(true);
+        searchQuery.simulate('click');
+        expect(mockOnClick).toHaveBeenCalledTimes(2);
+    });
+
+    it('renders an unexpanded filter group, then expands / unexpands the selection', () => {
+        const mockOnClick = jest.fn();
+        const wrapper = mount(
+            <FilterGroup onSelect={mockOnClick}>
+                <Link href="#">To somewhere..</Link>
+                <Link href="#">To somewhere..</Link>
+                <Link href="#">To somewhere..</Link>
+                <Link href="#">To somewhere..</Link>
+                <Link href="#">To somewhere..</Link>
+                <Link href="#">To somewhere..</Link>
+                <Link href="#">To somewhere..</Link>
+                <Link href="#">To somewhere..</Link>
+                <Link href="#">To somewhere..</Link>
+                <Link href="#">To somewhere..</Link>
+            </FilterGroup>
+        );
+        const searchQuery = wrapper.find('a').last();
+        expect(searchQuery.exists()).toBe(true);
+        searchQuery.simulate('click');
+        const expandedSelection = wrapper.find('a');
+        expect(expandedSelection.length).toBe(11);
+        expandedSelection.last().simulate('click');
+        const unexpandedSelection = wrapper.find('a');
+        expect(unexpandedSelection.length).toBe(6);
+    });
+
     it('renders a filter group with custom attributes', () => {
         const wrapper = shallow(
             <FilterGroup id="myLinkGroup">
