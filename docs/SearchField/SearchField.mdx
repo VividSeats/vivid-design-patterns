@@ -1,0 +1,52 @@
+---
+    name: Search Field
+---
+
+import { PropsTable, Playground } from 'docz'
+import SearchField from '../../src/components/molecules/SearchField';
+import "../../src/styles/_search.scss";
+import "./searchFieldDocs.scss";
+
+# Button
+## Installation
+Using the react components:
+
+    import SearchField from '@vividseats/vivid-design-patterns/dist/molecules/SearchField';
+
+Using the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/search.scss';
+
+## Props
+<PropsTable of={SearchField}/>
+
+## Basic Usage
+<Playground>
+    <SearchField></SearchField>
+</Playground>
+
+### Submit
+`onSubmit={() => {alert('hi')}}` keypress=Enter
+<Playground>
+    <SearchField onSubmit={() => {alert('hi')}}></SearchField>
+</Playground>
+
+### Placeholder
+`placeholder="Search by team, artist, event or venue"`
+<Playground>
+    <SearchField placeholder="Search by team, artist, event or venue"></SearchField>
+</Playground>
+
+### Value
+`value="Chicago White Sox"`
+<Playground>
+    <SearchField value="Chicago White Sox"></SearchField>
+</Playground>
+
+### onChange
+`onChange={() => {alert('hi')}}`
+
+<Playground>
+    <SearchField onChange={() => {alert('hi')}}></SearchField>
+</Playground>
+

@@ -20,7 +20,7 @@ pipeline {
     stage('Build Site') {
       steps {
         container('node') {
-          sh 'npm install'
+          sh 'yarn install'
           sh 'yarn run build:docs'
         }
       }
