@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from '../atoms/Input';
 import onEnterPress from '../../utils/onEnterPress';
-import PropTypes from 'prop-types';
 
 class PasswordInput extends React.Component {
     state = {

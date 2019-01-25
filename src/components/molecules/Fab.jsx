@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FabChild from '../atoms/FabChild';
 
+/* eslint react/no-array-index-key: 0 */
+
 const Fab = ({ children, className = '', visible = true, ...htmlAttributes }) => (
     <div className={`vp-fab ${className}`} data-state={visible ? 'visible' : 'hidden'} {...htmlAttributes}>
         {React.Children.map(children, (child, i) => {
