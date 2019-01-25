@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../atoms/Input';
 import onEnterPress from '../../utils/onEnterPress';
+import PropTypes from 'prop-types';
 
 class PasswordInput extends React.Component {
     state = {
@@ -31,5 +32,9 @@ class PasswordInput extends React.Component {
         );
     }
 }
+
+PasswordInput.propTypes = {
+    type: PropTypes.string
+};
 
 export default PasswordInput;
