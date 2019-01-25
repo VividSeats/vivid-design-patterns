@@ -7,7 +7,7 @@
 // also used for doc styles - desktop and mobile
 @mixin fab {
     [class^='vp-fab'] {
-        &:not([class*='__']) {
+        @include not-vp-child {
             @include flex;
             @include justify-content(center);
             @include align-items(center);

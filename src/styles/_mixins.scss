@@ -99,3 +99,10 @@
         @content;
     }
 }
+
+// VP mixins
+@mixin not-vp-child {
+    &:not([class*='__']) {
+        @content;
+    }
+}

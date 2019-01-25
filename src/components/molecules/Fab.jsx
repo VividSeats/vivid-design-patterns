@@ -4,14 +4,14 @@ import FabChild from '../atoms/FabChild';
 
 const Fab = ({ children, className = '', dataState = Fab.DATA_STATE.VISIBLE, ...htmlAttributes }) => (
     <div className={`vp-fab ${className}`} data-state={dataState} {...htmlAttributes}>
-        {React.Children.toArray(children).map(child => {
+        {React.Children.map(children, (child, i) => {
             const { type } = child;
             if (!!type && type.displayName === 'FabChild') {
                 return child;
             }
 
             // wrap child in sub-component if not already wrapped
-            return <Fab.Child key={`${!!type ? type : 'FabChild'}-${new Date().getTime()}`}>{child}</Fab.Child>;
+            return <Fab.Child key={`${!!type ? type : 'FabChild'}-${i}`}>{child}</Fab.Child>;
         })}
     </div>
 );
