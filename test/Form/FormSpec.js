@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Form from '../../src/components/molecules/Form';
-import Input from '../../src/components/atoms/Input';
+import TextField from '../../src/components/molecules/TextField';
 import Button from '../../src/components/atoms/Button';
 
 describe('<Form />', () => {
@@ -13,7 +13,7 @@ describe('<Form />', () => {
             <Form.ContextConsumer>
                 {({ setForm }) => (
                     <React.Fragment>
-                        <Input id="input" ref={setForm} validationMethod={mockValidationMethod} label={'Input Length > 10'} />
+                        <TextField id="input" ref={setForm} validationMethod={mockValidationMethod} label={'Input Length > 10'} />
                         <Button type="submit">Submit</Button>
                     </React.Fragment>
                 )}
@@ -46,6 +46,6 @@ describe('<Form />', () => {
         const wrapper = mount(form);
         wrapper.find('form').simulate('submit');
         expect(mockOnSubmit).not.toHaveBeenCalled();
-        expect(mockOnValidationFailure).toHaveBeenCalledWith(expect.arrayContaining([expect.any(Input)]));
+        expect(mockOnValidationFailure).toHaveBeenCalledWith(expect.arrayContaining([expect.any(TextField)]));
     });
 });

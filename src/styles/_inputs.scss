@@ -112,15 +112,8 @@
     [data-state*='success'] & {
         color: $text-color-success !important;
     }
-    :focus + &,
-    :-webkit-autofill + &,
     [data-state*='filled'] & {
         @include active-label;
-    }
-    :-webkit-autofill + & {
-        &:after {
-            background-color: rgb(250, 255, 189) !important;
-        }
     }
 }
 
@@ -163,6 +156,10 @@
     [class*='--outlined'] & {
         @include outlined-input-base;
     }
+
+    &::-ms-clear {
+        display: none;
+    }
 }
 textarea[class^='vp-textfield__input'] {
     height: auto;
@@ -182,6 +179,11 @@ textarea[class^='vp-textfield__input'] {
         font-size: $font-size-SM;
         font-weight: $font-weight-med;
         color: $text-color-muted;
+    }
+
+    [data-state*='success'] &,
+    [data-state*='error'] & {
+        right: $sizing-2XL;
     }
 }
 
@@ -207,10 +209,20 @@ textarea[class^='vp-textfield__input'] {
         color: $text-color-default;
 
         + .vp-floating-label {
+            @include active-label;
             color: $color-brand-blue;
         }
         ~ .vp-helper-text:not([class*='--validation']) {
             @include active-helper-text;
+        }
+    }
+    &:-webkit-autofill {
+        + .vp-floating-label {
+            @include active-label;
+
+            &:after {
+                background-color: rgb(250, 255, 189) !important;
+            }
         }
     }
 }
