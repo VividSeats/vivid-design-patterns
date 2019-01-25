@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FabChild from '../atoms/FabChild';
 
-const Fab = ({ children, className = '', dataState = Fab.DATA_STATE.VISIBLE, ...htmlAttributes }) => (
-    <div className={`vp-fab ${className}`} data-state={dataState} {...htmlAttributes}>
+const Fab = ({ children, className = '', visible = true, ...htmlAttributes }) => (
+    <div className={`vp-fab ${className}`} data-state={visible ? 'visible' : 'hidden'} {...htmlAttributes}>
         {React.Children.map(children, (child, i) => {
             const { type } = child;
             if (!!type && type.displayName === 'FabChild') {
@@ -16,17 +16,12 @@ const Fab = ({ children, className = '', dataState = Fab.DATA_STATE.VISIBLE, ...
     </div>
 );
 
-Fab.DATA_STATE = {
-    VISIBLE: 'visible',
-    HIDDEN: 'hidden'
-};
-
 Fab.Child = FabChild;
 
 Fab.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    dataState: PropTypes.oneOf([Fab.DATA_STATE.VISIBLE, Fab.DATA_STATE.HIDDEN])
+    visible: PropTypes.bool
 };
 
 export default Fab;
