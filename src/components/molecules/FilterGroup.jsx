@@ -44,14 +44,14 @@ class FilterGroup extends React.Component {
                 <ul>
                     {React.Children.map(children, (child, index) =>
                         index < filterLimit ? (
-                            <li>
+                            <li key={index}>
                                 {React.cloneElement(child, {
                                     onClick: event => this.handleSelection(event, child)
                                 })}
                             </li>
                         ) : (
                             index === Number(filterLimit) && (
-                                <li>
+                                <li key={index}>
                                     <Link href="#!" onClick={this.toggleFilterGroupExpansion}>
                                         more
                                     </Link>
@@ -59,7 +59,7 @@ class FilterGroup extends React.Component {
                             )
                         )
                     )}
-                    {!!expanded && (
+                    {!!expanded && React.Children.count(children) >= filterLimit && (
                         <li>
                             <Link href="#!" onClick={this.toggleFilterGroupExpansion}>
                                 less
