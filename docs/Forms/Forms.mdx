@@ -1,10 +1,10 @@
 ---
-    name: Forms and Inputs
+    name: Forms
 ---
 
 import { PropsTable, Playground } from 'docz'
 import Form from '../../src/components/molecules/Form';
-import Input from '../../src/components/atoms/Input';
+import TextField from '../../src/components/molecules/TextField';
 import Button from '../../src/components/atoms/Button';
 
 import './formDocs.scss';
@@ -24,9 +24,10 @@ Forms provide a `setForm` callback via a Context Consumer. This `setForm` callba
         <Form.ContextConsumer>
             {({ setForm }) => (
                 <React.Fragment>
-                    <Input ref={setForm}
-                           validationMethod={ value => (!value || value.length <= 10) ? "Input must be greater than 10" : null}
-                           label={"Input Length > 10"}/>
+                    <TextField ref={setForm}
+                               id='#formTextField'
+                               validationMethod={ value => (!value || value.length <= 10) ? "Input must be greater than 10" : null}
+                               label="Input Length > 10"/>
                     <Button type="submit">Submit</Button>
                 </React.Fragment>
 

@@ -5,6 +5,7 @@ import CardBody from '../atoms/CardBody';
 import CardFooter from '../atoms/CardFooter';
 import CardHeader from '../atoms/CardHeader';
 import CardHero from '../atoms/CardHero';
+import onEnterPress from '../../utils/onEnterPress';
 
 class Card extends React.Component {
     static propTypes = {
@@ -36,9 +37,7 @@ class Card extends React.Component {
 
     onKeyPress = e => {
         const { onClick } = this.props;
-        if (e.keyCode === 13) {
-            onClick();
-        }
+        onEnterPress(onClick, e);
     };
 
     render() {
