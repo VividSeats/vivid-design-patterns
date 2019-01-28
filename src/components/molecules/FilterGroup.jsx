@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Link from '../atoms/Link';
 import Subhead from '../atoms/Subhead';
 
+/* eslint-disable */
+
 class FilterGroup extends React.Component {
     state = { filterLimit: this.props.limit, expanded: false };
 
