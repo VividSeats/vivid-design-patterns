@@ -75,6 +75,7 @@
     "build:docs": "./node_modules/.bin/docz build",
     "build:js": "./node_modules/.bin/gulp bundle_js",
     "prepublishOnly": "yarn run format && yarn run test && yarn run lint && yarn run build:js",
+    "publish:branch": "yarn publish --tag $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) --new-version 0.0.0-$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)-$(date +%s)",
     "format": "./node_modules/.bin/prettier --write **/*/*.{js,jsx}",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx ./src",
     "lint:ci": "./node_modules/.bin/eslint --format junit --output-file ./reports/eslint.xml --ext .js,.jsx ./src",
