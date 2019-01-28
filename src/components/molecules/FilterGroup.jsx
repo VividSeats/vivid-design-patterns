@@ -15,7 +15,6 @@ class FilterGroup extends React.Component {
     };
 
     static defaultProps = {
-        groupName: '',
         limit: 5,
         onSelect: () => {},
         className: ''
@@ -30,7 +29,9 @@ class FilterGroup extends React.Component {
 
     handleSelection = (event, child) => {
         const { onSelect } = this.props;
-        typeof child.props.onClick === 'function' && child.props.onClick(event);
+        if (typeof child.props.onClick === 'function') {
+            child.props.onClick(event);
+        }
         onSelect(event);
     };
 
@@ -59,7 +60,7 @@ class FilterGroup extends React.Component {
                             )
                         )
                     )}
-                    {!!expanded && React.Children.count(children) >= filterLimit && (
+                    {!!(expanded && React.Children.count(children) >= filterLimit) && (
                         <li>
                             <Link href="#!" onClick={this.toggleFilterGroupExpansion}>
                                 less

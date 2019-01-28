@@ -6,7 +6,7 @@ import FilterGroup from '../../src/components/molecules/FilterGroup';
 describe('<FilterGroup />', () => {
     it('renders a <ul> tag with six child <li> tags', () => {
         const wrapper = shallow(
-            <FilterGroup>
+            <FilterGroup groupName="Test Group">
                 <Link href="#">All-State Arena</Link>
                 <Link href="#">Soldier Field</Link>
                 <Link href="#">United Center</Link>
@@ -23,7 +23,7 @@ describe('<FilterGroup />', () => {
 
     it('renders a <ul> tag with a limit of 3 child <li> tags', () => {
         const wrapper = shallow(
-            <FilterGroup limit={3}>
+            <FilterGroup groupName="Test Group" limit={3}>
                 <Link href="#">All-State Arena</Link>
                 <Link href="#">Soldier Field</Link>
                 <Link href="#">United Center</Link>
@@ -41,7 +41,7 @@ describe('<FilterGroup />', () => {
     it('renders a filter group with a selection callback', () => {
         const mockOnClick = jest.fn();
         const wrapper = mount(
-            <FilterGroup onSelect={mockOnClick}>
+            <FilterGroup groupName="Test Group" onSelect={mockOnClick}>
                 <Link href="#">To somewhere..</Link>
             </FilterGroup>
         );
@@ -54,7 +54,7 @@ describe('<FilterGroup />', () => {
     it('renders a filter group with a selection callback and a child onClick callback', () => {
         const mockOnClick = jest.fn();
         const wrapper = mount(
-            <FilterGroup onSelect={mockOnClick}>
+            <FilterGroup groupName="Test Group" onSelect={mockOnClick}>
                 <Link href="#" onClick={mockOnClick}>
                     To somewhere..
                 </Link>
@@ -69,7 +69,7 @@ describe('<FilterGroup />', () => {
     it('renders an unexpanded filter group, then expands / unexpands the selection', () => {
         const mockOnClick = jest.fn();
         const wrapper = mount(
-            <FilterGroup onSelect={mockOnClick}>
+            <FilterGroup groupName="Test Group" onSelect={mockOnClick}>
                 <Link href="#">To somewhere..</Link>
                 <Link href="#">To somewhere..</Link>
                 <Link href="#">To somewhere..</Link>
@@ -94,7 +94,7 @@ describe('<FilterGroup />', () => {
 
     it('renders a filter group with custom attributes', () => {
         const wrapper = shallow(
-            <FilterGroup id="myLinkGroup">
+            <FilterGroup groupName="Test Group" id="myLinkGroup">
                 <Link href="#">To somewhere..</Link>
             </FilterGroup>
         );
