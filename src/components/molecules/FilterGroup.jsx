@@ -53,7 +53,7 @@ class FilterGroup extends React.Component {
                         ) : (
                             index === Number(filterLimit) && (
                                 <li key="moreButton">
-                                    <Link href="#!" onClick={this.toggleFilterGroupExpansion}>
+                                    <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
                                         more
                                     </Link>
                                 </li>
@@ -62,7 +62,7 @@ class FilterGroup extends React.Component {
                     )}
                     {!!(expanded && React.Children.count(children) >= filterLimit) && (
                         <li>
-                            <Link href="#!" onClick={this.toggleFilterGroupExpansion}>
+                            <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
                                 less
                             </Link>
                         </li>
