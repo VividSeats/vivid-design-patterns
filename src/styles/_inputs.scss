@@ -80,6 +80,18 @@
             @include pseudo-icon('check_circle', $text-color-success, $sizing-4XL, $margin: initial);
         }
     }
+
+    &:not([data-state*='filled']) select {
+        color: rgba(0, 0, 0, 0) !important;
+
+        option {
+            color: $text-color-default;
+
+            &:disabled {
+                color: rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
 }
 [class^='vp-select']:not([class*='__']) {
     &:after {
@@ -119,6 +131,7 @@
 
 [class^='vp-select__control'] {
     @include input-base;
+    padding: 0 $sizing-2XL 0 $sizing-XS;
     cursor: pointer;
 
     &:required:invalid {
@@ -131,6 +144,7 @@
 
     [class*='--outlined'] & {
         @include outlined-input-base;
+        padding: 0 $sizing-2XL 0 $sizing-MD;
     }
     &[class*='--medium'] {
         height: $sizing-3XL;
