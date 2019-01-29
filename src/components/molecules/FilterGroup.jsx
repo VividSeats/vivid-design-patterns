@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Link from '../atoms/Link';
 import Subhead from '../atoms/Subhead';
 
+/* eslint-disable */
+
 class FilterGroup extends React.Component {
     state = { filterLimit: this.props.limit, expanded: false };
 
@@ -45,7 +47,7 @@ class FilterGroup extends React.Component {
                 <ul>
                     {React.Children.map(children, (child, index) =>
                         index < filterLimit ? (
-                            <li key={`FO${index + 1}`}>
+                            <li key={index}>
                                 {React.cloneElement(child, {
                                     onClick: event => this.handleSelection(event, child)
                                 })}
@@ -53,7 +55,7 @@ class FilterGroup extends React.Component {
                         ) : (
                             index === Number(filterLimit) && (
                                 <li key="moreButton">
-                                    <Link href="#!" onClick={this.toggleFilterGroupExpansion}>
+                                    <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
                                         more
                                     </Link>
                                 </li>
@@ -62,7 +64,7 @@ class FilterGroup extends React.Component {
                     )}
                     {!!(expanded && React.Children.count(children) >= filterLimit) && (
                         <li>
-                            <Link href="#!" onClick={this.toggleFilterGroupExpansion}>
+                            <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
                                 less
                             </Link>
                         </li>
