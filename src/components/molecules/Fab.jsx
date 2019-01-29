@@ -6,7 +6,8 @@ import FabChild from '../atoms/FabChild';
 
 const Fab = ({ children, className = '', visible = true, ...htmlAttributes }) => (
     <div className={`vp-fab ${className}`} data-state={visible ? 'visible' : 'hidden'} {...htmlAttributes}>
-        {React.Children.map(children, (child, i) => {
+        {/* using toArray removes falsey values from children */}
+        {React.Children.toArray(children).map((child, i) => {
             const { type } = child;
             if (!!type && type.displayName === 'FabChild') {
                 return child;

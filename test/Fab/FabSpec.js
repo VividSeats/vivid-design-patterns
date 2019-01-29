@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Fab from '../../src/components/molecules/Fab';
 
+/* eslint no-constant-condition: 0 */
+
 describe('<Fab />', () => {
     it('renders', () => {
         const wrapper = shallow(<Fab />);
@@ -28,5 +30,17 @@ describe('<Fab />', () => {
         );
 
         expect(wrapper.exists('.vp-fab__child span'));
+    });
+
+    it('handles falsey children', () => {
+        const wrapper = mount(
+            <Fab>
+                <Fab.Child>Child 1</Fab.Child>
+                {false && <Fab.Child>Child 2</Fab.Child>}
+                {false ? <Fab.Child>Child 3</Fab.Child> : null}
+            </Fab>
+        );
+
+        expect(wrapper.children().length).toEqual(1);
     });
 });

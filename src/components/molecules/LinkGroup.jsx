@@ -9,7 +9,7 @@ const LinkGroup = ({ children, type, className, ...htmlAttributes }) => {
     };
     return (
         <ul {...{ ...props, ...htmlAttributes }}>
-            {React.Children.map(children, child => (
+            {React.Children.toArray(children).map(child => (
                 <li className="vp-link-group__item">{child}</li>
             ))}
         </ul>

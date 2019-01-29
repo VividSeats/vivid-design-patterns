@@ -51,7 +51,7 @@ class Card extends React.Component {
 
         return (
             <div className={cardClassNames} role={role} onClick={onClick} onKeyPress={this.onKeyPress} {...htmlAttributes}>
-                {React.Children.map(children, child => {
+                {React.Children.toArray(children).map(child => {
                     if (typeof child.type === 'function') {
                         return child;
                     }
