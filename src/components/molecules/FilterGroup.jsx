@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '../atoms/Link';
 import Subhead from '../atoms/Subhead';
+import { SlideDown } from 'react-slidedown';
 
 /* eslint-disable */
 
@@ -44,32 +45,34 @@ class FilterGroup extends React.Component {
         return (
             <div className={classNames} {...htmlAttributes}>
                 <Subhead>{groupName}</Subhead>
-                <ul>
-                    {React.Children.map(children, (child, index) =>
-                        index < filterLimit ? (
-                            <li key={index}>
-                                {React.cloneElement(child, {
-                                    onClick: event => this.handleSelection(event, child)
-                                })}
-                            </li>
-                        ) : (
-                            index === Number(filterLimit) && (
-                                <li key="moreButton">
-                                    <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
-                                        more
-                                    </Link>
+                <SlideDown>
+                    <li>
+                        {React.Children.map(children, (child, index) =>
+                            index < filterLimit ? (
+                                <li key={index}>
+                                    {React.cloneElement(child, {
+                                        onClick: event => this.handleSelection(event, child)
+                                    })}
                                 </li>
+                            ) : (
+                                index === Number(filterLimit) && (
+                                    <li key="moreButton">
+                                        <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
+                                            more
+                                        </Link>
+                                    </li>
+                                )
                             )
-                        )
-                    )}
-                    {!!(expanded && React.Children.count(children) >= filterLimit) && (
-                        <li>
-                            <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
-                                less
-                            </Link>
-                        </li>
-                    )}
-                </ul>
+                        )}
+                        {!!(expanded && React.Children.count(children) >= filterLimit) && (
+                            <li>
+                                <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
+                                    less
+                                </Link>
+                            </li>
+                        )}
+                    </li>
+                </SlideDown>
             </div>
         );
     }
