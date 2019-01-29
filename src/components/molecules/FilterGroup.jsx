@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { SlideDown } from 'react-slidedown';
 import Link from '../atoms/Link';
 import Subhead from '../atoms/Subhead';
-import { SlideDown } from 'react-slidedown';
 
 /* eslint-disable */
 
@@ -43,37 +43,35 @@ class FilterGroup extends React.Component {
         const { groupName, children, className, ...htmlAttributes } = this.props;
         const classNames = className ? `vp-filter-group ${className}` : 'vp-filter-group';
         return (
-            <div className={classNames} {...htmlAttributes}>
+            <SlideDown className={classNames} {...htmlAttributes}>
                 <Subhead>{groupName}</Subhead>
-                <SlideDown>
-                    <li>
-                        {React.Children.map(children, (child, index) =>
-                            index < filterLimit ? (
-                                <li key={index}>
-                                    {React.cloneElement(child, {
-                                        onClick: event => this.handleSelection(event, child)
-                                    })}
-                                </li>
-                            ) : (
-                                index === Number(filterLimit) && (
-                                    <li key="moreButton">
-                                        <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
-                                            more
-                                        </Link>
-                                    </li>
-                                )
-                            )
-                        )}
-                        {!!(expanded && React.Children.count(children) >= filterLimit) && (
-                            <li>
-                                <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
-                                    less
-                                </Link>
+                <ul>
+                    {React.Children.map(children, (child, index) =>
+                        index < filterLimit ? (
+                            <li key={index}>
+                                {React.cloneElement(child, {
+                                    onClick: event => this.handleSelection(event, child)
+                                })}
                             </li>
-                        )}
-                    </li>
-                </SlideDown>
-            </div>
+                        ) : (
+                            index === Number(filterLimit) && (
+                                <li key="moreButton">
+                                    <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
+                                        more
+                                    </Link>
+                                </li>
+                            )
+                        )
+                    )}
+                    {!!(expanded && React.Children.count(children) >= filterLimit) && (
+                        <li>
+                            <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
+                                less
+                            </Link>
+                        </li>
+                    )}
+                </ul>
+            </SlideDown>
         );
     }
 }
