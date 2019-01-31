@@ -1,0 +1,10 @@
+@import '../../src/styles/fab';
+
+@include fab;
+
+// override positioning for playground
+[class^='vp-fab']:not([class*='__']) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

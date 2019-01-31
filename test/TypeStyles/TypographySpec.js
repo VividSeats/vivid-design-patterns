@@ -7,15 +7,15 @@ import Subhead from '../../src/components/atoms/Subhead';
 import TinyText from '../../src/components/atoms/TinyText';
 import SmallText from '../../src/components/atoms/SmallText';
 
+const typographyBaseStyle = 'vp-type-';
 const typographyPropTests = [
-        { describes: 'Headline', component: Headline, defaultElement: 'h1', defaultStyle: 'headline1' },
-        { describes: 'Subtitle', component: Subtitle, defaultElement: 'p', defaultStyle: 'subtitle1' },
-        { describes: 'BodyText', component: BodyText, defaultElement: 'p', defaultStyle: 'body1' },
-        { describes: 'Subhead', component: Subhead, defaultElement: 'p', defaultStyle: 'subhead' },
-        { describes: 'SmallText', component: SmallText, defaultElement: 'p', defaultStyle: 'small' },
-        { describes: 'TinyText', component: TinyText, defaultElement: 'small', defaultStyle: 'tiny' }
-    ],
-    typographyBaseStyle = 'vp-type-';
+    { describes: 'Headline', component: Headline, defaultElement: 'h1', defaultStyle: 'headline1' },
+    { describes: 'Subtitle', component: Subtitle, defaultElement: 'p', defaultStyle: 'subtitle1' },
+    { describes: 'BodyText', component: BodyText, defaultElement: 'p', defaultStyle: 'body1' },
+    { describes: 'Subhead', component: Subhead, defaultElement: 'p', defaultStyle: 'subhead' },
+    { describes: 'SmallText', component: SmallText, defaultElement: 'p', defaultStyle: 'small' },
+    { describes: 'TinyText', component: TinyText, defaultElement: 'small', defaultStyle: 'tiny' }
+];
 
 // Component-specific tests
 describe('<Headline />', () => {
