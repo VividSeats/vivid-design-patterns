@@ -12,9 +12,9 @@
         background: $color-gray-highlight;
     }
 }
-.vp-control__icon:before {
+.vp-control__span:before {
     @include pseudo-icon($pointerEvents: auto);
-    padding: $sizing-SM $sizing-SM $sizing-SM $sizing-XS;
+    padding-right: $sizing-SM;
 
     .vp-control--checkbox & {
         content: '\e835';
@@ -36,22 +36,15 @@
     display: inline-block;
     font-size: $font-size-MD;
     line-height: $line-height-SM;
-    padding: $sizing-MD $sizing-MD $sizing-MD 0;
+    padding: $sizing-SM $sizing-SM $sizing-SM $sizing-XS;
     vertical-align: middle;
-}
-.vp-control__input {
-    + .vp-control__icon:before,
-    ~ .vp-control__span {
+
+    .vp-control__input + & {
         cursor: pointer;
     }
-}
-.vp-control__input:disabled {
-    + .vp-control__icon:before,
-    ~ .vp-control__span {
+    .vp-control__input:disabled + & {
         color: $text-color-disabled;
         cursor: not-allowed;
-    }
-    ~ .vp-control__span {
         text-decoration: line-through;
     }
 }
