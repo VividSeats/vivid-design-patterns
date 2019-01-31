@@ -7,6 +7,8 @@ import CardHeader from '../atoms/CardHeader';
 import CardHero from '../atoms/CardHero';
 import onEnterPress from '../../utils/onEnterPress';
 
+/* eslint react/no-array-index-key: 0 */
+
 class Card extends React.Component {
     static propTypes = {
         /** html attribute role must be provided if Card is of type anchor. Role prop should be of type string */
@@ -51,12 +53,12 @@ class Card extends React.Component {
 
         return (
             <div className={cardClassNames} role={role} onClick={onClick} onKeyPress={this.onKeyPress} {...htmlAttributes}>
-                {React.Children.map(children, child => {
+                {React.Children.toArray(children).map((child, i) => {
                     if (typeof child.type === 'function') {
                         return child;
                     }
 
-                    return <Card.Body>{child}</Card.Body>;
+                    return <Card.Body key={i}>{child}</Card.Body>;
                 })}
             </div>
         );

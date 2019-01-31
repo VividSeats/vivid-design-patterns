@@ -1,6 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import TabGroup from '../../src/components/molecules/TabGroup';
+import { shallow } from 'enzyme';
 import Tab from '../../src/components/atoms/Tab';
 
 describe('<Tab />', () => {

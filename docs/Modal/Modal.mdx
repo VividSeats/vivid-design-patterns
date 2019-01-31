@@ -5,10 +5,6 @@
 import { PropsTable, Playground } from 'docz'
 
 import Modal from '../../src/components/molecules/Modal';
-import ModalHeader from '../../src/components/atoms/ModalHeader';
-import ModalBody from '../../src/components/atoms/ModalBody';
-import ModalFooter from '../../src/components/atoms/ModalFooter';
-import Backdrop from '../../src/components/atoms/Backdrop';
 import Button from '../../src/components/atoms/Button';
 import ModalButtonExample from './ModalButtonExample';
 
@@ -32,7 +28,7 @@ Using the scss files:
 React: className="vp-modal" dataState="opened"
 HTML: class="vp-modal" data-state="opened"
 `
-<Playground style={ { minHeight: '400px' } } >
+<Playground style={ { minHeight: '400px', height: '100%' } } >
     <Modal dataState="opened">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
@@ -45,20 +41,20 @@ HTML: class="vp-modal" data-state="opened"
 <PropsTable of={Modal}/>
 
 ### Modal Header Props
-<PropsTable of={ModalHeader}/>
+<PropsTable of={Modal.Header}/>
 
 ### Modal Body Props
-<PropsTable of={ModalBody}/>
+<PropsTable of={Modal.Body}/>
 
 ### Modal Footer Props
-<PropsTable of={ModalFooter}/>
+<PropsTable of={Modal.Footer}/>
 
-##s# Backdrop Props
-<PropsTable of={Backdrop}/>
+### Backdrop Props
+<PropsTable of={Modal.Backdrop}/>
 
 ## Props Example
 `dataState="opened" title="Modal Title" type="sheet" onClose={() => window.alert('on close fired')`
-<Playground style={ { minHeight: '400px' } } >
+<Playground style={ { minHeight: '400px', height: '100%' } } >
     <Modal dataState="opened" title="Modal Title" type="sheet" onClose={() => window.alert('on close fired')}>
         This sheet modal is uses a prop for the modal title, passes in the body text, and uses the default modal footer and dismiss button.
     </Modal>
@@ -72,7 +68,7 @@ HTML: class="vp-modal" data-state="opened"
     <Modal.Footer />
 </Modal>
 ```
-<Playground style={ { minHeight: '400px' } } >
+<Playground style={ { minHeight: '400px', height: '100%' } } >
     <Modal dataState="opened">
         <Modal.Header importance={4}>Custom Modal H4 Header</Modal.Header>
         <Modal.Body>
@@ -87,7 +83,7 @@ HTML: class="vp-modal" data-state="opened"
 ## Example with External Button
 ### Modal is rendered by a component that passes in a changing dataState prop
 `dataState={!!state.opened ? 'opened' : 'closed'}`
-<Playground style={ { minHeight: '400px' } } >
+<Playground style={ { minHeight: '400px', height: '100%' } } >
     {/*
         class ModalButtonExample extends React.Component {
             state = {
