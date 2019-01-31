@@ -39,7 +39,7 @@
         }
     }
 }
-@mixin pseudo-icon($icon, $color: $color-gray, $height: $sizing-XL, $size: $sizing-XL, $margin: auto, $pointerEvents: none) {
+@mixin pseudo-icon($icon: '', $color: $color-gray, $height: $sizing-XL, $size: $sizing-XL, $margin: auto, $pointerEvents: none) {
     color: $color;
     content: $icon;
     direction: ltr;

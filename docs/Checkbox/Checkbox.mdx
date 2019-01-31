@@ -1,0 +1,37 @@
+---
+    name: Checkbox
+---
+
+import { PropsTable, Playground } from 'docz'
+import "../../src/styles/_controls.scss";
+import Checkbox from "../../src/components/atoms/Checkbox";
+import Form from "../../src/components/molecules/Form";
+
+# Checkbox
+## Installation
+Using the react components:
+
+    import Checkbox from '@vividseats/vivid-design-patterns/dist/atoms/Checkbox';
+
+Using the scss files:
+
+    @import "@vividseats/vivid-design-patterns/src/styles/controls.scss";
+
+## Basic Usage
+`class="vp-checkbox"`
+<Playground>
+    <Checkbox id='checkbox' label="Check me"/>
+    <Checkbox id='checkboxDefaultChecked' label="Default Checked" defaultChecked/>
+    <Checkbox id='disabledCheckbox' label="Disabled" disabled/>
+</Playground>
+
+## Props
+<PropsTable of={Checkbox}/>
+
+## With Form Validation
+
+<Playground>
+    <Form>
+
+    </Form>
+</Playground>
