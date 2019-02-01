@@ -7,7 +7,7 @@ import Subhead from '../atoms/Subhead';
 /* eslint-disable */
 
 class FilterGroup extends React.Component {
-    state = { filterLimit: this.props.limit, expanded: false };
+    state = { expanded: false };
 
     static propTypes = {
         onSelect: PropTypes.func,
@@ -23,20 +23,10 @@ class FilterGroup extends React.Component {
         className: ''
     };
 
-    componentWillReceiveProps(nextProps) {
-        const { expanded } = this.state;
-        const { limit } = this.props;
-        const newLengthOfChildren = nextProps.children.length;
-        if (!!expanded && React.Children.count !== newLengthOfChildren) {
-            this.setState({ filterLimit: newLengthOfChildren > limit ? newLengthOfChildren : limit });
-        }
-    }
-
     toggleFilterGroupExpansion = e => {
         const { expanded } = this.state;
-        const { children, limit } = this.props;
         e.preventDefault();
-        this.setState({ filterLimit: expanded ? limit : children.length, expanded: !expanded });
+        this.setState({ expanded: !expanded });
     };
 
     handleSelection = (event, child) => {
@@ -48,9 +38,11 @@ class FilterGroup extends React.Component {
     };
 
     render() {
-        const { filterLimit, expanded } = this.state;
-        const { groupName, children, className, ...htmlAttributes } = this.props;
+        const { expanded } = this.state;
+        const { groupName, children, className, limit, ...htmlAttributes } = this.props;
         const classNames = className ? `vp-filter-group ${className}` : 'vp-filter-group';
+        const childrenCount = React.Children.count(children);
+        const filterLimit = !!expanded && childrenCount > limit ? childrenCount : limit;
         return (
             <SlideDown className={classNames} {...htmlAttributes}>
                 <Subhead>{groupName}</Subhead>
@@ -72,7 +64,7 @@ class FilterGroup extends React.Component {
                             )
                         )
                     )}
-                    {!!(expanded && React.Children.count(children) >= filterLimit) && (
+                    {!!(expanded && childrenCount >= filterLimit) && (
                         <li>
                             <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
                                 less
