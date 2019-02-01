@@ -10,6 +10,7 @@ class Modal extends React.Component {
     static Header = ModalHeader;
     static Body = ModalBody;
     static Footer = ModalFooter;
+    static Backdrop = Backdrop;
     static TYPES = ['sheet'];
 
     static DATA_STATE = {
@@ -124,7 +125,7 @@ class Modal extends React.Component {
                         {ModalFooterChild || <Modal.Footer onDismiss={toggleModal} />}
                     </div>
                 </aside>
-                {!disableBackdrop && <Backdrop dataState={dataState} onClick={toggleModal} />}
+                {!disableBackdrop && <Modal.Backdrop dataState={dataState} onClick={toggleModal} />}
             </React.Fragment>
         );
     }

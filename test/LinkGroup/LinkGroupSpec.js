@@ -30,4 +30,16 @@ describe('<LinkGroup />', () => {
         const wrapper = shallow(<LinkGroup id="myLinkGroup" />);
         expect(wrapper.find('#myLinkGroup').hasClass('vp-link-group')).toBe(true);
     });
+
+    it('handles falsey children', () => {
+        const wrapper = shallow(
+            <LinkGroup>
+                <Link href="#">Child 1</Link>
+                {false && <Link href="#">Child 2</Link>}
+                {false ? <Link href="#">Child 3</Link> : null}
+            </LinkGroup>
+        );
+
+        expect(wrapper.children().length).toEqual(1);
+    });
 });

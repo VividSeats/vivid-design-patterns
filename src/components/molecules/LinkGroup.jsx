@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* eslint react/no-array-index-key: 0 */
+
 const LinkGroup = ({ children, type, className, ...htmlAttributes }) => {
     const baseLinkGroupClass = `vp-link-group${type ? `--${type}` : ''}`;
     const props = {
@@ -9,8 +11,10 @@ const LinkGroup = ({ children, type, className, ...htmlAttributes }) => {
     };
     return (
         <ul {...{ ...props, ...htmlAttributes }}>
-            {React.Children.map(children, child => (
-                <li className="vp-link-group__item">{child}</li>
+            {React.Children.toArray(children).map((child, i) => (
+                <li key={i} className="vp-link-group__item">
+                    {child}
+                </li>
             ))}
         </ul>
     );

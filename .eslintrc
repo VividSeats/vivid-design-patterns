@@ -9,7 +9,8 @@
   ],
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest": true
   },
   "rules": {
     "no-plusplus":["error", {"allowForLoopAfterthoughts": true}], //Disalows ++ unless in for loops
@@ -25,5 +26,11 @@
     "jsx-a11y/label-has-for": 0, // Looks like this rule is depreacted.
     "react/no-unused-prop-types": 0 // Doesn't work when props is destructured https://github.com/yannickcr/eslint-plugin-react/issues/1002
   },
+  "overrides": [{
+      "files": "test/**/*.js",
+      "rules": {
+        "react/jsx-filename-extension": 0
+      }
+  }],
   "parser": "babel-eslint"
 }
