@@ -44,35 +44,37 @@ class FilterGroup extends React.Component {
         const childrenCount = React.Children.count(children);
         const filterLimit = !!expanded && childrenCount > limit ? childrenCount : limit;
         return (
-            <SlideDown className={classNames} {...htmlAttributes}>
-                <Subhead>{groupName}</Subhead>
-                <ul>
-                    {React.Children.map(children, (child, index) =>
-                        index < filterLimit ? (
-                            <li key={index}>
-                                {React.cloneElement(child, {
-                                    onClick: event => this.handleSelection(event, child)
-                                })}
-                            </li>
-                        ) : (
-                            index === Number(filterLimit) && (
-                                <li key="moreButton">
-                                    <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
-                                        more
-                                    </Link>
+            <div {...htmlAttributes}>
+                <SlideDown className={classNames}>
+                    <Subhead>{groupName}</Subhead>
+                    <ul>
+                        {React.Children.map(children, (child, index) =>
+                            index < filterLimit ? (
+                                <li key={index}>
+                                    {React.cloneElement(child, {
+                                        onClick: event => this.handleSelection(event, child)
+                                    })}
                                 </li>
+                            ) : (
+                                index === Number(filterLimit) && (
+                                    <li key="moreButton">
+                                        <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
+                                            more
+                                        </Link>
+                                    </li>
+                                )
                             )
-                        )
-                    )}
-                    {!!(expanded && childrenCount >= filterLimit) && (
-                        <li>
-                            <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
-                                less
-                            </Link>
-                        </li>
-                    )}
-                </ul>
-            </SlideDown>
+                        )}
+                        {!!(expanded && childrenCount >= filterLimit) && (
+                            <li>
+                                <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
+                                    less
+                                </Link>
+                            </li>
+                        )}
+                    </ul>
+                </SlideDown>
+            </div>
         );
     }
 }
