@@ -31,6 +31,9 @@
     .vp-control__input:checked + & {
         color: $text-color-link;
     }
+    [class^='vp-control'][data-state='error'] & {
+        color: $text-color-error;
+    }
 }
 .vp-control__span {
     display: inline-block;
