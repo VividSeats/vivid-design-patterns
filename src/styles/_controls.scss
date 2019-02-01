@@ -1,6 +1,7 @@
 // Tokens
 @import 'tokens';
 @import 'mixins';
+@import '_helperText';
 
 [class^='vp-control']:not([class*='__']) {
     border-radius: $border-radius-SM;
