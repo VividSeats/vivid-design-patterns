@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Badge = ({ children, styles, type, className, size, ...htmlAttributes }) => {
+const Badge = ({ children, indicates, type, className, size, ...htmlAttributes }) => {
     const baseButtonClass = 'vp-badge';
     const buttonClassNames = classNames(baseButtonClass, {
-        [`--${styles}`]: styles,
+        [`--${indicates}`]: indicates,
         [`--${type}`]: type,
         [`--${size}`]: size
     });
@@ -22,8 +22,8 @@ Badge.propTypes = {
     children: PropTypes.node,
     /** badge types e.g., default, angled, counter */
     type: PropTypes.oneOf(['default', 'angled', 'counter']),
-    /** renders to html class `--success`, `--warning`, `--error`*/
-    styles: PropTypes.oneOf(['success', 'warning', 'error']),
+    /** badge styles, either `--success`, `--warning`, `--error`*/
+    indicates: PropTypes.oneOf(['success', 'warning', 'error']).isRequired,
     className: PropTypes.string
 };
 
