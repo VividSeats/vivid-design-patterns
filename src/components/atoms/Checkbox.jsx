@@ -52,7 +52,7 @@ class Checkbox extends React.Component {
                 />
                 <span className="vp-control__span" data-state={error ? 'error' : null}>
                     {label}
-                    {!!error && <span className="vp-helper-text--validation"> {error} </span>}
+                    {!!error && <span className="vp-helper-text--validation">{error}</span>}
                 </span>
             </label>
         );
