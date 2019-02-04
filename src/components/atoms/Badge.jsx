@@ -20,11 +20,11 @@ const Badge = ({ children, styleAs, type, className, large, ...htmlAttributes })
 
 Badge.propTypes = {
     children: PropTypes.node,
-    /** badge types e.g., angled, counter.*/
+    /** badge types e.g., angled, counter */
     type: PropTypes.oneOf(['angled', 'count']),
-    /** sets the style of the default badge, either `success`, `warning`, `error` (Note: 'angled' and 'count' types are unaffected by this)*/
+    /** sets the style of the default badge, either `success`, `warning`, `error` (Note: 'angled' and 'count' types are unaffected by this) */
     styleAs: PropTypes.oneOf(['success', 'warning', 'error']),
-    /** sets the size of the default badge type to be large (Note: 'angled' and 'count' types are unaffected by this)**/
+    /** sets the size of the default badge type to be large (Note: 'angled' and 'count' types are unaffected by this) */
     large: PropTypes.bool,
     className: PropTypes.string
 };
