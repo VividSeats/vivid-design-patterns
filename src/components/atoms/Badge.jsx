@@ -4,10 +4,10 @@ import classNames from 'classnames';
 
 const Badge = ({ children, styleAs, type, className, large, ...htmlAttributes }) => {
     const badgeClassNames = classNames('vp-badge', {
-        className,
         [`--${type}`]: type,
         [`--${styleAs}`]: styleAs,
-        '--lg': large
+        '--lg': large,
+        className
     });
 
     return (
