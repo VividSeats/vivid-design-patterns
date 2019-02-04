@@ -3,19 +3,18 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Badge = ({ children, styleAs, type, className, large, ...htmlAttributes }) => {
-    const baseBadgeClass = 'vp-badge';
-    const badgeClassNames = classNames(baseBadgeClass, {
-        [`--${styleAs}`]: styleAs,
+    const badgeClassNames = classNames('vp-badge', {
+        [className]: className,
         [`--${type}`]: type,
-        [`--lg`]: large
+        [`--${styleAs}`]: styleAs,
+        ['--lg']: large
     });
 
-    const props = {
-        className: className ? `${badgeClassNames} ${className}` : badgeClassNames,
-        ...htmlAttributes
-    };
-
-    return <span {...props}>{children}</span>;
+    return (
+        <span className={badgeClassNames} {...htmlAttributes}>
+            {children}
+        </span>
+    );
 };
 
 Badge.propTypes = {
