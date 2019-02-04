@@ -1,4 +1,4 @@
-import { mount } from 'enzyme/build';
+import { mount } from 'enzyme';
 import Badge from '../../src/components/atoms/Badge';
 import React from 'react';
 
