@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Badge = ({ children, indicates, type, className, size, ...htmlAttributes }) => {
-    const baseButtonClass = 'vp-badge';
-    const buttonClassNames = classNames(baseButtonClass, {
-        [`--${indicates}`]: indicates,
+const Badge = ({ children, styleAs, type, className, large, ...htmlAttributes }) => {
+    const baseBadgeClass = 'vp-badge';
+    const badgeClassNames = classNames(baseBadgeClass, {
+        [`--${styleAs}`]: styleAs,
         [`--${type}`]: type,
-        [`--${size}`]: size
+        [`--lg`]: large
     });
 
     const props = {
-        className: className ? `${buttonClassNames} ${className}` : buttonClassNames,
+        className: className ? `${badgeClassNames} ${className}` : badgeClassNames,
         ...htmlAttributes
     };
 
@@ -20,10 +20,12 @@ const Badge = ({ children, indicates, type, className, size, ...htmlAttributes }
 
 Badge.propTypes = {
     children: PropTypes.node,
-    /** badge types e.g., default, angled, counter */
-    type: PropTypes.oneOf(['default', 'angled', 'counter']),
-    /** badge styles, either `--success`, `--warning`, `--error`*/
-    indicates: PropTypes.oneOf(['success', 'warning', 'error']).isRequired,
+    /** badge types e.g., angled, counter.*/
+    type: PropTypes.oneOf(['angled', 'count']),
+    /** sets the style of the default badge, either `success`, `warning`, `error` (Note: 'angled' and 'count' types are unaffected by this)*/
+    styleAs: PropTypes.oneOf(['success', 'warning', 'error']),
+    /** sets the size of the default badge type to be large (Note: 'angled' and 'count' types are unaffected by this)**/
+    large: PropTypes.bool,
     className: PropTypes.string
 };
 

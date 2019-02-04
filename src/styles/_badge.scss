@@ -2,6 +2,9 @@
 @import 'mixins';
 @import 'prefixes';
 
+// states: angled, count, default
+// sizes: default: -> one of
+
 [class^='vp-badge'] {
     background-color: $color-gray;
     border-radius: $border-radius-XS;
