@@ -2,6 +2,7 @@
 @import 'tokens';
 @import 'mixins';
 @import 'prefixes';
+@import 'helperText';
 
 // Mixins
 @mixin input-base() {
@@ -26,12 +27,7 @@
     border-width: 1px;
     padding: 0 $sizing-MD;
 }
-@mixin active-helper-text() {
-    height: auto;
-    opacity: 1;
-    padding-top: $sizing-SM;
-    visibility: visible;
-}
+
 @mixin active-label() {
     background-color: inherit;
     font-size: $font-size-SM;
@@ -295,34 +291,6 @@ textarea[class^='vp-textfield__input'] {
                     background-color: rgba($color-black, 0.3) !important;
                 }
             }
-        }
-    }
-}
-
-[class^='vp-helper-text'] {
-    @include transition(all $transition-1);
-    color: $text-color-muted;
-    display: block;
-    font-size: $font-size-SM;
-    height: 0;
-    line-height: $line-height-XS;
-    opacity: 0;
-    padding-left: $sizing-XS;
-    padding-right: $sizing-XS;
-    visibility: hidden;
-
-    [class*='--outlined'] & {
-        padding-left: $sizing-MD;
-        padding-right: $sizing-MD;
-    }
-    &[class*='--validation'] {
-        [data-state*='error'] & {
-            @include active-helper-text;
-            color: $text-color-error;
-        }
-        [data-state*='success'] & {
-            @include active-helper-text;
-            color: $text-color-success;
         }
     }
 }

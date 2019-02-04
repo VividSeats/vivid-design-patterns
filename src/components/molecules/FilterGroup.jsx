@@ -7,7 +7,7 @@ import Subhead from '../atoms/Subhead';
 /* eslint-disable */
 
 class FilterGroup extends React.Component {
-    state = { filterLimit: this.props.limit, expanded: false };
+    state = { expanded: false };
 
     static propTypes = {
         onSelect: PropTypes.func,
@@ -23,21 +23,10 @@ class FilterGroup extends React.Component {
         className: ''
     };
 
-    componentDidUpdate = prevProps => {
-        const { expanded } = this.state;
-        const { limit } = this.props;
-        const previousLengthOfChildren = prevProps.children.length;
-        const newLengthOfChildren = this.props.children.length;
-        if (!!expanded && newLengthOfChildren !== previousLengthOfChildren) {
-            this.setState({ filterLimit: newLengthOfChildren > limit ? newLengthOfChildren : limit });
-        }
-    };
-
     toggleFilterGroupExpansion = e => {
         const { expanded } = this.state;
-        const { children, limit } = this.props;
         e.preventDefault();
-        this.setState({ filterLimit: expanded ? limit : children.length, expanded: !expanded });
+        this.setState({ expanded: !expanded });
     };
 
     handleSelection = (event, child) => {
@@ -49,39 +38,43 @@ class FilterGroup extends React.Component {
     };
 
     render() {
-        const { filterLimit, expanded } = this.state;
-        const { groupName, children, className, ...htmlAttributes } = this.props;
+        const { expanded } = this.state;
+        const { groupName, children, className, limit, ...htmlAttributes } = this.props;
         const classNames = className ? `vp-filter-group ${className}` : 'vp-filter-group';
+        const childrenCount = React.Children.count(children);
+        const filterLimit = !!expanded && childrenCount > limit ? childrenCount : limit;
         return (
-            <SlideDown className={classNames} {...htmlAttributes}>
-                <Subhead>{groupName}</Subhead>
-                <ul>
-                    {React.Children.map(children, (child, index) =>
-                        index < filterLimit ? (
-                            <li key={index}>
-                                {React.cloneElement(child, {
-                                    onClick: event => this.handleSelection(event, child)
-                                })}
-                            </li>
-                        ) : (
-                            index === Number(filterLimit) && (
-                                <li key="moreButton">
-                                    <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
-                                        more
-                                    </Link>
+            <div {...htmlAttributes}>
+                <SlideDown className={classNames}>
+                    <Subhead>{groupName}</Subhead>
+                    <ul>
+                        {React.Children.map(children, (child, index) =>
+                            index < filterLimit ? (
+                                <li key={index}>
+                                    {React.cloneElement(child, {
+                                        onClick: event => this.handleSelection(event, child)
+                                    })}
                                 </li>
+                            ) : (
+                                index === Number(filterLimit) && (
+                                    <li key="moreButton">
+                                        <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
+                                            more
+                                        </Link>
+                                    </li>
+                                )
                             )
-                        )
-                    )}
-                    {!!(expanded && React.Children.count(children) >= filterLimit) && (
-                        <li>
-                            <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
-                                less
-                            </Link>
-                        </li>
-                    )}
-                </ul>
-            </SlideDown>
+                        )}
+                        {!!(expanded && childrenCount >= filterLimit) && (
+                            <li>
+                                <Link href="javascript:void(0)" onClick={this.toggleFilterGroupExpansion}>
+                                    less
+                                </Link>
+                            </li>
+                        )}
+                    </ul>
+                </SlideDown>
+            </div>
         );
     }
 }

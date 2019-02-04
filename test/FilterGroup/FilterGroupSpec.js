@@ -93,11 +93,11 @@ describe('<FilterGroup />', () => {
     });
 
     it('renders a filter group with custom attributes', () => {
-        const wrapper = shallow(
+        const wrapper = mount(
             <FilterGroup groupName="Test Group" id="myLinkGroup">
                 <Link href="#">To somewhere..</Link>
             </FilterGroup>
         );
-        expect(wrapper.find('#myLinkGroup').hasClass('vp-filter-group')).toBe(true);
+        expect(wrapper.find('div#myLinkGroup').exists()).toBe(true);
     });
 });
