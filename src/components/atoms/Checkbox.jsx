@@ -36,7 +36,7 @@ class Checkbox extends React.Component {
         const { error } = this.state;
         const { className, onChange, validationMethod, defaultChecked, label, id, ...htmlAttributes } = this.props;
         return (
-            <label className={`${className} vp-control--checkbox`} aria-label="checkbox" htmlFor={id}>
+            <label className={`vp-control--checkbox ${className} `} aria-label="checkbox" htmlFor={id} data-state={error ? 'error' : null}>
                 <input
                     hidden
                     type="checkbox"
@@ -46,7 +46,7 @@ class Checkbox extends React.Component {
                     id={id}
                     {...htmlAttributes}
                 />
-                <span className="vp-control__span" data-state={error ? 'error' : null}>
+                <span className="vp-control__span">
                     {label}
                     {!!error && <span className="vp-helper-text--validation">{error}</span>}
                 </span>
