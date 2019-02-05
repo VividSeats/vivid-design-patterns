@@ -6,8 +6,8 @@ const Badge = ({ children, styleAs, type, className, large, ...htmlAttributes })
     const badgeClassNames = classNames('vp-badge', {
         [`--${type}`]: type,
         [`--${styleAs}`]: styleAs,
-        '--lg': large,
-        className
+        [className]: className,
+        '--lg': large
     });
 
     return (
