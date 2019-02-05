@@ -44,8 +44,8 @@ class FilterGroup extends React.Component {
         const childrenCount = React.Children.count(children);
         const filterLimit = !!expanded && childrenCount > limit ? childrenCount : limit;
         return (
-            <div {...htmlAttributes}>
-                <SlideDown className={classNames}>
+            <div {...htmlAttributes} className={classNames}>
+                <SlideDown>
                     <Subhead>{groupName}</Subhead>
                     <ul>
                         {React.Children.map(children, (child, index) =>
