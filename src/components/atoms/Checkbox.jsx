@@ -5,11 +5,7 @@ class Checkbox extends React.Component {
     state = { checked: this.props.defaultChecked || this.props.checked || false, error: '' };
 
     getCheckedState() {
-        if (this.isControlled()) {
-            return this.props.checked;
-        }
-
-        return this.state.checked;
+        return this.isControlled() ? this.props.checked : this.state.checked;
     }
 
     onChange = () => {
