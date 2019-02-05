@@ -5,9 +5,7 @@ class StatefulComponent extends React.Component {
         ...this.props.initialState
     };
 
-    setComponentState = state => {
-        this.setState(state);
-    };
+    setComponentState = state => this.setState(state);
 
     render() {
         const { setComponentState, state } = this;

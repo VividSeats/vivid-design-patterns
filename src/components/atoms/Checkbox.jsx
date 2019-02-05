@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 class Checkbox extends React.Component {
     state = { checked: this.props.defaultChecked || this.props.checked || false, error: '' };
 
-    getCheckedState = () => {
+    getCheckedState() {
         if (this.isControlled()) {
             return this.props.checked;
         }
 
         return this.state.checked;
-    };
+    }
 
     onChange = () => {
         if (this.isControlled()) {
