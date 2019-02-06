@@ -27,7 +27,7 @@ Using the scss files:
 `className="vp-event-row"`
 <Playground>
     <EventRow {...{
-        href: 'javascript:alert("link")',
+        href: 'javascript:alert("click")',
         title: 'Chicago Blackhawks',
         subtitle: 'United Center - Chicago, IL'
     }} />
@@ -37,34 +37,35 @@ Using the scss files:
 <Playground>
     <EventRow {...{
         dateRange: 'Aug 21. 2018 - Sept 16, 2018',
-        href: 'javascript:alert("link")',
+        href: 'javascript:alert("click")',
         title: 'Chicago Blackhawks',
-        type: 'dateRange',
         subtitle: 'United Center - Chicago, IL'
     }} />
 </Playground>
 
-## Image
+## Thumbnail
 <Playground>
     <EventRow {...{
-        href: 'javascript:alert("link")',
+        href: 'javascript:alert("click")',
         title: 'Chicago Blackhawks',
-        type: 'image',
-        subtitle: 'United Center - Chicago, IL'
-    }} />
-</Playground>
-
-## Production
-<Playground>
-    <EventRow {...{
-        href: 'javascript:alert("link")',
-        title: 'Chicago Blackhawks',
-        type: 'production',
         subtitle: 'United Center - Chicago, IL',
-        production: {
+        thumbnail: {
+            src: 'https://a.vsstatic.com/event/concerts/taylor-swift.jpg',
+            alt: 'Taylor Swift Tickets'
+        }
+    }} />
+</Playground>
+
+## Date
+<Playground>
+    <EventRow {...{
+        href: 'javascript:alert("click")',
+        title: 'Chicago Blackhawks',
+        subtitle: 'United Center - Chicago, IL',
+        date: {
             dayOfWeek: 'Wed',
+            dayOfMonth: '28',
             month: 'May',
-            date: '28',
             time: '7:05 PM'
         }
     }} />

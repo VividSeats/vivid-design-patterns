@@ -21,6 +21,7 @@ $button-padding-large: $button-height-large / 2;
     outline: none !important;
     text-align: center;
     text-decoration: none;
+    white-space: nowrap;
 }
 @mixin button-size($fontSize: $font-size-MD, $lineHeight: $button-height-default, $padding: $button-padding-default) {
     font-size: $fontSize;

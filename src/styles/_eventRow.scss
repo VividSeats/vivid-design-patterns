@@ -4,14 +4,13 @@
 @import 'typography';
 @import 'layout';
 
-$column-button-width: 6.75rem;
 $column-date-width: 5rem;
 $column-thumb-width: 4.25rem;
 $column-thumb-margin: $sizing-MD;
 $row-height: 4.5rem;
 
 // Block
-[class^='vp-type-link'][class*='vp-event-row'] {
+.vp-event-row {
     @include align-items(center);
     @include border(bottom);
     @include flex(0 1 auto);
@@ -22,7 +21,6 @@ $row-height: 4.5rem;
     margin-right: 0;
     min-height: $row-height;
     padding: $sizing-SM 0;
-    color: unset; // remove link color
 
     @include size-min-tablet {
         padding: $sizing-MD 0;
@@ -34,31 +32,23 @@ $row-height: 4.5rem;
     &:hover {
         background: $color-off-white;
     }
-    &:hover,
-    &:visited,
-    &:link,
-    &:active {
-        color: unset; // remove link color
-        text-decoration: none;
-    }
     &__button,
     &__date,
+    &__date-range,
     &__info,
-    &__thumb {
+    &__thumbnail {
         @include flex;
         @include flex-direction(column);
         @include justify-content(center);
     }
     &__button,
     &__date,
-    &__thumb {
+    &__thumbnail {
         @include flex-grow(0);
     }
     &__button {
         display: none;
-        min-width: $column-button-width;
-        padding-right: $sizing-MD;
-        text-align: right;
+        padding-right: $sizing-MD !important;
 
         @include size-min-tablet {
             display: inherit;
@@ -77,15 +67,20 @@ $row-height: 4.5rem;
             max-width: calc(100% - #{$column-date-width});
         }
     }
-    &__info {
+    &__date-range {
         padding: $sizing-2XS $sizing-LG !important;
 
-        &__title {
+        @include size-only-mobile {
+            @include flex(100%);
         }
-        &__subtitle {
+        @include size-min-tablet {
+            text-align: right;
         }
     }
-    &__thumb {
+    &__info {
+        padding: $sizing-2XS $sizing-LG !important;
+    }
+    &__thumbnail {
         @include justify-content(flex-start);
         border-radius: $border-radius-SM;
         height: $sizing-3XL;
@@ -93,6 +88,10 @@ $row-height: 4.5rem;
         min-width: $column-thumb-width;
         overflow: hidden;
         padding: 0 0;
+
+        img {
+            max-width: 100%;
+        }
 
         + .vp-event-row__info {
             max-width: calc(100% - #{$column-thumb-width + $column-thumb-margin});
@@ -105,10 +104,10 @@ $row-height: 4.5rem;
 @include size-min-tablet {
     .vp-event-row--has-button {
         .vp-event-row__date + .vp-event-row__info {
-            max-width: calc(100% - #{$column-date-width + $column-button-width});
+            max-width: calc(100% - #{$column-date-width});
         }
-        .vp-event-row__thumb + .vp-event-row__info {
-            max-width: calc(100% - #{$column-thumb-width + $column-button-width});
+        .vp-event-row__thumbnail + .vp-event-row__info {
+            max-width: calc(100% - #{$column-thumb-width});
         }
     }
 }
