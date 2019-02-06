@@ -1,7 +1,7 @@
 {
   "name": "@vividseats/vivid-design-patterns",
   "Author": "Vivid Seats",
-  "version": "0.0.0-WEB-5734-1549300632",
+  "version": "1.11.0",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
@@ -80,6 +80,7 @@
     "format": "./node_modules/.bin/prettier --write **/*/*.{js,jsx}",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx ./src",
     "lint:ci": "./node_modules/.bin/eslint --format junit --output-file ./reports/eslint.xml --ext .js,.jsx ./src",
-    "test": "./node_modules/.bin/jest"
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "./node_modules/.bin/jest --watch"
   }
 }

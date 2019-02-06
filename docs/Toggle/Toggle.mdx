@@ -1,0 +1,50 @@
+---
+    name: Toggle
+---
+
+import { PropsTable, Playground } from 'docz'
+import Toggle from '../../src/components/atoms/Toggle';
+import "./toggle.scss";
+import "../../src/styles/_toggle.scss";
+
+# Toggle
+## Installation
+
+Using the React Component:
+
+    import Toggle from '@vividseats/vivid-design-patterns/dist/atoms/Toggle';
+
+Importing the scss:
+
+    import '@vividseats/vivid-design-patterns/src/styles/toggle.scss';
+
+## Basic Usage
+
+<Playground>
+    <Toggle />
+</Playground>
+
+## Props
+<PropsTable of={Toggle}/>
+
+
+## Usages
+### Default state
+<Playground>
+    <Toggle defaultOn={true} />
+</Playground>
+
+### Controlled
+<Playground>
+    <Toggle on />
+</Playground>
+
+### With label
+<Playground>
+    <Toggle title="I can be toggled on and off." />
+</Playground>
+
+### `onToggle` callback
+<Playground>
+    <Toggle onToggle={ (val) => { alert(`Hello. input value: ${val}`) } } />
+</Playground>
