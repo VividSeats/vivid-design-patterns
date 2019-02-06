@@ -1,0 +1,41 @@
+def GIT_CREDENTIALS='github-username-and-token-as-password'
+
+pipeline {
+  agent {
+    kubernetes {
+      label 'vivid-design-patterns-publish'
+      idleMinutes 1
+      yamlFile 'jenkins/kubernetes/build-pod-publish.yaml'
+      defaultContainer 'node'
+    }
+  }
+
+  parameters {
+    choice(choices: ['major', 'minor', 'patch'], description: 'What kind of update is this?', name: 'SEM_VER_TYPE')
+  }
+
+  stages {
+    stage('Version') {
+      steps {
+        // sh 'yarn version --${params.SEM_VER_TYPE}'
+        sh 'echo "yarn version"'
+      }
+    }
+
+    stage('Publish') {
+        steps {
+            //sh 'yarn publish'
+            sh 'echo "yarn publish"'
+        }
+    }
+
+    stage('Merge and Tag') {
+        steps {
+            //sh 'git push origin/stage'
+            sh 'git checkout master'
+            //sh 'git merge stage'
+            //sh 'git push origin/master --follow-tags'
+        }
+    }
+   }
+}
