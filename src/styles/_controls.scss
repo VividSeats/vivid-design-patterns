@@ -15,7 +15,7 @@
 }
 .vp-control__span:before {
     @include pseudo-icon($pointerEvents: auto);
-    padding-right: $sizing-SM;
+    @include position(absolute, $sizing-SM null null $sizing-XS);
 
     .vp-control--checkbox & {
         content: '\e835';
@@ -39,8 +39,9 @@
 .vp-control__span {
     display: inline-block;
     font-size: $font-size-MD;
-    line-height: $line-height-SM;
-    padding: $sizing-SM $sizing-SM $sizing-SM $sizing-XS;
+    line-height: $line-height-LG;
+    padding: $sizing-SM $sizing-SM $sizing-SM $sizing-2XL;
+    position: relative;
     vertical-align: middle;
 
     .vp-control__input + & {
