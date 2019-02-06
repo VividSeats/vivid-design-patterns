@@ -1,0 +1,64 @@
+@import 'tokens';
+@import 'mixins';
+@import 'prefixes';
+
+// states: angled, count, default
+// sizes: default: -> one of
+
+[class^='vp-badge'] {
+    background-color: $color-gray;
+    border-radius: $border-radius-XS;
+    color: $color-white;
+    display: inline-block;
+    font-size: $font-size-SM;
+    font-weight: $font-weight-bld;
+    line-height: $font-size-LG;
+    padding: 0 $sizing-XS;
+
+    &[class*='--lg'] {
+        line-height: $font-size-XL;
+        padding: 0 $sizing-SM;
+    }
+    &[class*='--error'] {
+        background-color: $color-state-error;
+    }
+    &[class*='--success'] {
+        background-color: $color-state-success;
+    }
+    &[class*='--warning'] {
+        background-color: $color-state-warning;
+    }
+    &[class*='--angled'] {
+        background-color: $color-brand-red;
+        line-height: $sizing-XL;
+        margin-left: $sizing-MD;
+        padding: 0 $sizing-MD 0 $sizing-XS;
+        position: relative;
+        z-index: 1;
+
+        &:before {
+            @include linear-gradient(to left, $color-gradient-red);
+            border-radius: $sizing-2XS 0 0 0;
+            content: '';
+            height: $sizing-XL;
+            left: -$sizing-SM;
+            padding: 0 $sizing-MD;
+            position: absolute;
+            top: 0;
+            transform: skew(-16deg);
+            transform-origin: 100%;
+            width: 50%;
+            z-index: -1;
+        }
+    }
+    &[class*='--count'] {
+        @include linear-gradient(to left, $color-gradient-red);
+        border-radius: $border-radius-round;
+        color: $color-white;
+        height: $sizing-LG;
+        line-height: $sizing-LG;
+        padding: 0 0;
+        text-align: center;
+        width: $sizing-LG;
+    }
+}
