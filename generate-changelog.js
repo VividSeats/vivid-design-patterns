@@ -1,5 +1,6 @@
 const fs = require('fs');
 const gitCommits = require('git-raw-commits');
+const moment = require('moment');
 const writeStream = fs.createWriteStream('CHANGELOG.md');
 const readStream = gitCommits({ format: '%s%n%an%n%h%n%ad', from: '4545c35' });
 
@@ -15,9 +16,11 @@ writeStream.write(newLine);
 readStream
     .on('data', chunk => {
         const commitString = chunk.toString();
-        const [message, author, hash, date, empty] = commitString.split(newLineRegex);
+        const [message, author, hash, dateString, empty] = commitString.split(newLineRegex);
 
         if (versionRegex.test(message)) {
+            const date = moment(new Date(dateString)).format('MMMM Do YYYY, h:mm:ssa');
+
             writeStream.write(newLine);
             writeStream.write(newLine);
             writeStream.write(`### ${message} ${newLine}`);
