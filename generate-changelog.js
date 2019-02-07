@@ -1,7 +1,7 @@
 const fs = require('fs');
 const gitCommits = require('git-raw-commits');
 const writeStream = fs.createWriteStream('CHANGELOG.md');
-const readStream = gitCommits({ format: '%s%n%an [%h](https://github.com/VividSeats/vivid-design-patterns/commit/%h) ' });
+const readStream = gitCommits({ format: '%s%n%an%n%h%n%ad' });
 
 const versionRegex = /(v\d+\.\d+\.\d+)/g;
 const newLineRegex = /\r?\n/;
@@ -15,26 +15,20 @@ writeStream.write(newLine);
 readStream
     .on('data', chunk => {
         const commitString = chunk.toString();
-        const splitCommitString = commitString.split(newLineRegex);
-        const firstCommit = splitCommitString[0].toLowerCase();
+        const [message, author, hash, date, empty] = commitString.split(newLineRegex);
 
-        if (versionRegex.test(firstCommit)) {
-            for (let i = 0; i < splitCommitString.length - 1; i++) {
-                const line = splitCommitString[i];
-                const markdown = !i ? `### ${line}` : `##### ${line}`;
+        if (versionRegex.test(message)) {
+            writeStream.write(newLine);
+            writeStream.write(newLine);
+            writeStream.write(`### ${message} ${newLine}`);
+            writeStream.write(`##### ${author} at ${date}`);
+        } else if (message.includes('changelog')) {
+            const changelogRegex = new RegExp('changelog', 'ig');
+            const messageWithoutChangelog = message.replace(changelogRegex, '');
 
-                writeStream.write(markdown);
-                writeStream.write(newLine);
-            }
-        } else if (firstCommit.includes('changelog')) {
-            for (let i = 0; i < splitCommitString.length - 1; i++) {
-                const line = splitCommitString[i];
-                const changelogRegex = new RegExp('changelog', 'ig');
-                const lineWithoutChangelog = line.replace(changelogRegex, '');
-
-                writeStream.write(`  - ${lineWithoutChangelog}`);
-                writeStream.write(newLine);
-            }
+            writeStream.write(
+                `  - [${hash}](https://github.com/VividSeats/vivid-design-patterns/commit/${hash}): ${messageWithoutChangelog}${newLine}`
+            );
         }
     })
     .on('end', () => {
