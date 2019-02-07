@@ -11,30 +11,30 @@ pipeline {
   }
 
   parameters {
-    choice(choices: ['major', 'minor', 'patch'], description: 'What kind of update is this?', name: 'SEM_VER_TYPE')
+    choice(choices: ['patch', 'minor', 'major'], description: 'What kind of change are you publishing? Major changes are breaking changes. Minor changes are new features, eg. new components, and patches are bug fixes on components. For more information, visit: https://semver.org/', name: 'SEM_VER_TYPE')
   }
 
   stages {
-    stage('Version') {
-      steps {
-        // sh 'yarn version --${params.SEM_VER_TYPE}'
-        sh 'echo "yarn version"'
-      }
+    stage('Install dependencies') {
+        steps {
+            sh "yarn install"
+        }
     }
 
     stage('Publish') {
         steps {
-            //sh 'yarn publish'
-            sh 'echo "yarn publish"'
+            sh "yarn publish --new-version 0.0.0-fake-deploy4${params.SEM_VER_TYPE} --tag fake-deploy"
         }
     }
 
     stage('Merge and Tag') {
         steps {
-            //sh 'git push origin/stage'
-            sh 'git checkout master'
-            //sh 'git merge stage'
-            //sh 'git push origin/master --follow-tags'
+            sh "git fetch"
+            sh "git push origin stage"
+            sh "git checkout fake-master"
+            sh "git pull origin/fake-master"
+            sh "git merge stage"
+            sh "git push origin fake-master --follow-tags"
         }
     }
    }

@@ -1,0 +1,55 @@
+// Tokens
+@import 'tokens';
+@import 'mixins';
+@import '_helperText';
+
+[class^='vp-control']:not([class*='__']) {
+    border-radius: $border-radius-SM;
+    display: inline-block;
+    font-size: 0;
+    margin-left: -$sizing-XS;
+
+    &:hover {
+        background: $color-gray-highlight;
+    }
+}
+.vp-control__span:before {
+    @include pseudo-icon($pointerEvents: auto);
+    @include position(absolute, $sizing-SM null null $sizing-XS);
+
+    .vp-control--checkbox & {
+        content: '\e835';
+    }
+    .vp-control--checkbox .vp-control__input:checked + & {
+        content: '\e834';
+    }
+    .vp-control--radio & {
+        content: '\e836';
+    }
+    .vp-control--radio .vp-control__input:checked + & {
+        content: '\e837';
+    }
+    .vp-control__input:checked + & {
+        color: $text-color-link;
+    }
+    [class^='vp-control'][data-state='error'] & {
+        color: $text-color-error;
+    }
+}
+.vp-control__span {
+    display: inline-block;
+    font-size: $font-size-MD;
+    line-height: $line-height-LG;
+    padding: $sizing-SM $sizing-SM $sizing-SM $sizing-2XL;
+    position: relative;
+    vertical-align: middle;
+
+    .vp-control__input + & {
+        cursor: pointer;
+    }
+    .vp-control__input:disabled + & {
+        color: $text-color-disabled;
+        cursor: not-allowed;
+        text-decoration: line-through;
+    }
+}
