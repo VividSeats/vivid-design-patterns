@@ -55,6 +55,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "conventional-changelog-cli": "^2.0.11",
+    "git-raw-commits": "^2.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-slidedown": "^2.0.7"
@@ -72,10 +74,11 @@
   },
   "scripts": {
     "clean": "./node_modules/.bin/rimraf ./dist",
+    "changelog" : "node ./generate-changelog.js && git add CHANGELOG.md",
     "start:docs": "./node_modules/.bin/docz dev",
     "build:docs": "./node_modules/.bin/docz build",
     "build:js": "./node_modules/.bin/gulp bundle_js",
-    "prepublishOnly": "yarn run format && yarn run test && yarn run lint && yarn run build:js",
+    "prepublishOnly": "yarn run changelog && yarn run format && yarn run test && yarn run lint && yarn run build:js",
     "publish:branch": "yarn publish --tag $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) --new-version 0.0.0-$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)-$(date +%s) --no-git-tag-version",
     "format": "./node_modules/.bin/prettier --write **/*/*.{js,jsx}",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx ./src",
