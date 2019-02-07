@@ -73,7 +73,7 @@
   },
   "scripts": {
     "clean": "./node_modules/.bin/rimraf ./dist",
-    "changelog": "node ./generate-changelog.js && git add CHANGELOG.md",
+    "changelog": "node ./generate-changelog.js",
     "start:docs": "./node_modules/.bin/docz dev",
     "build:docs": "./node_modules/.bin/docz build",
     "build:js": "./node_modules/.bin/gulp bundle_js",
