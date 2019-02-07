@@ -1,7 +1,7 @@
 const fs = require('fs');
 const gitCommits = require('git-raw-commits');
 const writeStream = fs.createWriteStream('CHANGELOG.md');
-const readStream = gitCommits({ format: '%s%n%an %ad %nGit hash: [%h](https://github.com/VividSeats/vivid-design-patterns/commit/%h)' });
+const readStream = gitCommits({ format: '%s%n%an [%h](https://github.com/VividSeats/vivid-design-patterns/commit/%h) ' });
 
 const versionRegex = /(v\d+\.\d+\.\d+)/g;
 const newLineRegex = /\r?\n/;
@@ -16,8 +16,9 @@ readStream
     .on('data', chunk => {
         const commitString = chunk.toString();
         const splitCommitString = commitString.split(newLineRegex);
+        const firstCommit = splitCommitString[0];
 
-        if (versionRegex.test(splitCommitString[0])) {
+        if (versionRegex.test(firstCommit)) {
             for (let i = 0; i < splitCommitString.length - 1; i++) {
                 const line = splitCommitString[i];
                 const markdown = !i ? `### ${line}` : `##### ${line}`;
@@ -25,11 +26,13 @@ readStream
                 writeStream.write(markdown);
                 writeStream.write(newLine);
             }
-        } else {
+        } else if (firstCommit.toLowerCase().includes('changelog')) {
             for (let i = 0; i < splitCommitString.length - 1; i++) {
                 const line = splitCommitString[i];
+                const changelogRegex = new RegExp('changelog', 'ig');
+                const lineWithoutChangelog = line.replace(changelogRegex, '');
 
-                writeStream.write(`  - ${line}`);
+                writeStream.write(`  - ${lineWithoutChangelog}`);
                 writeStream.write(newLine);
             }
         }
