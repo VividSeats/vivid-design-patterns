@@ -16,7 +16,7 @@ readStream
     .on('data', chunk => {
         const commitString = chunk.toString();
         const splitCommitString = commitString.split(newLineRegex);
-        const firstCommit = splitCommitString[0];
+        const firstCommit = splitCommitString[0].toLowerCase();
 
         if (versionRegex.test(firstCommit)) {
             for (let i = 0; i < splitCommitString.length - 1; i++) {
@@ -26,7 +26,7 @@ readStream
                 writeStream.write(markdown);
                 writeStream.write(newLine);
             }
-        } else if (firstCommit.toLowerCase().includes('changelog')) {
+        } else if (firstCommit.includes('changelog')) {
             for (let i = 0; i < splitCommitString.length - 1; i++) {
                 const line = splitCommitString[i];
                 const changelogRegex = new RegExp('changelog', 'ig');
