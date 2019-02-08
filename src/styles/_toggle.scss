@@ -1,0 +1,61 @@
+@import 'prefixes';
+@import 'tokens';
+@import 'mixins';
+
+[class^='vp-toggle']:not([class*='__']) {
+    cursor: pointer;
+    display: inline-block;
+
+    &[class*='--block'] {
+        @include align-items(center);
+        @include flex();
+        @include justify-content(space-between);
+    }
+    .vp-toggle__label {
+        display: inline-block;
+        color: $text-color-default;
+        font-size: $font-size-MD;
+        line-height: $sizing-2XL;
+        vertical-align: middle;
+        padding-right: $sizing-SM;
+    }
+    .vp-toggle__thumb {
+        @include transition(all $transition-1);
+        display: inline-block;
+        color: $color-gray;
+        border-radius: $border-radius-XL;
+        background-color: $color-gray;
+        height: $sizing-XL;
+        margin: $sizing-SM;
+        position: relative;
+        vertical-align: middle;
+        width: 36px;
+
+        &:hover {
+            color: $color-gray-medium;
+            background-color: $color-gray-medium;
+        }
+        &:before {
+            @include position(absolute, 0 0 0 0);
+            @include pseudo-icon('\E14C', $color: inherit, $size: $font-size-LG, $height: $font-size-XL, $margin: $sizing-2XS);
+            @include transition(transform $transition-2);
+            background-color: $color-white;
+            border-radius: $border-radius-round;
+            width: $font-size-XL;
+            text-align: center;
+        }
+    }
+    .vp-toggle__control:checked + .vp-toggle__thumb {
+        color: $text-color-link;
+        background-color: $text-color-link;
+
+        &:hover {
+            color: $text-color-link-hover;
+            background-color: $text-color-link-hover;
+        }
+        &:before {
+            @include transform(translateX($sizing-MD));
+            content: '\E5CA';
+        }
+    }
+}
