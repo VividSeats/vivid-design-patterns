@@ -17,6 +17,7 @@ pipeline {
   stages {
     stage('Prepare git environment') {
         steps {
+            sendSlackNotification(buildStatus: "Publishing ${params.SEM_VER_TYPE} update to Vivid Design Patterns", channel: "#eng-team-web")
             withCredentials([
                       usernamePassword(
                       credentialsId: GIT_CREDENTIALS,
@@ -36,14 +37,13 @@ pipeline {
 
     stage('Install dependencies') {
         steps {
-            //sendSlackNotification(buildStatus: "Publishing ${params.SEM_VER_TYPE} update to Vivid Design Patterns", channel: "#eng-team-web")
             sh "yarn install"
         }
     }
 
     stage('Publish') {
         steps {
-            sh "yarn publish --new-version 0.0.0-fake-deploy9${params.SEM_VER_TYPE} --tag fake-deploy"
+            sh "yarn publish --new-version ${params.SEM_VER_TYPE}"
         }
     }
 
@@ -57,8 +57,7 @@ pipeline {
   post {
     always {
         script {
-            echo "hi"
-            // sendSlackNotification(buildStatus: currentBuild.currentResult, channel: "#eng-team-web")
+            sendSlackNotification(buildStatus: currentBuild.currentResult, channel: "#eng-team-web")
         }
     }
   }
