@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import BodyText from '../atoms/BodyText';
 import Button from '../atoms/Button';
@@ -9,11 +10,11 @@ import Row from './Row';
 import SmallText from '../atoms/SmallText';
 
 const EventRow = ({ href, subtitle, title, date = null, dateRange = null, thumbnail = null }) => {
-    const { dayOfWeek, month, dayOfMonth, time } = date || {};
     const baseClassName = 'vp-event-row';
-
     const getColClassName = colType => `${baseClassName}__${colType}`;
     const hasButton = !!date || !!dateRange;
+
+    const momentDate = moment(date);
 
     return (
         <Link className={baseClassName} href={href} type="anchor">
@@ -25,22 +26,17 @@ const EventRow = ({ href, subtitle, title, date = null, dateRange = null, thumbn
                     </Column>
                 )}
                 {/* Date */}
-                {!!date && (
+                {!!momentDate && (
                     <Column className={getColClassName('date')}>
-                        {!!dayOfWeek && (
-                            <SmallText alignment="center" state="muted">
-                                {dayOfWeek}
-                            </SmallText>
-                        )}
+                        <SmallText alignment="center" state="muted">
+                            {momentDate.format('dddd')}
+                        </SmallText>
                         <BodyText height="compressed" weight="black" capitalization="uppercase" alignment="center" importance={2}>
-                            {!!month && `${month} `}
-                            {!!dayOfMonth && dayOfMonth}
+                            {momentDate.format('MMM D')}
                         </BodyText>
-                        {!!time && (
-                            <SmallText alignment="center" state="muted" capitalization="lowercase">
-                                {time}
-                            </SmallText>
-                        )}
+                        <SmallText alignment="center" state="muted">
+                            {momentDate.format('h:mm A')}
+                        </SmallText>
                     </Column>
                 )}
                 {/* Event Info */}
@@ -74,15 +70,10 @@ EventRow.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     dateRange: PropTypes.string,
-    thumbnail: {
+    date: PropTypes.string,
+    thumbnail: PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-    },
-    date: PropTypes.shape({
-        dayOfWeek: PropTypes.string,
-        dayOfMonth: PropTypes.string,
-        month: PropTypes.string,
-        time: PropTypes.string
     })
 };
 
