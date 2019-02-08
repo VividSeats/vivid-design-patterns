@@ -49,7 +49,7 @@ pipeline {
 
     stage('Push version change to github') {
       steps {
-        sh "git push origin HEAD:stage --follow-tag"
+        sh "git push origin HEAD:master --follow-tag"
        }
      }
    }
