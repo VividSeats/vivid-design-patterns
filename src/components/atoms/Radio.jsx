@@ -12,7 +12,7 @@ Radio.propTypes = {
     checked: PropTypes.bool,
     isChecked: PropTypes.bool,
     id: PropTypes.string.isRequired,
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
     className: PropTypes.string,
     onChange: PropTypes.func
 };
