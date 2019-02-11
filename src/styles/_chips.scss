@@ -21,7 +21,7 @@ a:visited.vp-chip {
     position: relative;
 
     &:after {
-        @include pseudo-icon('/\E5CD', $color: $color-white, $size: $font-size-SM, $height: $sizing-LG);
+        @include pseudo-icon('close', $color: $color-white, $size: $font-size-SM, $height: $sizing-LG);
         @include position(absolute, 0 $sizing-XS 0 null);
         background-color: rgba($color-black, 0.5);
         border-radius: $border-radius-round;
