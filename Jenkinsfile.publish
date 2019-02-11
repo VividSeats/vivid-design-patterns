@@ -23,18 +23,16 @@ pipeline {
 
     stage('Publish') {
         steps {
-            sh "yarn publish --new-version 0.0.0-fake-deploy4${params.SEM_VER_TYPE} --tag fake-deploy"
+            sh "yarn publish --new-version ${params.SEM_VER_TYPE}"
         }
     }
 
     stage('Merge and Tag') {
         steps {
-            sh "git fetch"
-            sh "git push origin stage"
-            sh "git checkout fake-master"
-            sh "git pull origin/fake-master"
+            sh "git push origin/stage"
+            sh "git checkout master"
             sh "git merge stage"
-            sh "git push origin fake-master --follow-tags"
+            sh "git push origin/master --follow-tags"
         }
     }
    }
