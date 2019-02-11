@@ -35,7 +35,6 @@
     "jest": "^23.6.0",
     "jest-junit": "^5.2.0",
     "lint-staged": "^8.1.0",
-    "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "prettier": "^1.15.3",
     "rimraf": "^2.6.2",
