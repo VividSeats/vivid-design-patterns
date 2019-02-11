@@ -62,11 +62,6 @@ Using the scss files:
         href: 'javascript:alert("click")',
         title: 'Chicago Blackhawks',
         subtitle: 'United Center - Chicago, IL',
-        date: {
-            dayOfWeek: 'Wed',
-            dayOfMonth: '28',
-            month: 'May',
-            time: '7:05 PM'
-        }
+        date: new Date().toUTCString()
     }} />
 </Playground>
