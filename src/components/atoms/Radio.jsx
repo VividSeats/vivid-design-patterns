@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Radio = ({ id, checked, className = '', onChange = () => {}, label, ...attributes }) => (
+const Radio = ({ id, checked, className = '', label, onChange = () => {}, ...attributes }) => (
     <label className={`vp-control--radio ${className}`} aria-label="radio" htmlFor={id}>
-        <input hidden type="radio" className="vp-control__input" id={id} checked={checked} {...attributes} />
+        <input hidden type="radio" className="vp-control__input" id={id} onChange={onChange} checked={checked} {...attributes} />
         <span className="vp-control__span">{label}</span>
     </label>
 );
