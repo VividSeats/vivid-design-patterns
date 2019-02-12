@@ -1,0 +1,35 @@
+// Tokens
+@import 'tokens';
+@import 'mixins';
+@import 'prefixes';
+
+.vp-chip,
+a:link.vp-chip,
+a:visited.vp-chip {
+    @include linear-gradient(to right, $color-gradient-blue);
+    @include transition(all $transition-1);
+    border-radius: $border-radius-XL;
+    box-shadow: inset 0 0 1px 0 rgba($color-black, 0.75);
+    color: $color-white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: $font-size-SM;
+    font-weight: $font-weight-bld;
+    height: $sizing-XL;
+    margin: $sizing-XS;
+    padding: $sizing-XS $sizing-XL $sizing-XS $sizing-MD;
+    position: relative;
+
+    &:after {
+        @include pseudo-icon('close', $color: $color-white, $size: $font-size-SM, $height: $sizing-LG);
+        @include position(absolute, 0 $sizing-XS 0 null);
+        background-color: rgba($color-black, 0.5);
+        border-radius: $border-radius-round;
+        text-align: center;
+        width: $sizing-LG;
+    }
+    &:hover {
+        background-color: $color-brand-blue;
+        background-image: none;
+    }
+}
