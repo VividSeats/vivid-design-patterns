@@ -18,11 +18,6 @@ describe('<Radio />', () => {
         expect(wrapper.find('label.vp-control--radio').hasClass('hasFakeClass')).toBe(true);
     });
 
-    it('renders a radio input with custom attributes', () => {
-        const wrapper = shallow(<Radio name="fakeRadio" id="fakeRadio2" label="Check me" className="hasFakeClass" />);
-        expect(wrapper.find('label.vp-control--radio').hasClass('hasFakeClass')).toBe(true);
-    });
-
     it('calls onChange when the checkbox is clicked', () => {
         const onChange = jest.fn();
         const wrapper = shallow(<Radio name="fakeRadio" id="fakeRadio2" label="Check me" className="hasFakeClass" onChange={onChange} />);
