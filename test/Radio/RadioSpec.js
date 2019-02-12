@@ -8,7 +8,7 @@ describe('<Radio />', () => {
         expect(wrapper.find('label.vp-control--radio').exists()).toBe(true);
     });
 
-    it('renders a radio input that is checked by default', () => {
+    it('renders a radio input that is checked', () => {
         const wrapper = shallow(<Radio name="fakeRadio" id="fakeRadio2" checked onChange={() => {}} />);
         expect(wrapper.find('#fakeRadio2').prop('checked')).toBe(true);
     });
