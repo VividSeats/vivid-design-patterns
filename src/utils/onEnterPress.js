@@ -6,7 +6,7 @@ export default (callback, event) => {
     const { key, keyCode, which } = event;
 
     if (key === 'Enter' || which === 13 || keyCode === 13) {
-        callback();
+        callback(event);
     }
 };
 

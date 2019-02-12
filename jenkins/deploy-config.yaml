@@ -34,7 +34,8 @@ containers:
         fieldPath: spec.nodeName
   - name: ENVIRONMENT
     value: stage # we only have stage and production configs
-
+  - name: LOG_DIR
+    value: "/var/log/nginx"
   resources:
     requests: { memory: 1Gi, cpu: 500m }
     limits:   { memory: 2Gi }

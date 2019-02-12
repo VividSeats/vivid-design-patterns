@@ -41,7 +41,7 @@
 }
 @mixin pseudo-icon($icon: '', $color: $color-gray, $height: $sizing-XL, $size: $sizing-XL, $margin: auto, $pointerEvents: none) {
     color: $color;
-    content: $icon;
+    content: $icon !important;
     direction: ltr;
     display: inline-block;
     font-family: $font-family-icons;

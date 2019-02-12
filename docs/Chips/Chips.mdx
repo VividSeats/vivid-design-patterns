@@ -1,0 +1,50 @@
+---
+    name: Chips
+---
+
+import { PropsTable, Playground } from 'docz';
+
+import Chip from '../../src/components/atoms/Chip';
+import "../../src/styles/_chips.scss";
+
+# Chips
+## Installation
+Using the react components:
+
+    import Chip from '@vividseats/vivid-design-patterns/dist/atoms/Chip';
+
+Using the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/chips';
+
+## Basic Usage
+`class="vp-chip"`
+<Playground>
+    <Chip label="I am a chip" />
+</Playground>
+
+## Chip Props
+<PropsTable of={Chip}/>
+
+## Additional usages:
+### With callback function
+`onClose={someFunction}`
+<Playground>
+    <Chip label="I have a custom callback" onClose={ (val) => { alert(`hello. my label is: "${val}"`); }} />
+</Playground>
+
+### With custom value
+`value="different_value_than_label"`
+<Playground>
+    <Chip label="I have a custom value" value="different_value_than_label" onClose={ (val) => { alert(`hello. my value is: "${val}"`); }} />
+</Playground>
+
+
+### With other chips
+`value="different_value_than_label"`
+<Playground>
+    <Chip label="I am label one" value="value_1" onClose={ (val) => { alert(`hello. my value is: "${val}"`); }} />
+    <Chip label="I am label two" value="value_2" onClose={ (val) => { alert(`hello. my value is: "${val}"`); }} />
+    <Chip label="I am label three" value="value_3" onClose={ (val) => { alert(`hello. my value is: "${val}"`); }} />
+    <Chip label="I am label four" value="value_4" onClose={ (val) => { alert(`hello. my value is: "${val}"`); }} />
+</Playground>

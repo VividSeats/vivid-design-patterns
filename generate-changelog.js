@@ -2,7 +2,7 @@ const fs = require('fs');
 const gitCommits = require('git-raw-commits');
 const moment = require('moment');
 const writeStream = fs.createWriteStream('CHANGELOG.md');
-const readStream = gitCommits({ format: '%s%n%an%n%h%n%ad', from: '4545c35' });
+const readStream = gitCommits({ format: '%s%n%an%n%h%n%ad', from: 'd82ff8d9ee4e6a301c42dc0f74a8c13b35aaed23' });
 
 const versionRegex = /(v\d+\.\d+\.\d+)/g;
 const newLineRegex = /\r?\n/;
