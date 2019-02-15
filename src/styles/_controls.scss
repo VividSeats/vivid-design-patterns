@@ -18,16 +18,16 @@
     @include position(absolute, $sizing-SM null null $sizing-XS);
 
     .vp-control--checkbox & {
-        content: '\e835';
+        content: 'check_box_outline_blank';
     }
     .vp-control--checkbox .vp-control__input:checked + & {
-        content: '\e834';
+        content: 'check_box';
     }
     .vp-control--radio & {
-        content: '\e836';
+        content: 'radio_button_unchecked';
     }
     .vp-control--radio .vp-control__input:checked + & {
-        content: '\e837';
+        content: 'radio_button_checked';
     }
     .vp-control__input:checked + & {
         color: $text-color-link;
