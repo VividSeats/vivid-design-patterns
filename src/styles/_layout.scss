@@ -151,7 +151,6 @@ body.ios-fix {
 // Grid Columns
 .vp-col {
     @include column-base;
-    @include flex-basis(0);
 }
 $gridBreakpoints: sm null, md $breakpoint-tablet, lg $breakpoint-desktop, xl $breakpoint-desktop-XL;
 
