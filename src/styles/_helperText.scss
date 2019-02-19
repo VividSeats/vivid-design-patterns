@@ -1,6 +1,6 @@
-@import '_mixins.scss';
-@import '_prefixes.scss';
-@import '_tokens.scss';
+@import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
 @mixin active-helper-text() {
     height: auto;
@@ -9,7 +9,7 @@
     visibility: visible;
 }
 
-[class^='vp-helper-text'] {
+[class^='vdp-helper-text'] {
     @include transition(all $transition-1);
     color: $text-color-muted;
     display: block;

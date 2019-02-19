@@ -1,50 +1,58 @@
-// Tokens
 @import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
 @mixin collapse-base($titlePadding: $sizing-MD, $indicatorPos: $sizing-SM, $indicatorDisplay: none) {
-    .vp-collapse__title {
+    &[data-state='closed'] {
+        .vdp-collapse__content {
+            max-height: 0;
+        }
+    }
+    &[data-state='opened'] {
+        .vdp-collapse__title:after {
+            transform: rotate(180deg);
+        }
+        .vdp-collapse__content {
+            max-height: 99rem;
+        }
+    }
+    .vdp-collapse__title {
         cursor: pointer;
         padding: $titlePadding 0;
 
         &:after {
             @include position(absolute, $indicatorPos 0 null null);
-            @include pseudo-icon('keyboard_arrow_up');
+            @include pseudo-icon('keyboard_arrow_down');
             @include transition(all $transition-1);
             display: $indicatorDisplay;
         }
     }
-    .vp-collapse__content {
-        @include transition(max-height $transition-3);
-        height: auto;
-        max-height: 99rem;
-        overflow: hidden;
-    }
-    .vp-collapse__trigger:checked {
-        ~ .vp-collapse__title:after {
-            transform: rotate(180deg);
-        }
-        ~ .vp-collapse__content {
-            max-height: 0;
-        }
-    }
 }
 
-// Defaults
-.vp-collapse__title {
+.vdp-collapse {
+    @include collapse-base;
+}
+.vdp-collapse__title {
     display: block;
     padding: $sizing-MD 0;
     position: relative;
-
-    .vp-collapse__indicator {
-        display: none;
+}
+.vdp-collapse__content {
+    @include transition(max-height $transition-3);
+    height: auto;
+    overflow: hidden;
+}
+@include size-only-mobile {
+    .vdp-collapse-wrap {
+        margin-left: -$sizing-MD;
+        margin-right: -$sizing-MD;
     }
-}
-.vp-collapse {
-    @include collapse-base;
-}
-.vp-collapse--mobile {
-    @include size-only-mobile {
+    .vdp-collapse__content > * {
+        padding-bottom: $sizing-XL !important;
+    }
+    .vdp-collapse--mobile {
         @include border(top);
+        padding: 0 $sizing-LG;
         @include collapse-base($titlePadding: $sizing-LG, $indicatorPos: $sizing-MD, $indicatorDisplay: inline-block);
     }
 }

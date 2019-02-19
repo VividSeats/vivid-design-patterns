@@ -1,7 +1,6 @@
-// Tokens
 @import 'tokens';
-@import 'mixins';
-@import 'prefixes';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 @import 'helperText';
 
 // Mixins
@@ -27,7 +26,6 @@
     border-width: 1px;
     padding: 0 $sizing-MD;
 }
-
 @mixin active-label() {
     background-color: inherit;
     font-size: $font-size-SM;
@@ -56,8 +54,8 @@
 }
 
 // Blocks
-[class^='vp-select']:not([class*='__']),
-[class^='vp-textfield']:not([class*='__']) {
+[class^='vdp-select']:not([class*='__']),
+[class^='vdp-textfield']:not([class*='__']) {
     background-color: $color-white;
     margin: $sizing-XL 0 $sizing-MD;
     position: relative;
@@ -76,20 +74,8 @@
             @include pseudo-icon('check_circle', $text-color-success, $sizing-4XL, $margin: initial);
         }
     }
-
-    &:not([data-state*='filled']) select {
-        color: rgba(0, 0, 0, 0) !important;
-
-        option {
-            color: $text-color-default;
-
-            &:disabled {
-                color: rgba(0, 0, 0, 0.4);
-            }
-        }
-    }
 }
-[class^='vp-select']:not([class*='__']) {
+[class^='vdp-select']:not([class*='__']) {
     &:after {
         @include position(absolute, 0 $sizing-SM 0 null);
         @include pseudo-icon('arrow_drop_down');
@@ -100,7 +86,7 @@
 }
 
 // Elements
-.vp-floating-label {
+.vdp-floating-label {
     @include position(absolute, $sizing-SM null null $sizing-XS);
     @include transition(all $transition-1);
     background-color: transparent;
@@ -125,9 +111,8 @@
     }
 }
 
-[class^='vp-select__control'] {
+[class^='vdp-select__control'] {
     @include input-base;
-    padding: 0 $sizing-2XL 0 $sizing-XS;
     cursor: pointer;
 
     &:required:invalid {
@@ -140,12 +125,11 @@
 
     [class*='--outlined'] & {
         @include outlined-input-base;
-        padding: 0 $sizing-2XL 0 $sizing-MD;
     }
     &[class*='--medium'] {
         height: $sizing-3XL;
 
-        + .vp-floating-label {
+        + .vdp-floating-label {
             top: $sizing-XS;
         }
     }
@@ -153,31 +137,27 @@
         font-size: $font-size-SM;
         height: $sizing-2XL;
 
-        + .vp-floating-label {
+        + .vdp-floating-label {
             top: $sizing-XS;
             line-height: $sizing-XL;
         }
     }
 }
 
-[class^='vp-textfield__input'] {
+[class^='vdp-textfield__input'] {
     @include input-base;
 
     [class*='--outlined'] & {
         @include outlined-input-base;
     }
-
-    &::-ms-clear {
-        display: none;
-    }
 }
-textarea[class^='vp-textfield__input'] {
+textarea[class^='vdp-textfield__input'] {
     height: auto;
     min-height: calc(#{$sizing-4XL} * 2);
     padding: $sizing-MD !important;
     resize: vertical;
 }
-[class^='vp-textfield__trailing-icon'] {
+[class^='vdp-textfield__trailing-icon'] {
     @include position(absolute, 0 $sizing-SM 0 null);
     color: $color-gray;
     cursor: pointer;
@@ -190,16 +170,11 @@ textarea[class^='vp-textfield__input'] {
         font-weight: $font-weight-med;
         color: $text-color-muted;
     }
-
-    [data-state*='success'] &,
-    [data-state*='error'] & {
-        right: $sizing-2XL;
-    }
 }
 
 // Feedback States
-[class^='vp-select__control'],
-[class^='vp-textfield__input'] {
+[class^='vdp-select__control'],
+[class^='vdp-textfield__input'] {
     &:disabled {
         border-color: $color-gray;
         border-style: dashed;
@@ -218,16 +193,16 @@ textarea[class^='vp-textfield__input'] {
         border-color: $color-brand-blue;
         color: $text-color-default;
 
-        + .vp-floating-label {
+        + .vdp-floating-label {
             @include active-label;
             color: $color-brand-blue;
         }
-        ~ .vp-helper-text:not([class*='--validation']) {
+        ~ .vdp-helper-text:not([class*='--validation']) {
             @include active-helper-text;
         }
     }
     &:-webkit-autofill {
-        + .vp-floating-label {
+        + .vdp-floating-label {
             @include active-label;
 
             &:after {
@@ -239,22 +214,22 @@ textarea[class^='vp-textfield__input'] {
 
 // Outlined Input Modifiers
 [class*='--outlined'] {
-    [class^='vp-select__control']:disabled {
+    [class^='vdp-select__control']:disabled {
         box-shadow: 0 0 0 1000px $color-gray-highlight inset;
         color: $color-gray-medium;
 
-        + .vp-floating-label:after {
+        + .vdp-floating-label:after {
             background-color: $color-gray-highlight !important;
         }
     }
 }
 
 // dark background form elements
-.vp-form--inverted {
-    [class^='vp-textfield']:not([class*='__']) {
+.vdp-form--inverted {
+    [class^='vdp-textfield']:not([class*='__']) {
         background-color: inherit;
     }
-    [class^='vp-select']:not([class*='__']) {
+    [class^='vdp-select']:not([class*='__']) {
         background-color: inherit;
 
         &:after {
@@ -262,8 +237,8 @@ textarea[class^='vp-textfield__input'] {
         }
     }
 
-    [class^='vp-select__control'],
-    [class^='vp-textfield__input'] {
+    [class^='vdp-select__control'],
+    [class^='vdp-textfield__input'] {
         border-color: $color-gray-light;
         color: $color-white;
 
@@ -276,16 +251,16 @@ textarea[class^='vp-textfield__input'] {
             color: inherit !important;
         }
     }
-    .vp-floating-label {
+    .vdp-floating-label {
         color: white;
     }
 
     [class*='--outlined'] {
-        [class^='vp-select__control']:disabled {
+        [class^='vdp-select__control']:disabled {
             box-shadow: 0 0 0 1000px rgba($color-black, 0.3) inset;
             color: rgba($color-white, 0.5);
 
-            + .vp-floating-label {
+            + .vdp-floating-label {
                 color: rgba($color-white, 0.5);
                 &:after {
                     background-color: rgba($color-black, 0.3) !important;
@@ -298,6 +273,6 @@ textarea[class^='vp-textfield__input'] {
 select::-ms-expand {
     display: none;
 }
-.vp-textfield--nested-button [type='submit'] {
+.vdp-textfield--nested-button [type='submit'] {
     @include position(absolute, $sizing-SM $sizing-SM null null);
 }

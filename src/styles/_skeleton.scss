@@ -1,28 +1,36 @@
-// Tokens
 @import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
-$animation-width: 600px;
+$animation-width: 752px;
+$gradient-size: 200px;
 
-.vp-skeleton:hover {
+.vdp-skeleton:hover {
     background: inherit;
     cursor: default;
 }
-.vp-skeleton > * {
+.vdp-skeleton > * {
     border-color: $color-gray-highlight;
 }
-[class^='vp-skeleton__line'] {
-    $skeletonGradient: $color-gray-highlight 0px, $color-gray-light 48px, $color-gray-highlight 96px;
-    @include linear-gradient(90deg, $skeletonGradient);
+[class^='vdp-skeleton__line'] {
     animation: loading 2s infinite ease-in-out;
-    background-size: $animation-width;
+    background-color: $color-gray-highlight;
+    background-image: linear-gradient(
+        90deg,
+        $color-gray-highlight 0px,
+        $color-gray-light #{$gradient-size / 2},
+        $color-gray-highlight $gradient-size
+    );
+    background-repeat: no-repeat;
+    background-size: $gradient-size;
     border-radius: $border-radius-SM;
     height: $sizing-MD;
     margin-bottom: $sizing-2XS;
     margin-top: $sizing-2XS;
     width: 100%;
 
-    &[class*='--60'] {
-        width: 60%;
+    &[class*='--64'] {
+        width: 64%;
     }
     &[class*='--80'] {
         width: 80%;
@@ -30,10 +38,9 @@ $animation-width: 600px;
 }
 @keyframes loading {
     0% {
-        background-position: -100px;
+        background-position: -$gradient-size;
     }
-    40%,
     100% {
-        background-position: $animation-width / 2;
+        background-position: calc(100% + #{$gradient-size});
     }
 }

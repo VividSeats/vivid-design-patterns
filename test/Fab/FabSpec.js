@@ -7,7 +7,7 @@ import Fab from '../../src/components/molecules/Fab';
 describe('<Fab />', () => {
     it('renders', () => {
         const wrapper = shallow(<Fab />);
-        expect(wrapper.hasClass('vp-fab')).toBe(true);
+        expect(wrapper.hasClass('vdp-fab')).toBe(true);
     });
 
     it('supports FabChild subcomponents', () => {
@@ -18,8 +18,8 @@ describe('<Fab />', () => {
             </Fab>
         );
 
-        expect(wrapper.exists('.vp-fab__child.child1'));
-        expect(wrapper.exists('.vp-fab__child.child2'));
+        expect(wrapper.exists('.vdp-fab__child.child1'));
+        expect(wrapper.exists('.vdp-fab__child.child2'));
     });
 
     it('wraps a FabChild subcomponent around children that are not subcomponents', () => {
@@ -29,7 +29,7 @@ describe('<Fab />', () => {
             </Fab>
         );
 
-        expect(wrapper.exists('.vp-fab__child span'));
+        expect(wrapper.exists('.vdp-fab__child span'));
     });
 
     it('handles falsey children', () => {

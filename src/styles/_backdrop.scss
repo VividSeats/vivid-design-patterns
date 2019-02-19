@@ -1,11 +1,10 @@
-// Tokens
 @import 'tokens';
-@import 'prefixes';
-@import 'mixins';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
-[class^='vp-backdrop'] {
+[class^='vdp-backdrop'] {
     @include position(fixed, 0 null null 0);
-    @include transition(all $transition-2);
+    @include transition(opacity $transition-2);
     background-color: rgba($color-black, 0.75);
     height: 100%;
     opacity: 0;
@@ -17,9 +16,11 @@
         opacity: 1;
         pointer-events: all;
     }
-    // Sibling element transitions
-    [data-state='closing'] ~ &,
-    [data-state='opening'] ~ & {
-        @include transition(all $transition-2);
+    [data-state='closing'],
+    [data-state='opening'] {
+        @include transition(opacity $transition-2);
+    }
+    [class^='vdp-modal'] & {
+        z-index: -1;
     }
 }

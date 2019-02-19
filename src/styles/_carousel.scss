@@ -1,8 +1,8 @@
-// Tokens
 @import 'tokens';
-$carousel-height: 280px;
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
-.vp-carousel {
+.vdp-carousel {
     display: none; // just in case for mobile
 
     @include size-min-tablet {
@@ -14,7 +14,7 @@ $carousel-height: 280px;
         width: 100%;
     }
 }
-.vp-carousel__slider {
+.vdp-carousel__slider {
     height: 100%;
     width: 100%;
 
@@ -112,7 +112,7 @@ $carousel-height: 280px;
         }
     }
 }
-.vp-carousel__controls {
+.vdp-carousel__controls {
     @include position(absolute, 0 0 0 0);
     margin: auto;
     max-width: $grid-max-width;

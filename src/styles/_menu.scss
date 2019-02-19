@@ -1,0 +1,52 @@
+@import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
+
+// used for header nav
+// slides out from left on mobile
+// drops down on desktop
+
+.vdp-menu {
+    @include transition(all $transition-2);
+    background: $color-white;
+    min-width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: 1;
+
+    &[data-state='visible'] {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+@include size-only-mobile {
+    .vdp-menu {
+        @include flex;
+        @include flex-direction(column);
+        @include flex-wrap(wrap);
+        @include position(absolute, 0 null null 0);
+        @include transition(all $transition-2);
+        padding-top: $sizing-4XL;
+        height: 100%;
+        width: 100%;
+    }
+    .vdp-menu__item > a:first-of-type:before {
+        @include position(absolute, $sizing-MD $sizing-SM null null);
+        @include pseudo-icon('\E5CC');
+    }
+    .vdp-menu__divider {
+        @include border(top);
+        margin: $sizing-2XS 0;
+    }
+}
+@include size-min-tablet {
+    .vdp-menu {
+        @include justify-content(flex-end);
+    }
+    .vdp-menu__divider {
+        @include border(left);
+        height: $sizing-XL;
+        margin: auto $sizing-XS;
+    }
+}

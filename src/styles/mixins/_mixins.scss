@@ -1,4 +1,4 @@
-@import 'tokens';
+@import '../tokens';
 
 @function unpackShorthand($shorthand) {
     @if length($shorthand) == 1 {
@@ -96,13 +96,6 @@
 }
 @mixin size-only-desktop {
     @media screen and (min-width: $breakpoint-desktop) and (max-width: #{$breakpoint-desktop-XL - 1}) {
-        @content;
-    }
-}
-
-// VP mixins
-@mixin not-vp-child {
-    &:not([class*='__']) {
         @content;
     }
 }

@@ -1,111 +1,133 @@
-// Tokens
 @import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 $column-button-width: 6.75rem;
 $column-date-width: 5rem;
 $column-thumb-width: 4.25rem;
 $column-thumb-margin: $sizing-MD;
 $row-height: 4.5rem;
 
-// Block
-.vp-event-row {
+[class^='vdp-event-row']:not([class*='__']) {
     @include align-items(center);
     @include border(bottom);
     @include flex(0 1 auto);
     @include flex-wrap(wrap);
     @include transition(all $transition-1);
     cursor: pointer;
-    margin-left: 0;
-    margin-right: 0;
     min-height: $row-height;
     padding: $sizing-SM 0;
 
     @include size-min-tablet {
         padding: $sizing-MD 0;
-        height: $row-height;
-    }
-    &:visible:last-child {
-        border: none;
     }
     &:hover {
-        background: $color-off-white;
+        background-color: $color-gray-highlight;
     }
-    &__button,
-    &__date,
-    &__info,
-    &__thumb {
-        @include flex;
-        @include flex-direction(column);
-        @include justify-content(center);
+    &[data-row='last'] {
+        border-bottom: none;
+        padding-bottom: $sizing-XS;
     }
-    &__button,
-    &__date,
-    &__thumb {
-        @include flex-grow(0);
-    }
-    &__button {
+}
+[class^='vdp-event-row__col'] {
+    @include flex(0 0 auto);
+    @include flex-direction(column);
+    @include justify-content(center);
+    box-sizing: border-box;
+    max-width: 100%;
+
+    &[class*='--button'] {
         display: none;
-        min-width: $column-button-width;
-        padding-right: $sizing-MD;
-        text-align: right;
 
         @include size-min-tablet {
             display: inherit;
+            width: $column-button-width;
+            padding-right: $sizing-MD;
+            text-align: right;
         }
     }
-    &__date {
+    &[class*='--date'] {
         @include border(right);
-        padding: $sizing-2XS 0;
-        min-width: $column-date-width;
+        padding: $sizing-2XS $sizing-SM;
+        width: $column-date-width;
 
         > * {
             margin-left: auto;
             margin-right: auto;
         }
-        + .vp-event-row__info {
+        + .vdp-event-row__col--info {
             max-width: calc(100% - #{$column-date-width});
         }
     }
-    &__info {
-        padding: $sizing-2XS $sizing-LG !important;
-
-        &__title {
-        }
-        &__subtitle {
-        }
+    &[class*='--info'] {
+        @include flex-grow(1);
+        padding: $sizing-2XS $sizing-LG;
     }
-    &__thumb {
+    &[class*='--thumb'] {
         @include justify-content(flex-start);
         border-radius: $border-radius-SM;
         height: $sizing-3XL;
-        margin-left: $sizing-MD;
-        min-width: $column-thumb-width;
+        margin-left: $column-thumb-margin;
+        width: $column-thumb-width;
         overflow: hidden;
-        padding: 0 0;
 
-        + .vp-event-row__info {
+        + .vdp-event-row__col--info {
             max-width: calc(100% - #{$column-thumb-width + $column-thumb-margin});
             padding-left: $sizing-MD;
         }
     }
 }
 
-// Modifiers
-@include size-min-tablet {
-    .vp-event-row--has-button {
-        .vp-event-row__date + .vp-event-row__info {
-            max-width: calc(100% - #{$column-date-width + $column-button-width});
+// Skeleton Loader
+$animation-width: 752px;
+$gradient-size: 200px;
+
+.vdp-event-row--skeleton {
+    &:hover {
+        background-color: none;
+        cursor: default;
+    }
+    > * {
+        border-color: $color-gray-highlight;
+    }
+    .skeleton__line {
+        animation: loading 2s infinite ease-in-out;
+        background-color: $color-gray-highlight;
+        background-image: linear-gradient(
+            90deg,
+            $color-gray-highlight 0px,
+            $color-gray-light #{$gradient-size / 2},
+            $color-gray-highlight $gradient-size
+        );
+        background-repeat: no-repeat;
+        background-size: $gradient-size;
+        border-radius: $border-radius-SM;
+        height: $sizing-MD;
+        margin-bottom: $sizing-2XS;
+        margin-top: $sizing-2XS;
+        width: 100%;
+
+        &:nth-child(even) {
+            width: 80%;
         }
-        .vp-event-row__thumb + .vp-event-row__info {
-            max-width: calc(100% - #{$column-thumb-width + $column-button-width});
-        }
+    }
+    .vdp-event-row__col--date .skeleton__line:nth-child(odd) {
+        width: 64%;
+    }
+}
+@keyframes loading {
+    0% {
+        background-position: -$gradient-size;
+    }
+    100% {
+        background-position: calc(100% + #{$gradient-size});
     }
 }
 
 // EVENT ROWS THAT APPEAR WITHIN AN ANCHOR CARD
 // • Reduced padding to mobile size
 // • Background color doesn't change on hover
-.vp-event-row {
-    .vp-card--anchor & {
+.vdp-event-row {
+    .vdp-card--anchor & {
         padding: $sizing-SM 0;
 
         &:hover {

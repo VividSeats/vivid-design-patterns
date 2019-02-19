@@ -14,7 +14,7 @@ const Link = ({ children, className, href, onClick, ...attributes }) => {
         href,
         onClick,
         role: 'link',
-        className: classNames('vp-type-link', {
+        className: classNames('vdp-type-link', {
             [className]: !!className
         }),
         ...attributes

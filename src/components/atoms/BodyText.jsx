@@ -15,7 +15,7 @@ const BodyText = ({
     list,
     ...htmlAttributes
 }) => {
-    const classNames = getTypeClassNames(`vp-type-body${importance}`, {
+    const classNames = getTypeClassNames(`vdp-type-body${importance}`, {
         weight,
         height,
         state,

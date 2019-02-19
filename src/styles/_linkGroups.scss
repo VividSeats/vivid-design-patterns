@@ -1,34 +1,79 @@
-// Tokens
 @import 'tokens';
-@import 'mixins';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
-[class^='vp-link-group']:not([class*='__']) {
+[class^='vdp-link-group']:not([class*='__']) {
     list-style: none;
     margin-bottom: 0;
     margin-top: 0;
     padding: 0;
 }
-[class^='vp-link-group__item'] {
-    font-size: $font-size-MD;
-    border-radius: $border-radius-SM;
-    padding: $sizing-SM 0;
-}
-// Modifiers
-.vp-link-group--muted {
-    .vp-link-group__item {
-        font-size: $font-size-SM;
-        @include size-min-tablet {
-            padding: $sizing-XS 0;
-        }
-    }
-}
-.vp-link-group--striped {
+[class^='vdp-link-group'][class*='--striped'] {
     margin-left: -$sizing-SM;
     margin-right: -$sizing-SM;
-    .vp-link-group__item {
+
+    .vdp-link-group__item:nth-child(odd) {
+        background-color: $color-gray-highlight;
+    }
+    .vdp-link-group__item a {
         padding: $sizing-SM $sizing-SM #{$sizing-SM + $sizing-2XS};
-        &:nth-child(odd) {
-            background-color: $color-gray-highlight;
+    }
+}
+[class^='vdp-link-group'][class*='--partitioned'] {
+    margin-left: 0;
+    margin-right: 0;
+
+    @include size-only-mobile {
+        &[data-partition='first'] {
+            margin-top: $sizing-MD;
+        }
+        &[data-partition='last'] {
+            margin-bottom: $sizing-LG;
         }
     }
+    @include size-min-tablet {
+        margin-top: $sizing-MD;
+        margin-bottom: $sizing-LG;
+    }
+}
+
+[class^='vdp-link-group__item'] {
+    @include transition(all $transition-1);
+    font-size: $font-size-MD;
+    border-radius: $border-radius-SM;
+
+    &[class*='--featured'] a {
+        font-weight: $font-weight-bld;
+    }
+    a {
+        display: block;
+        padding: $sizing-SM 0;
+    }
+}
+.vdp-link-group--hover {
+    [class^='vdp-link-group__item']:hover {
+        background-color: $color-brand-blue-light;
+
+        a {
+            color: $text-color-link;
+        }
+    }
+    [class^='vdp-link-group__item'] a {
+        padding: #{$sizing-XS + $sizing-2XS} $sizing-SM;
+    }
+}
+.vdp-link-group--muted {
+    [class^='vdp-link-group__item'] {
+        font-size: $font-size-SM;
+
+        @include size-min-tablet {
+            a {
+                padding: $sizing-XS 0;
+            }
+        }
+    }
+}
+.vdp-link-group__divider {
+    @include border(top);
+    margin: $sizing-MD -#{$sizing-SM} $sizing-SM;
 }

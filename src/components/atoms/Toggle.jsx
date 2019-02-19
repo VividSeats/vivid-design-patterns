@@ -42,10 +42,10 @@ class Toggle extends Component {
         const checked = this.isControlled('on') ? this.props.on : this.state.on;
 
         return (
-            <label className={`vp-toggle ${className}`} {...htmlProps}>
-                {!!title && <span className="vp-toggle__label">{title}</span>}
-                <input className="vp-toggle__control" type="checkbox" onChange={this.onToggle} checked={checked} hidden />
-                <span className="vp-toggle__thumb" />
+            <label className={`vdp-toggle ${className}`} {...htmlProps}>
+                {!!title && <span className="vdp-toggle__label">{title}</span>}
+                <input className="vdp-toggle__control" type="checkbox" onChange={this.onToggle} checked={checked} hidden />
+                <span className="vdp-toggle__thumb" />
             </label>
         );
     }

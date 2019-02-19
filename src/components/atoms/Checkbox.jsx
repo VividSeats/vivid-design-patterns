@@ -36,19 +36,19 @@ class Checkbox extends React.Component {
         const { error } = this.state;
         const { className, onChange, validationMethod, defaultChecked, label, id, ...htmlAttributes } = this.props;
         return (
-            <label className={`vp-control--checkbox ${className} `} aria-label="checkbox" htmlFor={id} data-state={error ? 'error' : null}>
+            <label className={`vdp-control--checkbox ${className} `} aria-label="checkbox" htmlFor={id} data-state={error ? 'error' : null}>
                 <input
                     hidden
                     type="checkbox"
-                    className="vp-control__input"
+                    className="vdp-control__input"
                     onChange={this.onChange}
                     checked={this.getCheckedState()}
                     id={id}
                     {...htmlAttributes}
                 />
-                <span className="vp-control__span">
+                <span className="vdp-control__span">
                     {label}
-                    {!!error && <span className="vp-helper-text--validation">{error}</span>}
+                    {!!error && <span className="vdp-helper-text--validation">{error}</span>}
                 </span>
             </label>
         );

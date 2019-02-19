@@ -1,7 +1,6 @@
-@import 'prefixes';
 @import 'tokens';
-@import '_prefixes';
-
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 $fontFaces: (
     $font-family-icons: (
         $font-family-icons,
@@ -157,7 +156,7 @@ $typeStyles: (
 }
 
 // Typography Base
-.vp-type {
+.vdp-type {
     color: $text-color-default;
     font-family: $font-family-default;
     font-size: $font-size-base;
@@ -169,7 +168,7 @@ $typeStyles: (
 
 // Build Base Type Styles
 @each $style, $attr in $typeStyles {
-    [class*='vp-type-#{$style}'] {
+    [class^='vdp-type-#{$style}'] {
         font-size: nth($attr, 1);
         font-weight: nth($attr, 2);
         line-height: nth($attr, 3);
@@ -185,60 +184,68 @@ a {
     text-decoration: none;
     color: inherit;
 }
-[class^='vp-type-link'] {
+[class^='vdp-type-link'] {
+    @include transition(all $transition-1);
     color: $text-color-link;
     cursor: pointer;
     font-size: inherit;
     font-weight: $font-weight-bld;
+    outline: none;
     text-decoration: none;
-    @include transition(all $transition-1);
 
     &:active,
     &:focus,
     &:hover {
         color: $text-color-link-hover;
         text-decoration: underline;
-        outline: none;
     }
-    &[class*='--inverted'],
-    &[class*='--muted'] {
-        text-decoration: underline;
+    &[class*='--block'] {
+        display: block;
+    }
+    &[class*='--inverted']:hover {
+        color: $color-off-white;
+    }
+    &[class*='--muted']:hover {
+        color: $color-gray-dark;
+    }
+    &[class*='--hover'] {
+        color: $text-color-default;
+        font-weight: $font-weight-reg;
 
-        &:active,
-        &:focus,
         &:hover {
-            color: inherit;
+            text-decoration: none;
         }
     }
 }
 
 // Lists
 // ul and ol get --list appended to a type size
-.vp-type-list-item {
+.vdp-type-list-item {
     color: inherit;
     font-size: inherit;
     margin-bottom: $sizing-SM;
 }
 
 // Type Modifiers
-[class^='vp-type'] {
+[class^='vdp-type'] {
     &[class*='--blk'] {
-        font-weight: $font-weight-blk;
+        font-weight: $font-weight-blk !important;
     }
     &[class*='--bld'] {
-        font-weight: $font-weight-bld;
+        font-weight: $font-weight-bld !important;
     }
     &[class*='--med'] {
-        font-weight: $font-weight-med;
+        font-weight: $font-weight-med !important;
     }
-
+    &[class*='--reg'] {
+        font-weight: $font-weight-reg !important;
+    }
     &[class*='--compressed'] {
         line-height: $line-height-SM;
     }
     &[class*='--expanded'] {
         line-height: $line-height-XL;
     }
-
     &[class*='--disabled'] {
         color: $text-color-disabled;
     }
@@ -248,7 +255,6 @@ a {
     &[class*='--muted'] {
         color: $text-color-muted;
     }
-
     &[class*='--left'] {
         text-align: left;
     }
@@ -258,7 +264,6 @@ a {
     &[class*='--right'] {
         text-align: right;
     }
-
     &[class*='--uppercase'] {
         text-transform: uppercase;
     }
@@ -273,5 +278,8 @@ a {
     &[class*='--list'] {
         margin: $sizing-LG 0 $sizing-XL;
         padding-left: $sizing-3XL;
+    }
+    &[class*='--underline'] {
+        text-decoration: underline;
     }
 }

@@ -1,10 +1,6 @@
-// Tokens
 @import 'tokens';
-@import 'mixins';
-@import 'prefixes';
-@import '_colors.scss';
-
-$card-hero-height: 8rem; // 128px
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
 // Mixins
 @mixin card-base {
@@ -19,7 +15,7 @@ $card-hero-height: 8rem; // 128px
 }
 
 // Standard Card
-.vp-card {
+.vdp-card {
     @include card-base;
 
     &__header {
@@ -31,24 +27,28 @@ $card-hero-height: 8rem; // 128px
 }
 
 // List Card
-.vp-card--list {
+.vdp-card--list {
     @include card-base;
 
-    .vp-card__header {
+    .vdp-card__header {
         @include border(bottom);
-        font-size: $font-size-SM;
-        line-height: $sizing-XL;
-        padding: $sizing-LG;
+        line-height: $sizing-5XL;
+        padding: 0 $sizing-LG;
+        position: relative;
         text-transform: uppercase;
 
         span {
-            font-weight: $font-weight-reg;
+            font-weight: $font-weight-blk;
+        }
+        button {
+            @include position(absolute, 0 $sizing-SM 0 null);
+            margin: auto;
         }
     }
 }
 
 // Anchor Card
-.vp-card--anchor {
+.vdp-card--anchor {
     @include card-base;
     @include transition(all $transition-1);
     cursor: pointer;
@@ -56,13 +56,13 @@ $card-hero-height: 8rem; // 128px
     &:hover {
         box-shadow: $elevation-3;
 
-        .vp-card__hero {
+        .vdp-card__hero {
             background-size: 105% auto;
         }
     }
 }
 
-[class^='vp-card'] {
+[class^='vdp-card'] {
     [class*='__footer'] {
         @include flex;
         @include justify-content(flex-end);
@@ -71,23 +71,19 @@ $card-hero-height: 8rem; // 128px
         &[class*='--centered'] {
             justify-content: space-around;
         }
-        [class*='vp-text-button'] {
+        [class*='vdp-button--text'] {
             margin: $sizing-2XS 0;
         }
     }
 }
-.vp-card__header {
+.vdp-card__header {
     > * {
         display: inline-block;
         vertical-align: middle;
     }
-
-    .vp-card__header__icon {
-        @include vp-text-gradient;
-    }
 }
 
-.vp-card__hero {
+.vdp-card__hero {
     @include background-cover;
     @include transition(all $transition-1);
     height: $card-hero-height;
@@ -102,9 +98,9 @@ $card-hero-height: 8rem; // 128px
     }
 }
 
-[class^='vp-grid'] {
-    .vp-card,
-    .vp-card--list {
+[class^='vdp-grid'] {
+    .vdp-card,
+    .vdp-card--list {
         margin-bottom: 0;
     }
 }

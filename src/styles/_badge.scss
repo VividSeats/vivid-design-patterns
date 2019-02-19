@@ -1,11 +1,8 @@
 @import 'tokens';
-@import 'mixins';
-@import 'prefixes';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
-// states: angled, count, default
-// sizes: default: -> one of
-
-[class^='vp-badge'] {
+[class^='vdp-badge'] {
     background-color: $color-gray;
     border-radius: $border-radius-XS;
     color: $color-white;

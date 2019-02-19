@@ -6,9 +6,9 @@ import CardHeader from '../../src/components/atoms/CardHeader';
 import CardFooter from '../../src/components/atoms/CardFooter';
 
 const subComponentTests = [
-    { name: 'Card.Header', component: CardHeader, checkForStyles: ['.vp-card__header'] },
-    { name: 'Card.Body', component: CardBody, checkForStyles: ['.vp-card__body'] },
-    { name: 'Card.Footer', component: CardFooter, checkForStyles: ['.vp-card__footer'] }
+    { name: 'Card.Header', component: CardHeader, checkForStyles: ['.vdp-card__header'] },
+    { name: 'Card.Body', component: CardBody, checkForStyles: ['.vdp-card__body'] },
+    { name: 'Card.Footer', component: CardFooter, checkForStyles: ['.vdp-card__footer'] }
 ];
 
 describe('<Card />', () => {
@@ -48,17 +48,17 @@ describe('<Card />', () => {
 
     it('renders a card', () => {
         const wrapper = mount(<Card>Four score and seven years ago...</Card>);
-        expect(wrapper.find('.vp-card').exists()).toBe(true);
+        expect(wrapper.find('.vdp-card').exists()).toBe(true);
         const cardBody = wrapper.find(CardBody);
         expect(cardBody.exists()).toBe(true);
-        expect(cardBody.find('.vp-card__body').exists()).toBe(true);
+        expect(cardBody.find('.vdp-card__body').exists()).toBe(true);
     });
 
     it('renders a list card with a header border', () => {
         const wrapper = mount(
             <Card type="list">
                 <Card.Header>
-                    <h5 className="vp-type-headline6">List Card</h5>
+                    <h5 className="vdp-type-headline6">List Card</h5>
                 </Card.Header>
                 <Card.Body>
                     <ul>
@@ -70,8 +70,8 @@ describe('<Card />', () => {
             </Card>
         );
         const cardHeader = wrapper.find(CardHeader);
-        expect(cardHeader.parent().hasClass('vp-card--list')).toBe(true);
-        expect(cardHeader.find('.vp-card__header').exists()).toBe(true);
+        expect(cardHeader.parent().hasClass('vdp-card--list')).toBe(true);
+        expect(cardHeader.find('.vdp-card__header').exists()).toBe(true);
     });
 
     it('renders an anchor card which is clickable', () => {
@@ -82,7 +82,7 @@ describe('<Card />', () => {
                 <Card.Body>Might as well live in Anchorage, Alaska, 'cuz I'm anchored all day.</Card.Body>
             </Card>
         );
-        const cardAnchor = wrapper.find('.vp-card--anchor');
+        const cardAnchor = wrapper.find('.vdp-card--anchor');
         cardAnchor.simulate('click');
         expect(cardAnchor.exists()).toBe(true);
         expect(mockOnClick).toHaveBeenCalledTimes(1);
@@ -96,7 +96,7 @@ describe('<Card />', () => {
                 <Card.Body>Might as well live in Anchorage, Alaska, 'cuz I'm anchored all day.</Card.Body>
             </Card>
         );
-        const cardAnchor = wrapper.find('.vp-card--anchor');
+        const cardAnchor = wrapper.find('.vdp-card--anchor');
         cardAnchor.simulate('click', { key: 'Enter' });
         expect(cardAnchor.exists()).toBe(true);
         expect(mockOnClick).toHaveBeenCalledTimes(1);
@@ -112,7 +112,7 @@ describe('<Card />', () => {
         const cardHeader = wrapper.find(CardHeader);
         const cardBody = wrapper.find(CardBody);
         const cardFooter = wrapper.find(CardFooter);
-        expect(wrapper.find('.vp-card').exists()).toBe(true);
+        expect(wrapper.find('.vdp-card').exists()).toBe(true);
         expect(cardHeader.exists()).toBe(true);
         expect(cardBody.exists()).toBe(true);
         expect(cardFooter.exists()).toBe(true);

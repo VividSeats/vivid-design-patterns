@@ -23,7 +23,7 @@ function NativeSelect({ onChange, onBlur, id, value, label, disabled, small, med
         onBlur,
         disabled,
         value: value || nullString,
-        className: classnames('vp-select__control', {
+        className: classnames('vdp-select__control', {
             '--small': small,
             '--medium': medium
         })
