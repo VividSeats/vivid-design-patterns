@@ -1,6 +1,7 @@
 @import 'tokens';
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
+@import 'eventRows';
 
 .vdp-search-field {
     @include border;
@@ -12,15 +13,12 @@
     font-size: $font-size-MD;
     font-weight: $font-weight-reg;
     margin: 0 $sizing-LG;
-    padding: 0 $sizing-LG;
     min-width: 320px;
+    padding: 0 $sizing-LG;
 
-    @include size-min-tablet {
-        background-color: $color-gray-highlight;
-    }
     [class*='vdp-search-field__icon'] {
         color: $color-gray-medium;
-        line-height: 36px !important;
+        line-height: 36px;
         z-index: 2;
     }
     .vdp-search-field__icon-search {
@@ -41,7 +39,6 @@
         font-size: $font-size-MD;
         height: 36px;
         outline: none;
-
         position: relative;
         width: 100%;
         z-index: 1;
@@ -53,41 +50,79 @@
             color: $text-color-default;
         }
     }
-}
-.vdp-search-field[data-state='active'] {
-    @include justify-content(flex-start);
+    &[data-state='active'] {
+        @include justify-content(flex-start);
 
-    .twitter-typeahead {
-        width: 100% !important;
+        .twitter-typeahead {
+            width: 100% !important;
+        }
+    }
+    @include size-only-mobile {
+        [class*='vdp-search-field__icon'] {
+            line-height: $sizing-4XL;
+        }
+        .vdp-search-field__input {
+            height: $sizing-4XL;
+        }
+    }
+}
+.vdp-search-result {
+    border-radius: $border-radius-SM;
+    color: $text-color-default;
+    cursor: pointer;
+    font-size: $font-size-MD;
+    line-height: $sizing-LG;
+    margin: 0 $sizing-SM;
+    padding: $sizing-SM;
+
+    &.tt-is-under-cursor {
+        background-color: $color-brand-blue-light !important;
+        color: $text-color-link;
+
+        * {
+            color: $text-color-link;
+        }
+    }
+    &:first-child {
+        margin-top: $sizing-SM;
+    }
+    &:last-child {
+        margin-bottom: $sizing-LG;
+    }
+    &.vdp-event-row {
+        border-bottom: none;
     }
 }
 
 // Twitter Typeahead Results
 .twitter-typeahead {
-    width: 262px; // based off of placeholder
+    width: 262px; // based off of current placeholder
 
     .tt-hint {
         display: none;
     }
     .tt-dropdown-menu {
         background: $color-white;
-        box-shadow: $elevation-2;
-        width: 100% !important;
         z-index: $z-index-nav !important;
-    }
-    .search-results__header {
-        background-color: $color-gray-light;
-        line-height: $sizing-XL;
-        padding: 0 $sizing-SM;
-    }
-}
-@include size-only-mobile {
-    .tt-dropdown-menu {
-        width: 100vw !important;
-        position: fixed !important;
-        top: 48px !important;
-        right: 0 !important;
-        bottom: 0;
-        overflow: auto;
+
+        @include size-only-mobile {
+            @include border(top);
+            bottom: 0;
+            overflow: auto;
+            padding-bottom: $sizing-XL;
+            position: fixed !important;
+            right: 0 !important;
+            top: $sizing-4XL !important;
+            width: 100vw !important;
+        }
+        @include size-min-tablet {
+            border-radius: $border-radius-LG;
+            box-shadow: $elevation-2;
+            left: -$sizing-3XL !important;
+            min-width: 360px;
+            top: calc(100% + #{$sizing-LG}) !important;
+            width: calc(100% + 76px);
+            z-index: $z-index-nav !important;
+        }
     }
 }

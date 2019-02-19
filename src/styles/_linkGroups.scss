@@ -54,11 +54,11 @@
     [class^='vdp-link-group__item']:hover {
         background-color: $color-brand-blue-light;
 
-        a {
+        * {
             color: $text-color-link;
         }
     }
-    [class^='vdp-link-group__item'] a {
+    [class^='vdp-link-group__item'] * {
         padding: #{$sizing-XS + $sizing-2XS} $sizing-SM;
     }
 }

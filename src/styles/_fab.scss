@@ -10,7 +10,7 @@
     height: $sizing-5XL;
     text-align: center;
 
-    .vdp-fab__item {
+    .vdp-fab__child {
         cursor: pointer;
 
         i {
@@ -27,7 +27,7 @@
 }
 
 @include size-min-tablet {
-    .vdp-fab__item {
+    .vdp-fab__child {
         -ms-flex: 1;
         flex: 1;
         border-radius: $border-radius-SM;
@@ -53,7 +53,7 @@
         z-index: $z-index-fab;
         transform: translateX(-50%);
 
-        .vdp-fab__item {
+        .vdp-fab__child {
             padding: 0 $sizing-MD;
             white-space: nowrap;
 
