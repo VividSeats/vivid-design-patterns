@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const VividSeatsLogo = ({ href, ...htmlAttributes }) => (
-    <a className="brand" href={href} {...htmlAttributes}>
+const VividSeatsLogo = ({ href, className, ...htmlAttributes }) => (
+    <a className={`brand ${className}`} href={href} {...htmlAttributes}>
         <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 571.427 114.668">
             <path d="M119.31 353.007l.014-.012-.015.012z" />
             <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="419.317" y1="501.718" x2="419.317" y2="331.135">
@@ -57,11 +57,13 @@ const VividSeatsLogo = ({ href, ...htmlAttributes }) => (
 );
 
 VividSeatsLogo.defaultProps = {
-    href: '/'
+    href: '/',
+    className: ''
 };
 
 VividSeatsLogo.propTypes = {
-    href: PropTypes.string
+    href: PropTypes.string,
+    className: PropTypes.string
 };
 
 export default VividSeatsLogo;
