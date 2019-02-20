@@ -78,6 +78,7 @@
     "start:docs": "./node_modules/.bin/docz dev",
     "build:docs": "./node_modules/.bin/docz build",
     "build:js": "./node_modules/.bin/gulp bundle_js",
+    "watch:js": "NODE_ENV=dev ./node_modules/.bin/gulp bundle_js watch_js",
     "prepublishOnly": "yarn run format && yarn run test && yarn run lint && yarn run build:js",
     "postversion": "yarn run changelog && git add CHANGELOG.md && git commit -m 'Post publish change-log generation commit'",
     "publish:branch": "yarn publish --tag $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) --new-version 0.0.0-$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)-$(date +%s) --no-git-tag-version",
