@@ -21,3 +21,28 @@ Using the react components:
 <Playground>
     <VividSeatsLogo/>
 </Playground>
+
+
+## Additional attributes
+You can pass in any additional attributes that can be applied to an anchor tag (onClick, onMouseOver, etc):
+
+<Playground>
+    {
+        () => {
+            const onClick = (e) => {
+                e.preventDefault();
+                alert('Clicked')
+            };
+            const onHover = (e) => {
+                console.log('Hover')
+            }
+
+            return (
+                <div>
+                    <p>Hover to see callback log in the console. Click to see alert.</p>
+                    <VividSeatsLogo onClick={onClick} onMouseOver={onHover}/>
+                </div>
+            )
+        }
+    }
+</Playground>
