@@ -7,9 +7,10 @@
 $column-date-width: 5rem;
 $column-thumb-width: 4.25rem;
 $column-thumb-margin: $sizing-MD;
+$column-button-width: 6.75rem;
 $row-height: 4.5rem;
 
-[class^='vdp-event-row']:not([class*='__']) {
+[class*='vdp-event-row']:not([class*='__']) {
     @include align-items(center);
     @include border(bottom);
     @include flex(0 1 auto);
@@ -30,7 +31,7 @@ $row-height: 4.5rem;
         padding-bottom: $sizing-XS;
     }
 }
-[class^='vdp-event-row__col'] {
+[class*='vdp-event-row__col'] {
     @include flex(0 0 auto);
     @include flex-direction(column);
     @include justify-content(center);

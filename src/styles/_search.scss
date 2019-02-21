@@ -1,7 +1,7 @@
 @import 'tokens';
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
-@import 'eventRows';
+@import 'eventRow';
 
 .vdp-search-field {
     @include border;
