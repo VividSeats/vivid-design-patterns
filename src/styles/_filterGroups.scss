@@ -1,11 +1,11 @@
-// Tokens
 @import 'tokens';
-@import 'mixins';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
 // Link styles
 @import 'link';
 
-.vp-filter-group {
+.vdp-filter-group {
     display: inline-block;
     vertical-align: top;
     margin-bottom: 0 !important;

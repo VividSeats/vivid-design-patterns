@@ -1,5 +1,6 @@
-// Tokens
 @import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 $gradients: (
     blue: $color-gradient-blue,
     gold: $color-gradient-gold,
@@ -7,21 +8,17 @@ $gradients: (
     slate: $color-gradient-slate
 );
 
-// Gradients
-.vp-gradient {
+@mixin text-gradient($gradient: $color-gradient-red) {
+    @include linear-gradient(to right, $gradient);
+    color: nth($gradient, 1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient {
     @each $name, $attr in $gradients {
-        &-#{$name}--horz {
-            @include linear-gradient(to right, $attr);
-        }
-        &-#{$name}--vert {
-            @include linear-gradient(to bottom, $attr);
-        }
-        &-#{$name}--text {
-            background: -webkit-linear-gradient(left, $attr);
-            background: linear-gradient(to right, $attr);
-            color: nth($attr, 1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        &-#{$name} {
+            @include text-gradient($attr);
         }
     }
 }
@@ -45,7 +42,7 @@ $overlays: (
         $color-black
     )
 );
-.vp-overlay {
+.overlay {
     @each $name, $attr in $overlays {
         $gradient: rgba(nth($attr, 2), 0), nth($attr, 2);
         &-#{$name} {
@@ -54,12 +51,9 @@ $overlays: (
     }
 }
 
-.vp-bg {
+.bg {
     &-black {
         background-color: $color-black;
-    }
-    &-white {
-        background-color: $color-white;
     }
     &-blue {
         background-color: $color-brand-blue;
@@ -70,11 +64,17 @@ $overlays: (
     &-slate {
         background-color: $color-brand-slate;
     }
-}
-
-@mixin vp-text-gradient($gradient: $color-gradient-red) {
-    color: nth($gradient, 1);
-    @include linear-gradient(to right, $gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    &-white {
+        background-color: $color-white;
+    }
+    &-gradient {
+        @each $name, $attr in $gradients {
+            &-#{$name}--horz {
+                @include linear-gradient(to right, $attr);
+            }
+            &-#{$name}--vert {
+                @include linear-gradient(to bottom, $attr);
+            }
+        }
+    }
 }

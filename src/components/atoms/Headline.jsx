@@ -15,7 +15,7 @@ const Headline = ({
     list,
     ...htmlAttributes
 }) => {
-    const classNames = getTypeClassNames(`vp-type-headline${importance}`, {
+    const classNames = getTypeClassNames(`vdp-type-headline${importance}`, {
         weight,
         height,
         state,

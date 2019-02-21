@@ -2,7 +2,7 @@ import React from 'react';
 import { getTypeClassNames, TYPOGRAPHY_PROP_TYPES } from '../../utils/typographyUtils';
 
 const SmallText = ({ children, className, weight, height, state, alignment, capitalization, truncate, list, ...htmlAttributes }) => {
-    const classNames = getTypeClassNames('vp-type-small', {
+    const classNames = getTypeClassNames('vdp-type-small', {
         weight,
         height,
         state,

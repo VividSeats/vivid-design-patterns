@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /* eslint react/no-array-index-key: 0 */
 
 const LinkGroup = ({ children, type, className, ...htmlAttributes }) => {
-    const baseLinkGroupClass = `vp-link-group${type ? `--${type}` : ''}`;
+    const baseLinkGroupClass = `vdp-link-group${type ? `--${type}` : ''}`;
     const props = {
         className: className ? `${baseLinkGroupClass} ${className}` : baseLinkGroupClass,
         ...htmlAttributes
@@ -12,7 +12,7 @@ const LinkGroup = ({ children, type, className, ...htmlAttributes }) => {
     return (
         <ul {...{ ...props, ...htmlAttributes }}>
             {React.Children.toArray(children).map((child, i) => (
-                <li key={i} className="vp-link-group__item">
+                <li key={i} className="vdp-link-group__item">
                     {child}
                 </li>
             ))}

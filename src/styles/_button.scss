@@ -1,14 +1,6 @@
-// Tokens
 @import 'tokens';
-@import 'mixins';
-@import 'prefixes';
-
-$button-height-default: $sizing-3XL; // 40px
-$button-height-small: $sizing-2XL; // 32px
-$button-height-large: $sizing-4XL; // 48px
-$button-padding-default: $button-height-default / 2;
-$button-padding-small: $button-height-small / 2;
-$button-padding-large: $button-height-large / 2;
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
 // Mixins
 @mixin button-base($fontWeight: $font-weight-med) {
@@ -24,12 +16,13 @@ $button-padding-large: $button-height-large / 2;
 }
 @mixin button-size($fontSize: $font-size-MD, $lineHeight: $button-height-default, $padding: $button-padding-default) {
     font-size: $fontSize;
+    height: $lineHeight;
     line-height: $lineHeight;
     padding: 0 $padding;
 }
 
 // Block
-[class^='vp-button'] {
+[class^='vdp-button']:not([class*='__']) {
     @include button-base;
     @include button-size;
     @include linear-gradient(to bottom, $color-gradient-red);
@@ -59,7 +52,7 @@ $button-padding-large: $button-height-large / 2;
         text-transform: uppercase;
 
         &:hover {
-            background: $color-off-white;
+            background: $color-brand-blue-light;
             box-shadow: none;
         }
         &[class*='--muted'] {
@@ -78,13 +71,16 @@ $button-padding-large: $button-height-large / 2;
     &[class*='--block'] {
         width: 100%;
     }
+    &[class*='--with-icon'] {
+        padding-left: 0;
+    }
     &:hover {
         box-shadow: $elevation-2;
     }
 }
 
 // Button Group
-[class^='vp-grouped-button'] {
+[class^='vdp-grouped-button'] {
     @include button-base;
     @include button-size;
     background: $color-white;
@@ -122,12 +118,11 @@ $button-padding-large: $button-height-large / 2;
 }
 
 // Button Elements
-.vp-button__icon {
-    display: inline-block;
-    font-size: $font-size-2XL;
-    margin-right: $sizing-SM;
+.vdp-button__icon {
+    line-height: inherit;
+    vertical-align: top;
 
-    [class^='vp-button'][class*='--small'] & {
+    [class^='vdp-button'][class*='--small'] & {
         font-size: $font-size-XL;
         margin-right: $sizing-XS;
     }

@@ -40,7 +40,7 @@ class FilterGroup extends React.Component {
     render() {
         const { expanded } = this.state;
         const { groupName, children, className, limit, ...htmlAttributes } = this.props;
-        const classNames = className ? `vp-filter-group ${className}` : 'vp-filter-group';
+        const classNames = className ? `vdp-filter-group ${className}` : 'vdp-filter-group';
         const childrenCount = React.Children.count(children);
         const filterLimit = !!expanded && childrenCount > limit ? childrenCount : limit;
         return (

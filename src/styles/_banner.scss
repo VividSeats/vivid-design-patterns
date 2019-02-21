@@ -1,0 +1,60 @@
+@import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
+
+[class^='vdp-banner']:not([class*='__']) {
+    @include flex;
+    @include justify-content(center);
+}
+@include size-min-tablet {
+    .vdp-banner--promo {
+        border-image-repeat: stretch;
+        border-image-slice: 2;
+        border-image-width: 2px 50%;
+        border-top: 1px solid;
+        box-shadow: 0 1px 0 $color-gray-light;
+        height: $sizing-4XL;
+
+        .vdp-banner__image {
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.vdp-banner__mask {
+    @include align-items(center);
+    @include flex;
+    @include justify-content(center);
+    max-width: $grid-max-width;
+    padding: 0 $sizing-LG;
+    position: relative;
+    width: 100%;
+
+    &:before,
+    &:after {
+        @include position(absolute, 0 null 0 null);
+        background: rgba($color-black, 0.15);
+        content: '';
+        width: 100%;
+    }
+    &:before {
+        @include transform(skewX(10deg));
+        right: 96%;
+    }
+    &:after {
+        @include transform(skewX(-10deg));
+        left: 96%;
+    }
+    > * {
+        flex: 0.25;
+        white-space: nowrap;
+    }
+}
+@include size-only-mobile {
+    .vdp-banner__mask {
+        @include flex-direction(column);
+    }
+}

@@ -7,18 +7,18 @@ describe('<Link />', () => {
 
     it('renders an <a> tag', () => {
         const wrapper = shallow(<Link href={fakeHref} />);
-        expect(wrapper.find('a.vp-type-link').exists()).toBe(true);
+        expect(wrapper.find('a.vdp-type-link').exists()).toBe(true);
     });
 
     it('renders an <a> tag with custom attributes', () => {
         const wrapper = shallow(<Link href={fakeHref} id="myLink" />);
-        expect(wrapper.find('#myLink').hasClass('vp-type-link')).toBe(true);
+        expect(wrapper.find('#myLink').hasClass('vdp-type-link')).toBe(true);
     });
 
     it('handles onClick event', () => {
         const mockOnClick = jest.fn();
         const wrapper = shallow(<Link href={fakeHref} onClick={mockOnClick} />);
-        wrapper.find('.vp-type-link').simulate('click');
+        wrapper.find('.vdp-type-link').simulate('click');
         expect(mockOnClick).toHaveBeenCalledTimes(1);
     });
 });

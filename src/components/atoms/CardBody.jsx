@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CardBody = ({ className = '', children, ...htmlAttributes }) => (
-    <div className={`vp-card__body ${className}`} {...htmlAttributes}>
+    <div className={`vdp-card__body ${className}`} {...htmlAttributes}>
         {children}
     </div>
 );

@@ -14,7 +14,7 @@ describe('<Toggle />', () => {
 
     it('renders a label when provided', () => {
         const wrapper = mount(ToggleComponent);
-        expect(wrapper.find('.vp-toggle__label').text()).toBe(toggleTitle);
+        expect(wrapper.find('.vdp-toggle__label').text()).toBe(toggleTitle);
     });
 
     describe('When <Toggle/> is used as an uncontrolled component', () => {

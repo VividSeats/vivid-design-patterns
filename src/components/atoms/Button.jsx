@@ -22,7 +22,7 @@ const Button = ({
     onBlur = () => {},
     ...htmlAttributes
 }) => {
-    const baseButtonClass = grouped ? 'vp-grouped-button' : 'vp-button';
+    const baseButtonClass = grouped ? 'vdp-grouped-button' : 'vdp-button';
     const buttonClassNames = classNames(baseButtonClass, {
         [`--${size}`]: size,
         [`--${importance}`]: importance,
@@ -65,7 +65,7 @@ Button.propTypes = {
     /** renders to html class `--disabled` */
     disabled: PropTypes.bool,
     className: PropTypes.string,
-    /** has html class of `vp-grouped-button` */
+    /** has html class of `vdp-grouped-button` */
     grouped: PropTypes.bool,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,

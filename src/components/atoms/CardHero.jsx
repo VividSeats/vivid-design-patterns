@@ -5,7 +5,7 @@ const CardHero = ({ className = '', loadImageViaCss = false, imageSrc, alt, ...h
     if (loadImageViaCss) {
         return (
             <div
-                className={`vp-card__hero ${className}`}
+                className={`vdp-card__hero ${className}`}
                 style={{ backgroundImage: `url('${imageSrc}');` }}
                 {...htmlAttributes}
                 role="img"
@@ -14,7 +14,7 @@ const CardHero = ({ className = '', loadImageViaCss = false, imageSrc, alt, ...h
         );
     }
 
-    return <img className={`vp-card__hero__image ${className}`} src={imageSrc} {...htmlAttributes} alt={alt} />;
+    return <img className={`vdp-card__hero__image ${className}`} src={imageSrc} {...htmlAttributes} alt={alt} />;
 };
 
 CardHero.propTypes = {

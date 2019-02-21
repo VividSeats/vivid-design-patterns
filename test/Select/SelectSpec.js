@@ -17,7 +17,7 @@ describe('<Select />', () => {
 
     it('renders a select component with options', () => {
         const wrapper = mount(selectComponent);
-        expect(wrapper.find('select').hasClass('vp-select__control')).toBe(true);
+        expect(wrapper.find('select').hasClass('vdp-select__control')).toBe(true);
         expect(wrapper.find('option').length).toBeGreaterThanOrEqual(3);
     });
 

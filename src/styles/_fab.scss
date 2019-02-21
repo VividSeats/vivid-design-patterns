@@ -1,58 +1,72 @@
-// Tokens
 @import 'tokens';
-@import 'mixins';
-@import 'prefixes';
-@import 'typography';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
-// also used for doc styles - desktop and mobile
-@mixin fab {
-    [class^='vp-fab'] {
-        @include not-vp-child {
-            @include flex;
-            @include justify-content(center);
-            @include align-items(center);
-            @include position(fixed, null null $sizing-XL null);
-            @include transition(bottom $transition-2);
-            background-color: $color-white;
-            box-shadow: $elevation-3;
-            border: 1px solid $color-gray-light;
-            border-radius: $border-radius-XL;
-            font-weight: 700;
-            height: $sizing-5XL !important;
-            max-width: calc(100% - #{$sizing-6XL});
-            overflow: hidden;
-            z-index: $z-index-fab;
-            left: 50%;
-            transform: translate(-50%, 0);
+.vdp-fab {
+    @include border(bottom);
+    @include flex;
+    @include align-items(center);
+    @include justify-content(stretch);
+    height: $sizing-5XL;
+    text-align: center;
 
-            &[data-state*='hidden'] {
-                bottom: -#{$sizing-6XL};
-            }
-            > * {
-                padding: 0 1rem;
-            }
-            i {
-                color: $text-color-link;
-            }
-        }
+    .vdp-fab__child {
+        cursor: pointer;
 
-        [class^='vp-fab__child'] {
-            @include flex;
-            @include justify-content(center);
-            @include align-items(center);
-            height: 100%;
-
-            &:not(:first-child) {
-                border-left: 1px solid $color-gray-light;
-            }
+        i {
+            color: $text-color-link;
         }
     }
-    .vp-fab--double > :first-child {
-        @include border(right);
+    .vdp-fab__divider {
+        flex: none;
+        margin: 0;
+        width: 1px;
+        height: $sizing-3XL;
+        background-color: $color-gray-light;
+    }
+}
+
+@include size-min-tablet {
+    .vdp-fab__child {
+        -ms-flex: 1;
+        flex: 1;
+        border-radius: $border-radius-SM;
+        line-height: $sizing-4XL;
+        margin: $sizing-XS;
+
+        &:hover {
+            background-color: $color-gray-highlight;
+        }
     }
 }
 
 // only appears on mobile
 @include size-only-mobile {
-    @include fab;
+    .vdp-fab {
+        @include border;
+        @include position(fixed, null null #{-$sizing-6XL} 50%);
+        @include transition(all $transition-2);
+        background-color: $color-white;
+        box-shadow: $elevation-3;
+        border-radius: $border-radius-XL;
+        max-width: calc(100% - #{$sizing-6XL});
+        z-index: $z-index-fab;
+        transform: translateX(-50%);
+
+        .vdp-fab__child {
+            padding: 0 $sizing-MD;
+            white-space: nowrap;
+
+            &:first-child {
+                padding-left: $sizing-LG;
+            }
+            &:last-child,
+            &:only-child {
+                padding-right: $sizing-LG;
+            }
+        }
+        &[data-state='visible'] {
+            bottom: $sizing-XL;
+        }
+    }
 }

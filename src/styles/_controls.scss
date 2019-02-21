@@ -1,42 +1,46 @@
-// Tokens
 @import 'tokens';
-@import 'mixins';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 @import '_helperText';
 
-[class^='vp-control']:not([class*='__']) {
+[class^='vdp-control']:not([class*='__']) {
     border-radius: $border-radius-SM;
+    cursor: pointer;
     display: inline-block;
     font-size: 0;
-    margin: $sizing-2XS;
+    margin-left: -$sizing-XS;
 
     &:hover {
         background: $color-gray-highlight;
     }
+    &[class*='--block'] {
+        display: block;
+    }
 }
-.vp-control__span:before {
+.vdp-control__span:before {
     @include pseudo-icon($pointerEvents: auto);
     @include position(absolute, $sizing-SM null null $sizing-XS);
 
-    .vp-control--checkbox & {
+    [class*='--checkbox'] & {
         content: 'check_box_outline_blank';
     }
-    .vp-control--checkbox .vp-control__input:checked + & {
+    [class*='--checkbox'] .vdp-control__input:checked + & {
         content: 'check_box';
     }
-    .vp-control--radio & {
+    [class*='--radio'] & {
         content: 'radio_button_unchecked';
     }
-    .vp-control--radio .vp-control__input:checked + & {
+    [class*='--radio'] .vdp-control__input:checked + & {
         content: 'radio_button_checked';
     }
-    .vp-control__input:checked + & {
+    .vdp-control__input:checked + & {
         color: $text-color-link;
     }
-    [class^='vp-control'][data-state='error'] & {
+    [class^='vdp-control'][data-state='error'] & {
         color: $text-color-error;
     }
 }
-.vp-control__span {
+.vdp-control__span {
     display: inline-block;
     font-size: $font-size-MD;
     line-height: $line-height-LG;
@@ -44,10 +48,10 @@
     position: relative;
     vertical-align: middle;
 
-    .vp-control__input + & {
+    .vdp-control__input + & {
         cursor: pointer;
     }
-    .vp-control__input:disabled + & {
+    .vdp-control__input:disabled + & {
         color: $text-color-disabled;
         cursor: not-allowed;
         text-decoration: line-through;

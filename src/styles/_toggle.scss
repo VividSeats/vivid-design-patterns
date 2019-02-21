@@ -1,8 +1,8 @@
-@import 'prefixes';
 @import 'tokens';
-@import 'mixins';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
-[class^='vp-toggle']:not([class*='__']) {
+[class^='vdp-toggle']:not([class*='__']) {
     cursor: pointer;
     display: inline-block;
 
@@ -11,7 +11,7 @@
         @include flex();
         @include justify-content(space-between);
     }
-    .vp-toggle__label {
+    .vdp-toggle__label {
         display: inline-block;
         color: $text-color-default;
         font-size: $font-size-MD;
@@ -19,7 +19,7 @@
         vertical-align: middle;
         padding-right: $sizing-SM;
     }
-    .vp-toggle__thumb {
+    .vdp-toggle__thumb {
         @include transition(all $transition-1);
         display: inline-block;
         color: $color-gray;
@@ -45,7 +45,7 @@
             text-align: center;
         }
     }
-    .vp-toggle__control:checked + .vp-toggle__thumb {
+    .vdp-toggle__control:checked + .vdp-toggle__thumb {
         color: $text-color-link;
         background-color: $text-color-link;
 

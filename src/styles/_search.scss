@@ -1,46 +1,128 @@
-// Tokens
 @import 'tokens';
-@import 'mixins';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
+@import 'eventRows';
 
-.vp-search-field {
-    position: relative;
-    margin: $sizing-SM $sizing-LG;
+.vdp-search-field {
+    @include border;
+    @include flex;
+    @include justify-content(center);
+    background-color: $color-white;
+    border-radius: $border-radius-XL;
+    cursor: text;
+    font-size: $font-size-MD;
+    font-weight: $font-weight-reg;
+    margin: 0 $sizing-LG;
+    min-width: 320px;
+    padding: 0 $sizing-LG;
 
-    [class*='vp-search-field__icon'] {
+    [class*='vdp-search-field__icon'] {
         color: $color-gray-medium;
-        line-height: $sizing-3XL;
-        position: absolute;
-        top: 0;
+        line-height: 36px;
         z-index: 2;
     }
-}
-.vp-search-field__icon-search {
-    left: $sizing-LG;
-    pointer-events: none;
-}
-.vp-search-field__icon-close {
-    cursor: pointer;
-    font-size: $font-size-XL;
-    right: $sizing-SM;
-}
-.vp-search-field__input {
-    @include border;
-    background: $color-off-white;
-    border-radius: $border-radius-XL;
-    box-shadow: none;
-    box-sizing: border-box;
-    color: $text-color-muted;
-    display: block;
-    font-size: $font-size-MD;
-    height: $sizing-3XL;
-    outline: none;
-    padding: 0 $sizing-2XL 0 $sizing-3XL;
-    position: relative;
-    width: 100%;
-    z-index: 1;
+    .vdp-search-field__icon-search {
+        pointer-events: none;
+    }
+    .vdp-search-field__icon-close {
+        cursor: pointer;
+        display: none;
+        font-size: $font-size-XL;
+        right: $sizing-SM;
+    }
+    .vdp-search-field__input {
+        background: none;
+        border: none;
+        box-shadow: none;
+        color: $text-color-muted;
+        display: block;
+        font-size: $font-size-MD;
+        height: 36px;
+        outline: none;
+        position: relative;
+        width: 100%;
+        z-index: 1;
 
-    &:active,
-    &:focus {
-        color: $text-color-default;
+        &:active,
+        &:focus {
+            border: none;
+            box-shadow: none;
+            color: $text-color-default;
+        }
+    }
+    &[data-state='active'] {
+        @include justify-content(flex-start);
+
+        .twitter-typeahead {
+            width: 100% !important;
+        }
+    }
+    @include size-only-mobile {
+        [class*='vdp-search-field__icon'] {
+            line-height: $sizing-4XL;
+        }
+        .vdp-search-field__input {
+            height: $sizing-4XL;
+        }
+    }
+}
+.vdp-search-result {
+    border-radius: $border-radius-SM;
+    color: $text-color-default;
+    cursor: pointer;
+    font-size: $font-size-MD;
+    line-height: $sizing-LG;
+    margin: 0 $sizing-SM;
+    padding: $sizing-SM;
+
+    &.tt-is-under-cursor {
+        background-color: $color-brand-blue-light !important;
+        color: $text-color-link;
+
+        * {
+            color: $text-color-link;
+        }
+    }
+    &:first-child {
+        margin-top: $sizing-SM;
+    }
+    &:last-child {
+        margin-bottom: $sizing-LG;
+    }
+    &.vdp-event-row {
+        border-bottom: none;
+    }
+}
+
+// Twitter Typeahead Results
+.twitter-typeahead {
+    width: 262px; // based off of current placeholder
+
+    .tt-hint {
+        display: none;
+    }
+    .tt-dropdown-menu {
+        background: $color-white;
+        z-index: $z-index-nav !important;
+
+        @include size-only-mobile {
+            @include border(top);
+            bottom: 0;
+            overflow: auto;
+            padding-bottom: $sizing-XL;
+            position: fixed !important;
+            right: 0 !important;
+            top: $sizing-4XL !important;
+            width: 100vw !important;
+        }
+        @include size-min-tablet {
+            border-radius: $border-radius-LG;
+            box-shadow: $elevation-2;
+            left: -$sizing-3XL !important;
+            min-width: 360px;
+            top: calc(100% + #{$sizing-LG}) !important;
+            width: calc(100% + 76px);
+            z-index: $z-index-nav !important;
+        }
     }
 }

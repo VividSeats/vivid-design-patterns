@@ -30,7 +30,7 @@ class Chip extends Component {
     render() {
         const { onKeyPress, onClose, props } = this;
         const { label, value, onClose: callback, className: classes, ...htmlAttributes } = props;
-        const className = classNames('vp-chip', {
+        const className = classNames('vdp-chip', {
             [classes]: !!classes
         });
 

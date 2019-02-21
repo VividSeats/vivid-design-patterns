@@ -15,7 +15,7 @@ const Subtitle = ({
     list,
     ...htmlAttributes
 }) => {
-    const classNames = getTypeClassNames(`vp-type-subtitle${importance}`, {
+    const classNames = getTypeClassNames(`vdp-type-subtitle${importance}`, {
         weight,
         height,
         state,

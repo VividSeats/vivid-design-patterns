@@ -1,14 +1,18 @@
 @import 'tokens';
-@import 'prefixes';
-@import 'mixins';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
-[class^='vp-tab-group'] {
+[class^='vdp-tab-bar'] {
     @include flex;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
 
-    &[class*='--inverted'] .vp-tab {
+    //overflow-x: scroll;
+    //-webkit-overflow-scrolling: touch;
+
+    &[class*='--inverted'] .vdp-tab {
         color: $color-gray;
 
         &:hover,
@@ -17,12 +21,14 @@
         }
     }
     @include size-min-tablet {
-        &:not([class*='--compressed']) .vp-tab {
-            line-height: $font-size-6XL;
+        &[class*='--compressed'] .vdp-tab {
+            line-height: $sizing-4XL;
         }
     }
 }
-.vp-tab {
+.vdp-tab,
+.vdp-tab:link,
+.vdp-tab:visited {
     @include align-self(flex-end);
     @include flex(0 0 auto);
     @include transition(all $transition-1);
@@ -36,6 +42,10 @@
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
+
+    @include size-min-tablet {
+        line-height: $font-size-6XL;
+    }
 
     &:after {
         @include position(absolute, null null 0 0);
