@@ -5,7 +5,7 @@ function Label({ label, id }) {
     if (!label) return null;
 
     return (
-        <label className="vp-floating-label" htmlFor={id}>
+        <label className="vdp-floating-label" htmlFor={id}>
             {label}
         </label>
     );

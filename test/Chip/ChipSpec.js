@@ -10,7 +10,7 @@ describe('<Chips />', () => {
     const ChipComponent = <Chip value={chipValue} onClose={mockOnClose} label={chipLabel} id={chipId} />;
     it('renders a Chip component', () => {
         const wrapper = shallow(ChipComponent);
-        expect(wrapper.hasClass('vp-chip')).toBe(true);
+        expect(wrapper.hasClass('vdp-chip')).toBe(true);
         expect(wrapper.text()).toBe(chipLabel);
     });
 

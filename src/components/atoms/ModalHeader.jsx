@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Headline from './Headline';
 
 const ModalHeader = ({ children, importance = 6, ...htmlAttributes }) => (
-    <div className="vp-modal__header" {...htmlAttributes}>
+    <div className="vdp-modal__header" {...htmlAttributes}>
         <Headline importance={importance}>{children}</Headline>
     </div>
 );

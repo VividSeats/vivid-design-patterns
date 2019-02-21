@@ -95,7 +95,7 @@ class TextField extends React.Component {
             ...htmlAttributes
         } = this.props;
         const { active, dirty, error } = this.state;
-        const inputContainerClassName = classNames('vp-textfield', {
+        const inputContainerClassName = classNames('vdp-textfield', {
             [`${className}`]: className,
             '--outlined': outlined
         });
@@ -121,15 +121,15 @@ class TextField extends React.Component {
                     <PasswordInput {...inputProps} />
                 ) : (
                     <React.Fragment>
-                        {Boolean(trailingIcon) && <span className="vp-textfield__trailing-icon">{trailingIcon}</span>}
+                        {Boolean(trailingIcon) && <span className="vdp-textfield__trailing-icon">{trailingIcon}</span>}
                         <Input {...inputProps} />
                     </React.Fragment>
                 )}
-                <label className="vp-floating-label" htmlFor={id}>
+                <label className="vdp-floating-label" htmlFor={id}>
                     {label}
                 </label>
-                {!!error && <span className="vp-helper-text--validation">{error}</span>}
-                {!!helperText && <span className="vp-helper-text">{error}</span>}
+                {!!error && <span className="vdp-helper-text--validation">{error}</span>}
+                {!!helperText && <span className="vdp-helper-text">{error}</span>}
             </div>
         );
     }

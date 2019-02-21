@@ -1,11 +1,10 @@
-// Tokens
 @import 'tokens';
-@import 'mixins';
-@import 'prefixes';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
-.vp-chip,
-a:link.vp-chip,
-a:visited.vp-chip {
+.vdp-chip,
+a:link.vdp-chip,
+a:visited.vdp-chip {
     @include linear-gradient(to right, $color-gradient-blue);
     @include transition(all $transition-1);
     border-radius: $border-radius-XL;

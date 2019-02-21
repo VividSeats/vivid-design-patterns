@@ -5,14 +5,14 @@ import Checkbox from '../../src/components/atoms/Checkbox';
 describe('<Checkbox />', () => {
     it('renders a checkbox', () => {
         const wrapper = shallow(<Checkbox id="TestCheckbox" />);
-        expect(wrapper.find('.vp-control--checkbox').exists()).toBe(true);
+        expect(wrapper.find('.vdp-control--checkbox').exists()).toBe(true);
     });
 
     it('should have a label if passed as a prop', () => {
         const checkboxLabel = 'Test Checkbox';
         const wrapper = shallow(<Checkbox id="TestCheckbox" label={checkboxLabel} />);
 
-        expect(wrapper.find('.vp-control__span').text()).toEqual(checkboxLabel);
+        expect(wrapper.find('.vdp-control__span').text()).toEqual(checkboxLabel);
     });
 
     it('has a default value of unchecked', () => {
@@ -51,9 +51,9 @@ describe('<Checkbox />', () => {
         const wrapper = shallow(<Checkbox id="TestCheckbox" validationMethod={validationMethod} />);
 
         wrapper.find('input').simulate('change');
-        expect(wrapper.find('.vp-helper-text--validation').text()).toEqual(successMessage);
+        expect(wrapper.find('.vdp-helper-text--validation').text()).toEqual(successMessage);
 
         wrapper.find('input').simulate('change');
-        expect(wrapper.find('.vp-helper-text--validation').text()).toEqual(errorMessage);
+        expect(wrapper.find('.vdp-helper-text--validation').text()).toEqual(errorMessage);
     });
 });

@@ -7,7 +7,7 @@ import Subhead from '../../src/components/atoms/Subhead';
 import TinyText from '../../src/components/atoms/TinyText';
 import SmallText from '../../src/components/atoms/SmallText';
 
-const typographyBaseStyle = 'vp-type-';
+const typographyBaseStyle = 'vdp-type-';
 const typographyPropTests = [
     { describes: 'Headline', component: Headline, defaultElement: 'h1', defaultStyle: 'headline1' },
     { describes: 'Subtitle', component: Subtitle, defaultElement: 'p', defaultStyle: 'subtitle1' },
@@ -20,27 +20,27 @@ const typographyPropTests = [
 // Component-specific tests
 describe('<Headline />', () => {
     [1, 2, 3, 4, 5, 6].forEach(importance => {
-        it(`renders h1 tag with the style 'vp-type-headline${importance}'`, () => {
+        it(`renders h1 tag with the style 'vdp-type-headline${importance}'`, () => {
             const wrapper = mount(<Headline importance={importance} />);
-            expect(wrapper.find(`h${importance}.vp-type-headline${importance}`).exists()).toBe(true);
+            expect(wrapper.find(`h${importance}.vdp-type-headline${importance}`).exists()).toBe(true);
         });
     });
 });
 
 describe('<Subtitle />', () => {
     [1, 2].forEach(importance => {
-        it(`renders p tag with the style 'vp-type-subtitle${importance}'`, () => {
+        it(`renders p tag with the style 'vdp-type-subtitle${importance}'`, () => {
             const wrapper = mount(<Subtitle importance={importance} />);
-            expect(wrapper.find(`p.vp-type-subtitle${importance}`).exists()).toBe(true);
+            expect(wrapper.find(`p.vdp-type-subtitle${importance}`).exists()).toBe(true);
         });
     });
 });
 
 describe('<BodyText />', () => {
     [1, 2].forEach(importance => {
-        it(`renders p tag with the style 'vp-type-body${importance}'`, () => {
+        it(`renders p tag with the style 'vdp-type-body${importance}'`, () => {
             const wrapper = mount(<BodyText importance={importance} />);
-            expect(wrapper.find(`p.vp-type-body${importance}`).exists()).toBe(true);
+            expect(wrapper.find(`p.vdp-type-body${importance}`).exists()).toBe(true);
         });
     });
 });
@@ -108,7 +108,7 @@ typographyPropTests.forEach(({ describes, component, defaultElement, defaultStyl
 
         it(`renders ${defaultElement} tag with custom attributes`, () => {
             const wrapper = shallow(<constructedComponent.component id="myFakeId" />);
-            expect(wrapper.find('#myFakeId').hasClass(`vp-type-${defaultStyle}`)).toBe(true);
+            expect(wrapper.find('#myFakeId').hasClass(`vdp-type-${defaultStyle}`)).toBe(true);
         });
 
         it(`renders ${defaultElement} tag that is truncated`, () => {

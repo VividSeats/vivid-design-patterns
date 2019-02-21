@@ -16,7 +16,7 @@ const Tab = ({ children, className, active, onClick = () => {}, onMouseEnter = (
         onClick,
         onMouseEnter,
         onMouseLeave,
-        className: classNames('vp-tab', {
+        className: classNames('vdp-tab', {
             [className]: !!className
         }),
         'data-state': active ? 'active' : null,

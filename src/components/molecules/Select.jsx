@@ -103,7 +103,7 @@ class Select extends React.Component {
         };
 
         const containerProps = {
-            className: classnames('vp-select', {
+            className: classnames('vdp-select', {
                 '--outlined': outlined,
                 [className]: !!className
             }),

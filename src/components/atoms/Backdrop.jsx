@@ -5,7 +5,7 @@ const Backdrop = ({ className = '', children, dataState = '', onClick = () => {}
     <div
         {...{
             onClick,
-            className: `vp-backdrop ${className}`,
+            className: `vdp-backdrop ${className}`,
             'data-state': dataState
         }}>
         {children}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Badge = ({ children, styleAs, type, className, large, ...htmlAttributes }) => {
-    const badgeClassNames = classNames('vp-badge', {
+    const badgeClassNames = classNames('vdp-badge', {
         [`--${type}`]: type,
         [`--${styleAs}`]: styleAs,
         [className]: className,

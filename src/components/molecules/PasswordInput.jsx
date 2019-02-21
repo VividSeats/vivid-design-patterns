@@ -22,7 +22,7 @@ class PasswordInput extends React.Component {
             <React.Fragment>
                 <Input {...{ type: inputType, ...htmlAttributes }} />
                 <span
-                    className="vp-textfield__trailing-icon"
+                    className="vdp-textfield__trailing-icon"
                     onKeyPress={onEnterPress.bind(this, this.togglePasswordVisibility)}
                     onClick={this.togglePasswordVisibility}>
                     <i className="material-icons">{passwordToggleIcon}</i>

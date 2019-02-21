@@ -12,23 +12,23 @@ describe('<LinkGroup />', () => {
                 <Link href="http://vividseats.com">Seats that are Vivid</Link>
             </LinkGroup>
         );
-        expect(wrapper.find('ul.vp-link-group').exists()).toBe(true);
-        expect(wrapper.find('li.vp-link-group__item').length).toBe(3);
+        expect(wrapper.find('ul.vdp-link-group').exists()).toBe(true);
+        expect(wrapper.find('li.vdp-link-group__item').length).toBe(3);
     });
 
     it("renders a <ul> with the '--striped' class", () => {
         const wrapper = shallow(<LinkGroup type="striped" />);
-        expect(wrapper.find('ul.vp-link-group--striped').exists()).toBe(true);
+        expect(wrapper.find('ul.vdp-link-group--striped').exists()).toBe(true);
     });
 
     it("renders a <ul> with the '--muted' class", () => {
         const wrapper = shallow(<LinkGroup type="muted" />);
-        expect(wrapper.find('ul.vp-link-group--muted').exists()).toBe(true);
+        expect(wrapper.find('ul.vdp-link-group--muted').exists()).toBe(true);
     });
 
     it('renders a <ul> tag with custom attributes', () => {
         const wrapper = shallow(<LinkGroup id="myLinkGroup" />);
-        expect(wrapper.find('#myLinkGroup').hasClass('vp-link-group')).toBe(true);
+        expect(wrapper.find('#myLinkGroup').hasClass('vdp-link-group')).toBe(true);
     });
 
     it('handles falsey children', () => {

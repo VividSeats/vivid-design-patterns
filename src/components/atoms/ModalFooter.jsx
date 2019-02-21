@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 
 const ModalFooter = ({ className = '', children, onDismiss = () => {}, ...htmlAttributes }) => (
-    <div className={`vp-modal__footer ${className}`} {...htmlAttributes}>
+    <div className={`vdp-modal__footer ${className}`} {...htmlAttributes}>
         {!children ? (
             <Button importance="text" onClick={onDismiss}>
                 Dismiss

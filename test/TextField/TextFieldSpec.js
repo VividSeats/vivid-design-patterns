@@ -23,9 +23,9 @@ describe('<TexField />', () => {
 
     it('have a "floating" label when focused', () => {
         const wrapper = mount(textFieldComponent);
-        expect(wrapper.find('.vp-textfield').prop('data-state')).toBeFalsy();
+        expect(wrapper.find('.vdp-textfield').prop('data-state')).toBeFalsy();
         wrapper.find('input').simulate('focus');
-        expect(wrapper.find('.vp-textfield').prop('data-state')).toBe('filled');
+        expect(wrapper.find('.vdp-textfield').prop('data-state')).toBe('filled');
     });
 
     it('have a "floating" label when it has a value', () => {
@@ -34,24 +34,24 @@ describe('<TexField />', () => {
         wrapper.find('input').instance().value = changeValue;
         wrapper.find('input').simulate('change', changeEvent);
         wrapper.find('input').simulate('blur');
-        expect(wrapper.find('.vp-textfield').prop('data-state')).toMatch('filled');
+        expect(wrapper.find('.vdp-textfield').prop('data-state')).toMatch('filled');
     });
 
     describe('should handle error and success states correctly', () => {
         it('should not validate on first type', () => {
             const wrapper = mount(textFieldComponent);
             wrapper.find('input').simulate('change', changeEvent);
-            expect(wrapper.find('.vp-textfield').prop('data-validate')).toBeFalsy();
+            expect(wrapper.find('.vdp-textfield').prop('data-validate')).toBeFalsy();
         });
 
         it('should validate the input after user blurs', () => {
             const wrapper = mount(textFieldComponent);
             wrapper.find('input').simulate('change', changeEvent);
             wrapper.find('input').simulate('blur');
-            expect(wrapper.find('.vp-textfield').prop('data-validate')).toBe(true);
+            expect(wrapper.find('.vdp-textfield').prop('data-validate')).toBe(true);
             expect(mockValidationMethod).toBeCalled();
             wrapper.find('input').simulate('change', changeEvent);
-            expect(wrapper.find('.vp-textfield').prop('data-validate')).toBe(true);
+            expect(wrapper.find('.vdp-textfield').prop('data-validate')).toBe(true);
             expect(mockValidationMethod).toBeCalled();
         });
 
@@ -61,7 +61,7 @@ describe('<TexField />', () => {
                 <TextField id={id} error={error} label={labelText} validationMethod={mockValidationMethod} />
             );
             const wrapper = mount(textFieldComponentWithError);
-            expect(wrapper.find('.vp-helper-text--validation').text()).toBe(error);
+            expect(wrapper.find('.vdp-helper-text--validation').text()).toBe(error);
         });
     });
 
@@ -77,12 +77,12 @@ describe('<TexField />', () => {
             wrapper.find('i').simulate('click');
             expect(wrapper.find('input').prop('type')).toBe('text');
             expect(wrapper.find('i').text()).toBe('visibility_off');
-            expect(wrapper.find('.vp-textfield__trailing-icon span').text()).toBe('Hide');
+            expect(wrapper.find('.vdp-textfield__trailing-icon span').text()).toBe('Hide');
 
             wrapper.find('i').simulate('click');
             expect(wrapper.find('input').prop('type')).toBe('password');
             expect(wrapper.find('i').text()).toBe('visibility');
-            expect(wrapper.find('.vp-textfield__trailing-icon span').text()).toBe('Show');
+            expect(wrapper.find('.vdp-textfield__trailing-icon span').text()).toBe('Show');
         });
     });
 });

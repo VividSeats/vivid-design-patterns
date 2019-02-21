@@ -8,3 +8,10 @@ gulp.task('bundle_js', () => {
         .pipe(rollUpEach(rollUpConfig))
         .pipe(gulp.dest('dist/'));
 });
+
+gulp.task('watch_js', () => {
+    gulp.watch('src/**/*.{js,jsx}', gulp.series('bundle_js')).on('error', e => {
+        console.error(e.toString());
+        this.emit('end');
+    });
+});

@@ -1,0 +1,114 @@
+@import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
+
+// used for header nav
+// slides out from left on mobile
+// drops down on desktop
+[class^='vdp-drawer']:not([class*='__']) {
+    @include flex-wrap(wrap);
+    background-color: $color-white;
+
+    &[data-state='visible'] {
+        @include flex;
+    }
+}
+[class^='vdp-drawer__body'] {
+    @include flex;
+    width: 100%;
+}
+.vdp-drawer__footer {
+    @include border(top);
+}
+@include size-only-mobile {
+    [class^='vdp-drawer']:not([class*='__']) {
+        @include transform(rotate(0deg));
+        height: 100%;
+        left: 100%;
+        opacity: 0;
+        padding: $sizing-4XL 0 $sizing-5XL;
+        position: absolute;
+        top: 0;
+        visibility: hidden;
+        width: 100%;
+        z-index: 1;
+
+        &[data-position='0'] {
+            left: 0;
+        }
+        &[data-position='1'] {
+            left: -100%;
+        }
+        &[data-position='2'] {
+            left: -200%;
+        }
+        &[data-state='visible'] {
+            @include transition(all $transition-2);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    .vdp-drawer__header {
+        @include align-items(center);
+        @include border(bottom);
+        @include flex;
+        @include justify-content(space-between);
+        @include position(fixed, 0 0 null 0);
+        background-color: $color-white;
+        height: $sizing-4XL;
+        padding: 0 $sizing-MD;
+        z-index: 2;
+    }
+    [class^='vdp-drawer__body'] {
+        @include flex-direction(column);
+        max-height: 100%;
+        overflow-y: scroll;
+        padding: $sizing-MD 0 $sizing-3XL;
+
+        [class^='vdp-drawer']:not([class*='__']) {
+            @include border(left);
+        }
+    }
+    .vdp-drawer__footer {
+        @include position(fixed, null 0 0 0);
+        background-color: $color-white;
+        padding: $sizing-SM $sizing-LG $sizing-LG;
+        text-align: center;
+    }
+}
+@include size-min-tablet {
+    [class^='vdp-drawer']:not([class*='__']) {
+        display: none;
+
+        &[data-state='visible'] {
+            @include flex;
+        }
+    }
+    [class^='vdp-drawer__body'] {
+        &:not([class*='--compressed']) {
+            padding: $sizing-LG $sizing-LG $sizing-XL;
+        }
+        // nested drawer
+        [class^='vdp-drawer']:not([class*='__']) {
+            @include border(top);
+            border-radius: 0 0 $border-radius-LG $border-radius-LG;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            width: $drawer-width-desktop;
+
+            &[class*='--small'] {
+                width: 172px;
+
+                .vdp-drawer__body {
+                    padding: $sizing-LG $sizing-SM $sizing-MD;
+                }
+            }
+        }
+    }
+    .vdp-drawer__footer {
+        flex: 1 0 100%;
+        padding: $sizing-MD $sizing-LG;
+        text-align: right;
+    }
+}

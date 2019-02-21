@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CardFooter = ({ className = '', children, centered = false, ...htmlAttributes }) => {
-    const footerClassNames = classNames(`vp-card__footer ${className}`, {
+    const footerClassNames = classNames(`vdp-card__footer ${className}`, {
         '--centered': centered
     });
 

@@ -10,7 +10,7 @@ const TabGroup = ({ children, compressed, dark, className, ...attributes }) => {
         compressed: PropTypes.bool
     };
 
-    const tabGroupClassnames = classNames('vp-tab-group', {
+    const tabGroupClassnames = classNames('vdp-tab-group', {
         [className]: !!className,
         '--inverted': dark,
         '--compressed': compressed

@@ -11,7 +11,7 @@ const Link = ({ children, className, href, onClick, type = 'link', ...attributes
         onClick: PropTypes.func
     };
 
-    const baseClassName = type === 'anchor' ? 'vp-anchor' : 'vp-type-link';
+    const baseClassName = type === 'anchor' ? 'vdp-anchor' : 'vdp-type-link';
 
     const props = {
         href,

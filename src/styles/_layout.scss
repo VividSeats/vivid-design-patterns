@@ -1,53 +1,6 @@
-// Tokens
 @import 'tokens';
-@import 'prefixes';
-
-// Mixins
-@mixin column-base {
-    @include flex-grow(1);
-    @include flex-shrink(0);
-    @include flex-direction(column);
-    box-sizing: border-box;
-    max-width: 100%;
-    padding-left: calc(#{$grid-gutter} / 2);
-    padding-right: calc(#{$grid-gutter} / 2);
-}
-@mixin column-builder($size, $i) {
-    @for $i from 1 through $grid-columns {
-        .vp-col--#{$size}-#{$i} {
-            @include column-base;
-            @include flex-basis(100% / $grid-columns * $i);
-            max-width: 100% / $grid-columns * $i;
-        }
-    }
-}
-@mixin column-offset-builder($size, $i) {
-    @for $i from 1 through $grid-columns {
-        .vp-col--#{$size}--offset-#{$i} {
-            @if $i == 0 {
-                margin-left: 0;
-            } @else {
-                margin-left: 100% / $grid-columns * $i;
-            }
-        }
-    }
-}
-@mixin grid-modifier($gridElement, $name, $modifierType, $modifierValue) {
-    [class^='#{$gridElement}'][class*='--#{$name}'] {
-        @if $modifierType == 'align-items' {
-            @include align-items($modifierValue);
-        }
-        @if $modifierType == 'align-self' {
-            @include align-self($modifierValue);
-        }
-        @if $modifierType == 'flex-direction' {
-            @include flex-direction($modifierValue);
-        }
-        @if $modifierType == 'justify-content' {
-            @include justify-content($modifierValue);
-        }
-    }
-}
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
 
 // Layout
 * {
@@ -55,7 +8,6 @@
 }
 html,
 body {
-    background-color: $color-off-white;
     height: 100%;
     margin: 0 0;
     max-width: 100%;
@@ -65,9 +17,28 @@ body {
 body.ios-fix {
     @include position(fixed, null 0 null 0);
 }
-[class^='vp-wrapper'] {
+body.scroll-lock {
+    overflow: hidden;
+}
+main {
+    @include flex-grow(1);
+}
+iframe,
+img,
+figure {
+    max-width: 100%;
+}
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+.vdp-main-content {
+    margin-top: $sizing-LG;
+}
+[class^='vdp-wrapper'] {
     @include flex;
     @include flex-direction(column);
+    background-color: $color-off-white;
     min-height: 100vh;
     overflow-x: hidden;
 
@@ -75,7 +46,7 @@ body.ios-fix {
         @include flex-direction(row);
     }
 }
-[class^='vp-container'] {
+[class^='vdp-container'] {
     margin-left: auto;
     margin-right: auto;
     max-width: $grid-max-width;
@@ -88,108 +59,9 @@ body.ios-fix {
         padding-left: 0;
         padding-right: 0;
 
-        [class^='vp-row'] {
+        [class^='vdp-row'] {
             margin-left: 0;
             margin-right: 0;
-        }
-    }
-}
-
-// Grid Row
-[class^='vp-row'] {
-    @include flex(0 1 auto);
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    margin-left: calc((#{$grid-gutter} / 2) * -1);
-    margin-right: calc((#{$grid-gutter} / 2) * -1);
-    height: 100%;
-    width: 100%;
-
-    &[class*='--collapsed'] {
-        margin-left: 0;
-        margin-right: 0;
-
-        [class^='vp-col'] {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-    // Nested Row
-    [class^='vp-row'] {
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
-// Row Modifiers
-@include grid-modifier(vp-row, justify-start, justify-content, flex-start);
-@include grid-modifier(vp-row, justify-center, justify-content, center);
-@include grid-modifier(vp-row, justify-end, justify-content, flex-end);
-@include grid-modifier(vp-row, justify-around, justify-content, space-around);
-@include grid-modifier(vp-row, justify-between, justify-content, space-between);
-@include grid-modifier(vp-row, align-top, align-items, flex-start);
-@include grid-modifier(vp-row, align-middle, align-items, center);
-@include grid-modifier(vp-row, align-bottom, align-items, flex-end);
-
-// Responsive Row Modifiers
-@include size-only-mobile {
-    @include grid-modifier(vp-row, col-mobile, flex-direction, column);
-    @include grid-modifier(vp-row, col-reverse-mobile, flex-direction, column-reverse);
-    @include grid-modifier(vp-row, reverse-mobile, flex-direction, row-reverse);
-}
-@include size-min-tablet {
-    @include grid-modifier(vp-row, col-tablet, flex-direction, column);
-    @include grid-modifier(vp-row, col-reverse-tablet, flex-direction, column-reverse);
-    @include grid-modifier(vp-row, reverse-tablet, flex-direction, row-reverse);
-}
-@include size-min-desktop {
-    @include grid-modifier(vp-row, col-desktop, flex-direction, column);
-    @include grid-modifier(vp-row, col-reverse-desktop, flex-direction, column-reverse);
-    @include grid-modifier(vp-row, reverse-desktop, flex-direction, row-reverse);
-}
-
-// Grid Columns
-.vp-col {
-    @include column-base;
-    @include flex-basis(0);
-}
-$gridBreakpoints: sm null, md $breakpoint-tablet, lg $breakpoint-desktop, xl $breakpoint-desktop-XL;
-
-@each $gridBreakpoint in $gridBreakpoints {
-    $name: nth($gridBreakpoint, 1);
-    $size: nth($gridBreakpoint, 2);
-
-    @if ($size) {
-        @media only screen and (min-width: $size) {
-            @include column-builder($name, $grid-columns);
-            @include column-offset-builder($name, $grid-columns);
-        }
-    } @else {
-        @include column-builder($name, $grid-columns);
-        @include column-offset-builder($name, $grid-columns);
-    }
-}
-
-// Column Modifiers
-@include grid-modifier(vp-col, align-self-top, align-self, flex-start);
-@include grid-modifier(vp-col, align-self-middle, align-self, center);
-@include grid-modifier(vp-col, align-self-bottom, align-self, flex-end);
-
-// CSS Grid Layout
-[class^='vp-grid'] {
-    display: grid;
-    grid-gap: 1rem;
-
-    @include size-min-desktop {
-        margin-left: calc((#{$grid-gutter} / 2) * -1);
-        margin-right: calc((#{$grid-gutter} / 2) * -1);
-    }
-    &[class*='--col-3'] {
-        @include size-min-tablet {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        @include size-min-desktop {
-            grid-template-columns: repeat(3, 1fr);
         }
     }
 }

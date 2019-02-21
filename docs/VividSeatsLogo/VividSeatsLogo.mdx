@@ -1,0 +1,48 @@
+---
+    name: Vivid Seats Logo
+---
+
+import { PropsTable, Playground } from 'docz'
+import VividSeatsLogo from '../../src/components/atoms/VividSeatsLogo';
+
+
+
+# Badge
+## Installation
+Using the react components:
+
+    import VividSeatsLogo from '@vividseats/vivid-design-patterns/dist/atoms/BrandLogo';
+
+
+## Props
+<PropsTable of={VividSeatsLogo}/>
+
+## Basic Usage
+<Playground>
+    <VividSeatsLogo/>
+</Playground>
+
+
+## Additional attributes
+You can pass in any additional attributes that can be applied to an anchor tag (onClick, onMouseOver, etc):
+
+<Playground>
+    {
+        () => {
+            const onClick = (e) => {
+                e.preventDefault();
+                alert('Clicked')
+            };
+            const onHover = (e) => {
+                console.log('Hover')
+            }
+
+            return (
+                <div>
+                    <p>Hover to see callback log in the console. Click to see alert.</p>
+                    <VividSeatsLogo onClick={onClick} onMouseOver={onHover}/>
+                </div>
+            )
+        }
+    }
+</Playground>

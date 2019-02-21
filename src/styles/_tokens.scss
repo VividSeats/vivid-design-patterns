@@ -15,6 +15,7 @@ $color-brand-red: #dc1f26;
 $color-brand-slate: #454f62;
 $color-brand-gold: #cca677;
 $color-brand-blue: #398cd7;
+$color-brand-blue-light: lighten($color-brand-blue, 42%);
 // Colors - Gradients
 $color-gradient-blue: ($color-brand-blue, #38a6cf);
 $color-gradient-gold: ($color-brand-gold, #eac08c);
@@ -113,3 +114,25 @@ $z-index-nav: 6000;
 $z-index-modal: 7000;
 $z-index-spinner: 8000;
 $z-index-alert: 9000;
+
+//////////////////////////////////////////////////
+// E L E M E N T S
+//////////////////////////////////////////////////
+
+// Buttons
+$button-height-default: $sizing-3XL;
+$button-height-small: $sizing-2XL;
+$button-height-large: $sizing-4XL;
+$button-padding-default: $button-height-default / 2;
+$button-padding-small: $button-height-small / 2;
+$button-padding-large: $button-height-large / 2;
+
+// Cards
+$card-hero-height: 128px;
+
+// Carousel
+$carousel-height: 280px;
+
+// Drawer
+$drawer-width-desktop: 656px;
+$drawer-width-mobile: 280px;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ModalBody = ({ className = '', children, ...htmlAttributes }) => (
-    <div className={`vp-modal__body ${className}`} {...htmlAttributes}>
+    <div className={`vdp-modal__body ${className}`} {...htmlAttributes}>
         {children}
     </div>
 );
