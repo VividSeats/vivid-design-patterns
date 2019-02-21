@@ -31,7 +31,7 @@ describe('<EventRow />', () => {
         expectColExists(wrapper, INFO);
         expectColExists(wrapper, DATE_RANGE);
         expectColExists(wrapper, BUTTON);
-        expect(wrapper.find('.vp-button').text()).toEqual(BUTTON_TEXT.DATE_RANGE);
+        expect(wrapper.find('.vdp-button').text()).toEqual(BUTTON_TEXT.DATE_RANGE);
         expect(wrapper.find(`[href="${href}"]`).exists()).toBe(true);
     });
 
@@ -61,7 +61,7 @@ describe('<EventRow />', () => {
         expectColExists(wrapper, INFO);
         expectColExists(wrapper, DATE);
         expectColExists(wrapper, BUTTON);
-        expect(wrapper.find('.vp-button').text()).toEqual(BUTTON_TEXT.DATE);
+        expect(wrapper.find('.vdp-button').text()).toEqual(BUTTON_TEXT.DATE);
         expect(wrapper.find(`[href="${href}"]`).exists()).toBe(true);
     });
 });
