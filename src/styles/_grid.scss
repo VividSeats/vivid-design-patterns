@@ -47,7 +47,7 @@
     }
 }
 
-[class^='vdp-row'] {
+[class*='vdp-row'] {
     @include flex(0 1 auto);
     @include flex-direction(row);
     @include flex-wrap(wrap);
