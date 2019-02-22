@@ -82,8 +82,10 @@ $animation-width: 752px;
 $gradient-size: 200px;
 
 .vdp-event-row--skeleton {
+    max-height: 72px;
+
     &:hover {
-        background-color: none;
+        background-color: transparent !important;
         cursor: default;
     }
     > * {
@@ -102,12 +104,13 @@ $gradient-size: 200px;
         background-size: $gradient-size;
         border-radius: $border-radius-SM;
         height: $sizing-MD;
-        margin-bottom: $sizing-2XS;
-        margin-top: $sizing-2XS;
         width: 100%;
 
         &:nth-child(even) {
             width: 80%;
+        }
+        &:not(:last-child) {
+            margin-bottom: $sizing-XS;
         }
     }
     .vdp-event-row__col--date .skeleton__line:nth-child(odd) {
