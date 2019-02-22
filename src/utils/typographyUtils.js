@@ -15,6 +15,7 @@ function getTypeClassNames(baseClassName, { weight, height, state, alignment, ca
         '--blk': weight === 'blk' || weight === 'black',
         '--bld': weight === 'bld' || weight === 'bold',
         '--med': weight === 'med' || weight === 'medium',
+        '--reg': weight === 'reg' || weight === 'regular',
         '--truncate': truncate,
         '--list': list,
         [`--${height}`]: height,
