@@ -1,22 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { getTypeClassNames, TYPOGRAPHY_PROP_TYPES } from '../../utils/typographyUtils';
 
-const Link = ({ children, className, href, onClick, ...attributes }) => {
+const Link = ({ children, className, href, onClick, weight, height, state, alignment, capitalization, list, truncate, ...attributes }) => {
     Link.propTypes = {
         children: PropTypes.node,
         className: PropTypes.string,
         href: PropTypes.string.isRequired,
-        onClick: PropTypes.func
+        onClick: PropTypes.func,
+        ...TYPOGRAPHY_PROP_TYPES
     };
 
+    const linkClassNames = getTypeClassNames('vdp-type-link', {
+        weight,
+        height,
+        state,
+        alignment,
+        capitalization,
+        truncate,
+        list,
+        className
+    });
     const props = {
         href,
         onClick,
         role: 'link',
-        className: classNames('vdp-type-link', {
-            [className]: !!className
-        }),
+        className: linkClassNames,
         ...attributes
     };
 
