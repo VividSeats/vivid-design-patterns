@@ -1,0 +1,67 @@
+---
+    name: EventRow
+---
+
+import { PropsTable, Playground } from 'docz';
+
+import EventRow from '../../src/components/molecules/EventRow';
+import '../../src/styles/_eventRow.scss';
+
+
+# EventRow
+## Installation
+Using the react components:
+
+`import EventRow from @vividseats/vivid-design-patterns/dist/molecules/EventRow;`
+
+Using the scss files:
+
+`@import @vividseats/vivid-design-patterns/src/styles/eventRow.scss;`
+
+## EventRow Props
+<PropsTable of={EventRow}/>
+
+# Examples
+
+## Default
+`className="vp-event-row"`
+<Playground>
+    <EventRow {...{
+        href: 'javascript:alert("click")',
+        title: 'Chicago Blackhawks',
+        subtitle: 'United Center - Chicago, IL'
+    }} />
+</Playground>
+
+## Date Range
+<Playground>
+    <EventRow {...{
+        dateRange: 'Aug 21. 2018 - Sept 16, 2018',
+        href: 'javascript:alert("click")',
+        title: 'Chicago Blackhawks',
+        subtitle: 'United Center - Chicago, IL'
+    }} />
+</Playground>
+
+## Thumbnail
+<Playground>
+    <EventRow {...{
+        href: 'javascript:alert("click")',
+        title: 'Chicago Blackhawks',
+        subtitle: 'United Center - Chicago, IL',
+        thumbnail: {
+            src: 'https://a.vsstatic.com/event/concerts/taylor-swift.jpg',
+            alt: 'Taylor Swift Tickets'
+        }
+    }} />
+</Playground>
+
+## Date
+<Playground>
+    <EventRow {...{
+        href: 'javascript:alert("click")',
+        title: 'Chicago Blackhawks',
+        subtitle: 'United Center - Chicago, IL',
+        date: new Date().toUTCString()
+    }} />
+</Playground>
