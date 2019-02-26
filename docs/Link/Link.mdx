@@ -11,11 +11,11 @@ import "./linkDocs.scss";
 ## Installation
 Using the react components:
 
-    import Link from '@vividseats/vivid-design-patterns/dist/atoms/Link';
+`import Link from '@vividseats/vivid-design-patterns/dist/atoms/Link';`
 
 Using the scss files:
 
-    @import "@vividseats/vivid-design-patterns/src/styles/link.scss";
+`@import "@vividseats/vivid-design-patterns/src/styles/link.scss";`
 
 ## Basic Usage
 `class="vdp-type-link"`
@@ -44,4 +44,10 @@ Using the scss files:
 `target="_blank" mycustomattribute="someProperty"`
 <Playground>
   <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" myCustomAttribute="someProperty">Click me</Link>
+</Playground>
+
+## Use default anchor styles instead of link type styles
+`class="vp-anchor"`
+<Playground>
+  <Link type='anchor' href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click me</Link>
 </Playground>
