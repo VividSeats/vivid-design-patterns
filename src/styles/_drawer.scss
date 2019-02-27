@@ -19,9 +19,9 @@
     .vdp-drawer__scroller {
         @include flex;
         height: 100%;
-        -webkit-overflow-scrolling: touch;
-        overflow: scroll;
+        overflow: auto;
         position: relative;
+        -webkit-overflow-scrolling: touch;
     }
 }
 .vdp-drawer__footer {

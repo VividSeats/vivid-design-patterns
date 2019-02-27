@@ -28,8 +28,9 @@
         cursor: pointer;
         font-size: $font-size-XL;
         opacity: 0;
+        padding: 0 $sizing-SM;
         position: absolute;
-        right: $sizing-SM;
+        right: 0;
     }
     .vdp-search-field__input {
         background: none;
