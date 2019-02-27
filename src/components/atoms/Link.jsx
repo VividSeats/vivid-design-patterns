@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getTypeClassNames, TYPOGRAPHY_PROP_TYPES } from '../../utils/typographyUtils';
-import classNames from 'classnames';
 
 const Link = ({
     children,
@@ -28,7 +27,7 @@ const Link = ({
     };
 
     const baseClassName = type === 'anchor' ? 'vdp-anchor' : 'vdp-type-link';
-    const linkClassNames = getTypeClassNames('baseClassName', {
+    const linkClassNames = getTypeClassNames(baseClassName, {
         weight,
         height,
         state,
