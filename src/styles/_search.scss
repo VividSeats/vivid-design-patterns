@@ -59,6 +59,11 @@
         }
     }
     @include size-only-mobile {
+        &[data-state='active'] {
+            @include position(fixed, 0 0 null 0);
+            height: $sizing-4XL;
+            width: 100%;
+        }
         [class*='vdp-search-field__icon'] {
             line-height: $sizing-4XL;
         }
