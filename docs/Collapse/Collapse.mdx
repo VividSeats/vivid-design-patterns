@@ -1,0 +1,130 @@
+import EventRow from '../../src/components/molecules/EventRow';
+
+---
+    name: Collapse
+---
+
+import Collapse from '../../src/components/molecules/Collapse';
+import '../../src/styles/_collapse.scss';
+import { PropsTable, Playground } from 'docz';
+import LinkGroup from '../../src/components/molecules/LinkGroup';
+import Link from '../../src/components/atoms/Link';
+import StatefulComponent from '../StatefulComponent';
+
+# Collapse
+## Installation
+Using the react components:
+
+    `import Collapse from @vividseats/vivid-design-patterns/dist/molecules/Collapse;`
+
+Using the scss files:
+
+    `@import @vividseats/vivid-design-patterns/src/styles/_collapse.scss;`
+
+## Collapse Props
+<PropsTable of={Collapse}/>
+
+# Examples
+
+## Basic Usage
+    className="vp-collapse"
+<Playground>
+    <Collapse title='Click to Expand/Collapse'>
+        <LinkGroup type="muted">
+            <Link state="muted" weight="regular" href="/about.html">
+                About Us
+            </Link>
+            <Link state="muted" weight="regular" href="/difference.html">
+                Experience Vivid Seats
+            </Link>
+            <Link state="muted" weight="regular" href="/guarantee.html">
+                Buyer Guarantee
+            </Link>
+            <Link state="muted" weight="regular" href="/press/">
+                Press
+            </Link>
+            <Link state="muted" weight="regular" href="/careers">
+                Careers
+                </Link>
+            </LinkGroup>
+    </Collapse>
+</Playground>
+
+## Attributes
+    className="vp-collapse"
+
+When passing in the mobile option, the collapse component will only collase on mobile devices only.
+<Playground>
+    <Collapse title='Mobile' mobileOnlyCollapse>
+        <LinkGroup type="muted">
+            <Link state="muted" weight="regular" href="/about.html">
+                About Us
+            </Link>
+            <Link state="muted" weight="regular" href="/difference.html">
+                Experience Vivid Seats
+            </Link>
+            <Link state="muted" weight="regular" href="/guarantee.html">
+                Buyer Guarantee
+            </Link>
+            <Link state="muted" weight="regular" href="/press/">
+                Press
+            </Link>
+            <Link state="muted" weight="regular" href="/careers">
+                Careers
+            </Link>
+        </LinkGroup>
+    </Collapse>
+    <Collapse title='Wrap' wrap>
+        <LinkGroup type="muted">
+            <Link state="muted" weight="regular" href="/about.html">
+                About Us
+            </Link>
+            <Link state="muted" weight="regular" href="/difference.html">
+                Experience Vivid Seats
+            </Link>
+            <Link state="muted" weight="regular" href="/guarantee.html">
+                Buyer Guarantee
+            </Link>
+            <Link state="muted" weight="regular" href="/press/">
+                Press
+            </Link>
+            <Link state="muted" weight="regular" href="/careers">
+                Careers
+            </Link>
+        </LinkGroup>
+    </Collapse>
+</Playground>
+
+
+## As a controlled component
+<Playground>
+    <StatefulComponent initialState={{open: false}}>
+    {
+        ({state, setState}) => {
+            const onOpenChange = (open) => setState({open:open});
+            const { open } = state;
+            return (
+                    <Collapse onOpenChange={onOpenChange} open={open} title={"Controlled"}>
+                        <LinkGroup type="muted">
+                            <Link state="muted" weight="regular" href="/about.html">
+                                About Us
+                            </Link>
+                            <Link state="muted" weight="regular" href="/difference.html">
+                                Experience Vivid Seats
+                            </Link>
+                            <Link state="muted" weight="regular" href="/guarantee.html">
+                                Buyer Guarantee
+                            </Link>
+                            <Link state="muted" weight="regular" href="/press/">
+                                Press
+                            </Link>
+                            <Link state="muted" weight="regular" href="/careers">
+                                Careers
+                            </Link>
+                        </LinkGroup>
+                    </Collapse>
+            )
+        }
+    }
+    </StatefulComponent>
+</Playground>
