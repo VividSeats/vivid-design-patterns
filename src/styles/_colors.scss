@@ -9,9 +9,7 @@ $gradients: (
 );
 
 @mixin text-gradient($gradient: $color-gradient-red) {
-    background-image: -webkit-gradient(linear, to right, from(nth($gradient, 1)), to(nth($gradient, 2))); /* Saf4+, Chrome */
-    background-image: -webkit-linear-gradient(to right, $gradient); /* Chrome 10+, Saf5.1+, iOS 5+ */
-    background-image: linear-gradient(to right, $gradient);
+    background-image: -webkit-linear-gradient(0deg, $gradient); /* Chrome 10+, Saf5.1+, iOS 5+ */
     color: nth($gradient, 1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
