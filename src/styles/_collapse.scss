@@ -46,6 +46,7 @@
     .vdp-collapse-wrap {
         margin-left: -$sizing-MD;
         margin-right: -$sizing-MD;
+        width: auto;
     }
     .vdp-collapse__content > * {
         padding-bottom: $sizing-XL !important;

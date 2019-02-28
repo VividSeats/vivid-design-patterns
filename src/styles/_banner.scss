@@ -2,15 +2,15 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 
-[class^='vdp-banner']:not([class*='__']) {
-    @include flex;
-    @include justify-content(center);
-
-    + .site-header {
-        @include border(top);
-    }
-}
 @include size-min-tablet {
+    [class^='vdp-banner']:not([class*='__']) {
+        @include flex;
+        @include justify-content(center);
+
+        + .site-header {
+            @include border(top);
+        }
+    }
     .vdp-banner--promo {
         border-image-repeat: stretch;
         border-image-slice: 2;
