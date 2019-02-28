@@ -1,10 +1,13 @@
 def GIT_CREDENTIALS='github-username-and-token-as-password'
 
 pipeline {
+  options {
+    disableConcurrentBuilds()
+  }
   agent {
     kubernetes {
       label 'vivid-design-patterns-2018-12-27-3'
-      idleMinutes 10
+      idleMinutes 2
       yamlFile 'jenkins/kubernetes/build-pod.yaml'
     }
   }
