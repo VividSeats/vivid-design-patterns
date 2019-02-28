@@ -62,7 +62,9 @@ $row-height: 4.5rem;
         }
     }
     &[class*='--info'] {
+        @include flex-basis(0%);
         @include flex-grow(1);
+        @include flex-shrink(1);
         padding: $sizing-2XS $sizing-LG;
     }
     &[class*='--thumb'] {
