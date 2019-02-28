@@ -14,8 +14,15 @@
     }
 }
 [class^='vdp-drawer__body'] {
-    @include flex;
     width: 100%;
+
+    .vdp-drawer__scroller {
+        @include flex;
+        height: 100%;
+        overflow: auto;
+        position: relative;
+        -webkit-overflow-scrolling: touch;
+    }
 }
 .vdp-drawer__footer {
     @include border(top);
@@ -60,13 +67,14 @@
         z-index: 2;
     }
     [class^='vdp-drawer__body'] {
-        @include flex-direction(column);
         max-height: 100%;
-        overflow-y: scroll;
-        padding: $sizing-MD 0 $sizing-3XL;
 
         [class^='vdp-drawer']:not([class*='__']) {
             @include border(left);
+        }
+        .vdp-drawer__scroller {
+            @include flex-direction(column);
+            padding: $sizing-MD 0 $sizing-3XL;
         }
     }
     .vdp-drawer__footer {
@@ -107,7 +115,7 @@
         }
     }
     .vdp-drawer__footer {
-        flex: 1 0 100%;
+        @include flex-basis(100%);
         padding: $sizing-MD $sizing-LG;
         text-align: right;
     }
