@@ -8,6 +8,19 @@ class Collapse extends React.Component {
         open: this.props.open || this.props.initialOpen
     };
 
+    static Title = ({ children, onClick }) => {
+        return (
+            <div className={'vdp-collapse__title'} onClick={onClick}>
+                {React.Children.map(children, child => {
+                    if (typeof child.type === 'function') {
+                        return child;
+                    }
+                    return <Subhead state={'muted'}>{child}</Subhead>;
+                })}
+            </div>
+        );
+    };
+
     isControlled() {
         return typeof this.props.open !== 'undefined';
     }
@@ -50,14 +63,9 @@ class Collapse extends React.Component {
             .join('');
 
         const dataState = this.getOpenState() ? 'opened' : 'closed';
-
         return (
             <div className={`${collapseClassName} ${className}`} {...htmlAttributes} data-state={dataState}>
-                {!!title && (
-                    <Subhead onClick={this.toggleCollapse} state={'muted'} className={`vdp-collapse__title`} {...htmlAttributes}>
-                        {title}
-                    </Subhead>
-                )}
+                {!!title && <Collapse.Title onClick={this.toggleCollapse}>{title}</Collapse.Title>}
                 <div className="vdp-collapse__content">{children}</div>
             </div>
         );
@@ -65,15 +73,16 @@ class Collapse extends React.Component {
 }
 
 Collapse.propTypes = {
-    /** For controlled component **/
+    /** For controlled component */
     open: PropTypes.bool,
-    /** setting inital open for uncontrolled component **/
+    /** setting inital open for uncontrolled component */
     initialOpen: PropTypes.bool,
     wrap: PropTypes.bool,
     mobile: PropTypes.bool,
     onOpenChange: PropTypes.func,
     className: PropTypes.string,
-    title: PropTypes.string
+    /** Can either be a string or a node eg <h1>{title}</h1> */
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 };
 
 Collapse.defaultProps = {
