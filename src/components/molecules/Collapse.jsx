@@ -42,23 +42,9 @@ class Collapse extends React.Component {
     };
 
     render() {
-        const {
-            wrap,
-            mobileOnlyCollapse,
-            open,
-            initialOpen,
-            onOpenChange,
-            TitleElement,
-            children,
-            className,
-            title,
-            ...htmlAttributes
-        } = this.props;
+        const { wrap, mobileOnlyCollapse, open, initialOpen, onOpenChange, children, className, title, ...htmlAttributes } = this.props;
 
-        const collapseClassName = classNames('vdp-collapse', {
-            '-wrap': wrap,
-            '--mobile': mobileOnlyCollapse
-        })
+        const collapseClassName = classNames('vdp-collapse', { '-wrap': wrap, '--mobile': mobileOnlyCollapse })
             .split(' ')
             .join('');
 
