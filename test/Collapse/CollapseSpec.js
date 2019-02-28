@@ -9,7 +9,6 @@ describe('<Collapse />', () => {
 
     it('renders a Collapse component', () => {
         const wrapper = mount(collapse);
-        console.log(wrapper.find('.vdp-collapse__title'));
         expect(
             wrapper
                 .find('.vdp-collapse__title')
