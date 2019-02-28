@@ -68,7 +68,6 @@ $row-height: 4.5rem;
         padding: $sizing-2XS $sizing-LG;
     }
     &[class*='--thumb'] {
-        @include justify-content(flex-start);
         border-radius: $border-radius-SM;
         height: $sizing-3XL;
         margin-left: $column-thumb-margin;
@@ -76,6 +75,7 @@ $row-height: 4.5rem;
         overflow: hidden;
 
         img {
+            @include align-self(center);
             max-width: none;
             height: 100%;
         }
