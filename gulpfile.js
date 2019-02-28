@@ -10,7 +10,11 @@ gulp.task('bundle_js', () => {
             rollUpEach(rollUpConfig, file => {
                 return {
                     format: 'umd',
-                    name: path.basename(file.path, file.extname)
+                    name: path.basename(file.path, file.extname),
+                    globals: {
+                        react: 'React',
+                        'prop-types': 'PropTypes'
+                    }
                 };
             })
         )

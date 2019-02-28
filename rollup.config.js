@@ -15,8 +15,5 @@ module.exports = {
             exclude: 'node_modules/**'
         }),
         isDev && uglify()
-    ],
-    output: {
-        format: 'esm'
-    }
+    ]
 };
