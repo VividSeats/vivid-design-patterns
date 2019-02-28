@@ -5,6 +5,10 @@
 [class^='vdp-banner']:not([class*='__']) {
     @include flex;
     @include justify-content(center);
+
+    + .site-header {
+        @include border(top);
+    }
 }
 @include size-min-tablet {
     .vdp-banner--promo {
@@ -14,6 +18,8 @@
         border-top: 1px solid;
         box-shadow: 0 1px 0 $color-gray-light;
         height: $sizing-4XL;
+        position: relative;
+        z-index: $z-index-nav;
 
         .vdp-banner__image {
             background-position: center center;
