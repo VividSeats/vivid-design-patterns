@@ -9,8 +9,8 @@ $gradients: (
 );
 
 @mixin text-gradient($gradient: $color-gradient-red) {
-    @include linear-gradient(to right, $gradient);
     color: nth($gradient, 1);
+    background-image: -webkit-linear-gradient(to right, $gradient); /* Chrome 10+, Saf5.1+, iOS 5+ */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
