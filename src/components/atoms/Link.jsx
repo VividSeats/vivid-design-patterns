@@ -1,25 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { getTypeClassNames, TYPOGRAPHY_PROP_TYPES } from '../../utils/typographyUtils';
 
-const Link = ({ children, className, href, onClick, type = 'link', ...attributes }) => {
+const Link = ({
+    children,
+    type = 'link',
+    className,
+    href,
+    onClick,
+    weight,
+    height,
+    state,
+    alignment,
+    capitalization,
+    list,
+    truncate,
+    ...attributes
+}) => {
     Link.propTypes = {
         children: PropTypes.node,
         className: PropTypes.string,
         href: PropTypes.string.isRequired,
         type: PropTypes.oneOf(['link', 'anchor']),
-        onClick: PropTypes.func
+        onClick: PropTypes.func,
+        ...TYPOGRAPHY_PROP_TYPES
     };
 
     const baseClassName = type === 'anchor' ? 'vdp-anchor' : 'vdp-type-link';
+    const linkClassNames = getTypeClassNames(baseClassName, {
+        weight,
+        height,
+        state,
+        alignment,
+        capitalization,
+        truncate,
+        list,
+        className
+    });
 
     const props = {
         href,
         onClick,
         role: 'link',
-        className: classNames(baseClassName, {
-            [className]: !!className
-        }),
+        className: linkClassNames,
         ...attributes
     };
 

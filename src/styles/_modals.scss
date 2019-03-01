@@ -40,12 +40,13 @@
         @include transform(scale(1));
         opacity: 1;
     }
-    [class^='vdp-modal'][class*='--sm'] & {
-    }
-    [class^='vdp-modal'][class*='--md'] & {
-        height: 600px;
-    }
-    [class^='vdp-modal'][class*='--lg'] & {
+    @include size-min-tablet {
+        [class^='vdp-modal'][class*='--sm'] & {
+            height: 320px;
+        }
+        [class^='vdp-modal'][class*='--md'] & {
+            height: 480px;
+        }
     }
 }
 @include size-only-mobile {
