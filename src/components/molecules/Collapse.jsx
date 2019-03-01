@@ -1,29 +1,25 @@
 import React from 'react';
-import Subhead from '../atoms/Subhead';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Subhead from '../atoms/Subhead';
+import onEnterPress from '../../utils/onEnterPress';
 
 class Collapse extends React.Component {
+    static Title = ({ children, onClick, onKeyPress }) => (
+        <div className="vdp-collapse__title" onClick={onClick} onKeyPress={onKeyPress}>
+            {React.Children.map(children, child => {
+                if (typeof child.type === 'function') {
+                    return child;
+                }
+                return <Subhead state="muted">{child}</Subhead>;
+            })}
+        </div>
+    );
+
     state = {
         open: this.props.open || this.props.initialOpen
     };
 
-    static Title = ({ children, onClick }) => {
-        return (
-            <div className={'vdp-collapse__title'} onClick={onClick}>
-                {React.Children.map(children, child => {
-                    if (typeof child.type === 'function') {
-                        return child;
-                    }
-                    return <Subhead state={'muted'}>{child}</Subhead>;
-                })}
-            </div>
-        );
-    };
-
-    isControlled() {
-        return typeof this.props.open !== 'undefined';
-    }
     getOpenState() {
         if (this.isControlled()) {
             return this.props.open;
@@ -41,6 +37,14 @@ class Collapse extends React.Component {
         }
     };
 
+    onKeyPress = e => {
+        onEnterPress(this.toggleCollapse, e);
+    };
+
+    isControlled() {
+        return typeof this.props.open !== 'undefined';
+    }
+
     render() {
         const { wrap, mobileOnlyCollapse, open, initialOpen, onOpenChange, children, className, title, ...htmlAttributes } = this.props;
 
@@ -51,7 +55,11 @@ class Collapse extends React.Component {
         const dataState = this.getOpenState() ? 'opened' : 'closed';
         return (
             <div className={`${collapseClassName} ${className}`} {...htmlAttributes} data-state={dataState}>
-                {!!title && <Collapse.Title onClick={this.toggleCollapse}>{title}</Collapse.Title>}
+                {!!title && (
+                    <Collapse.Title onKeyPress={this.onKeyPress} onClick={this.toggleCollapse}>
+                        {title}
+                    </Collapse.Title>
+                )}
                 <div className="vdp-collapse__content">{children}</div>
             </div>
         );
@@ -64,9 +72,10 @@ Collapse.propTypes = {
     /** setting inital open for uncontrolled component */
     initialOpen: PropTypes.bool,
     wrap: PropTypes.bool,
-    mobile: PropTypes.bool,
+    mobileOnlyCollapse: PropTypes.bool,
     onOpenChange: PropTypes.func,
     className: PropTypes.string,
+    children: PropTypes.node,
     /** Can either be a string or a node eg <h1>{title}</h1> */
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 };

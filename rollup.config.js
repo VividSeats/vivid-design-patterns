@@ -14,7 +14,7 @@ module.exports = {
         babel({
             exclude: 'node_modules/**'
         }),
-        isDev && uglify()
+        !isDev && uglify()
     ],
     output: {
         format: 'esm'
