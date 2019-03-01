@@ -3,6 +3,11 @@
 @import 'mixins/prefixes';
 @import 'helperText';
 
+input::-ms-clear,
+select::-ms-expand {
+    display: none;
+}
+
 // Mixins
 @mixin input-base() {
     @include appearance(none);
@@ -170,6 +175,11 @@ textarea[class^='vdp-textfield__input'] {
         font-weight: $font-weight-med;
         color: $text-color-muted;
     }
+
+    [data-state*='success'] &,
+    [data-state*='success'] & {
+        right: $sizing-3XL;
+    }
 }
 
 // Feedback States
@@ -268,10 +278,6 @@ textarea[class^='vdp-textfield__input'] {
             }
         }
     }
-}
-
-select::-ms-expand {
-    display: none;
 }
 .vdp-textfield--nested-button [type='submit'] {
     @include position(absolute, $sizing-SM $sizing-SM null null);

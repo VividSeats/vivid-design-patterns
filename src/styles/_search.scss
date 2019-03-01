@@ -1,7 +1,6 @@
 @import 'tokens';
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
-@import 'eventRow';
 
 .vdp-search-field {
     @include border;
@@ -15,6 +14,7 @@
     margin: 0 $sizing-LG;
     min-width: 320px;
     padding: 0 $sizing-LG;
+    position: relative;
 
     [class*='vdp-search-field__icon'] {
         color: $color-gray-medium;
@@ -26,9 +26,11 @@
     }
     .vdp-search-field__icon-close {
         cursor: pointer;
-        display: none;
         font-size: $font-size-XL;
-        right: $sizing-SM;
+        opacity: 0;
+        padding: 0 $sizing-SM;
+        position: absolute;
+        right: 0;
     }
     .vdp-search-field__input {
         background: none;
@@ -58,6 +60,11 @@
         }
     }
     @include size-only-mobile {
+        &[data-state='active'] {
+            @include position(fixed, 0 0 null 0);
+            height: $sizing-4XL;
+            width: 100%;
+        }
         [class*='vdp-search-field__icon'] {
             line-height: $sizing-4XL;
         }
@@ -121,7 +128,7 @@
             left: -$sizing-3XL !important;
             min-width: 360px;
             top: calc(100% + #{$sizing-LG}) !important;
-            width: calc(100% + 76px);
+            width: calc(100% + #{$sizing-5XL});
             z-index: $z-index-nav !important;
         }
     }

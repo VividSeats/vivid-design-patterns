@@ -133,8 +133,10 @@ $gridBreakpoints: sm null, md $breakpoint-tablet, lg $breakpoint-desktop, xl $br
 
 // CSS Grid Layout
 [class^='vdp-grid'] {
+    display: -ms-grid;
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: $grid-gutter;
+    max-width: $grid-max-width;
 
     @include size-min-desktop {
         margin-left: calc((#{$grid-gutter} / 2) * -1);
@@ -142,9 +144,11 @@ $gridBreakpoints: sm null, md $breakpoint-tablet, lg $breakpoint-desktop, xl $br
     }
     &[class*='--col-3'] {
         @include size-min-tablet {
+            -ms-grid-columns: $grid-gutter (1fr $grid-gutter) [2];
             grid-template-columns: repeat(2, 1fr);
         }
         @include size-min-desktop {
+            -ms-grid-columns: $grid-gutter (1fr $grid-gutter) [3];
             grid-template-columns: repeat(3, 1fr);
         }
     }

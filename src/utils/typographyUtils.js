@@ -15,6 +15,7 @@ function getTypeClassNames(baseClassName, { weight, height, state, alignment, ca
         '--blk': weight === 'blk' || weight === 'black',
         '--bld': weight === 'bld' || weight === 'bold',
         '--med': weight === 'med' || weight === 'medium',
+        '--reg': weight === 'reg' || weight === 'regular',
         '--truncate': truncate,
         '--list': list,
         [`--${height}`]: height,
@@ -27,12 +28,19 @@ function getTypeClassNames(baseClassName, { weight, height, state, alignment, ca
 const TYPOGRAPHY_PROP_TYPES = {
     className: PropTypes.string,
     children: PropTypes.node,
-    weight: PropTypes.oneOf(['black', 'bold', 'medium']),
+    /** Font weight */
+    weight: PropTypes.oneOf(['black', 'bold', 'medium', 'regular']),
+    /** Line height. */
     height: PropTypes.oneOf(['compressed', 'expanded']),
+
     state: PropTypes.oneOf(['disabled', 'inverted', 'muted']),
+    /** Text alignment */
     alignment: PropTypes.oneOf(['left', 'center', 'right']),
+    /** type casing */
     capitalization: PropTypes.oneOf(['uppercase', 'lowercase']),
+    /** Truncate text with ellipsis. */
     truncate: PropTypes.bool,
+    /**  Add padding for list items. */
     list: PropTypes.bool
 };
 

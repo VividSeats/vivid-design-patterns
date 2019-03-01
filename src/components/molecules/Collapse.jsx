@@ -46,9 +46,9 @@ class Collapse extends React.Component {
     }
 
     render() {
-        const { wrap, mobileOnlyCollapse, open, initialOpen, onOpenChange, children, className, title, ...htmlAttributes } = this.props;
+        const { wrap, collapseOnMobileOnly, open, initialOpen, onOpenChange, children, className, title, ...htmlAttributes } = this.props;
 
-        const collapseClassName = classNames('vdp-collapse', { '-wrap': wrap, '--mobile': mobileOnlyCollapse })
+        const collapseClassName = classNames('vdp-collapse', { '-wrap': wrap, '--mobile': collapseOnMobileOnly })
             .split(' ')
             .join('');
 
@@ -72,7 +72,7 @@ Collapse.propTypes = {
     /** setting inital open for uncontrolled component */
     initialOpen: PropTypes.bool,
     wrap: PropTypes.bool,
-    mobileOnlyCollapse: PropTypes.bool,
+    collapseOnMobileOnly: PropTypes.bool,
     onOpenChange: PropTypes.func,
     className: PropTypes.string,
     children: PropTypes.node,
@@ -82,7 +82,7 @@ Collapse.propTypes = {
 
 Collapse.defaultProps = {
     onOpenChange: () => {},
-    mobileOnlyCollapse: false,
+    collapseOnMobileOnly: false,
     wrap: false,
     title: '',
     className: ''
