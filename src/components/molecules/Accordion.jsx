@@ -10,12 +10,10 @@ class Accordion extends React.Component {
     };
 
     setOpenedIndex = index => {
-        this.setState({
-            openedIndex: index
-        });
+        this.setState(({ openedIndex }) => ({ openedIndex: openedIndex === index ? -1 : index }));
 
         if (this.isControlled()) {
-            this.props.onAccordionOpen(index);
+            this.props.onAccordionOpen(this.props.openedIndex === index ? -1 : index);
         }
     };
 
@@ -36,7 +34,7 @@ class Accordion extends React.Component {
         return React.Children.map(children, (child, index) =>
             React.cloneElement(child, {
                 open: this.getOpenedIndex() === index,
-                onOpenChange: isOpen => isOpen && this.setOpenedIndex(index)
+                onOpenChange: () => this.setOpenedIndex(index)
             })
         );
     }
@@ -44,6 +42,7 @@ class Accordion extends React.Component {
 
 Accordion.propTypes = {
     initialOpenedIndex: PropTypes.number,
+    /** For controlled components. Use -1 to indicate no Collapse components are open. */
     openedIndex: PropTypes.number,
     children: PropTypes.node,
     /** For use with controlled props. Fires when an accordion is open with the opened element's index */

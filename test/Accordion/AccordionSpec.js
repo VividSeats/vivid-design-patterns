@@ -21,6 +21,24 @@ describe('<Accordion />', () => {
         expect(wrapper.find('Collapse').length).toBe(2);
     });
 
+    it('can toggle the opening and closing of an collapse component when clicked', () => {
+        const wrapper = mount(accordion);
+        wrapper.find('#accordion1 .vdp-collapse__title').simulate('click');
+        expect(
+            wrapper
+                .find('#accordion1')
+                .hostNodes()
+                .props()['data-state']
+        ).toBe('opened');
+        wrapper.find('#accordion1 .vdp-collapse__title').simulate('click');
+        expect(
+            wrapper
+                .find('#accordion1')
+                .hostNodes()
+                .props()['data-state']
+        ).toBe('closed');
+    });
+
     it('should open an Collapse component when click', () => {
         const wrapper = mount(accordion);
         wrapper.find('#accordion1 .vdp-collapse__title').simulate('click');
