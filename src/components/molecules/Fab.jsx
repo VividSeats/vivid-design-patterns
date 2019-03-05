@@ -12,9 +12,6 @@ const Fab = ({ children, className = '', visible = true, ...htmlAttributes }) =>
             if (!!type && type.displayName === 'FabChild') {
                 return child;
             }
-
-            // wrap child in sub-component if not already wrapped
-            return <Fab.Child key={`${!!type ? type : 'FabChild'}-${i}`}>{child}</Fab.Child>;
         })}
     </div>
 );

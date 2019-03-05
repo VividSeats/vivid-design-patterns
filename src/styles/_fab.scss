@@ -16,6 +16,9 @@
         i {
             color: $text-color-link;
         }
+        &:only-child {
+            @include align-self(flex-start);
+        }
     }
     .vdp-fab__divider {
         flex: none;
@@ -31,7 +34,7 @@
         -ms-flex: 1;
         flex: 1;
         border-radius: $border-radius-SM;
-        line-height: $sizing-4XL;
+        line-height: $sizing-3XL + $sizing-2XS !important;
         margin: $sizing-XS;
 
         &:hover {

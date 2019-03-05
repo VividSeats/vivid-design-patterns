@@ -47,6 +47,9 @@
         [class^='vdp-modal'][class*='--md'] & {
             height: 480px;
         }
+        [class^='vdp-modal'][class*='--lg'] & {
+            max-width: 900px;
+        }
     }
 }
 @include size-only-mobile {
