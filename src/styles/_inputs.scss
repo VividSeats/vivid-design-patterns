@@ -177,7 +177,7 @@ textarea[class^='vdp-textfield__input'] {
     }
 
     [data-state*='success'] &,
-    [data-state*='success'] & {
+    [data-state*='error'] & {
         right: $sizing-3XL;
     }
 }
