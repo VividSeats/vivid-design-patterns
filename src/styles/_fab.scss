@@ -12,20 +12,22 @@
 
     .vdp-fab__child {
         cursor: pointer;
+        font-size: $font-size-MD;
+        font-weight: $font-weight-bld;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         i {
             color: $text-color-link;
         }
-        &:only-child {
-            @include align-self(flex-start);
+        &--divider {
+            flex: none;
+            margin: 0;
+            width: 1px;
+            height: $sizing-3XL;
+            background-color: $color-gray-light;
         }
-    }
-    .vdp-fab__divider {
-        flex: none;
-        margin: 0;
-        width: 1px;
-        height: $sizing-3XL;
-        background-color: $color-gray-light;
     }
 }
 

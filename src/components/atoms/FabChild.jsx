@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const FabChild = ({ children, className = '', ...htmlAttributes }) => (
-    <div className={`vdp-fab__child ${className}`} {...htmlAttributes}>
+    <div className={`vdp-fab__child${className}`} {...htmlAttributes}>
         {children}
     </div>
 );
