@@ -38,8 +38,8 @@ class Select extends React.Component {
 
     state = {
         value: this.props.value || '',
-        error: this.props.error || '',
-        filled: !!this.props.value || !!this.props.label
+        error: this.props.error || ''
+        // filled: !!this.props.value || !!this.props.label
     };
 
     onBlur = e => {
@@ -60,8 +60,8 @@ class Select extends React.Component {
             this.setState(
                 {
                     value,
-                    error,
-                    filled: !!value
+                    error
+                    // filled: !!value
                 },
                 () => {
                     this.props.onChange(this.state.value);
@@ -90,14 +90,16 @@ class Select extends React.Component {
             children,
             ...attributes
         } = this.props;
-        const { error, filled } = this.state;
+        const { error } = this.state;
+        const value = this.isControlled('value') ? this.props.value : this.state.value;
+        const filled = !!value || !!label;
         const selectProps = {
             id,
             label,
             disabled,
             small,
             medium,
-            value: this.isControlled('value') ? this.props.value : this.state.value,
+            value,
             onChange: this.onChange,
             onBlur: this.onBlur
         };
