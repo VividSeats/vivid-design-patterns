@@ -50,6 +50,7 @@
     }
     &[class*='--count'] {
         @include linear-gradient(to left, $color-gradient-red);
+        @include position(relative, #{-$sizing-XS} null null null);
         border-radius: $border-radius-round;
         color: $color-white;
         height: $sizing-LG;

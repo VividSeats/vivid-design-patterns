@@ -42,6 +42,11 @@
         &:hover {
             background-color: $color-gray-highlight;
         }
+        &:only-child {
+            padding: 0 $sizing-LG;
+            -ms-flex: none;
+            flex: none;
+        }
     }
 }
 

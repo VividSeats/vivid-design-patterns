@@ -99,6 +99,10 @@ $overlayGradient: rgba($color-black, 0), $color-black;
     margin: -5px 0 0 0;
     padding: 0 $sizing-SM;
 
+    @include size-only-mobile {
+        padding-bottom: $sizing-XL;
+    }
+
     @include size-min-tablet {
         font-size: $font-size-4XL;
     }
