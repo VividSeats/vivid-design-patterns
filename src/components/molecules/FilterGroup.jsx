@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import { SlideDown } from 'react-slidedown';
 import Button from '../atoms/Button';
 import Subhead from '../atoms/Subhead';
+import FilterGroupItem from '../atoms/FilterGroupItem';
 
 /* eslint-disable */
 
 class FilterGroup extends React.Component {
+    static Item = FilterGroupItem;
+
     state = { expanded: false };
 
     static propTypes = {
@@ -46,7 +49,7 @@ class FilterGroup extends React.Component {
         return (
             <div {...htmlAttributes} className={classNames}>
                 <SlideDown>
-                    <Subhead className={'--muted'}>{groupName}</Subhead>
+                    <Subhead state={'muted'}>{groupName}</Subhead>
                     <ul>
                         {React.Children.map(children, (child, index) =>
                             index < filterLimit
