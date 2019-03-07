@@ -64,7 +64,7 @@
         transform: translateX(-50%);
 
         .vdp-fab__child {
-            padding: 0 $sizing-MD;
+            padding: $sizing-MD;
             white-space: nowrap;
 
             &:first-child {
