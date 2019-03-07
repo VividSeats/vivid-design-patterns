@@ -175,6 +175,11 @@ textarea[class^='vdp-textfield__input'] {
         font-weight: $font-weight-med;
         color: $text-color-muted;
     }
+
+    [data-state*='success'] &,
+    [data-state*='error'] & {
+        right: $sizing-3XL;
+    }
 }
 
 // Feedback States

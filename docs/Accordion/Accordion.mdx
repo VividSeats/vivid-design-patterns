@@ -1,0 +1,127 @@
+
+---
+    name: Accordion
+---
+
+import Collapse from '../../src/components/molecules/Collapse';
+import Accordion from '../../src/components/molecules/Accordion';
+import '../../src/styles/_collapse.scss';
+import { PropsTable, Playground } from 'docz';
+import LinkGroup from '../../src/components/molecules/LinkGroup';
+import Link from '../../src/components/atoms/Link';
+import StatefulComponent from '../StatefulComponent';
+
+# Accordion
+## Installation
+Using the react components:
+
+    `import Accordion from @vividseats/vivid-design-patterns/dist/molecules/Accordion;`
+
+Using the scss files:
+
+    `@import @vividseats/vivid-design-patterns/src/styles/_collapse.scss;`
+
+## Accordion Props
+<PropsTable of={Accordion}/>
+
+# Examples
+
+## Basic Usage
+<Playground>
+    <Accordion>
+        <Accordion.Collapse title='Click to Expand/Collapse'>
+            <LinkGroup type="muted">
+                <Link state="muted" weight="regular" href="/about.html">
+                    About Us
+                </Link>
+                <Link state="muted" weight="regular" href="/difference.html">
+                    Experience Vivid Seats
+                </Link>
+                <Link state="muted" weight="regular" href="/guarantee.html">
+                    Buyer Guarantee
+                </Link>
+                <Link state="muted" weight="regular" href="/press/">
+                    Press
+                </Link>
+                <Link state="muted" weight="regular" href="/careers">
+                    Careers
+                </Link>
+            </LinkGroup>
+        </Accordion.Collapse>
+        <Accordion.Collapse title='Click to Expand/Collapse'>
+            <LinkGroup type="muted">
+                <Link state="muted" weight="regular" href="/about.html">
+                    About Us
+                </Link>
+                <Link state="muted" weight="regular" href="/difference.html">
+                    Experience Vivid Seats
+                </Link>
+                <Link state="muted" weight="regular" href="/guarantee.html">
+                    Buyer Guarantee
+                </Link>
+                <Link state="muted" weight="regular" href="/press/">
+                    Press
+                </Link>
+                <Link state="muted" weight="regular" href="/careers">
+                    Careers
+                </Link>
+            </LinkGroup>
+        </Accordion.Collapse>
+    </Accordion>
+</Playground>
+
+## As a controlled component
+<Playground>
+    <StatefulComponent initialState={{openedIndex: 0}}>
+        {
+            ({state, setState}) => {
+                const onAccordionOpen = (index) => setState({openedIndex: index});
+                const { openedIndex } = state;
+                return (
+                    <Accordion onAccordionOpen={onAccordionOpen} openedIndex={openedIndex}>
+                        <Accordion.Collapse title="Title">
+                            <LinkGroup type="muted">
+                                <Link state="muted" weight="regular" href="/about.html">
+                                    About Us
+                                </Link>
+                                <Link state="muted" weight="regular" href="/difference.html">
+                                    Experience Vivid Seats
+                                </Link>
+                                <Link state="muted" weight="regular" href="/guarantee.html">
+                                    Buyer Guarantee
+                                </Link>
+                                <Link state="muted" weight="regular" href="/press/">
+                                    Press
+                                </Link>
+                                <Link state="muted" weight="regular" href="/careers">
+                                    Careers
+                                </Link>
+                            </LinkGroup>
+                        </Accordion.Collapse>
+                        <Accordion.Collapse title="Title">
+                            <LinkGroup type="muted">
+                                <Link state="muted" weight="regular" href="/about.html">
+                                    About Us
+                                </Link>
+                                <Link state="muted" weight="regular" href="/difference.html">
+                                    Experience Vivid Seats
+                                </Link>
+                                <Link state="muted" weight="regular" href="/guarantee.html">
+                                    Buyer Guarantee
+                                </Link>
+                                <Link state="muted" weight="regular" href="/press/">
+                                    Press
+                                </Link>
+                                <Link state="muted" weight="regular" href="/careers">
+                                    Careers
+                                </Link>
+                            </LinkGroup>
+                        </Accordion.Collapse>
+                    </Accordion>
+                )
+            }
+        }
+    </StatefulComponent>
+</Playground>
+
+
