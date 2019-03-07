@@ -49,7 +49,7 @@ class FilterGroup extends React.Component {
         return (
             <div {...htmlAttributes} className={classNames}>
                 <SlideDown>
-                    <Subhead state={'muted'}>{groupName}</Subhead>
+                    <Subhead state="muted">{groupName}</Subhead>
                     <ul>
                         {React.Children.map(children, (child, index) =>
                             index < filterLimit

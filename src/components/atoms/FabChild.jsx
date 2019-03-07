@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FabChild = ({ children, className = '', isDivider, ...htmlAttributes }) => (
+const FabChild = ({ children, className = '', isDivider = false, ...htmlAttributes }) => (
     <div className={`vdp-fab__child${isDivider ? '--divider' : ''} ${className}`} {...htmlAttributes}>
         {children}
     </div>
