@@ -3,6 +3,12 @@
 name: design-patterns
 version: {{ index .Env "BRANCH_LOWER" }}
 
+{{ if eq (index .Env "BRANCH_LOWER") "master" }}
+ephemeral: false
+{{ else }}
+ephemeral: true
+{{ end }}
+
 web:
   hosts:
     - vivid-design-patterns-{{ index .Env "BRANCH_LOWER" }}.vividseats.test
