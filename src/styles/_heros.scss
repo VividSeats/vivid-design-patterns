@@ -29,14 +29,19 @@ $overlayGradient: rgba($color-black, 0), $color-black;
         height: $hero-height-large;
     }
 }
-[class^='vdp-page-hero'][class*='--tabbed']:after {
-    @include linear-gradient(to bottom, $overlayGradient);
-    @include position(absolute, null 0 0 0);
-    content: '';
-    height: 50%;
-    z-index: 1;
+[class^='vdp-page-hero'] {
+    &[class*='--tabbed']:after {
+        @include linear-gradient(to bottom, $overlayGradient);
+        @include position(absolute, null 0 0 0);
+        content: '';
+        height: 50%;
+        z-index: 1;
+    }
+    &[class*='--stretch'] [class^='vdp-page-hero__image'] {
+        background-position: center center;
+    }
 }
-.vdp-page-hero__image {
+[class^='vdp-page-hero__image'] {
     @include position(absolute, 0 0 0 0);
     background-position: top center;
     background-repeat: no-repeat;
