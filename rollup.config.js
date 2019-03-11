@@ -8,12 +8,17 @@ module.exports = {
     external: ['prop-types', 'react', 'react-dom'],
     plugins: [
         resolve({
+            browser: true,
+            preferBuiltins: true,
             extensions: ['.js', '.jsx']
         }),
-        commonjs(),
         babel({
             exclude: 'node_modules/**'
         }),
+        commonjs({
+            extensions: ['.js', '.jsx']
+        }),
         !isDev && uglify()
-    ]
+    ],
+    isCache: true
 };

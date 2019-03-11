@@ -9,7 +9,7 @@ gulp.task('bundle_js', () => {
         .pipe(
             rollUpEach(rollUpConfig, file => {
                 return {
-                    format: 'umd',
+                    format: 'cjs',
                     name: path.basename(file.path, file.extname),
                     globals: {
                         react: 'React',
