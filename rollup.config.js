@@ -20,5 +20,5 @@ module.exports = {
         }),
         !isDev && uglify()
     ],
-    isCache: true
+    isCache: isDev
 };
