@@ -9,23 +9,19 @@ spec:
       command: ["tail", "-f", "/dev/null"]
       imagePullPolicy: Always
     - name: docker
-      image: docker:18.06.1
-      command: ["tail", "-f", "/dev/null"]
+      image: docker:18.06.1-ce-dind
       imagePullPolicy: Always
+      securityContext:
+        privileged: true
       volumeMounts:
-        - name: docker
-          mountPath: /var/run/docker.sock
         - name: docker-conf
           mountPath: /root/.dockercfg
           subPath: .dockercfg
     - name: skipper
-      image: vividseats/skipper
+      image: vividseats/skipper:master
       command: ["tail", "-f", "/dev/null"]
       imagePullPolicy: Always
   volumes:
-    - name: docker
-      hostPath:
-        path: /var/run/docker.sock
     - name: docker-conf
       configMap:
         name: docker-cfg
