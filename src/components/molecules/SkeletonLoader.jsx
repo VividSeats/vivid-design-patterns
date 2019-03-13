@@ -1,4 +1,5 @@
 import React from 'react';
+import SkeletonBone from '../atoms/SkeletonBone';
 import PropTypes from 'prop-types';
 
 const SkeletonLoader = ({ rowCount, isLoading, firstColumnLineCount, secondColumnLineCount, children, skeletonBone }) => {
@@ -6,14 +7,15 @@ const SkeletonLoader = ({ rowCount, isLoading, firstColumnLineCount, secondColum
         return children;
     }
 
+    const dummySkeletonRows = [...new Array(rowCount)];
     return (
         <React.Fragment>
-            {rowCount.map((item, index) => {
-                if (skeletonBone) {
-                    return skeletonBone;
-                }
-
-                return <SkeletonBone />;
+            {dummySkeletonRows.map((item, index) => {
+                return skeletonBone ? (
+                    React.cloneElement(skeletonBone, { key: index })
+                ) : (
+                    <SkeletonBone key={index} firstColumnLineCount={firstColumnLineCount} secondColumnLineCount={secondColumnLineCount} />
+                );
             })}
         </React.Fragment>
     );
@@ -22,8 +24,8 @@ const SkeletonLoader = ({ rowCount, isLoading, firstColumnLineCount, secondColum
 SkeletonLoader.propTypes = {
     rowCount: PropTypes.number,
     isLoading: PropTypes.bool.isRequired,
-    firstColumnLineCount: PropTypes.string,
-    secondColumnLineCount: PropTypes.string
+    firstColumnLineCount: PropTypes.number,
+    secondColumnLineCount: PropTypes.number
 };
 
 SkeletonLoader.defaultProps = {
@@ -31,3 +33,5 @@ SkeletonLoader.defaultProps = {
     firstColumnLineCount: 3,
     secondColumnLineCount: 2
 };
+
+export default SkeletonLoader;

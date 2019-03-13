@@ -1,0 +1,25 @@
+diff a/src/components/molecules/SkeletonLoader.jsx b/src/components/molecules/SkeletonLoader.jsx	(rejected hunks)
+@@ -4,2 +4,2 @@ import PropTypes from 'prop-types';
+-const SkeletonLoader = ({rowCount, isLoading, firstColumnLineCount, secondColumnLineCount, children, skeletonBone, }) => {
+-    if(!isLoading) {
++const SkeletonLoader = ({ rowCount, isLoading, firstColumnLineCount, secondColumnLineCount, children, skeletonBone }) => {
++    if (!isLoading) {
+@@ -11,5 +11,4 @@ const SkeletonLoader = ({rowCount, isLoading, firstColumnLineCount, secondColumn
+-            {
+-                rowCount.map((item, index) => {
+-                  if(skeletonBone) {
+-                      return skeletonBone;
+-                  }
++            {rowCount.map((item, index) => {
++                if (skeletonBone) {
++                    return skeletonBone;
++                }
+@@ -17,3 +16,2 @@ const SkeletonLoader = ({rowCount, isLoading, firstColumnLineCount, secondColumn
+-                  return <SkeletonBone/>
+-                })
+-            }
++                return <SkeletonBone />;
++            })}
+@@ -21 +19 @@ const SkeletonLoader = ({rowCount, isLoading, firstColumnLineCount, secondColumn
+-    )
++    );
