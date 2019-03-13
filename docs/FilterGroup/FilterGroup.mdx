@@ -4,9 +4,7 @@
 
 import { PropsTable, Playground } from 'docz'
 import FilterGroup from '../../src/components/molecules/FilterGroup';
-import Link from '../../src/components/atoms/Link';
 import '../../src/styles/_filterGroups.scss';
-import '../../src/styles/_link.scss';
 import './filterGroupDocs.scss';
 
 # FilterGroup
@@ -22,14 +20,14 @@ Using the react components:
 <Playground>
 
   <FilterGroup groupName='By Venue' onSelect={(e) => console.log(e.target.innerHTML) }>
-    <Link>All-State Arena</Link>
-    <Link>Soldier Field</Link>
-    <Link>United Center</Link>
-    <Link>AT&T Center</Link>
-    <Link>Madison Square Garden</Link>
-    <Link>Oracle Arena</Link>
-    <Link>Pepsi Center</Link>
-    <Link>Kohl Center</Link>
+    <FilterGroup.Item>All-State Arena</FilterGroup.Item>
+    <FilterGroup.Item>Soldier Field</FilterGroup.Item>
+    <FilterGroup.Item>United Center</FilterGroup.Item>
+    <FilterGroup.Item>AT&T Center</FilterGroup.Item>
+    <FilterGroup.Item>Madison Square Garden</FilterGroup.Item>
+    <FilterGroup.Item>Oracle Arena</FilterGroup.Item>
+    <FilterGroup.Item>Pepsi Center</FilterGroup.Item>
+    <FilterGroup.Item>Kohl Center</FilterGroup.Item>
   </FilterGroup>
 
 </Playground>
@@ -38,14 +36,14 @@ Using the react components:
 `onSelect={(e) => {alert('ID of element:' + e.target.id)`
 <Playground>
     <FilterGroup groupName='By Teams' onSelect={(e) => {alert('ID of element: ' + e.target.id) }}>
-      <Link id="1">Chicago White Sox</Link>
-      <Link id="2">Chicago Cubs</Link>
-      <Link id="3">Anaheim Angels</Link>
-      <Link id="4">Colorado Rockies</Link>
-      <Link id="5">Atlanta Braves</Link>
-      <Link id="6">LA Dodgers</Link>
-      <Link id="7">New York Yankees</Link>
-      <Link id="8">New York Mets</Link>
+      <FilterGroup.Item id="1">Chicago White Sox</FilterGroup.Item>
+      <FilterGroup.Item id="2">Chicago Cubs</FilterGroup.Item>
+      <FilterGroup.Item id="3">Anaheim Angels</FilterGroup.Item>
+      <FilterGroup.Item id="4">Colorado Rockies</FilterGroup.Item>
+      <FilterGroup.Item id="5">Atlanta Braves</FilterGroup.Item>
+      <FilterGroup.Item id="6">LA Dodgers</FilterGroup.Item>
+      <FilterGroup.Item id="7">New York Yankees</FilterGroup.Item>
+      <FilterGroup.Item id="8">New York Mets</FilterGroup.Item>
     </FilterGroup>
 </Playground>
 
@@ -53,13 +51,13 @@ Using the react components:
 `limit={2}`
 <Playground>
     <FilterGroup groupName='By Teams' limit={2}>
-      <Link id="1">Chicago White Sox</Link>
-      <Link id="2">Chicago Cubs</Link>
-      <Link id="3">Anaheim Angels</Link>
-      <Link id="4">Colorado Rockies</Link>
-      <Link id="5">Atlanta Braves</Link>
-      <Link id="6">LA Dodgers</Link>
-      <Link id="7">New York Yankees</Link>
-      <Link id="8">New York Mets</Link>
+      <FilterGroup.Item id="1">Chicago White Sox</FilterGroup.Item>
+      <FilterGroup.Item id="2">Chicago Cubs</FilterGroup.Item>
+      <FilterGroup.Item id="3">Anaheim Angels</FilterGroup.Item>
+      <FilterGroup.Item id="4">Colorado Rockies</FilterGroup.Item>
+      <FilterGroup.Item id="5">Atlanta Braves</FilterGroup.Item>
+      <FilterGroup.Item id="6">LA Dodgers</FilterGroup.Item>
+      <FilterGroup.Item id="7">New York Yankees</FilterGroup.Item>
+      <FilterGroup.Item id="8">New York Mets</FilterGroup.Item>
     </FilterGroup>
 </Playground>

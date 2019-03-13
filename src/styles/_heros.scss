@@ -104,6 +104,10 @@ $overlayGradient: rgba($color-black, 0), $color-black;
     margin: -5px 0 0 0;
     padding: 0 $sizing-SM;
 
+    @include size-only-mobile {
+        padding-bottom: $sizing-XL;
+    }
+
     @include size-min-tablet {
         font-size: $font-size-4XL;
     }
@@ -118,10 +122,12 @@ $overlayGradient: rgba($color-black, 0), $color-black;
     }
 }
 .vdp-page-hero__tabs {
-    margin: 0 -#{$sizing-MD};
-    padding: 0 $sizing-MD;
+    margin: 0 -#{$sizing-MD} !important;
+    overflow: scroll;
+    padding: 0 $sizing-MD !important;
     position: relative;
     z-index: 3;
+    -webkit-overflow-scrolling: touch;
 }
 .vdp-page-hero__breadcrumbs {
     font-size: $font-size-SM;
