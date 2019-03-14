@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SkeletonBone = ({ rowCount, isLoading, firstColumnLineCount, secondColumnLineCount, children }) => {
+const SkeletonBone = ({ firstColumnLineCount, secondColumnLineCount }) => {
     const firstColumnRows = [...new Array(firstColumnLineCount)];
     const secondColumnRows = [...new Array(secondColumnLineCount)];
 
