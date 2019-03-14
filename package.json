@@ -30,6 +30,7 @@
     "eslint-plugin-react": "^7.11.1",
     "git-raw-commits": "^2.0.0",
     "gulp": "^4.0.0",
+    "gulp-changed": "^3.2.0",
     "gulp-if": "^2.0.2",
     "gulp-rollup-each": "^2.2.0",
     "husky": "^1.2.0",
@@ -58,7 +59,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "gulp-changed": "^3.2.0",
     "moment": "^2.24.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
