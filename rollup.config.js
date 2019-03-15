@@ -7,7 +7,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const nodeEnv = JSON.stringify(process.env.NODE_ENV || 'production');
 const isDev = nodeEnv === 'dev';
 const packageJson = require('./package.json');
-const external = Object.keys(packageJson.dependencies);
+const external = Object.keys(packageJson.peerDependencies);
 
 module.exports = {
     external,
