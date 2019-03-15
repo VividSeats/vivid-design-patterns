@@ -20,7 +20,6 @@
 
     figure {
         @include align-items(center);
-        @include justify-content(flex-end);
         @include transition(all $transition-4);
         display: none;
         left: 100%;
@@ -75,11 +74,6 @@
             width: 100%;
             position: relative;
             z-index: 2;
-        }
-        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-            figcaption {
-                margin-left: 0;
-            }
         }
         .slide-copy {
             color: $color-white;
