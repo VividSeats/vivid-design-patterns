@@ -12,7 +12,6 @@
     font-size: $font-size-MD;
     font-weight: $font-weight-reg;
     margin: 0 $sizing-LG;
-    min-width: 320px;
     padding: 0 $sizing-LG;
     position: relative;
 
@@ -103,8 +102,6 @@
 
 // Twitter Typeahead Results
 .twitter-typeahead {
-    width: 262px; // based off of current placeholder
-
     .tt-hint {
         display: none;
     }
@@ -130,6 +127,17 @@
             top: calc(100% + #{$sizing-LG}) !important;
             width: calc(100% + #{$sizing-5XL});
             z-index: $z-index-nav !important;
+        }
+    }
+}
+
+// Tablet Breakpoint Adjustment
+@media screen and (min-width: 870px) {
+    .vdp-search-field {
+        min-width: 320px;
+
+        .twitter-typeahead {
+            width: 262px; // based off of placeholder: Search by team, artist, event or venue
         }
     }
 }

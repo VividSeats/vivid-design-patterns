@@ -62,7 +62,7 @@
         padding: #{$sizing-XS + $sizing-2XS} $sizing-SM;
     }
 }
-.vdp-link-group--muted {
+[class^='vdp-link-group'][class*='--muted'] {
     [class^='vdp-link-group__item'] {
         font-size: $font-size-SM;
 

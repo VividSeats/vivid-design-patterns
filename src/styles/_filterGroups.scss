@@ -2,35 +2,46 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 
-// Link styles
-@import 'link';
-
 .vdp-filter-group {
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 0 !important;
+    @include flex(1 0 100%);
+    padding: $sizing-LG 0 $sizing-SM 0;
 
-    p {
-        font-size: 0.8125rem;
-        margin: 1rem 0 0.5rem;
-        text-transform: uppercase;
-        color: $text-color-muted;
-    }
     ul {
-        margin: 0 0;
-        padding: 0 0;
-    }
-    li {
-        position: relative;
         list-style: none;
-        line-height: 1.5;
-        margin-bottom: 0.3em;
+        margin: $sizing-XS 0 0 0;
+        padding: 0;
+    }
+    .vdp-filter-group__item {
+        border-radius: $border-radius-SM;
+        cursor: pointer;
+        font-size: $font-size-MD;
+        padding: $sizing-XS $sizing-SM;
+        position: relative;
+        margin: 0 0 0 #{-$sizing-SM};
 
-        a {
-            display: inline;
-            font-size: 0.875rem;
-            padding: 0 0;
-            margin: 0;
+        &:hover {
+            background-color: $color-brand-blue-light;
+            color: $text-color-link;
+        }
+    }
+    button {
+        margin-top: $sizing-XS;
+        margin-left: #{-$sizing-SM};
+    }
+}
+
+@include size-min-tablet {
+    .vdp-modal__body {
+        .vdp-filter-group {
+            @include flex-basis(auto);
+            padding: $sizing-LG;
+
+            &:first-of-type {
+                padding-left: 0;
+            }
+            &:last-of-type {
+                padding-right: 0;
+            }
         }
     }
 }

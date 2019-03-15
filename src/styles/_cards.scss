@@ -91,6 +91,8 @@
     position: relative;
 
     &__image {
+        @include position(absolute, 50% 0 0 50%);
+        @include transform(translate(-50%, -50%));
         height: auto;
         max-width: none;
         min-height: 100%;

@@ -47,6 +47,9 @@
         [class^='vdp-modal'][class*='--md'] & {
             height: 480px;
         }
+        [class^='vdp-modal'][class*='--lg'] & {
+            max-width: 900px;
+        }
     }
 }
 @include size-only-mobile {
@@ -80,7 +83,7 @@
     position: relative;
 
     button {
-        @include position(absolute, 0 $sizing-SM 0 null);
+        @include position(absolute, $sizing-LG $sizing-LG 0 null);
         margin: auto;
     }
 }

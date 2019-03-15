@@ -1,51 +1,51 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import Link from '../../src/components/atoms/Link';
+import FilterGroupItem from '../../src/components/atoms/FilterGroupItem';
 import FilterGroup from '../../src/components/molecules/FilterGroup';
 
 describe('<FilterGroup />', () => {
-    it('renders a <ul> tag with six child <li> tags', () => {
-        const wrapper = shallow(
+    it('renders a <ul> tag with eight child <li> tags', () => {
+        const wrapper = mount(
             <FilterGroup groupName="Test Group">
-                <Link href="#">All-State Arena</Link>
-                <Link href="#">Soldier Field</Link>
-                <Link href="#">United Center</Link>
-                <Link href="#">AT&T Center</Link>
-                <Link href="#">Madison Square Garden</Link>
-                <Link href="#">Oracle Arena</Link>
-                <Link href="#">Pepsi Center</Link>
-                <Link href="#">Kohl Center</Link>
+                <FilterGroupItem>All-State Arena</FilterGroupItem>
+                <FilterGroupItem>Soldier Field</FilterGroupItem>
+                <FilterGroupItem>United Center</FilterGroupItem>
+                <FilterGroupItem>AT&T Center</FilterGroupItem>
+                <FilterGroupItem>Madison Square Garden</FilterGroupItem>
+                <FilterGroupItem>Oracle Arena</FilterGroupItem>
+                <FilterGroupItem>Pepsi Center</FilterGroupItem>
+                <FilterGroupItem>Kohl Center</FilterGroupItem>
             </FilterGroup>
         );
         expect(wrapper.find('ul').exists()).toBe(true);
-        expect(wrapper.find('li').length).toBe(6);
+        expect(wrapper.find('li').length).toBe(5);
     });
 
     it('renders a <ul> tag with a limit of 3 child <li> tags', () => {
-        const wrapper = shallow(
+        const wrapper = mount(
             <FilterGroup groupName="Test Group" limit={3}>
-                <Link href="#">All-State Arena</Link>
-                <Link href="#">Soldier Field</Link>
-                <Link href="#">United Center</Link>
-                <Link href="#">AT&T Center</Link>
-                <Link href="#">Madison Square Garden</Link>
-                <Link href="#">Oracle Arena</Link>
-                <Link href="#">Pepsi Center</Link>
-                <Link href="#">Kohl Center</Link>
+                <FilterGroupItem>All-State Arena</FilterGroupItem>
+                <FilterGroupItem>Soldier Field</FilterGroupItem>
+                <FilterGroupItem>United Center</FilterGroupItem>
+                <FilterGroupItem>AT&T Center</FilterGroupItem>
+                <FilterGroupItem>Madison Square Garden</FilterGroupItem>
+                <FilterGroupItem>Oracle Arena</FilterGroupItem>
+                <FilterGroupItem>Pepsi Center</FilterGroupItem>
+                <FilterGroupItem>Kohl Center</FilterGroupItem>
             </FilterGroup>
         );
         expect(wrapper.find('ul').exists()).toBe(true);
-        expect(wrapper.find('li').length).toBe(4);
+        expect(wrapper.find('li').length).toBe(3);
     });
 
     it('renders a filter group with a selection callback', () => {
         const mockOnClick = jest.fn();
         const wrapper = mount(
             <FilterGroup groupName="Test Group" onSelect={mockOnClick}>
-                <Link href="#">To somewhere..</Link>
+                <FilterGroupItem>To somewhere..</FilterGroupItem>
             </FilterGroup>
         );
-        const searchQuery = wrapper.find('a');
+        const searchQuery = wrapper.find('li');
         expect(searchQuery.exists()).toBe(true);
         searchQuery.simulate('click');
         expect(mockOnClick).toHaveBeenCalled();
@@ -55,12 +55,10 @@ describe('<FilterGroup />', () => {
         const mockOnClick = jest.fn();
         const wrapper = mount(
             <FilterGroup groupName="Test Group" onSelect={mockOnClick}>
-                <Link href="#" onClick={mockOnClick}>
-                    To somewhere..
-                </Link>
+                <FilterGroupItem onClick={mockOnClick}>To somewhere..</FilterGroupItem>
             </FilterGroup>
         );
-        const searchQuery = wrapper.find('a');
+        const searchQuery = wrapper.find('li');
         expect(searchQuery.exists()).toBe(true);
         searchQuery.simulate('click');
         expect(mockOnClick).toHaveBeenCalledTimes(2);
@@ -70,34 +68,34 @@ describe('<FilterGroup />', () => {
         const mockOnClick = jest.fn();
         const wrapper = mount(
             <FilterGroup groupName="Test Group" onSelect={mockOnClick}>
-                <Link href="#">To somewhere..</Link>
-                <Link href="#">To somewhere..</Link>
-                <Link href="#">To somewhere..</Link>
-                <Link href="#">To somewhere..</Link>
-                <Link href="#">To somewhere..</Link>
-                <Link href="#">To somewhere..</Link>
-                <Link href="#">To somewhere..</Link>
-                <Link href="#">To somewhere..</Link>
-                <Link href="#">To somewhere..</Link>
-                <Link href="#">To somewhere..</Link>
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
             </FilterGroup>
         );
-        const searchQuery = wrapper.find('a').last();
+        const searchQuery = wrapper.find('button').last();
         expect(searchQuery.exists()).toBe(true);
         searchQuery.simulate('click');
-        const expandedSelection = wrapper.find('a');
-        expect(expandedSelection.length).toBe(11);
-        expandedSelection.last().simulate('click');
-        const unexpandedSelection = wrapper.find('a');
-        expect(unexpandedSelection.length).toBe(6);
+        const expandedSelection = wrapper.find('li');
+        expect(expandedSelection.length).toBe(10);
+        searchQuery.simulate('click');
+        const unexpandedSelection = wrapper.find('li');
+        expect(unexpandedSelection.length).toBe(5);
     });
 
     it('renders a filter group with custom attributes', () => {
         const wrapper = mount(
-            <FilterGroup groupName="Test Group" id="myLinkGroup">
-                <Link href="#">To somewhere..</Link>
+            <FilterGroup groupName="Test Group" id="myFilterGroupItemGroup">
+                <FilterGroupItem href="#">To somewhere..</FilterGroupItem>
             </FilterGroup>
         );
-        expect(wrapper.find('div#myLinkGroup').exists()).toBe(true);
+        expect(wrapper.find('div#myFilterGroupItemGroup').exists()).toBe(true);
     });
 });

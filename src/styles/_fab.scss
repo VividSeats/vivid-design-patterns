@@ -12,17 +12,22 @@
 
     .vdp-fab__child {
         cursor: pointer;
+        font-size: $font-size-MD;
+        font-weight: $font-weight-bld;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         i {
             color: $text-color-link;
         }
-    }
-    .vdp-fab__divider {
-        flex: none;
-        margin: 0;
-        width: 1px;
-        height: $sizing-3XL;
-        background-color: $color-gray-light;
+        &--divider {
+            flex: none;
+            margin: 0;
+            width: 1px;
+            height: $sizing-3XL;
+            background-color: $color-gray-light;
+        }
     }
 }
 
@@ -31,11 +36,16 @@
         -ms-flex: 1;
         flex: 1;
         border-radius: $border-radius-SM;
-        line-height: $sizing-4XL;
+        line-height: $sizing-3XL + $sizing-2XS !important;
         margin: $sizing-XS;
 
         &:hover {
             background-color: $color-gray-highlight;
+        }
+        &:only-child {
+            padding: 0 $sizing-LG;
+            -ms-flex: none;
+            flex: none;
         }
     }
 }
@@ -54,7 +64,7 @@
         transform: translateX(-50%);
 
         .vdp-fab__child {
-            padding: 0 $sizing-MD;
+            padding: $sizing-MD;
             white-space: nowrap;
 
             &:first-child {
