@@ -34,13 +34,22 @@ const eventNames = [
     'Glock',
     '500',
     '$cott',
-    'Brown'
+    'Brown',
+    'Durk',
+    'Boy',
+    'Wonder',
+    'Rocky',
+    'ASAP',
+    'Bucky',
+    'Zeus',
+    'Ryan',
+    'Hampton'
 ];
 const cities = ['Chicago, IL', 'Los Angeles, CA', 'Miami, FL', 'Austin, TX', 'Seattle, WA'];
 const stadiums = ['Alliance Center', 'United Field', 'Chippewa Energy Stadium', 'Constance Field', 'SafeRate Field', 'Tropicana Center'];
 
 function getEventName() {
-    return `${eventNames[Math.floor(Math.random() * eventNames.length)]} ${eventNames[Math.round(Math.random() * eventNames.length)]}`;
+    return `${eventNames[Math.floor(Math.random() * eventNames.length)]} ${eventNames[Math.floor(Math.random() * eventNames.length)]}`;
 }
 
 function getEventCity() {

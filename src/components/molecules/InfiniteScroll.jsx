@@ -37,7 +37,6 @@ class InfiniteScroll extends React.Component {
         const childrenArray = React.Children.toArray(children);
 
         const renderedRows = childrenArray.slice(0, loadedRowCount);
-        console.log('sliced', renderedRows);
         return (
             <div className={`vdp-infinite-scroll ${className}`} ref={this.scrollContainerRef} onScroll={this.onScroll} {...htmlAttributes}>
                 {renderedRows}
