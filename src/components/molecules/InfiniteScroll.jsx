@@ -11,6 +11,7 @@ class InfiniteScroll extends React.Component {
     componentDidMount() {
         this.scrollContainerHeight = this.scrollContainerRef.current.clientHeight;
     }
+
     onScroll = () => {
         const { current } = this.scrollContainerRef;
         const { scrollHeight, scrollTop } = current;
