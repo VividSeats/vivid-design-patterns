@@ -18,6 +18,7 @@ class PseudoInfiniteScroll extends React.Component {
         this.setState({
             loadedRowCount: currentRowCount + rowsToAdd
         });
+        this.props.onLoadMore();
     };
 
     render() {
@@ -37,12 +38,15 @@ class PseudoInfiniteScroll extends React.Component {
 PseudoInfiniteScroll.propTypes = {
     initialLoadedRowCount: PropTypes.number,
     children: PropTypes.node.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string,
+    /** Callback function called once more rows are added **/
+    onLoadMore: PropTypes.func
 };
 
 PseudoInfiniteScroll.defaultProps = {
     initialLoadedRowCount: 25,
-    className: ''
+    className: '',
+    onLoadMore: () => {}
 };
 
 export default PseudoInfiniteScroll;
