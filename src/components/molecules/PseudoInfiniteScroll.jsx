@@ -23,7 +23,7 @@ class PseudoInfiniteScroll extends React.Component {
 
     render() {
         const { loadedRowCount } = this.state;
-        const { children, initialLoadedRowCount, className, ...htmlAttributes } = this.props;
+        const { children, onLoadMore, initialLoadedRowCount, className, ...htmlAttributes } = this.props;
         const childrenArray = React.Children.toArray(children);
 
         const renderedRows = childrenArray.slice(0, loadedRowCount);
