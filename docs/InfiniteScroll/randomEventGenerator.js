@@ -68,4 +68,13 @@ function getRandomEvent() {
     };
 }
 
-export default getRandomEvent;
+function generateEvents(times) {
+    const events = [];
+    for (let i = 0; i < times; i++) {
+        events.push(getRandomEvent());
+    }
+
+    return events;
+}
+
+export default generateEvents;

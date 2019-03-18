@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SkeletonBone from '../atoms/SkeletonBone';
 
 class InfiniteScroll extends React.Component {
-    state = {
-        loadedRowCount: this.props.initialLoadedRowCount
-    };
-
     scrollContainerRef = React.createRef();
 
     componentDidMount() {
@@ -20,41 +17,36 @@ class InfiniteScroll extends React.Component {
             return;
         }
 
-        const { loadedRowCount } = this.state;
-        const { children, initialLoadedRowCount } = this.props;
-        const rowCount = React.Children.count(children);
-        const currentRowCount = loadedRowCount > rowCount ? rowCount : loadedRowCount;
-        const difference = rowCount - currentRowCount;
-        const rowsToAdd = difference < initialLoadedRowCount ? difference : initialLoadedRowCount;
-
-        this.setState({
-            loadedRowCount: currentRowCount + rowsToAdd
-        });
+        this.props.onLoadMore();
     };
 
     render() {
-        const { loadedRowCount } = this.state;
-        const { children, initialLoadedRowCount, className, ...htmlAttributes } = this.props;
-        const childrenArray = React.Children.toArray(children);
-
-        const renderedRows = childrenArray.slice(0, loadedRowCount);
+        const { children, onLoadMore, isLoading, className, ...htmlAttributes } = this.props;
         return (
             <div className={`vdp-infinite-scroll ${className}`} ref={this.scrollContainerRef} onScroll={this.onScroll} {...htmlAttributes}>
-                {renderedRows}
+                {children}
+                {isLoading && (
+                    <React.Fragment>
+                        <SkeletonBone />
+                        <SkeletonBone />
+                        <SkeletonBone />
+                    </React.Fragment>
+                )}
             </div>
         );
     }
 }
 
 InfiniteScroll.propTypes = {
-    initialLoadedRowCount: PropTypes.number,
+    onLoadMore: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool,
     children: PropTypes.node.isRequired,
     className: PropTypes.string
 };
 
 InfiniteScroll.defaultProps = {
-    initialLoadedRowCount: 25,
-    className: ''
+    className: '',
+    isLoading: false
 };
 
 export default InfiniteScroll;
