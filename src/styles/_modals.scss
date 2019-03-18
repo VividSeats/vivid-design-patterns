@@ -80,7 +80,7 @@
 }
 .vdp-modal__header {
     @include align-items(center);
-    @include flex;
+    @include flex(1 0 auto);
     @include justify-content(space-between);
     padding: $sizing-2XL $sizing-XL $sizing-LG;
 
