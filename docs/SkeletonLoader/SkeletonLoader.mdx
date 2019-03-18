@@ -25,7 +25,7 @@ Using the scss files:
 <PropsTable of={SkeletonLoader}/>
 
 ## Basic Usage
-    
+
 <Playground>
     <SkeletonLoader isLoading={true} rowCount={5} />
 </Playground>
@@ -34,25 +34,25 @@ When `isLoading` is false, the SkeletonLoader will just render its children
 
 <Playground>
     <StatefulComponent initialState={{isLoading: true}}>
-        {
-            ({state, setState}) => {
-                onToggle = (toggleValue) => {
-                    setState({
-                        isLoading: toggleValue
-                    })
-                }
-                return (
-                    <React.Fragment>
-                        <SkeletonLoader isLoading={state.isLoading} rowCount={3}>
-                            <EventRow subtitle="Rose Bowl Stadium - Pasadena, CA" href="#!" title="BTS - Bangtan Boys"/>
-                            <EventRow subtitle="Solider Field - Chicago, IL" href="#!" title="BTS - Bangtan Boys"/>
-                            <EventRow subtitle="MetLife Stadium - East Rutherford, NJ" href="#!" title="BTS - Bangtan Boys"/>
-                        </SkeletonLoader>
-                        <Toggle title="Toggle isLoading prop" on={state.isLoading} onToggle={onToggle} />
-                    </React.Fragment>
-                )
+    {
+        ({state, setState}) => {
+            onToggle = (toggleValue) => {
+                setState({
+                    isLoading: toggleValue
+                })
             }
+            return (
+                <React.Fragment>
+                    <SkeletonLoader isLoading={state.isLoading} rowCount={3}>
+                        <EventRow subtitle="Rose Bowl Stadium - Pasadena, CA" href="#!" title="BTS - Bangtan Boys"/>
+                        <EventRow subtitle="Solider Field - Chicago, IL" href="#!" title="BTS - Bangtan Boys"/>
+                        <EventRow subtitle="MetLife Stadium - East Rutherford, NJ" href="#!" title="BTS - Bangtan Boys"/>
+                    </SkeletonLoader>
+                    <Toggle title="Toggle isLoading prop" on={state.isLoading} onToggle={onToggle} />
+                </React.Fragment>
+            )
         }
+    }
     </StatefulComponent>
 </Playground>
 
