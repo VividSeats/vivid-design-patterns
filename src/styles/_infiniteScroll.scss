@@ -1,0 +1,11 @@
+.vdp-infinite-scroll {
+    height: 500px;
+    overflow-y: scroll;
+    .vdp-button {
+        position: relative;
+        bottom: 1.5rem;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

@@ -40,7 +40,10 @@ PseudoInfiniteScroll.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     /** Callback function called once more rows are added **/
-    onLoadMore: PropTypes.func
+    onLoadMore: PropTypes.func,
+    loadMoreButtonText: PropTypes.string,
+    onLoadMoreButtonClick: PropTypes.func,
+    showLoadMoreButton: PropTypes.bool
 };
 
 PseudoInfiniteScroll.defaultProps = {

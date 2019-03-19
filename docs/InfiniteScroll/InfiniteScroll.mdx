@@ -1,3 +1,4 @@
+import Button from '../../src/components/atoms/Button';
 
 ---
     name: Infinite Scroll
@@ -6,19 +7,22 @@
 import { PropsTable, Playground } from 'docz'
 import PseudoInfiniteScroll from '../../src/components/molecules/PseudoInfiniteScroll';
 import InfiniteScroll from '../../src/components/molecules/InfiniteScroll';
-import SkeletonLoader from '../../src/components/molecules/SkeletonLoader';
 import EventRow from '../../src/components/molecules/EventRow';
 import StatefulComponent from '../StatefulComponent';
 import generateEvents from './randomEventGenerator';
 
 import "../../src/styles/_eventRow.scss";
-import "./infiniteScroll.scss";
+import "../../src/styles/_infiniteScroll.scss";
 
 # Infinite Scroll
 ## Installation
 Using the react components:
 
     import InfiniteScroll from '@vividseats/vivid-design-patterns/dist/molecules/InfiniteScroll';
+
+Adding the styles:
+
+    import '@vividseats/vivid-design-patterns/src/styles/infiniteScroll.scss';
 
 ## Props
 <PropsTable of={InfiniteScroll}/>
@@ -45,6 +49,43 @@ Using the react components:
 
                 return (
                     <InfiniteScroll onLoadMore={loadMore} isLoading={state.isLoading}>
+                        {
+                            state.events.map((event) => {
+                                return <EventRow subtitle={event.eventLocation} href='!#' title={event.eventName} key={`${event.eventName}-${event.eventLocation}-${event.id}`}/>
+                            })
+                        }
+                    </InfiniteScroll>
+                )
+            }
+        }
+    </StatefulComponent>
+</Playground>
+
+
+## Load More Button
+Sometimes, you may not want a list to have infinite scroll by default, eg. if you have content below the list. The InfiniteScroll component has showLoadMoreButton prop that when set to true, will dispay a load more button. Infinite scroll is not initiated until the button is clicked.
+
+<Playground>
+    <StatefulComponent initialState={{events: generateEvents(50), isLoading: false}}>
+        {
+            ({state, setState}) => {
+                loadMore = () => {
+                    console.log("here");
+                    if(state.events.length > 1000) {
+                        return
+                    }
+                    setState({isLoading: true});
+                    setTimeout(() => {
+                        const events = [...state.events, ...generateEvents(50)];
+                        setState({
+                            events,
+                            isLoading: false,
+                        })
+                    }, 1800)
+                }
+
+                return (
+                    <InfiniteScroll onLoadMore={loadMore} isLoading={state.isLoading} showLoadMoreButton>
                         {
                             state.events.map((event) => {
                                 return <EventRow subtitle={event.eventLocation} href='!#' title={event.eventName} key={`${event.eventName}-${event.eventLocation}-${event.id}`}/>
