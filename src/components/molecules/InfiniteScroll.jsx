@@ -57,7 +57,7 @@ class InfiniteScroll extends React.Component {
                     </React.Fragment>
                 )}
                 {showLoadMoreButton && (
-                    <Button importance={'tertiary'} onClick={this.showLoadMoreButtonClick}>
+                    <Button importance="tertiary" onClick={this.showLoadMoreButtonClick}>
                         {loadMoreButtonText}
                     </Button>
                 )}
@@ -67,7 +67,7 @@ class InfiniteScroll extends React.Component {
 }
 
 InfiniteScroll.propTypes = {
-    /** Since this is within an onScroll handler, this will need to be debounced **/
+    /** Since this is within an onScroll handler, this will need to be debounced * */
     onLoadMore: PropTypes.func.isRequired,
     loadMoreButtonText: PropTypes.string,
     onLoadMoreButtonClick: PropTypes.func,
