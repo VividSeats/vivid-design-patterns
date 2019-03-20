@@ -142,11 +142,11 @@ $gridBreakpoints: sm null, md $breakpoint-tablet, lg $breakpoint-desktop, xl $br
     }
     &[class*='--col-3'] {
         @include size-min-tablet {
-            -ms-grid-columns: $grid-gutter (1fr $grid-gutter) [2];
+            -ms-grid-columns: 1fr 1fr;
             grid-template-columns: repeat(2, 1fr);
         }
         @include size-min-desktop {
-            -ms-grid-columns: $grid-gutter (1fr $grid-gutter) [3];
+            -ms-grid-columns: 1fr 1fr 1fr;
             grid-template-columns: repeat(3, 1fr);
         }
     }
