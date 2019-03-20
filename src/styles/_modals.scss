@@ -79,12 +79,13 @@
     text-align: right;
 }
 .vdp-modal__header {
+    @include align-items(center);
+    @include flex(1 0 auto);
+    @include justify-content(space-between);
     padding: $sizing-2XL $sizing-XL $sizing-LG;
-    position: relative;
 
     button {
-        @include position(absolute, $sizing-LG $sizing-LG 0 null);
-        margin: auto;
+        margin-left: $sizing-XL;
     }
 }
 
