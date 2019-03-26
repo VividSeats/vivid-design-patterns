@@ -43,6 +43,9 @@
                 padding-right: 0;
             }
         }
+        .selectedFilters + .vdp-filter-group {
+            padding-left: 0;
+        }
     }
 }
 

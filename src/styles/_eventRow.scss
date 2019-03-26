@@ -67,6 +67,16 @@ $row-height: 4.5rem;
         @include flex-shrink(1);
         padding: $sizing-2XS $sizing-LG;
     }
+    &[class*='--range'] {
+        padding: 0 $sizing-LG;
+
+        + .vdp-event-row__col--button {
+            width: auto;
+        }
+        @include size-only-mobile {
+            @include flex-basis(100%);
+        }
+    }
     &[class*='--thumb'] {
         border-radius: $border-radius-SM;
         height: $sizing-3XL;
