@@ -66,7 +66,7 @@ EventRow.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     dateRange: PropTypes.string,
-    date: PropTypes.string,
+    date: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.instanceOf(Date)]),
     thumbnail: PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string

@@ -26,14 +26,16 @@ export default function DateColumn({ date = null, isTimeTbd = false }) {
             <BodyText height="compressed" weight="black" capitalization="uppercase" alignment="center" importance={2}>
                 {momentDate.format('MMM D')}
             </BodyText>
-            <SmallText alignment="center" state="muted">
-                {isTimeTbd ? 'TBD' : momentDate.format('h:mm A')}
-            </SmallText>
+            {!isTimeTbd && (
+                <SmallText alignment="center" state="muted">
+                    {momentDate.format('h:mm A')}
+                </SmallText>
+            )}
         </div>
     );
 }
 
 DateColumn.propTypes = {
-    date: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.instanceOf(Date), PropTypes.bool]),
+    date: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.instanceOf(Date)]),
     isTimeTbd: PropTypes.bool
 };
