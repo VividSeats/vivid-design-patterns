@@ -90,7 +90,7 @@ class Modal extends React.Component {
 
     render() {
         const { props, state, toggleModal, getChild } = this;
-        const { className = '', disableBackdrop = false, title = '', ...htmlAtrributes } = props;
+        const { className = '', disableBackdrop = false, title = '', dataState: dataStateProp, onOpen, ...htmlAtrributes } = props;
         let { children, type = '' } = props;
         const { dataState = '' } = state;
 
