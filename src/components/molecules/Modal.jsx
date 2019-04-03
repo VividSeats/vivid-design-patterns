@@ -90,7 +90,7 @@ class Modal extends React.Component {
 
     render() {
         const { props, state, toggleModal, getChild } = this;
-        const { className = '', disableBackdrop = false, title = '' } = props;
+        const { className = '', disableBackdrop = false, title = '', ...htmlAtrributes } = props;
         let { children, type = '' } = props;
         const { dataState = '' } = state;
 
@@ -118,7 +118,10 @@ class Modal extends React.Component {
 
         return (
             <React.Fragment>
-                <aside className={`vdp-modal${type} ${className}`} data-state={dataState.length ? dataState : Modal.DATA_STATE.CLOSED}>
+                <aside
+                    className={`vdp-modal${type} ${className}`}
+                    data-state={dataState.length ? dataState : Modal.DATA_STATE.CLOSED}
+                    {...htmlAtrributes}>
                     <div className="vdp-modal__container">
                         {ModalHeaderChild || <Modal.Header>{title}</Modal.Header>}
                         {ModalBodyChild || <Modal.Body>{bodyChildren}</Modal.Body>}
