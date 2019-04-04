@@ -8,6 +8,7 @@ export default {
             preprocessor: 'sass'
         })
     ],
+    menu: ['Vivid Design Patterns', 'Foundation', 'Components'],
     themeConfig: {
         logo: {
             src: '//a.vsstatic.com/common/favicon/apple-touch-icon.png',
@@ -19,6 +20,5 @@ export default {
             }
         }
     },
-    base: './',
     dest: 'server/static/'
 };

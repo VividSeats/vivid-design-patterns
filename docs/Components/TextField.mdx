@@ -1,0 +1,58 @@
+---
+    name: Text Fields
+    menu: Components
+    route: /components/text-fields
+---
+
+import TextField from '../../src/components/molecules/TextField';
+import Form from '../../src/components/molecules/Form';
+import { Playground, PropsTable, Link } from 'docz';
+
+# Text Fields
+## Installation
+
+Using the React Component:
+
+    import TextField from '@vividseats/vivid-design-patterns/dist/molecules/TextField';
+
+Importing the scss:
+
+    import '@vividseats/vivid-design-patterns/src/styles/inputs.scss';
+
+## Usages
+
+<Playground>
+    <TextField id='inputTextField' label='Text Field' className='input-example'/>
+    <TextField id='passwordInput' type='password' label='Password' className='input-example'/>
+    <TextField id='outlinedInput' label='Outlined' className='input-example' outlined/>
+    <TextField id='inputTextFieldDisabled' label='Disabled' className='input-example' disabled/>
+    <TextField id='outlinedInputDisabled' label='Disabled Outline' className='input-example' outlined disabled/>
+</Playground>
+
+## Props
+<PropsTable of={TextField}/>
+
+## Icons
+Icons can be passed in to be displayed on the right side of the input vai the `trailingIcon` prop. Note: Password inputs do not support this since there is an icon provided already.
+
+<Playground>
+    <TextField id='textFieldWithIcon' label='Text Field with Icon' trailingIcon={<i className='material-icons'>favorite</i>}/>
+</Playground>
+
+
+## Errors and Validation
+Server side errors can be passed in via the `error` prop. For form validation on the client side, pass in a validationMethod function that returns the error message. For more information, see the [Forms](/docs-forms-forms) component.
+
+If you want an input to not be validated (ie display green or red), you can pass in the noValidate prop.
+
+<Playground>
+    <Form onSubmit={() => alert('submit form')}>
+        <TextField id='errorAndValidation'
+                   label='Input Length > 10'
+                   error='Something went wrong, please try again'
+                   validationMethod={ value => (!value || value.length <= 10) ? "Input must be greater than 10" : null}
+        />
+        <TextField id='noValidate' label='No Validate' className='input-example-no-validate' noValidate/>
+    </Form>
+</Playground>
+

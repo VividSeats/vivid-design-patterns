@@ -1,0 +1,82 @@
+---
+    name: Checkbox
+    menu: Components
+    route: /components/checkbox
+---
+
+import { PropsTable, Playground } from 'docz'
+import Checkbox from "../../src/components/atoms/Checkbox";
+import Form from "../../src/components/molecules/Form";
+import Button from "../../src/components/atoms/Button";
+import StatefulComponent from "../StatefulComponent";
+
+# Checkbox
+## Installation
+Using the react components:
+
+    import Checkbox from '@vividseats/vivid-design-patterns/dist/atoms/Checkbox';
+
+Using the scss files:
+
+    @import "@vividseats/vivid-design-patterns/src/styles/controls.scss";
+
+## Basic Usage
+`class="vdp-checkbox"`
+<Playground>
+    <Checkbox id='basicCheckbox' label="Check me"/>
+    <Checkbox id='checkboxDefaultChecked' label="Default Checked" defaultChecked/>
+    <Checkbox id='disabledCheckbox' label="Disabled" disabled/>
+</Playground>
+
+## Controlled And Uncontrolled component
+This component can be used as both a controlled and uncontrolled component. If you are using it as a controlled component, do not provide a `defaultChecked` value. Instead, provide a `value` instead.
+
+<Playground>
+    <StatefulComponent initialState={{checked: false}}>
+        {
+            ({state, setState}) => {
+                const onClick = () => {
+                    const { checked } = state;
+                    setState({checked: !checked});
+                };
+
+                const onChange = (checked) => {
+                    setState({checked})
+                };
+
+                const validationMethod = (value) => value ? '' : "Required";
+
+                return (
+                    <React.Fragment>
+                        <Button onClick={onClick}> Toggle Checkbox</Button>
+                        <Checkbox
+                            onChange={onChange}
+                            id='controlledCheckbox'
+                            checked={state.checked}
+                            label="Controlled Checkbox"
+                        />
+                    </React.Fragment>
+                )
+            }
+        }
+    </StatefulComponent>
+    <Checkbox id='unControlledCheckbox' defaultChecked label="Check me"/>
+</Playground>
+
+## Props
+<PropsTable of={Checkbox}/>
+
+## With Form Validation
+
+<Playground>
+    <Form onSubmit={() => { alert("Submitted")}}>
+        <Form.ContextConsumer>
+        {
+            ({setForm}) => (
+                <Checkbox id="uncontrolledCheckboxWithForm" label={'Required'} ref={setForm} validationMethod={ (value) => value ? "" : "required"}/>
+            )
+        }
+        </Form.ContextConsumer>
+        <Button type="submit">Submit</Button>
+    </Form>
+</Playground>

@@ -1,0 +1,62 @@
+---
+    name: Tabs
+    menu: Components
+    route: /components/tabs
+---
+
+import { PropsTable, Playground } from 'docz';
+import TabGroup from '../../src/components/molecules/TabGroup';
+import Tab from '../../src/components/atoms/Tab';
+
+# Tabs
+## Installation
+Using the react components:
+
+    import TabGroup from '@vividseats/vivid-design-patterns/dist/molecules/TabGroup';
+    import Tab from '@vividseats/vivid-design-patterns/dist/atoms/Tab';
+
+Using the scss files:
+
+    @import "@vividseats/vivid-design-patterns/src/styles/tabs.scss";
+
+## Basic Usage
+<Playground>
+  <TabGroup>
+    <Tab active>First tab</Tab>
+    <Tab>Second tab</Tab>
+    <Tab>Third tab</Tab>
+  </TabGroup>
+</Playground>
+
+## TabGroup Props
+<PropsTable of={TabGroup}/>
+
+## Tab Props
+<PropsTable of={Tab}/>
+
+## Add custom event listener callback functions
+<Playground>
+  <TabGroup>
+    <Tab onClick={function(e) { e.preventDefault(); alert('Called onClick'); }}>Tab with onClick callback</Tab>
+    <Tab onMouseEnter={function(e) { alert('Called onMouseEnter'); }}>Tab with onMouseEnter callback</Tab>
+    <Tab onMouseLeave={function(e) { alert('Called onMouseLeave'); }}>Tab with onMouseLeave callback</Tab>
+  </TabGroup>
+</Playground>
+
+## Compressed theme
+<Playground>
+  <TabGroup compressed>
+    <Tab active>First tab</Tab>
+    <Tab>Second tab</Tab>
+    <Tab>Third tab</Tab>
+  </TabGroup>
+</Playground>
+
+## Dark background theme
+<Playground>
+  <TabGroup dark>
+    <Tab>First tab</Tab>
+    <Tab active>Second tab</Tab>
+    <Tab>Third tab</Tab>
+  </TabGroup>
+</Playground>

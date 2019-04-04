@@ -1,0 +1,140 @@
+@import '../src/styles/tokens';
+@import '../src/styles/mixins/mixins';
+@import '../src/styles/mixins/prefixes';
+
+@import '../src/styles/colors';
+@import '../src/styles/grid';
+@import '../src/styles/layout';
+@import '../src/styles/typography';
+
+@import '../src/styles/backdrop';
+@import '../src/styles/badge';
+@import '../src/styles/banner';
+@import '../src/styles/button';
+@import '../src/styles/cards';
+@import '../src/styles/carousel';
+@import '../src/styles/chips';
+@import '../src/styles/collapse';
+@import '../src/styles/controls';
+@import '../src/styles/drawer';
+@import '../src/styles/eventRow';
+@import '../src/styles/expandableContent';
+@import '../src/styles/fab';
+@import '../src/styles/filterGroups';
+@import '../src/styles/helperText';
+@import '../src/styles/heros';
+@import '../src/styles/inputs';
+@import '../src/styles/link';
+@import '../src/styles/linkGroups';
+@import '../src/styles/menu';
+@import '../src/styles/modals';
+@import '../src/styles/search';
+@import '../src/styles/skeleton';
+@import '../src/styles/tabs';
+@import '../src/styles/toggle';
+
+/*=====================================================
+
+  1. Foundation
+
+=====================================================*/
+
+// Color
+.swatch {
+    height: 5rem;
+}
+
+// Icons
+.icon-docs {
+    margin-top: $sizing-2XL;
+    margin-bottom: $sizing-2XL;
+    text-align: center;
+
+    i:hover {
+        color: $color-brand-blue;
+        cursor: pointer;
+    }
+    p {
+        margin-top: $sizing-MD;
+    }
+}
+
+/*=====================================================
+
+  2. Components
+
+=====================================================*/
+
+// Badge
+[class^='vdp-badge'] {
+    margin: 0 5px;
+}
+
+// Button
+[class^='vdp-button'] {
+    margin: 0 5px;
+}
+
+// Fab - overrides for playground wrapper
+[class^='vdp-fab']:not([class*='__']) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// Form
+form {
+    .vdp-button {
+        margin: 10px;
+    }
+}
+
+// Links
+[class^='vdp-type-link'] {
+    margin: 0 5px;
+}
+
+// Link Group
+[class^='vdp-link-group'] {
+    margin: 0 5px;
+}
+
+// Modal - overrides for playground wrapper
+.react-live-preview {
+    [class^='vdp-backdrop'] {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .vdp-modal,
+    .vdp-modal--sheet {
+        position: relative !important;
+        top: unset !important;
+        left: unset !important;
+    }
+}
+
+// Tabs
+.vdp-tab-group.--inverted {
+    background: black;
+}
+
+// Toggle
+.toggle-title {
+    margin: 0 1em 0 0;
+    float: left;
+}
+
+// Typography
+.type-column {
+    float: left;
+    margin-right: 10px;
+    width: 13%;
+    height: 100%;
+
+    .inverted {
+        background-color: #333;
+        border-radius: $border-radius-XS;
+    }
+}

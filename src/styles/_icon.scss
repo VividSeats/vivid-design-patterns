@@ -1,1 +1,238 @@
-@import 'typography';
+@import 'tokens';
+
+@font-face {
+    font-family: 'vivid-icons';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/vivid-icons.woff') format('woff'), url('../fonts/vivid-icons.ttf') format('ttf');
+}
+[class^='vdp-icon'] {
+    font-family: 'vivid-icons', sans-serif;
+    font-size: $font-size-2XL; /* Preferred icon size */
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: normal;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    &[class*='--lg'] {
+        font-size: $font-size-4XL;
+    }
+}
+
+[class^='vdp-icon-arrow-left']:before {
+    content: '\e000';
+}
+[class^='vdp-icon-call']:before {
+    content: '\e001';
+}
+[class^='vdp-icon-carat-down']:before {
+    content: '\e002';
+}
+[class^='vdp-icon-carat-left']:before {
+    content: '\e003';
+}
+[class^='vdp-icon-carat-right']:before {
+    content: '\e004';
+}
+[class^='vdp-icon-carat-up']:before {
+    content: '\e005';
+}
+[class^='vdp-icon-caution']:before {
+    content: '\e006';
+}
+[class^='vdp-icon-chat']:before {
+    content: '\e007';
+}
+[class^='vdp-icon-check']:before {
+    content: '\e008';
+}
+[class^='vdp-icon-close']:before {
+    content: '\e009';
+}
+[class^='vdp-icon-copy']:before {
+    content: '\e00a';
+}
+[class^='vdp-icon-delete']:before {
+    content: '\e00b';
+}
+[class^='vdp-icon-edit']:before {
+    content: '\e00c';
+}
+[class^='vdp-icon-email-send']:before {
+    content: '\e00d';
+}
+[class^='vdp-icon-filter']:before {
+    content: '\e00e';
+}
+[class^='vdp-icon-info']:before {
+    content: '\e00f';
+}
+[class^='vdp-icon-location']:before {
+    content: '\e010';
+}
+[class^='vdp-icon-minus']:before {
+    content: '\e011';
+}
+[class^='vdp-icon-more']:before {
+    content: '\e012';
+}
+[class^='vdp-icon-plus']:before {
+    content: '\e013';
+}
+[class^='vdp-icon-recent-arrow']:before {
+    content: '\e014';
+}
+[class^='vdp-icon-refresh']:before {
+    content: '\e015';
+}
+[class^='vdp-icon-search']:before {
+    content: '\e016';
+}
+[class^='vdp-icon-share-android']:before {
+    content: '\e017';
+}
+[class^='vdp-icon-share-ios']:before {
+    content: '\e018';
+}
+[class^='vdp-icon-target']:before {
+    content: '\e019';
+}
+[class^='vdp-icon-transfer']:before {
+    content: '\e01a';
+}
+[class^='vdp-icon-bell']:before {
+    content: '\e01b';
+}
+[class^='vdp-icon-building']:before {
+    content: '\e01c';
+}
+[class^='vdp-icon-calendar']:before {
+    content: '\e01d';
+}
+[class^='vdp-icon-calendar-multi']:before {
+    content: '\e01e';
+}
+[class^='vdp-icon-camera']:before {
+    content: '\e01f';
+}
+[class^='vdp-icon-checklist']:before {
+    content: '\e020';
+}
+[class^='vdp-icon-cog']:before {
+    content: '\e021';
+}
+[class^='vdp-icon-eye']:before {
+    content: '\e022';
+}
+[class^='vdp-icon-eye-filled']:before {
+    content: '\e023';
+}
+[class^='vdp-icon-gift-box']:before {
+    content: '\e024';
+}
+[class^='vdp-icon-home']:before {
+    content: '\e025';
+}
+[class^='vdp-icon-id-face']:before {
+    content: '\e026';
+}
+[class^='vdp-icon-id-touch']:before {
+    content: '\e027';
+}
+[class^='vdp-icon-location-user']:before {
+    content: '\e028';
+}
+[class^='vdp-icon-lock']:before {
+    content: '\e029';
+}
+[class^='vdp-icon-map']:before {
+    content: '\e02a';
+}
+[class^='vdp-icon-money']:before {
+    content: '\e02b';
+}
+[class^='vdp-icon-news']:before {
+    content: '\e02c';
+}
+[class^='vdp-icon-paper-airplane']:before {
+    content: '\e02d';
+}
+[class^='vdp-icon-receipt']:before {
+    content: '\e02e';
+}
+[class^='vdp-icon-sale']:before {
+    content: '\e02f';
+}
+[class^='vdp-icon-seat']:before {
+    content: '\e030';
+}
+[class^='vdp-icon-shield-check']:before {
+    content: '\e031';
+}
+[class^='vdp-icon-ticket']:before {
+    content: '\e032';
+}
+[class^='vdp-icon-ticket-in-hand']:before {
+    content: '\e033';
+}
+[class^='vdp-icon-user']:before {
+    content: '\e034';
+}
+[class^='vdp-icon-state-fail']:before {
+    content: '\e035';
+}
+[class^='vdp-icon-state-future']:before {
+    content: '\e036';
+}
+[class^='vdp-icon-state-in-process']:before {
+    content: '\e037';
+}
+[class^='vdp-icon-state-success']:before {
+    content: '\e038';
+}
+[class^='vdp-icon-state-warning']:before {
+    content: '\e039';
+}
+[class^='vdp-icon-ticket-electronic']:before {
+    content: '\e03a';
+}
+[class^='vdp-icon-ticket-guarantee']:before {
+    content: '\e03b';
+}
+[class^='vdp-icon-ticket-instant']:before {
+    content: '\e03c';
+}
+[class^='vdp-icon-ticket-mobile']:before {
+    content: '\e03d';
+}
+[class^='vdp-icon-ticket-note']:before {
+    content: '\e03e';
+}
+[class^='vdp-icon-ticket-pdf']:before {
+    content: '\e03f';
+}
+[class^='vdp-icon-ticket-pick-up']:before {
+    content: '\e040';
+}
+[class^='vdp-icon-ticket-preferred']:before {
+    content: '\e041';
+}
+[class^='vdp-icon-ticket-print']:before {
+    content: '\e042';
+}
+[class^='vdp-icon-ticket-transfer']:before {
+    content: '\e043';
+}
+[class^='vdp-icon-ticket-truck']:before {
+    content: '\e044';
+}
+[class^='vdp-icon-ticket-zone']:before {
+    content: '\e045';
+}
