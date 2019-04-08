@@ -51,7 +51,7 @@ class Modal extends React.Component {
         const TRANSITION_TIME = 500;
 
         const hasStateChange = state.dataState !== prevState.dataState && props.dataState === prevProps.dataState;
-        const hasPropChange = props.dataState !== state.dataState && prevState.dataState === state.dataState;
+        const hasPropChange = props.dataState !== prevProps.dataState && prevState.dataState === state.dataState;
 
         // delay for transition
         const handleOpen = () => {
