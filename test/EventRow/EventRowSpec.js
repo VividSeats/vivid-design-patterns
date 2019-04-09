@@ -65,4 +65,10 @@ describe('<EventRow />', () => {
         expect(wrapper.find('.vdp-button').text()).toEqual(BUTTON_TEXT.DATE);
         expect(wrapper.find(`[href="${href}"]`).exists()).toBe(true);
     });
+
+    it('renders a date with a year badge if the event date is not the current year', () => {
+        const date = new Date().setFullYear(new Date().getFullYear() + 1);
+        const wrapper = mount(<EventRow href={href} title={title} subtitle={subtitle} date={date} />);
+        expect(wrapper.find('.vdp-badge').text()).toEqual(new Date(date).getFullYear().toString());
+    });
 });

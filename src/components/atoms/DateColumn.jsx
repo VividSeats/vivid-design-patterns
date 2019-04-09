@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import SmallText from './SmallText';
 import BodyText from './BodyText';
+import Badge from './Badge';
 
 export default function DateColumn({ date = null, isTimeTbd = false }) {
-    const momentDate = moment(new Date(date));
+    const momentDate = moment(date);
     const eventRowClass = 'vdp-event-row__col--date';
 
     if (!date) {
@@ -30,6 +31,11 @@ export default function DateColumn({ date = null, isTimeTbd = false }) {
                 <SmallText alignment="center" state="muted">
                     {momentDate.format('h:mm A')}
                 </SmallText>
+            )}
+            {!momentDate.isSame(new Date(), 'year') && (
+                <Badge type="rounded" styleAs="warning">
+                    {momentDate.format('YYYY')}
+                </Badge>
             )}
         </div>
     );
