@@ -7,12 +7,13 @@
     border-radius: $border-radius-XS;
     color: $color-white;
     display: inline-block;
-    font-size: $font-size-SM;
+    font-size: $font-size-XS;
     font-weight: $font-weight-bld;
     line-height: $font-size-LG;
-    padding: 0 $sizing-XS;
+    padding: 1px $sizing-SM;
 
     &[class*='--lg'] {
+        font-size: $font-size-SM;
         line-height: $font-size-XL;
         padding: 0 $sizing-SM;
     }
@@ -25,8 +26,12 @@
     &[class*='--warning'] {
         background-color: $color-state-warning;
     }
+    &[class*='--rounded'] {
+        border-radius: $border-radius-LG;
+    }
     &[class*='--angled'] {
         background-color: $color-brand-red;
+        font-size: $font-size-SM;
         line-height: $sizing-XL;
         margin-left: $sizing-MD;
         padding: 0 $sizing-MD 0 $sizing-XS;

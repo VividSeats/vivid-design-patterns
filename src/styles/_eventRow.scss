@@ -3,6 +3,7 @@
 @import 'layout';
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
+@import '_badge.scss';
 
 $column-date-width: 5rem;
 $column-thumb-width: 4.25rem;
@@ -59,6 +60,10 @@ $row-height: 4.5rem;
         }
         + .vdp-event-row__col--info {
             max-width: calc(100% - #{$column-date-width});
+        }
+
+        .vdp-badge {
+            margin-top: $sizing-XS;
         }
     }
     &[class*='--info'] {
