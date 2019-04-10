@@ -7,7 +7,7 @@ class ExpandableContent extends React.Component {
     static propTypes = {
         className: PropTypes.string,
         maxHeight: PropTypes.string,
-        isDefaultCollapsed: PropTypes.bool,
+        // isDefaultCollapsed: PropTypes.bool,
         buttonText: PropTypes.string,
         children: PropTypes.node.isRequired
     };
@@ -15,12 +15,16 @@ class ExpandableContent extends React.Component {
     static defaultProps = {
         className: '',
         maxHeight: '40rem',
-        isDefaultCollapsed: true,
+        // isDefaultCollapsed: true,
         buttonText: 'Show More'
     };
 
+    // state = {
+    //     isCollapsed: this.props.isDefaultCollapsed
+    // };
+
     state = {
-        isCollapsed: this.props.isDefaultCollapsed
+        isCollapsed: true
     };
 
     onClick = e => {
