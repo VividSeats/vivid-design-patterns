@@ -14,7 +14,7 @@ class ExpandableContent extends React.Component {
 
     static defaultProps = {
         className: '',
-        maxHeight: '40rem',
+        maxHeight: '30rem',
         // isDefaultCollapsed: true,
         buttonText: 'Show More'
     };
@@ -44,7 +44,7 @@ class ExpandableContent extends React.Component {
         });
 
         return (
-            <div className={expandableClassNames} {...htmlAttributes}>
+            <div className={expandableClassNames} {...htmlAttributes} style={{ maxHeight: isCollapsed ? maxHeight : '999rem' }}>
                 {children}
                 {isCollapsed && (
                     <Button size="large" importance="tertiary" onClick={this.onClick} type="button">
