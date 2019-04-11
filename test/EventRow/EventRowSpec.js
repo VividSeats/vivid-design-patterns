@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import EventRow from '../../src/components/molecules/EventRow';
+import DateColumn from '../../src/components/atoms/DateColumn';
 
 /* eslint no-script-url: 0 */
 
@@ -10,7 +11,7 @@ describe('<EventRow />', () => {
     const subtitle = 'Capital One Arena - Washington, DC';
 
     const { getColClassName, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
-    const { BUTTON, DATE, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
+    const { BUTTON, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
 
     const expectColExists = (wrapper, colName, exists = true) => {
         expect(wrapper.find(`.${getColClassName(colName)}`).exists()).toBe(exists);
@@ -59,9 +60,15 @@ describe('<EventRow />', () => {
 
         expect(wrapper.exists()).toBe(true);
         expectColExists(wrapper, INFO);
-        expectColExists(wrapper, DATE);
         expectColExists(wrapper, BUTTON);
+        expect(wrapper.find(DateColumn).exists()).toBe(true);
         expect(wrapper.find('.vdp-button').text()).toEqual(BUTTON_TEXT.DATE);
         expect(wrapper.find(`[href="${href}"]`).exists()).toBe(true);
+    });
+
+    it('renders a date with a year badge if the event date is not the current year', () => {
+        const date = new Date().setFullYear(new Date().getFullYear() + 1);
+        const wrapper = mount(<EventRow href={href} title={title} subtitle={subtitle} date={date} />);
+        expect(wrapper.find('.vdp-badge').text()).toEqual(new Date(date).getFullYear().toString());
     });
 });

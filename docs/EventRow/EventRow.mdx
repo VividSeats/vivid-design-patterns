@@ -7,7 +7,6 @@ import { PropsTable, Playground } from 'docz';
 import EventRow from '../../src/components/molecules/EventRow';
 import '../../src/styles/_eventRow.scss';
 
-
 # EventRow
 ## Installation
 Using the react components:
@@ -63,5 +62,20 @@ Using the scss files:
         title: 'Chicago Blackhawks',
         subtitle: 'United Center - Chicago, IL',
         date: new Date().toUTCString()
+    }} />
+</Playground>
+
+
+## Events past current calendar year
+
+If a event is not in the current year, the event will display with the year badge.
+
+
+<Playground>
+    <EventRow {...{
+        href: 'javascript:alert("click")',
+        title: 'Chicago Blackhawks',
+        subtitle: 'United Center - Chicago, IL',
+        date: new Date().setFullYear(new Date().getFullYear() + 1)
     }} />
 </Playground>
