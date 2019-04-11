@@ -5,7 +5,7 @@ import SmallText from './SmallText';
 import BodyText from './BodyText';
 import Badge from './Badge';
 
-export default function DateColumn({ date = null, isTimeTbd = false }) {
+export default function DateColumn({ date, isTimeTbd }) {
     const momentDate = moment(date);
     const eventRowClass = 'vdp-event-row__col--date';
 
