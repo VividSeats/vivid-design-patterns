@@ -6,7 +6,6 @@
 .vdp-expandable-content {
     position: relative;
     overflow: hidden;
-    // max-height: 999rem; // Handled by props/state
     height: auto;
     @include transition(max-height 2s ease-in-out);
 
@@ -17,7 +16,6 @@
 
 .vdp-expandable-content[class*='__collapsed'] {
     @include transition(max-height 2s ease-in-out);
-    // max-height: 40rem; // Handled by props/state
 
     &:after {
         content: '';
