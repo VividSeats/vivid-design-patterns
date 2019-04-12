@@ -17,9 +17,24 @@ class ExpandableContent extends React.Component {
         buttonText: 'Show More'
     };
 
+    constructor(props) {
+        super(props);
+        this.container = React.createRef();
+    }
+
     state = {
         isCollapsed: true
     };
+
+    componentDidMount() {
+        const container = this.container.current;
+        const exceedsMaxHeight = container.scrollHeight - container.clientHeight > 0;
+        if (!exceedsMaxHeight) {
+            this.setState({
+                isCollapsed: false
+            });
+        }
+    }
 
     onClick = e => {
         e.preventDefault();
@@ -38,7 +53,11 @@ class ExpandableContent extends React.Component {
         });
 
         return (
-            <div className={expandableClassNames} {...htmlAttributes} style={{ maxHeight: isCollapsed ? maxHeight : '999rem' }}>
+            <div
+                ref={this.container}
+                className={expandableClassNames}
+                {...htmlAttributes}
+                style={{ maxHeight: isCollapsed ? maxHeight : '999rem' }}>
                 {children}
                 {isCollapsed && (
                     <Button size="large" importance="tertiary" onClick={this.onClick} type="button">
