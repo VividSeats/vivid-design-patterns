@@ -19,10 +19,7 @@ class ExpandableContent extends React.Component {
         forceExpanded: false
     };
 
-    constructor(props) {
-        super(props);
-        this.container = React.createRef();
-    }
+    container = React.createRef();
 
     state = {
         isCollapsed: !this.props.forceExpanded
