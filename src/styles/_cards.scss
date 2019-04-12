@@ -58,6 +58,7 @@
     cursor: pointer;
 
     &:hover {
+        @include transform(scale(1.025));
         box-shadow: $elevation-3;
 
         .vdp-card__hero {
@@ -108,10 +109,10 @@
 
 @include size-only-mobile {
     .vdp-scroll-deck {
-        margin: $sizing-LG -$sizing-MD;
+        margin: 0 -#{$sizing-MD};
         overflow-x: scroll;
         overflow-y: hidden;
-        padding: 0 $sizing-MD;
+        padding: $sizing-XL $sizing-MD;
 
         > [class^='vdp-grid'] {
             grid-auto-flow: column;
@@ -124,5 +125,10 @@
                 @include scroll-grid-size(8);
             }
         }
+    }
+}
+@include size-min-tablet {
+    .vdp-scroll-deck {
+        padding: $sizing-XL 0 $sizing-SM;
     }
 }

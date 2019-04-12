@@ -70,3 +70,8 @@ hr {
         }
     }
 }
+.flex-center {
+    @include flex;
+    @include align-items(center);
+    @include justify-content(space-between);
+}

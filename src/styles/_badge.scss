@@ -31,8 +31,10 @@
     }
     &[class*='--angled'] {
         background-color: $color-brand-red;
+        border-radius: 0;
         bottom: 0;
         font-size: $font-size-SM;
+        height: $sizing-XL;
         line-height: $sizing-XL;
         margin-left: $sizing-MD;
         padding: 0 $sizing-MD 0 $sizing-XS;

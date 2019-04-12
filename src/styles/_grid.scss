@@ -130,37 +130,31 @@ $gridBreakpoints: sm null, md $breakpoint-tablet, lg $breakpoint-desktop, xl $br
 @include grid-modifier(vdp-col, align-self-bottom, align-self, flex-end);
 
 // CSS Grid Layout
-[class^='vdp-grid'] {
+[class^='vdp-grid']:not([class*='__']) {
     display: -ms-grid;
     display: grid;
     grid-gap: $grid-gutter;
     max-width: $grid-max-width;
 
-    @include size-min-desktop {
-        margin-left: calc((#{$grid-gutter} / 2) * -1);
-        margin-right: calc((#{$grid-gutter} / 2) * -1);
+    @include size-min-tablet {
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
-    &[class*='--col-3'] {
-        @include size-min-tablet {
-            -ms-grid-columns: 1fr 1fr;
-            grid-template-columns: repeat(2, 1fr);
-        }
-        @include size-min-desktop {
+    @include size-min-desktop {
+        &[class*='--col-3'] {
             -ms-grid-columns: 1fr 1fr 1fr;
             grid-template-columns: repeat(3, 1fr);
         }
-    }
-    &[class*='--col-4'] {
-        @include size-min-tablet {
-            -ms-grid-columns: 1fr 1fr;
-            grid-template-columns: repeat(2, 1fr);
-        }
-        @include size-min-desktop {
+        &[class*='--col-4'] {
             -ms-grid-columns: 1fr 1fr 1fr 1fr;
             grid-template-columns: repeat(4, 1fr);
         }
     }
-    /* IE Grid */
+    .vdp-grid__button {
+        align-self: center;
+        justify-self: baseline;
+    }
+    /* IE 11 */
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
         > [class^='vdp-card'] {
             margin: $sizing-SM;
