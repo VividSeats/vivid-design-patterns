@@ -8,13 +8,15 @@ class ExpandableContent extends React.Component {
         className: PropTypes.string,
         maxHeight: PropTypes.string,
         buttonText: PropTypes.string,
+        forceExpanded: PropTypes.bool,
         children: PropTypes.node.isRequired
     };
 
     static defaultProps = {
         className: '',
         maxHeight: '30rem',
-        buttonText: 'Show More'
+        buttonText: 'Show More',
+        forceExpanded: false
     };
 
     constructor(props) {
@@ -23,13 +25,13 @@ class ExpandableContent extends React.Component {
     }
 
     state = {
-        isCollapsed: true
+        isCollapsed: !this.props.forceExpanded
     };
 
     componentDidMount() {
         const container = this.container.current;
         const exceedsMaxHeight = container.scrollHeight - container.clientHeight > 0;
-        if (!exceedsMaxHeight) {
+        if (!exceedsMaxHeight || this.props.forceExpanded) {
             this.setState({
                 isCollapsed: false
             });
@@ -44,7 +46,7 @@ class ExpandableContent extends React.Component {
     };
 
     render() {
-        const { className, maxHeight, buttonText, children, ...htmlAttributes } = this.props;
+        const { className, maxHeight, buttonText, children, forceExpanded, ...htmlAttributes } = this.props;
         const { isCollapsed } = this.state;
 
         const expandableClassNames = classNames('vdp-expandable-content', {
