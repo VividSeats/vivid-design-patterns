@@ -13,6 +13,10 @@
     overflow: hidden;
     position: relative;
 }
+@mixin scroll-grid-size($columns) {
+    grid-auto-columns: calc(100% / #{$columns});
+    width: calc(80% * #{$columns});
+}
 
 // Standard Card
 .vdp-card {
@@ -93,16 +97,32 @@
     &__image {
         @include position(absolute, 50% 0 0 50%);
         @include transform(translate(-50%, -50%));
-        height: auto;
-        max-width: none;
         min-height: 100%;
         min-width: 100%;
     }
 }
 
-[class^='vdp-grid'] {
-    .vdp-card,
-    .vdp-card--list {
-        margin-bottom: 0;
+[class^='vdp-grid'] [class^='vdp-card'] {
+    margin-bottom: 0;
+}
+
+@include size-only-mobile {
+    .vdp-scroll-deck {
+        margin: $sizing-LG -$sizing-MD;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        padding: 0 $sizing-MD;
+
+        > [class^='vdp-grid'] {
+            grid-auto-flow: column;
+            max-width: none;
+
+            &[data-grid-items='4'] {
+                @include scroll-grid-size(4);
+            }
+            &[data-grid-items='8'] {
+                @include scroll-grid-size(8);
+            }
+        }
     }
 }

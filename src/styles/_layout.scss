@@ -32,6 +32,11 @@ table {
     width: 100%;
     border-spacing: 0;
 }
+hr {
+    border-color: $color-gray-light;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+}
 .vdp-main-content {
     margin-top: $sizing-LG;
 }

@@ -150,4 +150,22 @@ $gridBreakpoints: sm null, md $breakpoint-tablet, lg $breakpoint-desktop, xl $br
             grid-template-columns: repeat(3, 1fr);
         }
     }
+    &[class*='--col-4'] {
+        @include size-min-tablet {
+            -ms-grid-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include size-min-desktop {
+            -ms-grid-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    /* IE Grid */
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        > [class^='vdp-card'] {
+            margin: $sizing-SM;
+            -ms-grid-column: 1;
+            -ms-grid-row: 1;
+        }
+    }
 }
