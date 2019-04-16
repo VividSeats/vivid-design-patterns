@@ -13,10 +13,6 @@
     overflow: hidden;
     position: relative;
 }
-@mixin scroll-grid-size($columns) {
-    grid-auto-columns: calc(100% / #{$columns});
-    width: calc(80% * #{$columns});
-}
 
 // Standard Card
 .vdp-card {
@@ -114,16 +110,12 @@
         overflow-y: hidden;
         padding: $sizing-XL $sizing-MD;
 
-        > [class^='vdp-grid'] {
-            grid-auto-flow: column;
+        > * {
+            flex-wrap: nowrap;
             max-width: none;
-
-            &[data-grid-items='4'] {
-                @include scroll-grid-size(4);
-            }
-            &[data-grid-items='8'] {
-                @include scroll-grid-size(8);
-            }
+        }
+        [class^='vdp-card'] {
+            margin-bottom: 0;
         }
     }
 }

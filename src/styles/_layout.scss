@@ -70,6 +70,10 @@ hr {
         }
     }
 }
+[class^='vdp-col'] [class^='vdp-container'] {
+    padding-left: $sizing-XS;
+    padding-right: $sizing-XS;
+}
 .flex-center {
     @include flex;
     @include align-items(center);
