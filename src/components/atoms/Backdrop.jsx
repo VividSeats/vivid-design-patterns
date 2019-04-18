@@ -12,6 +12,8 @@ const Backdrop = ({ className = '', children, dataState = '', onClick = () => {}
     </div>
 );
 
+Backdrop.displayName = 'Backdrop';
+
 Backdrop.propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
