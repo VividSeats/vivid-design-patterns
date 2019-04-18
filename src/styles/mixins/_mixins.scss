@@ -24,6 +24,10 @@
         border-#{$side}: $width $style $color;
     }
 }
+@mixin clip-path($points) {
+    -webkit-clip-path: polygon($points);
+    clip-path: polygon($points);
+}
 @mixin position($position: relative, $trbl: null null null null) {
     $trbl: unpackShorthand($trbl);
     $attributes: (
