@@ -12,7 +12,7 @@ const EventRow = ({ href, subtitle, title, date = null, dateRange = null, thumbn
     const { BUTTON, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
 
     return (
-        <Link className={`vdp-row ${BASE_CLASSNAME}`} href={href} type="anchor">
+        <Link className={BASE_CLASSNAME} href={href} type="anchor">
             {/* Thumbnail Image */}
             {!!thumbnail && !!thumbnail.src && !!thumbnail.alt && (
                 <div className={getColClassName(THUMBNAIL)}>
