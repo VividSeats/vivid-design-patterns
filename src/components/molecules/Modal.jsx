@@ -123,7 +123,7 @@ class Modal extends React.Component {
                     data-state={dataState.length ? dataState : Modal.DATA_STATE.CLOSED}
                     {...htmlAtrributes}>
                     <div className="vdp-modal__container">
-                        {ModalHeaderChild || <Modal.Header>{title}</Modal.Header>}
+                        {ModalHeaderChild || <Modal.Header title={title} />}
                         {ModalBodyChild || <Modal.Body>{bodyChildren}</Modal.Body>}
                         {ModalFooterChild || <Modal.Footer onDismiss={toggleModal} />}
                     </div>

@@ -43,6 +43,10 @@
                 padding-right: 0;
             }
         }
+        .applied-filters {
+            @include flex-basis(100%);
+        }
+        .applied-filters + .vdp-filter-group,
         .selectedFilters + .vdp-filter-group {
             padding-left: 0;
         }

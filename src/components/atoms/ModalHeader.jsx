@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Headline from './Headline';
 
-const ModalHeader = ({ children, importance = 6, ...htmlAttributes }) => (
+const ModalHeader = ({ children, importance = 6, title, ...htmlAttributes }) => (
     <div className="vdp-modal__header" {...htmlAttributes}>
-        <Headline importance={importance}>{children}</Headline>
+        <Headline importance={importance}>{title}</Headline>
+        {children}
     </div>
 );
 

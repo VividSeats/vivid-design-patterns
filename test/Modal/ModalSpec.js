@@ -56,7 +56,11 @@ describe('<Modal />', () => {
     it('supports header, body, and footer subcomponents', () => {
         const wrapper = mount(
             <Modal dataState="opened">
-                <Modal.Header className="modalHeaderClass">Modal Header</Modal.Header>
+                <Modal.Header className="modalHeaderClass" title="Modal Header">
+                    <Button className="modalHeaderButtonClass" importance="text">
+                        Click
+                    </Button>
+                </Modal.Header>
                 <Modal.Body className="modalBodyClass">Modal Body</Modal.Body>
                 <Modal.Footer className="modalFooterClass">
                     <Button className="modalButtonClass" importance="tertiary">
@@ -67,6 +71,7 @@ describe('<Modal />', () => {
         );
 
         expect(wrapper.exists('.vdp-modal__header.modalHeaderClass'));
+        expect(wrapper.exists('.vdp-modal__header.modalHeaderClass button.modalHeaderButtonClass'));
         expect(wrapper.exists('.vdp-modal__body.modalBodyClass'));
         expect(wrapper.exists('.vdp-modal__footer.modalFooterClass button.modalFooterClass'));
     });

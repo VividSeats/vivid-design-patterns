@@ -64,7 +64,7 @@
         }
     }
     // Nested Row
-    [class^='vdp-row'] {
+    [class*='vdp-row'] {
         margin-left: 0;
         margin-right: 0;
     }
