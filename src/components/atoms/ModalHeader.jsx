@@ -14,7 +14,8 @@ ModalHeader.displayName = 'ModalHeader';
 ModalHeader.propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
-    importance: PropTypes.oneOf([1, 2, 3, 4, 5, 6])
+    importance: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+    title: PropTypes.string
 };
 
 export default ModalHeader;
