@@ -25,7 +25,7 @@ export default function DateColumn({ date, isTimeTbd = false }) {
                 {momentDate.format('ddd')}
             </SmallText>
             <BodyText height="compressed" weight="black" capitalization="uppercase" alignment="center" importance={2}>
-                {momentDate.format('MMM D')}
+                {momentDate.format('MMM DD')}
             </BodyText>
             {!isTimeTbd && (
                 <SmallText alignment="center" state="muted">
