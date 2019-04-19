@@ -4,7 +4,7 @@ import Headline from './Headline';
 
 const ModalHeader = ({ children, importance = 6, title, ...htmlAttributes }) => (
     <div className="vdp-modal__header" {...htmlAttributes}>
-        <Headline importance={importance}>{title}</Headline>
+        {!!title && <Headline importance={importance}>{title}</Headline>}
         {children}
     </div>
 );
