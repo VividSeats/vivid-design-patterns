@@ -2,6 +2,11 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 
+.vdp-filter-group-container {
+    @include flex;
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+}
 .vdp-filter-group {
     @include flex(1 0 100%);
     padding: $sizing-LG 0 $sizing-SM 0;
@@ -29,7 +34,6 @@
         margin-left: #{-$sizing-SM};
     }
 }
-
 @include size-min-tablet {
     .vdp-modal__body {
         .vdp-filter-group {
@@ -42,13 +46,6 @@
             &:last-of-type {
                 padding-right: 0;
             }
-        }
-        .applied-filters {
-            @include flex-basis(100%);
-        }
-        .applied-filters + .vdp-filter-group,
-        .selectedFilters + .vdp-filter-group {
-            padding-left: 0;
         }
     }
 }
