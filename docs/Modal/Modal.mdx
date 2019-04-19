@@ -5,6 +5,8 @@
 import { PropsTable, Playground } from 'docz'
 
 import Modal from '../../src/components/molecules/Modal';
+import Icon from '../../src/components/atoms/Icon';
+import Headline from '../../src/components/atoms/Headline';
 import Button from '../../src/components/atoms/Button';
 import ModalButtonExample from './ModalButtonExample';
 
@@ -41,7 +43,7 @@ HTML: class="vdp-modal" data-state="opened"
 <PropsTable of={Modal}/>
 
 ### Modal Header Props
-Modal headers can either take in a title prop to render a default Header, or take in a child prop to render custom headers.
+Modal headers can either take in a title prop to render a default Header, or take in a child prop to render custom headers. See Sub-Component Example.
 <PropsTable of={Modal.Header}/>
 
 ### Modal Body Props
@@ -71,7 +73,7 @@ Modal headers can either take in a title prop to render a default Header, or tak
 ```
 <Playground style={ { minHeight: '400px', height: '100%' } } >
     <Modal dataState="opened">
-        <Modal.Header><Headline importance={6}>Custom Modal H4 Header</Headline></Modal.Header>
+        <Modal.Header><Headline importance={6}>Custom Modal H4 Header</Headline><Icon>close</Icon></Modal.Header>
         <Modal.Body>
             <p>This modal is using subcomponents for the modal header, body, and footer.</p>
         </Modal.Body>

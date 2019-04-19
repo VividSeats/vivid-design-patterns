@@ -1,4 +1,16 @@
+@import '../../src/styles/backdrop';
 // overrides for playground wrapper
-[class^='vdp-backdrop'] {
-    position: absolute;
+.react-live-preview {
+    [class^='vdp-backdrop'] {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .vdp-modal,
+    .vdp-modal--sheet {
+        position: relative !important;
+        top: unset !important;
+        left: unset !important;
+    }
 }
