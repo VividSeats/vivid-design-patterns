@@ -1,3 +1,4 @@
+@import '../../src/styles/_grid.scss';
 @import '../../src/styles/_typography.scss';
 
 .type-column {
@@ -6,7 +7,8 @@
     width: 13%;
     height: 100%;
 
-    &.inverted {
+    .inverted {
         background-color: #333;
+        border-radius: $border-radius-XS;
     }
 }
