@@ -22,7 +22,7 @@ class ModalButtonExample extends React.Component {
                 <Button onClick={() => onClick(true)}>Click</Button>
                 <Modal dataState={!!state.opened ? 'opened' : 'closed'}>
                     <Modal.Header>
-                        <Headline importance={6}>Modal Header</Headline>{' '}
+                        <Headline importance={6}>Modal Header</Headline>
                     </Modal.Header>
                     <Modal.Body>
                         <BodyText importance={2}>
