@@ -5,7 +5,11 @@ $gradients: (
     blue: $color-gradient-blue,
     gold: $color-gradient-gold,
     red: $color-gradient-red,
-    slate: $color-gradient-slate
+    slate: $color-gradient-slate,
+    teal: (
+        #2376a8,
+        #21c8a7
+    )
 );
 
 @mixin text-gradient($gradient: $color-gradient-red) {
@@ -76,5 +80,12 @@ $overlays: (
                 @include linear-gradient(to bottom, $attr);
             }
         }
+    }
+    // Marketing Colors
+    &-marketing-teal {
+        background-color: $color-marketing-teal;
+    }
+    &-marketing-yellow {
+        background-color: $color-marketing-yellow;
     }
 }

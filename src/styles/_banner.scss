@@ -58,9 +58,27 @@
         flex: 0.25;
         white-space: nowrap;
     }
-}
-@include size-only-mobile {
-    .vdp-banner__mask {
+    @include size-only-mobile {
         @include flex-direction(column);
+    }
+}
+@include size-min-desktop {
+    .vdp-split-banner {
+        position: relative;
+
+        > .vdp-container {
+            z-index: 2;
+        }
+        &:after {
+            @include position(absolute, 0 52% 0 null);
+            @include transform(skewX(10deg));
+            background: rgba($color-black, 0.1);
+            content: '';
+            width: 100%;
+            z-index: 1;
+        }
+        &.bg-white:after {
+            background: rgba($color-black, 0.05);
+        }
     }
 }

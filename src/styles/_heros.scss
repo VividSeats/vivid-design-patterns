@@ -4,7 +4,6 @@
 $hero-height: 200px;
 $hero-height-tablet: 280px;
 $hero-height-desktop: 320px;
-$hero-height-large: 560px;
 $hero-tab-height-adjuster: 56px;
 $hero-overlay-gradient: rgba($color-black, 0), $color-black;
 
@@ -25,8 +24,6 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
 // Default Hero
 [class^='vdp-page-hero'] {
     .vdp-container {
-        @include flex;
-        @include flex-direction(column);
         height: 100%;
     }
     .vdp-page-hero__breadcrumbs {
@@ -46,37 +43,30 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         }
     }
     .vdp-page-hero__content {
-        @include align-items(flex-end);
+        @include align-items(center);
         @include flex(1);
-        @include flex-direction(column);
-        max-width: 600px;
+        height: 100%;
+        max-width: 720px;
         position: relative;
+        width: 100%;
         z-index: 3;
-
-        @include size-min-tablet {
-            @include align-items(center);
-        }
     }
     .vdp-page-hero__image {
         @include position(absolute, 0 0 0 0);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
         z-index: 1;
     }
     .vdp-page-hero__subtitle {
         display: block;
         font-size: $sizing-LG;
         font-weight: $font-weight-reg;
+        margin-top: $sizing-SM;
 
         @include size-min-tablet {
             font-size: $font-size-XL;
         }
     }
     .vdp-page-hero__tabs {
-        margin: 0 -#{$sizing-MD} !important;
-        padding: 0 $sizing-MD !important;
-        position: relative;
+        @include position(absolute, null null 0 null);
         z-index: 3;
 
         @include size-only-mobile {
@@ -85,33 +75,31 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         }
     }
     .vdp-page-hero__thumbnail {
-        @include flex;
-        margin-right: $sizing-SM;
+        flex: none;
 
         img {
             width: 4.5rem;
             height: 4.5rem;
         }
         @include size-only-mobile {
-            @include position(absolute, null 0 #{-$sizing-3XL} null);
+            @include position(absolute, null 0 0 null);
 
             img {
                 width: $sizing-5XL;
                 height: $sizing-5XL;
             }
         }
+        @include size-min-tablet {
+            margin-right: $sizing-SM;
+        }
     }
     .vdp-page-hero__title {
         color: $color-white;
         font-size: $sizing-XL;
         font-weight: $font-weight-blk;
-        line-height: $line-height-SM;
+        line-height: $line-height-XS;
         margin: -5px 0 0 0;
         padding: 0 $sizing-SM;
-
-        @include size-only-mobile {
-            padding-bottom: $sizing-XL;
-        }
 
         @include size-min-tablet {
             font-size: $font-size-4XL;
@@ -145,37 +133,25 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
 
 // Centered
 [class^='vdp-page-hero'][class*='--centered'] {
-    text-align: center;
-
-    .vdp-page-hero__content,
+    .vdp-page-hero__content {
+        @include align-content(center);
+        @include justify-content(center);
+        @include flex-wrap(wrap);
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: center;
+    }
     .vdp-page-hero__tabs {
         @include justify-content(center);
-    }
-    .vdp-page-hero__content {
-        margin: 0 auto;
     }
 }
 
 // Large
 [class^='vdp-page-hero'][class*='--large'] {
-    height: $hero-height-desktop;
+    height: 480px;
 
-    @include size-min-tablet {
-        height: $hero-height-large;
-    }
-}
-
-// Marketing
-[class^='vdp-page-hero'][class*='--marketing'] {
-    @include clip-path(0 0, 100% 0, 100% 100%, 0 40%);
-    padding-bottom: $sizing-XL;
-
-    @include size-min-tablet {
-        @include clip-path(0 0, 100% 0, 100% 100%, 0 60%);
-        padding-bottom: $sizing-4XL;
-    }
     @include size-min-desktop {
-        @include clip-path(0 0, 100% 0, 100% 100%, 0 80%);
+        height: 560px;
     }
 }
 
@@ -187,8 +163,5 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         content: '';
         height: 50%;
         z-index: 1;
-    }
-    .vdp-page-hero__content {
-        padding-top: $hero-tab-height-adjuster;
     }
 }

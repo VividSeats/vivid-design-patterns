@@ -9,9 +9,12 @@
     padding-left: 0;
     padding-right: 0;
 
-    //overflow-x: scroll;
-    //-webkit-overflow-scrolling: touch;
-
+    &[class*='--centered'] {
+        @include justify-content(center);
+    }
+    &:not([class*='--inverted']) {
+        background-color: $color-white;
+    }
     &[class*='--inverted'] .vdp-tab {
         color: $color-gray;
 
@@ -72,5 +75,13 @@
     }
     &[data-state='active']:after {
         opacity: 1;
+    }
+}
+
+// Stretched
+@include size-only-mobile {
+    [class^='vdp-tab-bar'][class*='--stretched'] .vdp-tab {
+        @include flex-grow(1);
+        @include justify-content(center);
     }
 }

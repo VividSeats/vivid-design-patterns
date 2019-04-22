@@ -282,4 +282,7 @@ a {
     &[class*='--underline'] {
         text-decoration: underline;
     }
+    &[class*='--opaque'] {
+        opacity: 0.5;
+    }
 }
