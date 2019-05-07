@@ -6,7 +6,7 @@ const CardHero = ({ className = '', loadImageViaCss = false, imageSrc, alt, ...h
         return (
             <div
                 className={`vdp-card__hero ${className}`}
-                style={{ backgroundImage: `url('${imageSrc}');` }}
+                style={{ backgroundImage: `url('${imageSrc}')` }}
                 {...htmlAttributes}
                 role="img"
                 aria-label={alt}
