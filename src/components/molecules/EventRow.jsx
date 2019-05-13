@@ -9,7 +9,7 @@ import DateColumn from '../atoms/DateColumn';
 
 const COM5Variant1 = ({ price }) => (
     <React.Fragment>
-        <i>from</i> <strong>{price}</strong>
+        <i>from</i> <strong>${price}</strong>
     </React.Fragment>
 );
 const MobileCOM5Variant1 = ({ price }) => (
@@ -17,7 +17,7 @@ const MobileCOM5Variant1 = ({ price }) => (
         <SmallText>
             <i>from</i>
         </SmallText>
-        <strong className="lead-price">{price}</strong>
+        <strong className="lead-price">${price}</strong>
     </div>
 );
 
@@ -31,7 +31,7 @@ const EventRow = ({
     isTimeTbd = false,
     hasButton = true,
     isCOM5Variant1 = false,
-    leadPrice = '$0.00'
+    leadPrice = 0
 }) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
     const { BUTTON, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
@@ -107,7 +107,7 @@ EventRow.propTypes = {
     }),
     isTimeTbd: PropTypes.bool,
     hasButton: PropTypes.bool,
-    leadPrice: PropTypes.string,
+    leadPrice: PropTypes.number,
     isCOM5Variant1: PropTypes.bool
 };
 
