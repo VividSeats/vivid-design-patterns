@@ -7,13 +7,14 @@ import Link from '../atoms/Link';
 import SmallText from '../atoms/SmallText';
 import DateColumn from '../atoms/DateColumn';
 
-const COM5Variant1 = ({ price }) => (
-    <React.Fragment>
+const COM5Variant1 = ({ price = 0 }) => (
+    <Button>
         <i>from</i> <strong>${price}</strong>
-    </React.Fragment>
+    </Button>
 );
-const MobileCOM5Variant1 = ({ price }) => (
-    <div className={`${EventRow.BASE_CLASSNAME}__col COM5MobileVariant1`}>
+
+const MobileCOM5Variant1 = ({ price = 0 }) => (
+    <div className="vdp-event-row__col COM5MobileVariant1">
         <SmallText>
             <i>from</i>
         </SmallText>
@@ -63,19 +64,15 @@ const EventRow = ({
             )}
             {/* Button */}
             {hasButton && (
-                <div className={`${getColClassName(BUTTON)}${isCOM5Variant1 && ' COM5ColWidth'}`}>
-                    <Button>
-                        {!!dateRange ? (
-                            BUTTON_TEXT.DATE_RANGE
-                        ) : !!isCOM5Variant1 && leadPrice ? (
-                            <COM5Variant1 price={leadPrice} />
-                        ) : (
-                            BUTTON_TEXT.DATE
-                        )}
-                    </Button>
+                <div className={`${getColClassName(BUTTON)} ${isCOM5Variant1 && 'COM5ColWidth'}`}>
+                    {!!isCOM5Variant1 ? (
+                        <COM5Variant1 price={leadPrice} />
+                    ) : (
+                        <Button>{!!dateRange ? BUTTON_TEXT.DATE_RANGE : BUTTON_TEXT.DATE}</Button>
+                    )}
                 </div>
             )}
-            {/*COM-5 Lead Pricing Variant*/}
+            {/* COM-5 Lead Pricing Variant */}
             {!!isCOM5Variant1 && leadPrice && <MobileCOM5Variant1 price={leadPrice} />}
         </Link>
     );
@@ -110,6 +107,14 @@ EventRow.propTypes = {
     hasButton: PropTypes.bool,
     leadPrice: PropTypes.number,
     isCOM5Variant1: PropTypes.bool
+};
+
+COM5Variant1.propTypes = {
+    price: PropTypes.number
+};
+
+MobileCOM5Variant1.propTypes = {
+    price: PropTypes.number
 };
 
 export default EventRow;
