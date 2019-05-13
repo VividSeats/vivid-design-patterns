@@ -79,3 +79,18 @@ If a event is not in the current year, the event will display with the year badg
         date: new Date().setFullYear(new Date().getFullYear() + 1)
     }} />
 </Playground>
+
+## COM-5 Variant 1
+
+Enables lead pricing on component
+
+<Playground>
+    <EventRow {...{
+        href: 'javascript:alert("click")',
+        title: 'Chicago Blackhawks',
+        subtitle: 'United Center - Chicago, IL',
+        date: new Date().toUTCString(),
+        isCOM5Variant1: true,
+        leadPrice: '$258'
+    }} />
+</Playground>

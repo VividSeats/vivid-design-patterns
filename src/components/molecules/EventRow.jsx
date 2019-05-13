@@ -7,7 +7,32 @@ import Link from '../atoms/Link';
 import SmallText from '../atoms/SmallText';
 import DateColumn from '../atoms/DateColumn';
 
-const EventRow = ({ href, subtitle, title, date = null, dateRange = null, thumbnail = null, isTimeTbd = false, hasButton = true }) => {
+const COM5Variant1 = ({ price }) => (
+    <React.Fragment>
+        <i>from</i> <strong>{price}</strong>
+    </React.Fragment>
+);
+const MobileCOM5Variant1 = ({ price }) => (
+    <div className={`${EventRow.BASE_CLASSNAME}__col COM5MobileVariant1`}>
+        <SmallText>
+            <i>from</i>
+        </SmallText>
+        <strong className="lead-price">{price}</strong>
+    </div>
+);
+
+const EventRow = ({
+    href,
+    subtitle,
+    title,
+    date = null,
+    dateRange = null,
+    thumbnail = null,
+    isTimeTbd = false,
+    hasButton = true,
+    isCOM5Variant1 = false,
+    leadPrice = '$0.00'
+}) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
     const { BUTTON, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
 
@@ -38,10 +63,19 @@ const EventRow = ({ href, subtitle, title, date = null, dateRange = null, thumbn
             )}
             {/* Button */}
             {hasButton && (
-                <div className={getColClassName(BUTTON)}>
-                    <Button>{!!dateRange ? BUTTON_TEXT.DATE_RANGE : BUTTON_TEXT.DATE}</Button>
+                <div className={`${getColClassName(BUTTON)}${isCOM5Variant1 && ' COM5ColWidth'}`}>
+                    <Button>
+                        {!!dateRange ? (
+                            BUTTON_TEXT.DATE_RANGE
+                        ) : !!isCOM5Variant1 && leadPrice ? (
+                            <COM5Variant1 price={leadPrice} />
+                        ) : (
+                            BUTTON_TEXT.DATE
+                        )}
+                    </Button>
                 </div>
             )}
+            {!!isCOM5Variant1 && leadPrice && <MobileCOM5Variant1 price={leadPrice} />}
         </Link>
     );
 };
@@ -72,7 +106,9 @@ EventRow.propTypes = {
         alt: PropTypes.string
     }),
     isTimeTbd: PropTypes.bool,
-    hasButton: PropTypes.bool
+    hasButton: PropTypes.bool,
+    leadPrice: PropTypes.string,
+    isCOM5Variant1: PropTypes.bool
 };
 
 export default EventRow;

@@ -163,3 +163,20 @@ $gradient-size: 200px;
         }
     }
 }
+
+.COM5ColWidth {
+    width: 8.25rem !important;
+}
+
+.COM5MobileVariant1 {
+    text-align: center;
+    .lead-price {
+        color: $color-brand-blue;
+    }
+}
+
+@include size-min-tablet {
+    .COM5MobileVariant1 {
+        display: none;
+    }
+}
