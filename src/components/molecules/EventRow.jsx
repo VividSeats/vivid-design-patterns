@@ -75,6 +75,7 @@ const EventRow = ({
                     </Button>
                 </div>
             )}
+            {/*COM-5 Lead Pricing Variant*/}
             {!!isCOM5Variant1 && leadPrice && <MobileCOM5Variant1 price={leadPrice} />}
         </Link>
     );
