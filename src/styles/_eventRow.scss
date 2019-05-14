@@ -164,13 +164,17 @@ $gradient-size: 200px;
     }
 }
 
+// COM-5 Experiment Styles -- Enables lead pricing
 .COM5ColWidth {
     width: 8.25rem !important;
 }
 
 .COM5MobileVariant1 {
-    text-align: center;
+    text-align: right;
     padding-right: $sizing-SM;
+    i {
+        color: #888b93;
+    }
     .lead-price {
         color: $color-brand-blue;
     }
