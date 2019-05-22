@@ -7,12 +7,22 @@ import Link from '../atoms/Link';
 import SmallText from '../atoms/SmallText';
 import DateColumn from '../atoms/DateColumn';
 
-const EventRow = ({ href, subtitle, title, date = null, dateRange = null, thumbnail = null, isTimeTbd = false, hasButton = true }) => {
+const EventRow = ({
+    href,
+    subtitle,
+    title,
+    date = null,
+    dateRange = null,
+    thumbnail = null,
+    isTimeTbd = false,
+    hasButton = true,
+    ...htmlAttributes
+}) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
     const { BUTTON, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
 
     return (
-        <Link className={BASE_CLASSNAME} href={href} type="anchor">
+        <Link className={BASE_CLASSNAME} href={href} type="anchor" {...htmlAttributes}>
             {/* Thumbnail Image */}
             {!!thumbnail && !!thumbnail.src && !!thumbnail.alt && (
                 <div className={getColClassName(THUMBNAIL)}>
