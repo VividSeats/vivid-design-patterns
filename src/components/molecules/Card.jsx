@@ -46,9 +46,9 @@ class Card extends React.Component {
         const { className, type, children, onClick, role, ...htmlAttributes } = this.props;
 
         const cardClassNames = classNames({
-            [className]: className,
             [`vdp-card--${type}`]: type,
-            'vdp-card': type !== 'anchor' && type !== 'list'
+            'vdp-card': type !== 'anchor' && type !== 'list',
+            [className]: className
         });
 
         return (
