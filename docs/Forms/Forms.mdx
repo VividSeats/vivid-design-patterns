@@ -17,15 +17,16 @@ Using the react component:
 
 ## Basic Usage
 Forms provide a `setForm` callback via a Context Consumer. This `setForm` callback, when set as the `ref` on the form fields, attaches them to the form. When the form is submitted, each field is validated via the field's `validationMethod` prop. `validationMethod` should be a function that takes a value as a parameter and returns an error message if the validation fails and null if the validation is successful.
-
+`name` prop of input and select elements are used as property keys in output object in the `onSubmit` callback `prop`.
 
 <Playground>
-    <Form onSubmit={() => alert("Form submitted")}>
+    <Form onSubmit={(output) => alert("Form submitted" + JSON.stringify(output))}>
         <Form.ContextConsumer>
             {({ setForm }) => (
                 <React.Fragment>
                     <TextField ref={setForm}
                                id='#formTextField'
+                               name='age'
                                validationMethod={ value => (!value || value.length <= 10) ? "Input must be greater than 10" : null}
                                label="Input Length > 10"/>
                     <Button type="submit">Submit</Button>
