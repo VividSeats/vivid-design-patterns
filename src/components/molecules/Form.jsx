@@ -46,7 +46,11 @@ class Form extends React.Component {
         const isFormValid = this.inputs.every(input => !input.state.error);
         const { onSubmit, onValidationFailure } = this.props;
         if (isFormValid) {
-            onSubmit();
+            const formOutput = {};
+            this.inputs.forEach(input => {
+                formOutput[input.props.name] = input.state.value;
+            });
+            onSubmit(formOutput);
         } else {
             onValidationFailure(componentsWithErrors);
         }
