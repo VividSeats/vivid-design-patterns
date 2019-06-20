@@ -13,7 +13,13 @@ describe('<Form />', () => {
             <Form.ContextConsumer>
                 {({ setForm }) => (
                     <React.Fragment>
-                        <TextField id="input" ref={setForm} validationMethod={mockValidationMethod} label={'Input Length > 10'} />
+                        <TextField
+                            name="age"
+                            id="input"
+                            ref={setForm}
+                            validationMethod={mockValidationMethod}
+                            label={'Input Length > 10'}
+                        />
                         <Button type="submit">Submit</Button>
                     </React.Fragment>
                 )}
@@ -39,6 +45,13 @@ describe('<Form />', () => {
         wrapper.find('form').simulate('submit');
         expect(mockOnSubmit).toHaveBeenCalled();
         expect(mockOnValidationFailure).not.toHaveBeenCalled();
+    });
+
+    it('calls onSubmit with the correct param', () => {
+        const wrapper = mount(form);
+        wrapper.find(TextField).setState({ value: 13 });
+        wrapper.find('form').simulate('submit');
+        expect(mockOnSubmit.mock.calls[0][0].age).toBe(13);
     });
 
     it('calls onValidationFailure when it has errors and wont call onSubmit.', () => {
