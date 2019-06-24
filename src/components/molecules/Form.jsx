@@ -43,22 +43,25 @@ class Form extends React.Component {
         this.inputs.push(ref);
     };
 
+    getInputValue = input => {
+        const { state, props } = input;
+        let inputVal = state.value || props.value;
+
+        if (state.checked !== undefined) {
+            inputVal = state.checked;
+        } else if (props.checked !== undefined) {
+            inputVal = props.checked;
+        }
+        return inputVal;
+    };
+
     afterValidation = componentsWithErrors => {
         const isFormValid = this.inputs.every(input => !input.state.error);
         const { onSubmit, onValidationFailure } = this.props;
         if (isFormValid) {
             const formOutput = {};
             this.inputs.forEach(input => {
-                const { state, props } = input;
-                let inputVal = state.value || props.value;
-
-                if (state.checked !== undefined) {
-                    inputVal = state.checked;
-                } else if (props.checked !== undefined) {
-                    inputVal = props.checked;
-                }
-
-                formOutput[input.props.name] = inputVal;
+                formOutput[input.props.name] = this.getInputValue(input);
             });
             onSubmit(formOutput);
         } else {
@@ -83,17 +86,8 @@ class Form extends React.Component {
     };
 
     validateInput = component => {
-        let componentValue;
-
-        const { state, props } = component;
-        if (state.checked) {
-            componentValue = state.checked;
-        } else if (props.checked) {
-            componentValue = props.checked;
-        } else {
-            componentValue = state.value || props.value;
-        }
-        return props.validationMethod(componentValue);
+        const { props } = component;
+        return props.validationMethod(this.getInputValue(component));
     };
 
     onSubmit = e => {
