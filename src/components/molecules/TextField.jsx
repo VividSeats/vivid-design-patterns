@@ -12,7 +12,6 @@ class TextField extends React.Component {
         onBlur: () => {},
         onFocus: () => {},
         validationMethod: () => {},
-        defaultValue: '',
         type: 'text'
     };
 
