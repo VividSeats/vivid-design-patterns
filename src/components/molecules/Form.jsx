@@ -49,15 +49,15 @@ class Form extends React.Component {
         if (isFormValid) {
             const formOutput = {};
             this.inputs.forEach(input => {
-                let inputVal;
                 const { state, props } = input;
+                let inputVal = state.value || props.value;
+
                 if (state.checked !== undefined) {
                     inputVal = state.checked;
                 } else if (props.checked !== undefined) {
                     inputVal = props.checked;
-                } else {
-                    inputVal = state.value || props.value;
                 }
+
                 formOutput[input.props.name] = inputVal;
             });
             onSubmit(formOutput);
