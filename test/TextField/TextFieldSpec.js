@@ -28,6 +28,12 @@ describe('<TexField />', () => {
         expect(wrapper.find('.vdp-textfield').prop('data-state')).toBe('filled');
     });
 
+    it('changes dirty state when value prop changes', () => {
+        const wrapper = mount(textFieldComponent, { value: '' });
+        wrapper.setProps({ value: 'string' });
+        expect(wrapper.find('.vdp-textfield').prop('data-state')).toBe('filled');
+    });
+
     it('have a "floating" label when it has a value', () => {
         const wrapper = mount(textFieldComponent);
         wrapper.find('input').simulate('focus');
