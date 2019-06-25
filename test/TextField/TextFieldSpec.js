@@ -54,15 +54,6 @@ describe('<TexField />', () => {
             expect(wrapper.find('.vdp-textfield').prop('data-validate')).toBe(true);
             expect(mockValidationMethod).toBeCalled();
         });
-
-        it('should render errors', () => {
-            const error = 'error';
-            const textFieldComponentWithError = (
-                <TextField id={id} error={error} label={labelText} validationMethod={mockValidationMethod} />
-            );
-            const wrapper = mount(textFieldComponentWithError);
-            expect(wrapper.find('.vdp-helper-text--validation').text()).toBe(error);
-        });
     });
 
     describe('handle password inputs', () => {

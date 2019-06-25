@@ -47,11 +47,27 @@ describe('<Form />', () => {
         expect(mockOnValidationFailure).not.toHaveBeenCalled();
     });
 
-    it('calls onSubmit with the correct param', () => {
+    it('calls onSubmit with the correct output param', () => {
         const wrapper = mount(form);
         wrapper.find(TextField).setState({ value: 13 });
         wrapper.find('form').simulate('submit');
         expect(mockOnSubmit.mock.calls[0][0].age).toBe(13);
+    });
+
+    it('calling the onSubmit onError arugment sets correct error states of children', () => {
+        const errorMessage = 'invalid age';
+        const wrapper = mount(form);
+        wrapper.find('form').simulate('submit');
+        const onError = mockOnSubmit.mock.calls[0][1];
+        onError({ age: errorMessage });
+        expect(wrapper.find(TextField).state().error).toBe(errorMessage);
+    });
+
+    it('renders errors from state of textFields', () => {
+        const error = 'email already found';
+        const wrapper = mount(form);
+        wrapper.find(TextField).setState({ error });
+        expect(wrapper.find('.vdp-helper-text--validation').text()).toBe(error);
     });
 
     it('calls onValidationFailure when it has errors and wont call onSubmit.', () => {
