@@ -65,6 +65,18 @@ Using the scss files:
   </Select>
 </Playground>
 
+### Error State
+An error message can be passed through the `error` prop. 
+Note: usage of the `error` prop directly is not recommended. For client side validation, consider the `validationMethod` prop. For server-side validation, please reference the [Form](/docs-forms-forms) component.
+
+<Playground>
+  <Select error="There was an error" label="Choose an option:">
+    <Select.Option value="1">Option 1</Select.Option>
+    <Select.Option value="2">Option 2</Select.Option>
+    <Select.Option value="3">Option 3</Select.Option>
+  </Select>
+</Playground>
+
 ### onChange
 `onChange={() => {alert('hi')}}`
 <Playground>

@@ -30,6 +30,7 @@ class TextField extends React.Component {
         onFocus: PropTypes.func,
         name: PropTypes.string,
         defaultValue: PropTypes.string,
+        error: PropTypes.string,
         /** Validation method that should return a string for the error to displayed. Do not pass in validationMethod if you pass in noValidate prop */
         validationMethod: PropTypes.func,
         trailingIcon: PropTypes.node,
@@ -39,9 +40,18 @@ class TextField extends React.Component {
     state = {
         active: !!this.props.defaultValue,
         value: this.props.defaultValue,
-        error: '',
+        error: this.props.error,
         dirty: false
     };
+
+    componentDidUpdate(prevProps) {
+        const { error } = this.props;
+        if (error !== prevProps.error) {
+            this.setState({
+                error
+            });
+        }
+    }
 
     onChange = e => {
         const { value } = e.target;

@@ -56,6 +56,13 @@ describe('<TexField />', () => {
         });
     });
 
+    it('should render errors', () => {
+        const error = 'error';
+        const textFieldComponentWithError = <TextField id={id} error={error} label={labelText} validationMethod={mockValidationMethod} />;
+        const wrapper = mount(textFieldComponentWithError);
+        expect(wrapper.find('.vdp-helper-text--validation').text()).toBe(error);
+    });
+
     describe('handle password inputs', () => {
         const passwordInputComponent = <TextField id="password" label="Password" type="password" />;
         it('it should render with input type = "password"', () => {
