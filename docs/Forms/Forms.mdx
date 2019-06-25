@@ -19,8 +19,21 @@ Using the react component:
 Forms provide a `setForm` callback via a Context Consumer. This `setForm` callback, when set as the `ref` on the form fields, attaches them to the form. When the form is submitted, each field is validated via the field's `validationMethod` prop. `validationMethod` should be a function that takes a value as a parameter and returns an error message if the validation fails and null if the validation is successful.
 `name` prop of input and select elements are used as property keys in output object in the `onSubmit` callback `prop`.
 
+If server-side validation fails, call the onError function argument provided by the onSubmit callback. This function takes a single argument of an object containing input names as keys and error messages as values. See the example below.
+
 <Playground>
-    <Form onSubmit={(output) => alert("Form submitted" + JSON.stringify(output))}>
+    <Form onSubmit={async (output, onError) => {
+        const sendToServer = (age) => {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    if (parseInt(age) < 100) res({});
+                    res({ errors: { age: "invalid age" } });
+                }, 1000);
+            });
+        }
+        const response = await sendToServer(output.age);
+        if (resp.errors) onError(resp.errors);
+    }}>
         <Form.ContextConsumer>
             {({ setForm }) => (
                 <React.Fragment>
