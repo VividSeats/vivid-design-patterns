@@ -255,6 +255,9 @@ a {
     &[class*='--muted'] {
         color: $text-color-muted;
     }
+    &[class*='--gold'] {
+        color: $color-brand-gold;
+    }
     &[class*='--left'] {
         text-align: left;
     }
