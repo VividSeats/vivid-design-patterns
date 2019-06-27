@@ -11,7 +11,11 @@ class Modal extends React.Component {
     static Body = ModalBody;
     static Footer = ModalFooter;
     static Backdrop = Backdrop;
-    static TYPES = ['sheet'];
+
+    static TYPES = {
+        SHEET: 'sheet',
+        FULL_SCREEN: 'full-screen'
+    };
 
     static DATA_STATE = {
         OPENED: 'opened',
@@ -21,6 +25,7 @@ class Modal extends React.Component {
     };
 
     static propTypes = {
+        backgroundImage: PropTypes.string,
         className: PropTypes.string,
         children: PropTypes.node,
         dataState: PropTypes.oneOf([Modal.DATA_STATE.OPENED, Modal.DATA_STATE.CLOSED]),
@@ -28,7 +33,7 @@ class Modal extends React.Component {
         onClose: PropTypes.func,
         onOpen: PropTypes.func,
         title: PropTypes.string,
-        type: PropTypes.oneOf(Modal.TYPES)
+        type: PropTypes.oneOf([Modal.TYPES.SHEET, Modal.TYPES.FULL_SCREEN])
     };
 
     static defaultProps = {
@@ -90,7 +95,15 @@ class Modal extends React.Component {
 
     render() {
         const { props, state, toggleModal, getChild } = this;
-        const { className = '', disableBackdrop = false, title = '', dataState: dataStateProp, onOpen, ...htmlAtrributes } = props;
+        const {
+            backgroundImage,
+            className = '',
+            disableBackdrop = false,
+            title = '',
+            dataState: dataStateProp,
+            onOpen,
+            ...htmlAtrributes
+        } = props;
         let { children, type = '' } = props;
         const { dataState = '' } = state;
 
@@ -117,13 +130,15 @@ class Modal extends React.Component {
             return !displayName || !childDisplayNames.includes(displayName);
         });
 
+        const style = !!backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : null;
+
         return (
             <React.Fragment>
                 <aside
-                    className={`vdp-modal${type} ${className}`}
+                    className={`vdp-modal${type}${!!className ? ` ${className}` : ''}`}
                     data-state={dataState.length ? dataState : Modal.DATA_STATE.CLOSED}
                     {...htmlAtrributes}>
-                    <div className="vdp-modal__container">
+                    <div className="vdp-modal__container" style={style}>
                         {ModalHeaderChild || <Modal.Header title={title} />}
                         {ModalBodyChild || <Modal.Body>{bodyChildren}</Modal.Body>}
                         {ModalFooterChild || <Modal.Footer onDismiss={toggleModal} />}
