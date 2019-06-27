@@ -76,17 +76,23 @@
                 width: 100vw;
                 background-size: 120vw 120vh;
                 background-position: center;
+                padding: $sizing-XL;
                 @include justify-content(center);
                 @include align-items(center);
 
                 .vdp-modal__header,
                 .vdp-modal__body {
-                    flex-grow: 0;
+                    @include flex-grow(0);
+                }
+                .vdp-modal__header {
+                    padding-top: 0;
+                    padding-bottom: 0;
                 }
                 .vdp-modal__footer {
                     @include flex;
                     @include flex-direction(column);
                     @include align-items(space-around);
+                    text-align: left;
                 }
             }
         }
