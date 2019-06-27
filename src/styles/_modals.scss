@@ -53,17 +53,42 @@
     }
 }
 @include size-only-mobile {
-    [class^='vdp-modal--sheet'] {
-        .vdp-modal__container {
-            @include position(absolute, null null -100vh null);
-            @include transform(scale(1));
-            border-radius: $border-radius-LG $border-radius-LG 0 0;
-            margin: 0;
-            opacity: 1;
-            width: 100%;
+    [class^='vdp-modal'] {
+        &[class*='--sheet'] {
+            .vdp-modal__container {
+                @include position(absolute, null null -100vh null);
+                @include transform(scale(1));
+                border-radius: $border-radius-LG $border-radius-LG 0 0;
+                margin: 0;
+                opacity: 1;
+                width: 100%;
+            }
+            &[data-state='opened'] .vdp-modal__container {
+                @include position(absolute, null null 0 null);
+            }
         }
-        &[data-state='opened'] .vdp-modal__container {
-            @include position(absolute, null null 0 null);
+        &[class*='--full-screen'] {
+            .vdp-modal__container {
+                border-radius: 0;
+                margin: 0;
+                height: 100vh;
+                max-height: unset;
+                width: 100vw;
+                background-size: 120vw 120vh;
+                background-position: center;
+                @include justify-content(center);
+                @include align-items(center);
+
+                .vdp-modal__header,
+                .vdp-modal__body {
+                    flex-grow: 0;
+                }
+                .vdp-modal__footer {
+                    @include flex;
+                    @include flex-direction(column);
+                    @include align-items(space-around);
+                }
+            }
         }
     }
 }
