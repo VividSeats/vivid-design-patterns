@@ -17,7 +17,7 @@ const SmallText = ({ children, className, weight, height, state, alignment, capi
         ...htmlAttributes
     };
 
-    return <small {...attributes}>{children}</small>;
+    return <p {...attributes}>{children}</p>;
 };
 
 SmallText.propTypes = TYPOGRAPHY_PROP_TYPES;
