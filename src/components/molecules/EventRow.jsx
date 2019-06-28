@@ -72,6 +72,7 @@ const EventRow = ({
                     <Button>{!!dateRange ? BUTTON_TEXT.DATE_RANGE : BUTTON_TEXT.DATE}</Button>
                 </div>
             )}
+            <link itemProp="url" href={href} />
         </Link>
     );
 };
