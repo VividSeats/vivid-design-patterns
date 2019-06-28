@@ -22,7 +22,6 @@ const EventRow = ({
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
     const { BUTTON, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
     const { regionCode, countryCode, city, name: venueName } = venue;
-    const regionCodeString = regionCode ? `, ${regionCode}` : '';
     const countryCodeString = countryCode !== 'US' ? `, ${countryCode}` : '';
 
     return (
@@ -51,11 +50,17 @@ const EventRow = ({
                     <SmallText state="muted" itemProp="location" itemScope itemType="http://schema.org/Place">
                         <span itemProp="name">{venueName}</span>&nbsp;–&nbsp;
                         <span itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
-                            {`${city}${regionCodeString}${countryCodeString}`}
+                            <span itemProp="addressLocality">{city}</span>
+                            {!!regionCode && (
+                                <React.Fragment>
+                                    , <span itemProp="addressRegion">{regionCode}</span>
+                                </React.Fragment>
+                            )}
+                            {countryCodeString}
                         </span>
                     </SmallText>
                 ) : (
-                    <SmallText state="muted">subtitle</SmallText>
+                    <SmallText state="muted">{subtitle}</SmallText>
                 )}
             </div>
             {/* Date Range */}

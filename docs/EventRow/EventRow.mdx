@@ -65,6 +65,21 @@ Using the scss files:
     }} />
 </Playground>
 
+## Passing in Venue Object
+<Playground>
+    <EventRow {...{
+    href: 'javascript:alert("click")',
+    title: 'Chicago Blackhawks',
+    venue: {
+        name: 'United Center',
+        regionCode: 'IL',
+        countryCode: 'US',
+        city: 'Chicago',
+    },
+    date: new Date().toUTCString()
+    }} />
+</Playground>
+
 
 ## Events past current calendar year
 
