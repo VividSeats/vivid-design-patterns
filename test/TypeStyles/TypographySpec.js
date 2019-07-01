@@ -14,7 +14,7 @@ const typographyPropTests = [
     { describes: 'BodyText', component: BodyText, defaultElement: 'p', defaultStyle: 'body1' },
     { describes: 'Subhead', component: Subhead, defaultElement: 'p', defaultStyle: 'subhead' },
     { describes: 'SmallText', component: SmallText, defaultElement: 'p', defaultStyle: 'small' },
-    { describes: 'TinyText', component: TinyText, defaultElement: 'small', defaultStyle: 'tiny' }
+    { describes: 'TinyText', component: TinyText, defaultElement: 'p', defaultStyle: 'tiny' }
 ];
 
 // Component-specific tests
