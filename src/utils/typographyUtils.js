@@ -10,9 +10,7 @@ import React from 'react';
 const __dummyPropTypesComponent = () => React.createElement('div', null, `Hello`);
 
 function getTypeClassNames(baseClassName, { weight, height, state, alignment, capitalization, truncate, list, className }) {
-    const stateClasses = () => {
-        return Array.isArray(state) ? state.map(className => `--${className}`) : [{ [`--${state}`]: state }];
-    };
+    const stateClasses = () => (Array.isArray(state) ? state.map(classNameProp => `--${classNameProp}`) : [{ [`--${state}`]: state }]);
     return classNames(baseClassName, [
         {
             [className]: className,
