@@ -98,6 +98,11 @@
         }
     }
 }
+@include size-min-tablet {
+    [class^='vdp-modal'][class*='--full-screen'] {
+        display: none;
+    }
+}
 
 .vdp-modal__body {
     flex: 1 1 auto;
