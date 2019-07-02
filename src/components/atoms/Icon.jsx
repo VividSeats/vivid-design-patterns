@@ -5,8 +5,9 @@ import classNames from 'classnames';
 const Icon = ({ children, className, size, type, ...htmlAttributes }) => {
     const iconClassNames = classNames('vdp-icon', {
         [`-${type}`]: type,
-        [`--${size}`]: size
-    }).replace(/ /g, '');
+        [`--${size}`]: size,
+        [`${className}`]: className
+    }).replace(/ -/g, '-');
 
     const attributes = {
         className: iconClassNames,
