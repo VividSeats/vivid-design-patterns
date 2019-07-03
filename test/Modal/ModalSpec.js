@@ -53,6 +53,18 @@ describe('<Modal />', () => {
         }, 750);
     });
 
+    it("won't be dismissed by clicking on the backdrop if prop is false", done => {
+        const mockOnClose = jest.fn();
+        const wrapper = mount(<Modal dataState="opened" onClose={mockOnClose} closeOnBackdropClick={false} />);
+        wrapper.find('.vdp-backdrop').simulate('click');
+
+        setTimeout(() => {
+            expect(mockOnClose).toHaveBeenCalledTimes(0);
+            expect(wrapper.state('dataState')).toEqual('opened');
+            done();
+        }, 750);
+    });
+
     it('supports header, body, and footer subcomponents', () => {
         const wrapper = mount(
             <Modal dataState="opened">
