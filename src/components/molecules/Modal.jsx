@@ -28,13 +28,15 @@ class Modal extends React.Component {
         onClose: PropTypes.func,
         onOpen: PropTypes.func,
         title: PropTypes.string,
-        type: PropTypes.oneOf(Modal.TYPES)
+        type: PropTypes.oneOf(Modal.TYPES),
+        closeOnBackdropClick: PropTypes.bool
     };
 
     static defaultProps = {
         dataState: Modal.DATA_STATE.CLOSED,
         onOpen: () => {},
-        onClose: () => {}
+        onClose: () => {},
+        closeOnBackdropClick: true
     };
 
     constructor(props) {
@@ -90,7 +92,15 @@ class Modal extends React.Component {
 
     render() {
         const { props, state, toggleModal, getChild } = this;
-        const { className = '', disableBackdrop = false, title = '', dataState: dataStateProp, onOpen, ...htmlAtrributes } = props;
+        const {
+            className = '',
+            disableBackdrop = false,
+            title = '',
+            dataState: dataStateProp,
+            onOpen,
+            closeOnBackdropClick,
+            ...htmlAtrributes
+        } = props;
         let { children, type = '' } = props;
         const { dataState = '' } = state;
 
@@ -128,7 +138,10 @@ class Modal extends React.Component {
                         {ModalBodyChild || <Modal.Body>{bodyChildren}</Modal.Body>}
                         {ModalFooterChild || <Modal.Footer onDismiss={toggleModal} />}
                     </div>
-                    {BackdropChild || (!disableBackdrop && <Modal.Backdrop dataState={dataState} onClick={toggleModal} />)}
+                    {BackdropChild ||
+                        (!disableBackdrop && (
+                            <Modal.Backdrop dataState={dataState} onClick={closeOnBackdropClick ? toggleModal : () => {}} />
+                        ))}
                 </aside>
             </React.Fragment>
         );
