@@ -15,12 +15,13 @@ a:visited.vdp-chip {
     font-size: $font-size-SM;
     font-weight: $font-weight-bld;
     height: $sizing-XL;
+    line-height: $sizing-LG;
     margin: $sizing-XS;
     padding: $sizing-XS $sizing-XL $sizing-XS $sizing-MD;
     position: relative;
 
     &:after {
-        @include pseudo-icon('close', $color: $color-white, $size: $font-size-SM, $height: $sizing-LG);
+        @include pseudo-icon('\e00b', $color: $color-white, $lineHeight: 1.375, $size: $font-size-SM, $height: $sizing-LG);
         @include position(absolute, 0 $sizing-XS 0 null);
         background-color: rgba($color-black, 0.5);
         border-radius: $border-radius-round;

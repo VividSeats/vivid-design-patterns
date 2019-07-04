@@ -16,7 +16,7 @@ class PasswordInput extends React.Component {
         const { showPassword } = this.state;
         const { type: removeType, ...htmlAttributes } = this.props;
         const passwordToggleText = showPassword ? 'Hide' : 'Show';
-        const passwordToggleIcon = showPassword ? 'visibility_off' : 'visibility';
+        const passwordToggleIcon = showPassword ? 'eye' : 'eye-filled';
         const inputType = showPassword ? 'text' : 'password';
         return (
             <React.Fragment>
@@ -25,7 +25,7 @@ class PasswordInput extends React.Component {
                     className="vdp-textfield__trailing-icon"
                     onKeyPress={onEnterPress.bind(this, this.togglePasswordVisibility)}
                     onClick={this.togglePasswordVisibility}>
-                    <i className="material-icons">{passwordToggleIcon}</i>
+                    <i className={`vdp-icon-${passwordToggleIcon}`} />
                     <span className="show-password-text">{passwordToggleText}</span>
                 </span>
             </React.Fragment>

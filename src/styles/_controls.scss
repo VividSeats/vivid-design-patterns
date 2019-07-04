@@ -22,16 +22,16 @@
     @include position(absolute, $sizing-SM null null $sizing-XS);
 
     [class*='--checkbox'] & {
-        content: 'check_box_outline_blank';
+        content: '\e04b';
     }
     [class*='--checkbox'] .vdp-control__input:checked + & {
-        content: 'check_box';
+        content: '\e04c';
     }
     [class*='--radio'] & {
-        content: 'radio_button_unchecked';
+        content: '\e04d';
     }
     [class*='--radio'] .vdp-control__input:checked + & {
-        content: 'radio_button_checked';
+        content: '\e04e';
     }
     .vdp-control__input:checked + & {
         color: $text-color-link;

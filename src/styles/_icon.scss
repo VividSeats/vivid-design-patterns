@@ -1,4 +1,5 @@
 @import 'tokens';
+@import 'mixins/prefixes';
 
 @font-face {
     font-family: 'vivid-icons';
@@ -7,12 +8,13 @@
     src: url('../fonts/vivid-icons.woff') format('woff'), url('../fonts/vivid-icons.ttf') format('ttf');
 }
 [class^='vdp-icon'] {
-    font-family: 'vivid-icons', sans-serif;
+    @include align-self(center);
+    display: inline-block;
+    font-family: $font-family-icons;
     font-size: $font-size-2XL; /* Preferred icon size */
     font-style: normal;
     font-weight: normal;
     letter-spacing: normal;
-    line-height: 1;
     text-rendering: optimizeLegibility;
     text-transform: none;
     vertical-align: middle;
@@ -21,6 +23,10 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
+    &:before {
+        display: inline-block;
+        vertical-align: middle;
+    }
     &[class*='--lg'] {
         font-size: $font-size-4XL;
     }
@@ -29,213 +35,249 @@
     }
 }
 
-[class^='vdp-icon-arrow-left']:before {
+// Interaction
+[class^='vdp-icon-arrow-down']:before {
     content: '\e000';
 }
-[class^='vdp-icon-call']:before {
-    content: '\e001';
-}
-[class^='vdp-icon-carat-down']:before {
+[class^='vdp-icon-arrow-up']:before {
     content: '\e002';
 }
-[class^='vdp-icon-carat-left']:before {
+[class^='vdp-icon-back']:before {
+    content: '\e001';
+}
+[class^='vdp-icon-call']:before {
     content: '\e003';
 }
-[class^='vdp-icon-carat-right']:before {
+[class^='vdp-icon-carat-down']:before {
     content: '\e004';
 }
-[class^='vdp-icon-carat-up']:before {
+[class^='vdp-icon-carat-left']:before {
     content: '\e005';
 }
-[class^='vdp-icon-caution']:before {
+[class^='vdp-icon-carat-right']:before {
     content: '\e006';
 }
-[class^='vdp-icon-chat']:before {
+[class^='vdp-icon-carat-up']:before {
     content: '\e007';
 }
-[class^='vdp-icon-check']:before {
+[class^='vdp-icon-caution']:before {
     content: '\e008';
 }
-[class^='vdp-icon-close']:before {
+[class^='vdp-icon-chat']:before {
     content: '\e009';
 }
-[class^='vdp-icon-copy']:before {
+[class^='vdp-icon-check']:before {
     content: '\e00a';
 }
-[class^='vdp-icon-delete']:before {
+[class^='vdp-icon-close']:before {
     content: '\e00b';
 }
-[class^='vdp-icon-edit']:before {
+[class^='vdp-icon-copy']:before {
     content: '\e00c';
 }
-[class^='vdp-icon-email-send']:before {
+[class^='vdp-icon-delete']:before {
     content: '\e00d';
 }
-[class^='vdp-icon-filter']:before {
+[class^='vdp-icon-edit']:before {
     content: '\e00e';
 }
-[class^='vdp-icon-info']:before {
+[class^='vdp-icon-email-send']:before {
     content: '\e00f';
 }
-[class^='vdp-icon-location']:before {
+[class^='vdp-icon-favorite']:before {
     content: '\e010';
 }
-[class^='vdp-icon-minus']:before {
+[class^='vdp-icon-favorite-filled']:before {
     content: '\e011';
 }
-[class^='vdp-icon-more']:before {
+[class^='vdp-icon-filter']:before {
     content: '\e012';
 }
-[class^='vdp-icon-plus']:before {
+[class^='vdp-icon-info']:before {
     content: '\e013';
 }
-[class^='vdp-icon-recent-arrow']:before {
+[class^='vdp-icon-location']:before {
     content: '\e014';
 }
-[class^='vdp-icon-refresh']:before {
+[class^='vdp-icon-minus']:before {
     content: '\e015';
 }
-[class^='vdp-icon-search']:before {
+[class^='vdp-icon-more']:before {
     content: '\e016';
 }
-[class^='vdp-icon-share-android']:before {
+[class^='vdp-icon-plus']:before {
     content: '\e017';
 }
-[class^='vdp-icon-share-ios']:before {
+[class^='vdp-icon-recent-arrow']:before {
     content: '\e018';
 }
-[class^='vdp-icon-target']:before {
+[class^='vdp-icon-refresh']:before {
     content: '\e019';
 }
-[class^='vdp-icon-transfer']:before {
+[class^='vdp-icon-search']:before {
     content: '\e01a';
 }
-[class^='vdp-icon-bell']:before {
+[class^='vdp-icon-share-android']:before {
     content: '\e01b';
 }
-[class^='vdp-icon-building']:before {
+[class^='vdp-icon-share-ios']:before {
     content: '\e01c';
 }
-[class^='vdp-icon-calendar']:before {
+[class^='vdp-icon-target']:before {
     content: '\e01d';
 }
-[class^='vdp-icon-calendar-multi']:before {
+[class^='vdp-icon-transfer']:before {
     content: '\e01e';
 }
-[class^='vdp-icon-camera']:before {
+
+// Objects
+[class^='vdp-icon-bell']:before {
     content: '\e01f';
 }
-[class^='vdp-icon-checklist']:before {
+[class^='vdp-icon-building']:before {
     content: '\e020';
 }
-[class^='vdp-icon-cog']:before {
+[class^='vdp-icon-calendar']:before {
     content: '\e021';
 }
-[class^='vdp-icon-eye']:before {
+[class^='vdp-icon-calendar-multi']:before {
     content: '\e022';
 }
-[class^='vdp-icon-eye-filled']:before {
+[class^='vdp-icon-camera']:before {
     content: '\e023';
 }
-[class^='vdp-icon-gift-box']:before {
+[class^='vdp-icon-checklist']:before {
     content: '\e024';
 }
-[class^='vdp-icon-home']:before {
+[class^='vdp-icon-cog']:before {
     content: '\e025';
 }
-[class^='vdp-icon-id-face']:before {
+[class^='vdp-icon-eye']:before {
     content: '\e026';
 }
-[class^='vdp-icon-id-touch']:before {
+[class^='vdp-icon-eye-filled']:before {
     content: '\e027';
 }
-[class^='vdp-icon-location-user']:before {
+[class^='vdp-icon-flame']:before {
     content: '\e028';
 }
-[class^='vdp-icon-lock']:before {
+[class^='vdp-icon-gift-box']:before {
     content: '\e029';
 }
-[class^='vdp-icon-map']:before {
+[class^='vdp-icon-home']:before {
     content: '\e02a';
 }
-[class^='vdp-icon-money']:before {
+[class^='vdp-icon-id-face']:before {
     content: '\e02b';
 }
-[class^='vdp-icon-news']:before {
+[class^='vdp-icon-id-touch']:before {
     content: '\e02c';
 }
-[class^='vdp-icon-paper-airplane']:before {
+[class^='vdp-icon-location-user']:before {
     content: '\e02d';
 }
-[class^='vdp-icon-receipt']:before {
+[class^='vdp-icon-lock']:before {
     content: '\e02e';
 }
-[class^='vdp-icon-sale']:before {
+[class^='vdp-icon-map']:before {
     content: '\e02f';
 }
-[class^='vdp-icon-seat']:before {
+[class^='vdp-icon-money']:before {
     content: '\e030';
 }
-[class^='vdp-icon-shield-check']:before {
+[class^='vdp-icon-news']:before {
     content: '\e031';
 }
-[class^='vdp-icon-ticket']:before {
+[class^='vdp-icon-paper-airplane']:before {
     content: '\e032';
 }
-[class^='vdp-icon-ticket-in-hand']:before {
+[class^='vdp-icon-receipt']:before {
     content: '\e033';
 }
-[class^='vdp-icon-user']:before {
+[class^='vdp-icon-sale']:before {
     content: '\e034';
 }
-[class^='vdp-icon-state-fail']:before {
+[class^='vdp-icon-seat']:before {
     content: '\e035';
 }
-[class^='vdp-icon-state-future']:before {
+[class^='vdp-icon-shield-check']:before {
     content: '\e036';
 }
-[class^='vdp-icon-state-in-process']:before {
+[class^='vdp-icon-ticket']:before {
     content: '\e037';
 }
-[class^='vdp-icon-state-success']:before {
+[class^='vdp-icon-ticket-in-hand']:before {
     content: '\e038';
 }
-[class^='vdp-icon-state-warning']:before {
+[class^='vdp-icon-user']:before {
     content: '\e039';
 }
-[class^='vdp-icon-ticket-electronic']:before {
+
+// States
+[class^='vdp-icon-state-fail']:before {
     content: '\e03a';
 }
-[class^='vdp-icon-ticket-guarantee']:before {
+[class^='vdp-icon-state-future']:before {
     content: '\e03b';
 }
-[class^='vdp-icon-ticket-instant']:before {
+[class^='vdp-icon-state-in-process']:before {
     content: '\e03c';
 }
-[class^='vdp-icon-ticket-mobile']:before {
+[class^='vdp-icon-state-success']:before {
     content: '\e03d';
 }
-[class^='vdp-icon-ticket-note']:before {
+[class^='vdp-icon-state-warning']:before {
     content: '\e03e';
 }
-[class^='vdp-icon-ticket-pdf']:before {
+
+// Tickets
+[class^='vdp-icon-ticket-electronic']:before {
     content: '\e03f';
 }
-[class^='vdp-icon-ticket-pick-up']:before {
+[class^='vdp-icon-ticket-instant']:before {
     content: '\e040';
 }
-[class^='vdp-icon-ticket-preferred']:before {
+[class^='vdp-icon-ticket-mobile']:before {
     content: '\e041';
 }
-[class^='vdp-icon-ticket-print']:before {
+[class^='vdp-icon-ticket-note']:before {
     content: '\e042';
 }
-[class^='vdp-icon-ticket-transfer']:before {
+[class^='vdp-icon-ticket-pdf']:before {
     content: '\e043';
 }
-[class^='vdp-icon-ticket-truck']:before {
+[class^='vdp-icon-ticket-pick-up']:before {
     content: '\e044';
 }
-[class^='vdp-icon-ticket-zone']:before {
+[class^='vdp-icon-ticket-preferred']:before {
     content: '\e045';
+}
+[class^='vdp-icon-ticket-print']:before {
+    content: '\e046';
+}
+[class^='vdp-icon-ticket-transfer']:before {
+    content: '\e047';
+}
+[class^='vdp-icon-ticket-truck']:before {
+    content: '\e048';
+}
+[class^='vdp-icon-ticket-zone']:before {
+    content: '\e049';
+}
+[class^='vdp-icon-ticket-guarantee']:before {
+    content: '\e04a';
+}
+
+// Inputs
+[class^='vdp-icon-checkbox-off']:before {
+    content: '\e04b';
+}
+[class^='vdp-icon-checkbox-on']:before {
+    content: '\e04c';
+}
+[class^='vdp-icon-radio-off']:before {
+    content: '\e04d';
+}
+[class^='vdp-icon-radio-on']:before {
+    content: '\e04e';
 }

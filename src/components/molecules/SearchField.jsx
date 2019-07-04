@@ -84,15 +84,14 @@ class SearchField extends React.Component {
         };
         return (
             <div className="vdp-search-field">
-                <i className="vdp-search-field__icon-search material-icons">&#xE8B6;</i>
+                <i className="vdp-icon-search vdp-search-field__icon-search" />
                 <input className={`vdp-search-field__input ${className}`} {...props} />
                 {!!inputValue && (
                     <i
-                        className="vdp-search-field__icon-close material-icons"
+                        className="vdp-icon-close vdp-search-field__icon-close"
                         onClick={this.resetInput}
-                        onKeyPress={onEnterPress.bind(this.resetInput, this)}>
-                        &#xE5C9;
-                    </i>
+                        onKeyPress={onEnterPress.bind(this.resetInput, this)}
+                    />
                 )}
             </div>
         );
