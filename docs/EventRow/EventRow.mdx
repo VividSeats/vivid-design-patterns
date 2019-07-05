@@ -65,6 +65,22 @@ Using the scss files:
     }} />
 </Playground>
 
+## Passing in Venue Object
+The EventRow component also takes in a venue object. If passed, it will be displayed as the subtitle on the row.
+<Playground>
+    <EventRow {...{
+    href: 'javascript:alert("click")',
+    title: 'Chicago Blackhawks',
+    venue: {
+        name: 'United Center',
+        regionCode: 'IL',
+        countryCode: 'US',
+        city: 'Chicago',
+    },
+    date: new Date().toUTCString()
+    }} />
+</Playground>
+
 
 ## Events past current calendar year
 

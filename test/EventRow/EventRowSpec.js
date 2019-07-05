@@ -18,11 +18,12 @@ describe('<EventRow />', () => {
     };
 
     it('renders a default event row', () => {
-        const wrapper = shallow(<EventRow href={href} title={title} subtitle={subtitle} />);
+        const wrapper = mount(<EventRow href={href} title={title} subtitle={subtitle} />);
 
         expect(wrapper.exists()).toBe(true);
         expectColExists(wrapper, INFO);
-        expect(wrapper.find(`[href="${href}"]`).length).toBe(1);
+        expect(wrapper.find('a').getElement().props.href).toBe(href);
+        expect(wrapper.find('link').getElement().props.href).toBe(href);
     });
 
     it('renders a date range event row', () => {
@@ -37,7 +38,7 @@ describe('<EventRow />', () => {
     });
 
     it('renders a thumbnail event row', () => {
-        const wrapper = shallow(
+        const wrapper = mount(
             <EventRow
                 href={href}
                 title={title}
@@ -52,7 +53,8 @@ describe('<EventRow />', () => {
         expect(wrapper.exists()).toBe(true);
         expectColExists(wrapper, INFO);
         expectColExists(wrapper, THUMBNAIL);
-        expect(wrapper.find(`[href="${href}"]`).length).toBe(1);
+        expect(wrapper.find('a').getElement().props.href).toBe(href);
+        expect(wrapper.find('link').getElement().props.href).toBe(href);
     });
 
     it('renders a date event row', () => {

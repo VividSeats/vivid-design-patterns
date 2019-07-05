@@ -11,6 +11,7 @@ const EventRow = ({
     href,
     subtitle,
     title,
+    venue = {},
     date = null,
     dateRange = null,
     thumbnail = null,
@@ -20,9 +21,18 @@ const EventRow = ({
 }) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
     const { BUTTON, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
+    const { regionCode, countryCode, city, name: venueName } = venue;
+    const countryCodeString = countryCode !== 'US' ? `, ${countryCode}` : '';
 
     return (
-        <Link className={BASE_CLASSNAME} href={href} type="anchor" {...htmlAttributes}>
+        <Link
+            className={BASE_CLASSNAME}
+            href={href}
+            type="anchor"
+            itemScope
+            itemType="http://schema.org/Event"
+            role="row"
+            {...htmlAttributes}>
             {/* Thumbnail Image */}
             {!!thumbnail && !!thumbnail.src && !!thumbnail.alt && (
                 <div className={getColClassName(THUMBNAIL)}>
@@ -33,10 +43,25 @@ const EventRow = ({
             <DateColumn date={date} isTimeTbd={isTimeTbd} />
             {/* Event Info */}
             <div className={getColClassName(INFO)}>
-                <BodyText height="compressed" weight="black" importance={2}>
+                <BodyText height="compressed" weight="black" importance={2} itemProp="name">
                     {title}
                 </BodyText>
-                <SmallText state="muted">{subtitle}</SmallText>
+                {!!Object.keys(venue).length ? (
+                    <SmallText state="muted" itemProp="location" itemScope itemType="http://schema.org/Place">
+                        <span itemProp="name">{venueName}</span>&nbsp;–&nbsp;
+                        <span itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
+                            <span itemProp="addressLocality">{city}</span>
+                            {!!regionCode && (
+                                <React.Fragment>
+                                    , <span itemProp="addressRegion">{regionCode}</span>
+                                </React.Fragment>
+                            )}
+                            {countryCodeString}
+                        </span>
+                    </SmallText>
+                ) : (
+                    <SmallText state="muted">{subtitle}</SmallText>
+                )}
             </div>
             {/* Date Range */}
             {!!dateRange && (
@@ -52,6 +77,7 @@ const EventRow = ({
                     <Button>{!!dateRange ? BUTTON_TEXT.DATE_RANGE : BUTTON_TEXT.DATE}</Button>
                 </div>
             )}
+            <link itemProp="url" href={href} />
         </Link>
     );
 };
@@ -73,8 +99,14 @@ EventRow.BUTTON_TEXT = {
 
 EventRow.propTypes = {
     href: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
+    venue: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        city: PropTypes.string.isRequired,
+        regionCode: PropTypes.string.isRequired,
+        countryCode: PropTypes.string
+    }),
+    title: PropTypes.node.isRequired,
+    subtitle: PropTypes.node,
     dateRange: PropTypes.string,
     date: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.instanceOf(Date)]),
     thumbnail: PropTypes.shape({

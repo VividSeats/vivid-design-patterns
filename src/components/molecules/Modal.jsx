@@ -33,13 +33,15 @@ class Modal extends React.Component {
         onClose: PropTypes.func,
         onOpen: PropTypes.func,
         title: PropTypes.string,
-        type: PropTypes.oneOf([Modal.TYPES.SHEET, Modal.TYPES.FULL_SCREEN])
+        type: PropTypes.oneOf([Modal.TYPES.SHEET, Modal.TYPES.FULL_SCREEN]),
+        closeOnBackdropClick: PropTypes.bool
     };
 
     static defaultProps = {
         dataState: Modal.DATA_STATE.CLOSED,
         onOpen: () => {},
-        onClose: () => {}
+        onClose: () => {},
+        closeOnBackdropClick: true
     };
 
     constructor(props) {
@@ -102,6 +104,7 @@ class Modal extends React.Component {
             title = '',
             dataState: dataStateProp,
             onOpen,
+            closeOnBackdropClick,
             type = '',
             ...htmlAtrributes
         } = props;
@@ -144,7 +147,10 @@ class Modal extends React.Component {
                         {ModalBodyChild || <Modal.Body>{bodyChildren}</Modal.Body>}
                         {type !== Modal.TYPES.FULL_SCREEN ? ModalFooterChild || <Modal.Footer onDismiss={toggleModal} /> : null}
                     </div>
-                    {BackdropChild || (!disableBackdrop && <Modal.Backdrop dataState={dataState} onClick={toggleModal} />)}
+                    {BackdropChild ||
+                        (!disableBackdrop && (
+                            <Modal.Backdrop dataState={dataState} onClick={closeOnBackdropClick ? toggleModal : () => {}} />
+                        ))}
                 </aside>
             </React.Fragment>
         );
