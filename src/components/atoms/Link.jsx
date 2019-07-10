@@ -15,6 +15,7 @@ const Link = ({
     capitalization,
     list,
     truncate,
+    opaque,
     ...attributes
 }) => {
     Link.propTypes = {
@@ -35,6 +36,7 @@ const Link = ({
         capitalization,
         truncate,
         list,
+        opaque,
         className
     });
 

@@ -9,23 +9,21 @@ import React from 'react';
 
 const __dummyPropTypesComponent = () => React.createElement('div', null, `Hello`);
 
-function getTypeClassNames(baseClassName, { weight, height, state, alignment, capitalization, truncate, list, className }) {
-    const stateClasses = () => (Array.isArray(state) ? state.map(classNameProp => `--${classNameProp}`) : [{ [`--${state}`]: state }]);
-    return classNames(baseClassName, [
-        {
-            [className]: className,
-            '--blk': weight === 'blk' || weight === 'black',
-            '--bld': weight === 'bld' || weight === 'bold',
-            '--med': weight === 'med' || weight === 'medium',
-            '--reg': weight === 'reg' || weight === 'regular',
-            '--truncate': truncate,
-            '--list': list,
-            [`--${height}`]: height,
-            [`--${alignment}`]: alignment,
-            [`--${capitalization}`]: capitalization
-        },
-        ...stateClasses()
-    ]);
+function getTypeClassNames(baseClassName, { weight, height, state, alignment, capitalization, truncate, list, className, opaque }) {
+    return classNames(baseClassName, {
+        [className]: className,
+        '--blk': weight === 'blk' || weight === 'black',
+        '--bld': weight === 'bld' || weight === 'bold',
+        '--med': weight === 'med' || weight === 'medium',
+        '--reg': weight === 'reg' || weight === 'regular',
+        '--truncate': truncate,
+        '--list': list,
+        '--opaque': opaque,
+        [`--${height}`]: height,
+        [`--${state}`]: state,
+        [`--${alignment}`]: alignment,
+        [`--${capitalization}`]: capitalization
+    });
 }
 
 const TYPOGRAPHY_PROP_TYPES = {
@@ -36,7 +34,7 @@ const TYPOGRAPHY_PROP_TYPES = {
     /** Line height. */
     height: PropTypes.oneOf(['compressed', 'expanded']),
 
-    state: PropTypes.oneOfType([PropTypes.array, PropTypes.oneOf(['disabled', 'inverted', 'muted', 'opaque'])]),
+    state: PropTypes.oneOf(['disabled', 'inverted', 'muted']),
     /** Text alignment */
     alignment: PropTypes.oneOf(['left', 'center', 'right']),
     /** type casing */
@@ -44,7 +42,9 @@ const TYPOGRAPHY_PROP_TYPES = {
     /** Truncate text with ellipsis. */
     truncate: PropTypes.bool,
     /**  Add padding for list items. */
-    list: PropTypes.bool
+    list: PropTypes.bool,
+
+    opaque: PropTypes.bool
 };
 
 __dummyPropTypesComponent.propTypes = TYPOGRAPHY_PROP_TYPES;

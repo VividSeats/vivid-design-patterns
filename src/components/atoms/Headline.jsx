@@ -13,6 +13,7 @@ const Headline = ({
     capitalization,
     truncate,
     list,
+    opaque,
     ...htmlAttributes
 }) => {
     const classNames = getTypeClassNames(`vdp-type-headline${importance}`, {
@@ -23,6 +24,7 @@ const Headline = ({
         capitalization,
         truncate,
         list,
+        opaque,
         className
     });
     const attributes = {

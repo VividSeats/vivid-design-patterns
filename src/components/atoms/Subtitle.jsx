@@ -13,6 +13,7 @@ const Subtitle = ({
     capitalization,
     truncate,
     list,
+    opaque,
     ...htmlAttributes
 }) => {
     const classNames = getTypeClassNames(`vdp-type-subtitle${importance}`, {
@@ -23,6 +24,7 @@ const Subtitle = ({
         capitalization,
         truncate,
         list,
+        opaque,
         className
     });
     const attributes = {
