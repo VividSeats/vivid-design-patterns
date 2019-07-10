@@ -1189,10 +1189,10 @@
     "@types/unist" "*"
     "@types/vfile-message" "*"
 
-"@vividseats/eslint-config-vividseats@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@vividseats/eslint-config-vividseats/-/eslint-config-vividseats-0.0.1.tgz#493afab7c8c0cc6f4036618c4fc7710bf8b95933"
-  integrity sha512-p27q6cy3HR5qjLlgEx8b34ttvZItrJYSf/jwsA9tq6P1RJWNWahNAUONaUHbFitZtwGVXL8oicibL0fjb94Jbw==
+"@vividseats/eslint-config-vividseats@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@vividseats/eslint-config-vividseats/-/eslint-config-vividseats-1.0.0.tgz#7f7e21eb5f007cc3aaf5d45cdccb422885b89926"
+  integrity sha512-KIqhVDmUcQsgCrYDJkrJ4ggs9z+jXyRkATRmtsKCpvgxBeeMpCMSXRnYm6yWEaX8knQr751/Ig0+zJOVjO7Mmg==
   dependencies:
     eslint-config-airbnb "^17.1.1"
     eslint-config-prettier "^6.0.0"
