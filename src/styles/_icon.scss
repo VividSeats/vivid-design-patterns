@@ -36,12 +36,6 @@
 }
 
 // Interaction
-[class*='vdp-icon-arrow-down']:before {
-    content: '\e000';
-}
-[class*='vdp-icon-arrow-up']:before {
-    content: '\e002';
-}
 [class*='vdp-icon-back']:before {
     content: '\e001';
 }
@@ -283,4 +277,7 @@
 }
 [class*='vdp-icon-radio-on']:before {
     content: '\e04e';
+}
+[class*='vdp-icon-dropdown']:before {
+    content: '\e000';
 }
