@@ -2,6 +2,12 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 $fontFaces: (
+    MaterialIcons: (
+        'MaterialIcons',
+        400,
+        normal,
+        Regular
+    ),
     RobotoRegular: (
         'roboto',
         400,
@@ -128,6 +134,25 @@ $typeStyles: (
             url('https://a.vsstatic.com/font/#{$fontName}.ttf') format('ttf'),
             url('https://a.vsstatic.com/font/#{$fontName}.svg##{$fontName}') format('svg');
     }
+}
+
+.material-icons {
+    direction: ltr;
+    display: inline-block;
+    font-family: $font-family-icons;
+    font-feature-settings: 'liga';
+    font-size: $font-size-2XL; /* Preferred icon size */
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: normal;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 
 // Typography Base

@@ -49,7 +49,10 @@
     @include size-min-tablet {
         line-height: $font-size-6XL;
     }
-
+    i {
+        line-height: inherit !important;
+        top: 3px;
+    }
     &:after {
         @include position(absolute, null null 0 0);
         @include transition(all $transition-1);

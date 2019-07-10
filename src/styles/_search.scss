@@ -17,6 +17,7 @@
 
     [class*='vdp-search-field__icon'] {
         color: $color-gray-medium;
+        line-height: 36px;
         z-index: 2;
     }
     .vdp-search-field__icon-search {
@@ -24,11 +25,11 @@
     }
     .vdp-search-field__icon-close {
         cursor: pointer;
-        font-size: $font-size-XL;
         opacity: 0;
         padding: 0 $sizing-SM;
         position: absolute;
         right: 0;
+        top: $sizing-SM;
     }
     .vdp-search-field__input {
         background: none;

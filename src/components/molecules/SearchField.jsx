@@ -84,11 +84,11 @@ class SearchField extends React.Component {
         };
         return (
             <div className="vdp-search-field">
-                <i className="vdp-icon-search vdp-search-field__icon-search" />
+                <i className="vdp-search-field__icon-search vdp-icon-search" />
                 <input className={`vdp-search-field__input ${className}`} {...props} />
                 {!!inputValue && (
                     <i
-                        className="vdp-icon-close vdp-search-field__icon-close"
+                        className="vdp-search-field__icon-close vdp-icon-close"
                         onClick={this.resetInput}
                         onKeyPress={onEnterPress.bind(this.resetInput, this)}
                     />
