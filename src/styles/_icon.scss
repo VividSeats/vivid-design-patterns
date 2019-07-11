@@ -66,6 +66,9 @@
 [class*='vdp-icon-close']:before {
     content: '\e00b';
 }
+[class*='vdp-icon-close-circle']:before {
+    content: '\e056';
+}
 [class*='vdp-icon-copy']:before {
     content: '\e00c';
 }
@@ -99,11 +102,17 @@
 [class*='vdp-icon-minus']:before {
     content: '\e015';
 }
+[class*='vdp-icon-minus-circle']:before {
+    content: '\e057';
+}
 [class*='vdp-icon-more']:before {
     content: '\e016';
 }
 [class*='vdp-icon-plus']:before {
     content: '\e017';
+}
+[class*='vdp-icon-plus-circle']:before {
+    content: '\e058';
 }
 [class*='vdp-icon-recent-arrow']:before {
     content: '\e018';
@@ -280,4 +289,27 @@
 }
 [class*='vdp-icon-dropdown']:before {
     content: '\e000';
+}
+
+// Third Party
+[class*='vdp-icon-apple']:before {
+    content: '\e002';
+}
+[class*='vdp-icon-facebook']:before {
+    content: '\e036';
+}
+[class*='vdp-icon-facebook-square']:before {
+    content: '\e051';
+}
+[class*='vdp-icon-instagram']:before {
+    content: '\e052';
+}
+[class*='vdp-icon-linkedin']:before {
+    content: '\e053';
+}
+[class*='vdp-icon-play-store']:before {
+    content: '\e054';
+}
+[class*='vdp-icon-twitter']:before {
+    content: '\e055';
 }
