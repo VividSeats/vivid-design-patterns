@@ -134,7 +134,7 @@ class Modal extends React.Component {
             return !displayName || !childDisplayNames.includes(displayName);
         });
 
-        const style = !!backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : null;
+        const style = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : null;
 
         return (
             <React.Fragment>
