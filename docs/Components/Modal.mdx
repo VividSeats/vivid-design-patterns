@@ -16,7 +16,7 @@ import ModalButtonExample from '../ModalButtonExample';
 ## Installation
 Using the react components:
 
-`import Modal from @vividseats/vivid-design-patterns/dist/molecules/Modal;`
+`import Modal from '@vividseats/vivid-design-patterns/dist/molecules/Modal';`
 
 Using the scss files:
 
@@ -77,6 +77,21 @@ Modal headers can either take in a title prop to render a default Header, or tak
         <Modal.Footer>
             <Button importance="tertiary" onClick={() => window.alert('custom button clicked')}>Custom button</Button>
         </Modal.Footer>
+    </Modal>
+</Playground>
+
+## Full Screen Example
+```
+    <Modal type="full-screen"/>
+```
+The full screen modal is available only for mobile screen sizes and doesn't have a default modal footer subcomponent. 
+
+<Playground style={ { minHeight: '400px', height: '100%' } } >
+    <Modal type="full-screen" dataState="opened">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </Modal>
 </Playground>
 

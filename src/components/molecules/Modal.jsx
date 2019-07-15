@@ -11,7 +11,11 @@ class Modal extends React.Component {
     static Body = ModalBody;
     static Footer = ModalFooter;
     static Backdrop = Backdrop;
-    static TYPES = ['sheet'];
+
+    static TYPES = {
+        SHEET: 'sheet',
+        FULL_SCREEN: 'full-screen'
+    };
 
     static DATA_STATE = {
         OPENED: 'opened',
@@ -21,6 +25,7 @@ class Modal extends React.Component {
     };
 
     static propTypes = {
+        backgroundImage: PropTypes.string,
         className: PropTypes.string,
         children: PropTypes.node,
         dataState: PropTypes.oneOf([Modal.DATA_STATE.OPENED, Modal.DATA_STATE.CLOSED]),
@@ -28,7 +33,7 @@ class Modal extends React.Component {
         onClose: PropTypes.func,
         onOpen: PropTypes.func,
         title: PropTypes.string,
-        type: PropTypes.oneOf(Modal.TYPES),
+        type: PropTypes.oneOf([Modal.TYPES.SHEET, Modal.TYPES.FULL_SCREEN]),
         closeOnBackdropClick: PropTypes.bool
     };
 
@@ -93,15 +98,17 @@ class Modal extends React.Component {
     render() {
         const { props, state, toggleModal, getChild } = this;
         const {
+            backgroundImage,
             className = '',
             disableBackdrop = false,
             title = '',
             dataState: dataStateProp,
             onOpen,
             closeOnBackdropClick,
+            type = '',
             ...htmlAtrributes
         } = props;
-        let { children, type = '' } = props;
+        let { children } = props;
         const { dataState = '' } = state;
 
         if (dataState === Modal.DATA_STATE.CLOSED) {
@@ -109,7 +116,7 @@ class Modal extends React.Component {
         }
 
         children = React.Children.toArray(children);
-        type = !!type.length ? `--${type}` : type;
+        const typeClassName = !!type.length ? `--${type}` : type;
 
         const ModalHeaderChild = getChild(children, ModalHeader.displayName);
         const ModalBodyChild = getChild(children, ModalBody.displayName);
@@ -127,16 +134,18 @@ class Modal extends React.Component {
             return !displayName || !childDisplayNames.includes(displayName);
         });
 
+        const style = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : null;
+
         return (
             <React.Fragment>
                 <aside
-                    className={`vdp-modal${type} ${className}`}
+                    className={`vdp-modal${typeClassName}${!!className ? ` ${className}` : ''}`}
                     data-state={dataState.length ? dataState : Modal.DATA_STATE.CLOSED}
                     {...htmlAtrributes}>
-                    <div className="vdp-modal__container">
-                        {ModalHeaderChild || <Modal.Header title={title} />}
+                    <div className="vdp-modal__container" style={style}>
+                        {ModalHeaderChild || title ? ModalHeaderChild || <Modal.Header title={title} /> : null}
                         {ModalBodyChild || <Modal.Body>{bodyChildren}</Modal.Body>}
-                        {ModalFooterChild || <Modal.Footer onDismiss={toggleModal} />}
+                        {type !== Modal.TYPES.FULL_SCREEN ? ModalFooterChild || <Modal.Footer onDismiss={toggleModal} /> : null}
                     </div>
                     {BackdropChild ||
                         (!disableBackdrop && (

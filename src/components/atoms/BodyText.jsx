@@ -13,6 +13,7 @@ const BodyText = ({
     capitalization,
     truncate,
     list,
+    opaque,
     ...htmlAttributes
 }) => {
     const classNames = getTypeClassNames(`vdp-type-body${importance}`, {
@@ -23,6 +24,7 @@ const BodyText = ({
         capitalization,
         truncate,
         list,
+        opaque,
         className
     });
     const attributes = {
