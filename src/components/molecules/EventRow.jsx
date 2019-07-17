@@ -83,6 +83,12 @@ const EventRow = ({
                 </div>
             )}
             <link itemProp="url" href={href} />
+            {!!imageUrl && (
+              <meta itemprop="image" content={imageUrl} />
+            )}
+            {!!description && (
+              <meta itemprop="description" content={description} />
+            )}
             <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
               <link itemprop="url" href={href} />
               <meta itemprop="priceCurrency" content="USD" />
@@ -97,12 +103,6 @@ const EventRow = ({
               )}
               {!!minListPrice && (
                   <meta itemprop="price" content={minListPrice} />
-              )}
-              {!!imageUrl && (
-                <meta itemprop="image" content={imageUrl} />
-              )}
-              {!!description && (
-                <meta itemprop="description" content={description} />
               )}
             </div>
         </Link>
