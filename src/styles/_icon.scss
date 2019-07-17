@@ -23,9 +23,14 @@
     word-wrap: normal;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    // Offset top
+    // Center HTML Entity
     position: relative;
-    top: 2px;
+    top: 1px;
+
+    // Center CSS Class
+    &:before {
+        top: -1px;
+    }
 
     &[class*='--lg'] {
         font-size: $font-size-4XL;
