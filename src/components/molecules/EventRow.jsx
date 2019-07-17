@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import BodyText from '../atoms/BodyText';
 import Button from '../atoms/Button';
@@ -17,6 +18,10 @@ const EventRow = ({
     thumbnail = null,
     isTimeTbd = false,
     hasButton = true,
+    minListPrice = 0,
+    imageUrl,
+    description,
+    ticketCount = 0,
     ...htmlAttributes
 }) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
@@ -78,6 +83,28 @@ const EventRow = ({
                 </div>
             )}
             <link itemProp="url" href={href} />
+            <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+              <link itemprop="url" href={href} />
+              <meta itemprop="priceCurrency" content="USD" />
+              {ticketCount > 0 ? (
+                <link itemprop="availability" href="http://schema.org/InStock"/>
+              ) :
+                <link itemprop="availability" href="http://schema.org/SoldOut"/>
+              )}
+              {!isTimeTbd && (
+                <meta itemprop="validFrom" content={`${moment().format('YYYY-MM-DD')}`} />
+                <meta itemprop="validThrough" content={`${moment(date).format('YYYY-MM-DD')}`} />
+              )}
+              {!!minListPrice && (
+                  <meta itemprop="price" content={minListPrice} />
+              )}
+              {!!imageUrl && (
+                <meta itemprop="image" content={imageUrl} />
+              )}
+              {!!description && (
+                <meta itemprop="description" content={description} />
+              )}
+            </div>
         </Link>
     );
 };
