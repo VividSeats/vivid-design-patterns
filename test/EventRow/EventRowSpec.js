@@ -53,8 +53,8 @@ describe('<EventRow />', () => {
         expect(wrapper.exists()).toBe(true);
         expectColExists(wrapper, INFO);
         expectColExists(wrapper, THUMBNAIL);
-        expect(wrapper.find('a')[0].getElement().props.href).toBe(href);
-        expect(wrapper.find('link').getElement().props.href).toBe(href);
+        expect(wrapper.find('a').getElement().props.href).toBe(href);
+        expect(wrapper.find('.schema-url').getElement().props.href).toBe(href);
     });
 
     it('renders a date event row', () => {
