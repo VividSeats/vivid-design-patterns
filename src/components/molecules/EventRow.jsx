@@ -86,27 +86,27 @@ const EventRow = ({
                 </div>
             )}
             <link className="schema-url" itemProp="url" href={href} />
-            {!!imageUrl && <meta itemprop="image" content={imageUrl} />}
-            {!!schemaDescription && <meta itemprop="description" content={schemaDescription} />}
-            <div itemprop="offers" itemscope="" itemtype="http://schema.org/AggregateOffer">
-                <link itemprop="url" href={href} />
-                <meta itemprop="priceCurrency" content="USD" />
+            {!!imageUrl && <meta itemProp="image" content={imageUrl} />}
+            {!!schemaDescription && <meta itemProp="description" content={schemaDescription} />}
+            <div itemProp="offers" itemScope="" itemType="http://schema.org/AggregateOffer">
+                <link itemProp="url" href={href} />
+                <meta itemProp="priceCurrency" content="USD" />
                 {ticketCount > 0 ? (
-                    <link itemprop="availability" href="http://schema.org/InStock" />
+                    <link itemProp="availability" href="http://schema.org/InStock" />
                 ) : (
-                    <link itemprop="availability" href="http://schema.org/SoldOut" />
+                    <link itemProp="availability" href="http://schema.org/SoldOut" />
                 )}
                 {!isTimeTbd && (
                     <React.Fragment>
-                        <meta itemprop="validFrom" content={`${moment().format('YYYY-MM-DD')}`} />
-                        <meta itemprop="validThrough" content={`${moment(date).format('YYYY-MM-DD')}`} />
+                        <meta itemProp="validFrom" content={`${moment().format('YYYY-MM-DD')}`} />
+                        <meta itemProp="validThrough" content={`${moment(date).format('YYYY-MM-DD')}`} />
                     </React.Fragment>
                 )}
-                {!!minListPrice && <meta itemprop="price" content={minListPrice} />}
+                {!!minListPrice && <meta itemProp="price" content={minListPrice} />}
             </div>
-            <div itemprop="performer" itemscope="" itemtype={`http://schema.org/${performerType}`}>
-                <meta itemprop="name" content={performerName} />
-                <meta itemprop="sameAs" content={performerUrl} />
+            <div itemProp="performer" itemScope="" itemType={`http://schema.org/${performerType}`}>
+                <meta itemProp="name" content={performerName} />
+                <meta itemProp="sameAs" content={performerUrl} />
             </div>
         </Link>
     );
