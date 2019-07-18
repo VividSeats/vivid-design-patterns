@@ -21,7 +21,8 @@ export default function DateColumn({ date, isTimeTbd = false }) {
 
     return (
         <div className={eventRowClass}>
-            <meta itemProp="startDate" title={moment(date).unix()} content={`${moment(date).format('YYYY-MM-DD')}`} />
+            <meta itemProp="startDate" title={momentDate.unix()} content={`${momentDate.format('YYYY-MM-DD')}`} />
+            <meta itemProp="endDate" title={momentDate.unix()} content={`${momentDate.format('YYYY-MM-DD')}`} />
             <SmallText alignment="center" state="muted">
                 {momentDate.format('ddd')}
             </SmallText>
