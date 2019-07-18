@@ -22,7 +22,7 @@
 
         &:after {
             @include position(absolute, $indicatorPos 0 null null);
-            @include pseudo-icon('\e004');
+            @include pseudo-icon('\e90b');
             @include transition(all $transition-1);
             display: $indicatorDisplay;
         }

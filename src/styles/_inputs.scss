@@ -75,11 +75,11 @@ select::-ms-expand {
     &[data-validate] {
         &[data-state*='error']:after {
             @include position(absolute, 0 $sizing-SM 0 null);
-            @include pseudo-icon('\e03e', $text-color-error, $margin: $sizing-MD auto 0);
+            @include pseudo-icon('\e945', $text-color-error, $margin: $sizing-MD auto 0);
         }
         &[data-state*='success']:after {
             @include position(absolute, 0 $sizing-SM 0 null);
-            @include pseudo-icon('\e03d', $text-color-success, $margin: $sizing-MD auto 0);
+            @include pseudo-icon('\e944', $text-color-success, $margin: $sizing-MD auto 0);
         }
     }
     [class^='vdp-textfield__input'] {
@@ -89,7 +89,7 @@ select::-ms-expand {
 [class^='vdp-select']:not([class*='__']) {
     &:after {
         @include position(absolute, 0 $sizing-SM 0 null);
-        @include pseudo-icon('\e000');
+        @include pseudo-icon('\e908');
     }
     &[data-state*='error']:after {
         color: $text-color-error;

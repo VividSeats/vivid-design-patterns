@@ -4,8 +4,8 @@ import classNames from 'classnames';
 
 const Icon = ({ children, className, size, type, ...htmlAttributes }) => {
     const iconClassNames = classNames('vdp-icon', {
-        [`-${type}`]: type,
         [`--${size}`]: size,
+        [` vdp-icon-${type}`]: type,
         [`${className}`]: className
     }).replace(/ -/g, '-');
 

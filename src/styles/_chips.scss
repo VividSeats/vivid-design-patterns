@@ -21,7 +21,7 @@ a:visited.vdp-chip {
     position: relative;
 
     &:after {
-        @include pseudo-icon('\e00b', $color: $color-white, $lineHeight: 1.375, $size: $font-size-SM, $height: $sizing-LG);
+        @include pseudo-icon('\e913', $color: $color-white, $lineHeight: 1.375, $size: $font-size-SM, $height: $sizing-LG);
         @include position(absolute, 0 $sizing-XS 0 null);
         background-color: rgba($color-black, 0.5);
         border-radius: $border-radius-round;
