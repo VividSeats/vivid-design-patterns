@@ -23,7 +23,7 @@ describe('<EventRow />', () => {
         expect(wrapper.exists()).toBe(true);
         expectColExists(wrapper, INFO);
         expect(wrapper.find('a').getElement().props.href).toBe(href);
-        expect(wrapper.find('link').getElement().props.href).toBe(href);
+        expect(wrapper.find('link')[0].getElement().props.href).toBe(href);
     });
 
     it('renders a date range event row', () => {
