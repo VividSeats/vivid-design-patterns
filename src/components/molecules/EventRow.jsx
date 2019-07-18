@@ -145,6 +145,7 @@ EventRow.propTypes = {
     }),
     isTimeTbd: PropTypes.bool,
     imageUrl: PropTypes.string,
+    minListPrice: PropTypes.number,
     schemaDescription: PropTypes.string,
     ticketCount: PropTypes.number,
     performerName: PropTypes.string,
