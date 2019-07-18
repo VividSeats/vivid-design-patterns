@@ -104,10 +104,12 @@ const EventRow = ({
                 )}
                 {!!minListPrice && <meta itemProp="price" content={minListPrice} />}
             </div>
-            <div itemProp="performer" itemScope itemType={`http://schema.org/${performerType}`}>
-                <meta itemProp="name" content={performerName} />
-                <meta itemProp="sameAs" content={performerUrl} />
-            </div>
+            {!!performerType && (
+                <div itemProp="performer" itemScope itemType={`http://schema.org/${performerType}`}>
+                    <meta itemProp="name" content={performerName} />
+                    <meta itemProp="sameAs" content={performerUrl} />
+                </div>
+            )}
         </Link>
     );
 };
