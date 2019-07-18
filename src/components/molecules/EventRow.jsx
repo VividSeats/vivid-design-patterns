@@ -20,8 +20,11 @@ const EventRow = ({
     hasButton = true,
     minListPrice = 0,
     imageUrl,
-    description,
+    schemaDescription,
     ticketCount = 0,
+    performerName,
+    performerType,
+    performerUrl,
     ...htmlAttributes
 }) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
@@ -83,27 +86,29 @@ const EventRow = ({
                 </div>
             )}
             <link itemProp="url" href={href} />
-            {!!imageUrl && (
-              <meta itemprop="image" content={imageUrl} />
-            )}
-            {!!description && (
-              <meta itemprop="description" content={description} />
-            )}
-            <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+            {!!imageUrl && <meta itemprop="image" content={imageUrl} />}
+            {!!schemaDescription && <meta itemprop="description" content={schemaDescription} />}
+            <div itemprop="offers" itemscope="" itemtype="http://schema.org/AggregateOffer">
               <link itemprop="url" href={href} />
               <meta itemprop="priceCurrency" content="USD" />
               {ticketCount > 0 ? (
                 <link itemprop="availability" href="http://schema.org/InStock"/>
-              ) :
+              ) : (
                 <link itemprop="availability" href="http://schema.org/SoldOut"/>
               )}
               {!isTimeTbd && (
-                <meta itemprop="validFrom" content={`${moment().format('YYYY-MM-DD')}`} />
-                <meta itemprop="validThrough" content={`${moment(date).format('YYYY-MM-DD')}`} />
+                <React.Fragment>
+                  <meta itemprop="validFrom" content={`${moment().format('YYYY-MM-DD')}`} />
+                  <meta itemprop="validThrough" content={`${moment(date).format('YYYY-MM-DD')}`} />
+                </React.Fragment>
               )}
               {!!minListPrice && (
                   <meta itemprop="price" content={minListPrice} />
               )}
+            </div>
+            <div itemprop="performer" itemscope="" itemtype={`http://schema.org/${performerType}`}>
+                <meta itemprop="name" content={performerName} />
+                <meta itemprop="sameAs" content={performerUrl} />
             </div>
         </Link>
     );
@@ -141,6 +146,12 @@ EventRow.propTypes = {
         alt: PropTypes.string
     }),
     isTimeTbd: PropTypes.bool,
+    imageUrl: PropTypes.string,
+    schemaDescription: PropTypes.string,
+    ticketCount: PropTypes.number,
+    performerName: PropTypes.string,
+    performerType: PropTypes.string,
+    performerUrl: PropTypes.string,
     hasButton: PropTypes.bool
 };
 
