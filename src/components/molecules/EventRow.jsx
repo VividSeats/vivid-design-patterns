@@ -88,7 +88,7 @@ const EventRow = ({
             <link className="schema-url" itemProp="url" href={href} />
             {!!imageUrl && <meta itemProp="image" content={imageUrl} />}
             {!!schemaDescription && <meta itemProp="description" content={schemaDescription} />}
-            <div itemProp="offers" itemScope="" itemType="http://schema.org/AggregateOffer">
+            <div itemProp="offers" itemScope itemType="http://schema.org/AggregateOffer">
                 <link itemProp="url" href={href} />
                 <meta itemProp="priceCurrency" content="USD" />
                 {ticketCount > 0 ? (
@@ -104,7 +104,7 @@ const EventRow = ({
                 )}
                 {!!minListPrice && <meta itemProp="price" content={minListPrice} />}
             </div>
-            <div itemProp="performer" itemScope="" itemType={`http://schema.org/${performerType}`}>
+            <div itemProp="performer" itemScope itemType={`http://schema.org/${performerType}`}>
                 <meta itemProp="name" content={performerName} />
                 <meta itemProp="sameAs" content={performerUrl} />
             </div>
