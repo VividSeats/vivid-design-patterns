@@ -85,7 +85,7 @@ const EventRow = ({
                     <Button>{!!dateRange ? BUTTON_TEXT.DATE_RANGE : BUTTON_TEXT.DATE}</Button>
                 </div>
             )}
-            <link class="schema-url" itemProp="url" href={href} />
+            <link className="schema-url" itemProp="url" href={href} />
             {!!imageUrl && <meta itemprop="image" content={imageUrl} />}
             {!!schemaDescription && <meta itemprop="description" content={schemaDescription} />}
             <div itemprop="offers" itemscope="" itemtype="http://schema.org/AggregateOffer">
