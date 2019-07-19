@@ -2,8 +2,8 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 $fontFaces: (
-    $font-family-icons: (
-        $font-family-icons,
+    MaterialIcons: (
+        'MaterialIcons',
         400,
         normal,
         Regular
@@ -139,7 +139,7 @@ $typeStyles: (
 .material-icons {
     direction: ltr;
     display: inline-block;
-    font-family: $font-family-icons;
+    font-family: 'MaterialIcons';
     font-feature-settings: 'liga';
     font-size: $font-size-2XL; /* Preferred icon size */
     font-style: normal;

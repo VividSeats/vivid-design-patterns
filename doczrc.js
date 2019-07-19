@@ -8,17 +8,17 @@ export default {
             preprocessor: 'sass'
         })
     ],
+    menu: ['Home', 'Foundation', 'Components'],
     themeConfig: {
         logo: {
-            src: '//a.vsstatic.com/common/favicon/apple-touch-icon.png',
-            width: 180
+            src: '//a.vsstatic.com/common/logo/logo.svg',
+            width: 140
         },
         styles: {
             body: {
-                fontFamily: "'Roboto', 'Arial', 'Helvetica', 'sans-serif"
+                fontFamily: "'Roboto', 'Arial', 'Helvetica', sans-serif"
             }
         }
     },
-    base: './',
     dest: 'server/static/'
 };

@@ -83,12 +83,12 @@ describe('<TexField />', () => {
             const wrapper = mount(passwordInputComponent);
             wrapper.find('i').simulate('click');
             expect(wrapper.find('input').prop('type')).toBe('text');
-            expect(wrapper.find('i').text()).toBe('visibility_off');
+            expect(wrapper.find('i').hasClass('vdp-icon-eye')).toBe(true);
             expect(wrapper.find('.vdp-textfield__trailing-icon span').text()).toBe('Hide');
 
             wrapper.find('i').simulate('click');
             expect(wrapper.find('input').prop('type')).toBe('password');
-            expect(wrapper.find('i').text()).toBe('visibility');
+            expect(wrapper.find('i').hasClass('vdp-icon-eye-filled')).toBe(true);
             expect(wrapper.find('.vdp-textfield__trailing-icon span').text()).toBe('Show');
         });
     });

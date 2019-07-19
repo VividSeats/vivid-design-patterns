@@ -43,19 +43,25 @@
         }
     }
 }
-@mixin pseudo-icon($icon: '', $color: $color-gray, $height: $sizing-XL, $size: $sizing-XL, $margin: auto, $pointerEvents: none) {
+@mixin pseudo-icon(
+    $icon: '',
+    $color: $color-gray,
+    $height: $sizing-XL,
+    $lineHeight: 1,
+    $size: $sizing-XL,
+    $margin: auto,
+    $pointerEvents: none
+) {
     color: $color;
     content: $icon;
-    direction: ltr;
     display: inline-block;
     font-family: $font-family-icons;
-    font-feature-settings: 'liga';
     font-size: $size;
     font-style: normal;
     font-weight: normal;
     height: $height;
     letter-spacing: normal;
-    line-height: $height;
+    line-height: $lineHeight;
     margin: $margin;
     pointer-events: $pointerEvents;
     text-rendering: optimizeLegibility;

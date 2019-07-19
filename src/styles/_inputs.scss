@@ -7,6 +7,9 @@ input::-ms-clear,
 select::-ms-expand {
     display: none;
 }
+[id^='__lpform'] {
+    display: none !important;
+}
 
 // Mixins
 @mixin input-base() {
@@ -72,18 +75,21 @@ select::-ms-expand {
     &[data-validate] {
         &[data-state*='error']:after {
             @include position(absolute, 0 $sizing-SM 0 null);
-            @include pseudo-icon('error', $text-color-error, $sizing-4XL, $margin: initial);
+            @include pseudo-icon('\e945', $text-color-error, $margin: $sizing-MD auto 0);
         }
         &[data-state*='success']:after {
             @include position(absolute, 0 $sizing-SM 0 null);
-            @include pseudo-icon('check_circle', $text-color-success, $sizing-4XL, $margin: initial);
+            @include pseudo-icon('\e944', $text-color-success, $margin: $sizing-MD auto 0);
         }
+    }
+    [class^='vdp-textfield__input'] {
+        background-image: none !important;
     }
 }
 [class^='vdp-select']:not([class*='__']) {
     &:after {
         @include position(absolute, 0 $sizing-SM 0 null);
-        @include pseudo-icon('arrow_drop_down');
+        @include pseudo-icon('\e908');
     }
     &[data-state*='error']:after {
         color: $text-color-error;

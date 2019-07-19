@@ -9,6 +9,7 @@
     display: inline-block;
     font-size: 0;
     margin-left: -$sizing-XS;
+    vertical-align: middle;
 
     &:hover {
         background: $color-gray-highlight;
@@ -22,16 +23,16 @@
     @include position(absolute, $sizing-SM null null $sizing-XS);
 
     [class*='--checkbox'] & {
-        content: 'check_box_outline_blank';
+        content: '\e906';
     }
     [class*='--checkbox'] .vdp-control__input:checked + & {
-        content: 'check_box';
+        content: '\e907';
     }
     [class*='--radio'] & {
-        content: 'radio_button_unchecked';
+        content: '\e93f';
     }
     [class*='--radio'] .vdp-control__input:checked + & {
-        content: 'radio_button_checked';
+        content: '\e940';
     }
     .vdp-control__input:checked + & {
         color: $text-color-link;

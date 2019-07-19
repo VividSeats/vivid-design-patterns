@@ -120,11 +120,10 @@
 
 // Button Elements
 .vdp-button__icon {
-    line-height: inherit;
-    vertical-align: top;
+    margin-right: $sizing-XS;
 
     [class^='vdp-button'][class*='--small'] & {
         font-size: $font-size-XL;
-        margin-right: $sizing-XS;
+        margin-right: 0;
     }
 }
