@@ -2,10 +2,11 @@
 @import 'mixins/prefixes';
 
 @font-face {
-    font-family: 'vivid-icons';
+    font-family: $font-family-icons;
     font-weight: normal;
     font-style: normal;
-    src: url('../fonts/vivid-icons.woff') format('woff'), url('../fonts/vivid-icons.ttf') format('ttf');
+    src: url('#{$font-family-path}#{$font-family-icons}.woff') format('woff'),
+        url('#{$font-family-path}#{$font-family-icons}.ttf') format('ttf');
 }
 [class*='vdp-icon'] {
     /* use !important to prevent issues with browser extensions that change fonts */

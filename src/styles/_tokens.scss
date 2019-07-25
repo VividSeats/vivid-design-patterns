@@ -51,6 +51,8 @@ $elevation-4: 0 8px 16px 0 rgba($color-black, 0.4);
 // Font Family
 $font-family-default: 'roboto', sans-serif;
 $font-family-icons: 'vivid-icons';
+$font-family-path: 'https://a.vsstatic.com/font/'; /* change to '../fonts/' for local changes */
+
 // Font Sizes
 $font-size-base: 16px;
 $font-size-XS: ($font-size-base * 0.6875); // 11px
