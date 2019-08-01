@@ -37,7 +37,14 @@
         }
         &:before {
             @include position(absolute, 0 0 0 0);
-            @include pseudo-icon('\e912', $color: inherit, $size: $font-size-LG, $height: $font-size-XL, $margin: $sizing-2XS);
+            @include pseudo-icon(
+                '\e913',
+                $color: inherit,
+                $size: $font-size-LG,
+                $height: $font-size-XL,
+                $lineHeight: $font-size-XL,
+                $margin: $sizing-2XS
+            );
             @include transition(transform $transition-2);
             background-color: $color-white;
             border-radius: $border-radius-round;
@@ -55,7 +62,7 @@
         }
         &:before {
             @include transform(translateX($sizing-MD));
-            content: '\e00a';
+            content: '\e911';
         }
     }
 }
