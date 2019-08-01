@@ -50,6 +50,9 @@ hr {
     &[class*='--row'] {
         @include flex-direction(row);
     }
+    &[class*='--white'] {
+        background-color: $color-white;
+    }
 }
 [class^='vdp-container'] {
     margin-left: auto;
@@ -68,6 +71,9 @@ hr {
             margin-left: 0;
             margin-right: 0;
         }
+    }
+    &[class*='--article'] {
+        max-width: 800px;
     }
 }
 [class^='vdp-col'] [class^='vdp-container'] {
