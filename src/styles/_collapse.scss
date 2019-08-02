@@ -22,7 +22,7 @@
 
         &:after {
             @include position(absolute, $indicatorPos 0 null null);
-            @include pseudo-icon('keyboard_arrow_down');
+            @include pseudo-icon('\e90b');
             @include transition(all $transition-1);
             display: $indicatorDisplay;
         }

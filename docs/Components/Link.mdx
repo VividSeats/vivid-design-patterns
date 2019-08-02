@@ -1,0 +1,56 @@
+---
+    name: Link
+    menu: Components
+    route: /components/link
+---
+
+import { PropsTable, Playground } from 'docz';
+import Link from '../../src/components/atoms/Link';
+
+# Link
+## Installation
+Using the react components:
+
+`import Link from '@vividseats/vivid-design-patterns/dist/atoms/Link';`
+
+Using the scss files:
+
+`@import "@vividseats/vivid-design-patterns/src/styles/link.scss";`
+
+## Basic Usage
+`class="vdp-type-link"`
+<Playground>
+  <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click me</Link>
+</Playground>
+
+## Props
+<PropsTable of={Link}/>
+
+## Add custom onClick function
+`onClick=[Function]`
+<Playground>
+  <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" onClick={function(e) { e.preventDefault(); alert('Helloooo'); }}>Trigger alert</Link>
+</Playground>
+
+
+## Other Link type attiributes
+Links utilizes the same attributes as [typography](/docs-typography-typography)
+
+
+## Add custom class names
+`className="custom"` `class="--inverted"` `class="--muted"`
+<Playground>
+  <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="custom">Click me</Link>
+</Playground>
+
+## Add additional attributes on the `<a>` tag
+`target="_blank" mycustomattribute="someProperty"`
+<Playground>
+  <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" myCustomAttribute="someProperty">Click me</Link>
+</Playground>
+
+## Use default anchor styles instead of link type styles
+`class="vp-anchor"`
+<Playground>
+  <Link type='anchor' href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click me</Link>
+</Playground>

@@ -1,1 +1,312 @@
-@import 'typography';
+@import 'tokens';
+@import 'mixins/prefixes';
+
+@font-face {
+    font-family: $font-family-icons;
+    font-weight: normal;
+    font-style: normal;
+    src: url('#{$font-family-path}#{$font-family-icons}.woff') format('woff'),
+        url('#{$font-family-path}#{$font-family-icons}.ttf') format('ttf');
+}
+[class*='vdp-icon'] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: $font-family-icons !important;
+    font-size: $font-size-2XL; /* Preferred icon size */
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    speak: none;
+    text-transform: none;
+    vertical-align: sub;
+
+    /* Better Font Rendering =========== */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    &[class*='--lg'] {
+        font-size: $font-size-4XL;
+    }
+    &[class*='--xl'] {
+        font-size: $font-size-6XL;
+    }
+}
+
+// Inputs
+.vdp-icon-checkbox-off:before {
+    content: '\e906';
+}
+.vdp-icon-checkbox-on:before {
+    content: '\e907';
+}
+.vdp-icon-dropdown:before {
+    content: '\e908';
+}
+.vdp-icon-radio-off:before {
+    content: '\e93f';
+}
+.vdp-icon-radio-on:before {
+    content: '\e940';
+}
+
+// Interaction
+.vdp-icon-back:before {
+    content: '\e909';
+}
+.vdp-icon-call:before {
+    content: '\e90a';
+}
+.vdp-icon-carat-down:before {
+    content: '\e90b';
+}
+.vdp-icon-carat-left:before {
+    content: '\e90c';
+}
+.vdp-icon-carat-right:before {
+    content: '\e90d';
+}
+.vdp-icon-carat-up:before {
+    content: '\e90e';
+}
+.vdp-icon-caution:before {
+    content: '\e90f';
+}
+.vdp-icon-chat:before {
+    content: '\e910';
+}
+.vdp-icon-check:before {
+    content: '\e911';
+}
+.vdp-icon-close-circle:before {
+    content: '\e912';
+}
+.vdp-icon-close:before {
+    content: '\e913';
+}
+.vdp-icon-copy:before {
+    content: '\e914';
+}
+.vdp-icon-delete:before {
+    content: '\e915';
+}
+.vdp-icon-edit:before {
+    content: '\e916';
+}
+.vdp-icon-email-send:before {
+    content: '\e917';
+}
+.vdp-icon-favorite-filled:before {
+    content: '\e918';
+}
+.vdp-icon-favorite:before {
+    content: '\e919';
+}
+.vdp-icon-filter:before {
+    content: '\e91a';
+}
+.vdp-icon-info:before {
+    content: '\e91b';
+}
+.vdp-icon-location:before {
+    content: '\e91c';
+}
+.vdp-icon-menu:before {
+    content: '\e91d';
+}
+.vdp-icon-minus-circle:before {
+    content: '\e91e';
+}
+.vdp-icon-minus:before {
+    content: '\e91f';
+}
+.vdp-icon-more:before {
+    content: '\e920';
+}
+.vdp-icon-plus-circle:before {
+    content: '\e921';
+}
+.vdp-icon-plus:before {
+    content: '\e922';
+}
+.vdp-icon-recent-arrow:before {
+    content: '\e923';
+}
+.vdp-icon-refresh:before {
+    content: '\e924';
+}
+.vdp-icon-search:before {
+    content: '\e925';
+}
+.vdp-icon-share-android:before {
+    content: '\e926';
+}
+.vdp-icon-share-ios:before {
+    content: '\e927';
+}
+.vdp-icon-target:before {
+    content: '\e928';
+}
+.vdp-icon-transfer:before {
+    content: '\e929';
+}
+
+// Objects
+.vdp-icon-bell:before {
+    content: '\e900';
+}
+.vdp-icon-building:before {
+    content: '\e901';
+}
+.vdp-icon-calendar-multi:before {
+    content: '\e902';
+}
+.vdp-icon-calendar:before {
+    content: '\e903';
+}
+.vdp-icon-camera:before {
+    content: '\e904';
+}
+.vdp-icon-checklist:before {
+    content: '\e905';
+}
+.vdp-icon-cog:before {
+    content: '\e92a';
+}
+.vdp-icon-eye-filled:before {
+    content: '\e92b';
+}
+.vdp-icon-eye:before {
+    content: '\e92c';
+}
+.vdp-icon-flame:before {
+    content: '\e92d';
+}
+.vdp-icon-gift-box:before {
+    content: '\e92e';
+}
+.vdp-icon-home:before {
+    content: '\e92f';
+}
+.vdp-icon-id-face:before {
+    content: '\e930';
+}
+.vdp-icon-id-touch:before {
+    content: '\e931';
+}
+.vdp-icon-location-user:before {
+    content: '\e932';
+}
+.vdp-icon-lock:before {
+    content: '\e933';
+}
+.vdp-icon-map:before {
+    content: '\e934';
+}
+.vdp-icon-money:before {
+    content: '\e935';
+}
+.vdp-icon-news:before {
+    content: '\e936';
+}
+.vdp-icon-paper-airplane:before {
+    content: '\e937';
+}
+.vdp-icon-receipt:before {
+    content: '\e938';
+}
+.vdp-icon-sale:before {
+    content: '\e939';
+}
+.vdp-icon-seat:before {
+    content: '\e93a';
+}
+.vdp-icon-ticket-in-hand:before {
+    content: '\e93c';
+}
+.vdp-icon-ticket:before {
+    content: '\e93d';
+}
+.vdp-icon-user:before {
+    content: '\e93e';
+}
+
+// States
+.vdp-icon-state-fail:before {
+    content: '\e941';
+}
+.vdp-icon-state-future:before {
+    content: '\e942';
+}
+.vdp-icon-state-in-process:before {
+    content: '\e943';
+}
+.vdp-icon-state-success:before {
+    content: '\e944';
+}
+.vdp-icon-state-warning:before {
+    content: '\e945';
+}
+
+// Third Party
+.vdp-icon-apple:before {
+    content: '\e946';
+}
+.vdp-icon-facebook-square:before {
+    content: '\e947';
+}
+.vdp-icon-facebook:before {
+    content: '\e948';
+}
+.vdp-icon-instagram:before {
+    content: '\e949';
+}
+.vdp-icon-linkedin:before {
+    content: '\e94a';
+}
+.vdp-icon-play-store:before {
+    content: '\e94b';
+}
+.vdp-icon-twitter:before {
+    content: '\e94c';
+}
+
+// Tickets
+.vdp-icon-ticket-electronic:before {
+    content: '\e94d';
+}
+.vdp-icon-ticket-guarantee-filled:before {
+    content: '\e94e';
+}
+.vdp-icon-ticket-guarantee:before {
+    content: '\e94f';
+}
+.vdp-icon-ticket-instant:before {
+    content: '\e950';
+}
+.vdp-icon-ticket-mobile:before {
+    content: '\e951';
+}
+.vdp-icon-ticket-note:before {
+    content: '\e952';
+}
+.vdp-icon-ticket-pdf:before {
+    content: '\e953';
+}
+.vdp-icon-ticket-pick-up:before {
+    content: '\e954';
+}
+.vdp-icon-ticket-preferred:before {
+    content: '\e955';
+}
+.vdp-icon-ticket-print:before {
+    content: '\e956';
+}
+.vdp-icon-ticket-transfer:before {
+    content: '\e957';
+}
+.vdp-icon-ticket-truck:before {
+    content: '\e958';
+}
+.vdp-icon-ticket-zone:before {
+    content: '\e959';
+}

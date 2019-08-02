@@ -33,7 +33,7 @@
     }
     .vdp-menu__item > a:first-of-type:before {
         @include position(absolute, $sizing-MD $sizing-SM null null);
-        @include pseudo-icon('chevron_right');
+        @include pseudo-icon('\e90d');
     }
     .vdp-menu__divider {
         @include border(top);

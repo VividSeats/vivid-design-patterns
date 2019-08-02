@@ -1,0 +1,128 @@
+---
+    name: Card
+    menu: Components
+    route: /components/card
+---
+
+import { PropsTable, Playground } from 'docz'
+import Card from '../../src/components/molecules/Card';
+import Button from '../../src/components/atoms/Button';
+import Headline from '../../src/components/atoms/Headline';
+import BodyText from '../../src/components/atoms/BodyText';
+
+## Installation
+Using the react components:
+
+    import Card from '@vividseats/vivid-design-patterns/dist/molecule/Card'
+
+Using the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/card.scss'
+
+## Basic Usage
+`class="vdp-card"`
+
+<Playground>
+<Card>
+    <p className="vdp-type-body1">
+        What evidence is there that cats are so smart, anyway? Huh? What do they do? Because they’re clean? I am sorry. My Uncle Pete showers four times a day and he can’t count to ten. So don’t give me hygiene
+    </p>
+</Card>
+</Playground>
+
+## Props
+<PropsTable of={Card}/>
+
+## Sub-Components
+
+<Playground>
+    <Card>
+        <Card.Header>
+            <Headline importance={6}>Bandersnatch</Headline>
+        </Card.Header>
+        <Card.Body>
+        <BodyText>There's messages in every game. Like Pac-Man. Do you know what PAC stands for? P-A-C: "program and control." He's Program and Control Man the whole things a metaphor, he thinks he's got free will but really he's trapped in a maze, in a system, all he can do is consume, he's pursued by demons that are probably just in his own head, and even if he does manage to escape by slipping out one side of the maze, what happens? He comes right back in the other side.</BodyText>
+        </Card.Body>
+        <Card.Footer>
+            <Button importance='text' muted>
+                Sugar puffs
+            </Button>
+            <Button importance='text'>
+                Frosties
+            </Button>
+        </Card.Footer>
+    </Card>
+</Playground>
+
+### `<Card.Header/>`
+`class="vdp-card__header"`
+<PropsTable of={Card.Header}/>
+
+### `<Card.Body/>`
+`class="vdp-card__body"`
+<PropsTable of={Card.Body}/>
+Cards that contain only native dom elements are automatically wrapped in a card `Card.Body`.
+
+For example:
+
+    return <Card>Hello</Card>
+
+is the same as
+
+    return <Card>
+            <Card.Body>Hello</Card.Body>
+       </Card>
+
+### `<Card.Footer/>`
+`class="vdp-card__footer"`
+<PropsTable of={Card.Footer}/>
+
+### `<Card.Hero/>`
+`class="vdp-card__hero"` or `class="vdp-card__hero__image"`
+Hero images you can place within the card.
+<Playground>
+    <Card>
+        <Card.Hero imageSrc="https://a.vsstatic.com/mobile/app/mlb/washington-nationals.jpg" alt="Washington Nationals Baseball Stadium"/>
+        <Card.Footer centered>
+            <Button importance="text">Click me</Button>
+            <Button importance="text" muted>Click me</Button>
+        </Card.Footer>
+    </Card>
+</Playground>
+
+<PropsTable of={Card.Hero}/>
+
+## Other Card Types
+### List Cards
+Adds a border on the title to match borders within list items.
+
+`class='vdp-card--list'`
+<Playground>
+    <Card type="list">
+        <Card.Header>
+            <Headline importance={6}>List Card</Headline>
+        </Card.Header>
+        <Card.Body>
+            <ul>
+                <li> One item </li>
+                <li> Two item </li>
+                <li> Three item </li>
+            </ul>
+        </Card.Body>
+    </Card>
+</Playground>
+
+### Anchor Cards
+Cards that are clickable with navigation and presents a hover effect.
+
+`class='vdp-card--anchor'`
+<Playground>
+    <Card type="anchor" role="link">
+        <Card.Header>
+            <Headline importance={6}>Anchor card</Headline>
+        </Card.Header>
+        <Card.Body>
+            Anchor
+        </Card.Body>
+    </Card>
+</Playground>
