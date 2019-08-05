@@ -53,7 +53,8 @@
   "files": [
     "dist/**",
     "src/styles/**",
-    "src/fonts/**"
+    "src/fonts/**",
+    "src/index.d.ts"
   ],
   "peerDependencies": {
     "prop-types": "^15.6.2",

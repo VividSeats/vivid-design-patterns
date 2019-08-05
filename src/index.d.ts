@@ -413,7 +413,7 @@ interface SearchField {
 }
 declare const SearchField: FC<SearchField>;
 
-interface Select extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>{
+interface Select extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
     id?: string;
     name?: string;
     value?: string;
@@ -422,7 +422,7 @@ interface Select extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>{
     label?: string;
     onChange?: (value: string) => void;
     onBlur?: FocusEventHandler;
-    validationMethod?: ValidationMethod,
+    validationMethod?: ValidationMethod;
     outlined?: boolean;
     small?: boolean;
     medium?: boolean;
@@ -430,37 +430,36 @@ interface Select extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>{
 }
 declare const Select: FC<Select>;
 
-
 interface SkeletonLoader {
     rowCount?: number;
-    isLoading: boolean,
+    isLoading: boolean;
     firstColumnLineCount?: number;
-    secondColumnLineCount?: number,
-    skeletonBone?: ReactNode,
+    secondColumnLineCount?: number;
+    skeletonBone?: ReactNode;
     children: ReactNode | ReactNodeArray;
 }
 declare const SkeletonLoader: FC<SkeletonLoader>;
 
-interface TabGroup extends HTMLAttributes<HTMLUListElement>{
-    dark?: boolean,
+interface TabGroup extends HTMLAttributes<HTMLUListElement> {
+    dark?: boolean;
     compressed?: boolean;
 }
 declare const TabGroup: FC<TabGroup>;
 
-interface TextField extends Input{
-        id: string;
-        label: string;
-        name: string;
-        /** If the noValidate prop is present, the field will not turn green or red to indicate its validation status. Do not pass this in if you are passing in a validationMethod Prop */
-        noValidate?: boolean; 
-        type?: string;
-        outlined?: boolean;
-        defaultValue?: string;
-        error?: string;
-        value?: string;
-        /** Validation method that should return a string for the error to displayed. Do not pass in validationMethod if you pass in noValidate prop */
-        validationMethod?: ValidationMethod,
-        trailingIcon?: ReactNode
-        helperText?: string
+interface TextField extends Input {
+    id: string;
+    label: string;
+    name: string;
+    /** If the noValidate prop is present, the field will not turn green or red to indicate its validation status. Do not pass this in if you are passing in a validationMethod Prop */
+    noValidate?: boolean;
+    type?: string;
+    outlined?: boolean;
+    defaultValue?: string;
+    error?: string;
+    value?: string;
+    /** Validation method that should return a string for the error to displayed. Do not pass in validationMethod if you pass in noValidate prop */
+    validationMethod?: ValidationMethod;
+    trailingIcon?: ReactNode;
+    helperText?: string;
 }
 declare const TextField: FC<TextField>;
