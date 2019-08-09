@@ -1,0 +1,29 @@
+---
+    name: Input
+    menu: Components
+    route: /components/input
+---
+
+import { Playground } from 'docz';
+
+import Input from '../../src/components/atoms/Input';
+
+# Input
+## Installation
+Using the react components:
+
+    import Input from '@vividseats/vivid-design-patterns/dist/atoms/Input';
+
+Using the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/input';
+
+## Basic Usage
+<Playground style={ { minHeight: '100px', height: '100%' } }>
+    <Input type="text" placeholder="Enter some text" readOnly={false} maxLength={24} />
+</Playground>
+
+## Number Input
+<Playground style={ { minHeight: '100px', height: '100%' } }>
+    <Input type="number" placeholder="Enter a number between 1 and 10" min={0} max={10} step={1} readOnly={false} />
+</Playground>
