@@ -1,0 +1,30 @@
+---
+    name: Column
+    menu: Components
+    route: /components/column
+---
+
+import { PropsTable, Playground } from 'docz';
+
+import Column from '../../src/components/molecules/Column';
+
+# Column
+## Installation
+Using the react components:
+
+    import Column from '@vividseats/vivid-design-patterns/dist/molecules/Column';
+
+## Column Props
+<PropsTable of={Column}/>
+
+# Example
+
+
+`className="vdp-col"`
+<Playground>
+    <Column className="">
+      <p>The unread story is not a story; it is little black marks on wood pulp.</p>
+      <p>The reader, reading it, makes it live: a live thing, a story.</p>
+      <p>-Ursula K. LeGuin</p>
+    </Column>
+</Playground>
