@@ -24,9 +24,9 @@ $border-radius: 18px;
             margin: 1em;
             border-bottom-left-radius: $border-radius;
             border-bottom-right-radius: $border-radius;
+            left: initial;
             right: -100%;
             bottom: 0;
-            left: initial;
         }
 
         .close-btn {
