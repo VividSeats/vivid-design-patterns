@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Toast = ({ isOpen, children, animateOpacity = false }) => {
-    return <div className={`vdp-toast-notification${animateOpacity ? '--opacity' : ''} ${isOpen ? 'open' : ''}`}>{children}</div>;
+    return <div className={`vdp-toast${animateOpacity ? '--opacity' : ''} ${isOpen ? 'open' : ''}`}>{children}</div>;
 };
 
 Toast.propTypes = {

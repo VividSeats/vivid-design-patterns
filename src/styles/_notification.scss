@@ -1,0 +1,10 @@
+@import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
+
+.vdp-notification {
+    border-radius: 18px;
+    margin: 1em;
+    padding: 1em;
+    box-shadow: 0px 2px 4px $color-gray-medium;
+}
