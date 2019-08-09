@@ -2,9 +2,51 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 
+$border-radius: 18px;
+
 .vdp-notification {
-    border-radius: 18px;
-    margin: 1em;
-    padding: 1em;
-    box-shadow: 0px 2px 4px $color-gray-medium;
+    display: flex;
+    flex-direction: column;
+
+    &.vdp-toast {
+        @include transition(all 0.25s ease-in-out);
+        box-shadow: 0px 2px 4px $color-gray-medium;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        bottom: -100%;
+        padding: 1em;
+        position: fixed;
+        right: 0;
+        left: 0;
+        z-index: 9999;
+
+        @include size-only-desktop {
+            margin: 1em;
+            border-bottom-left-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+            right: -100%;
+            bottom: 0;
+            left: initial;
+        }
+
+        .close-btn {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+
+        &.open {
+            bottom: 0;
+            right: 0;
+            left: 0;
+
+            @include size-only-desktop {
+                right: 0;
+                left: initial;
+            }
+        }
+    }
 }
