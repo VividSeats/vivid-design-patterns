@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../atoms/Icon';
 
-const Notification = ({ isOpen, children, className = '', type = 'toast', onClickClose = () => {}, ...props }) => {
+const Notification = ({ isOpen, children, className = '', type, onClickClose = () => {}, ...props }) => {
     return (
         <div
             className={`vdp-notification vdp-notification--${type} ${isOpen ? 'vdp-notification--toast--open' : ''} ${className}`}
