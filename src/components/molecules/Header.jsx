@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SiteHeader = ({ children }) => (
+const Header = ({ children }) => (
     <header className="vdp-site-header">
         <div className="vdp-container vdp-site-header__container">
             { children }
@@ -8,4 +8,4 @@ const SiteHeader = ({ children }) => (
     </header>
 );
 
-export default SiteHeader;
+export default Header;
