@@ -1,7 +1,7 @@
 {
   "name": "@vividseats/vivid-design-patterns",
   "Author": "Vivid Seats",
-  "version": "3.6.1",
+  "version": "0.0.0-COM-475-1565626359",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
@@ -18,7 +18,6 @@
     "babel-plugin-transform-es3-property-literals": "^6.22.0",
     "babel-plugin-transform-es5-property-mutators": "^6.24.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
-    "docz": "^0.13.4",
     "docz": "^0.13.4",
     "docz-plugin-css": "^0.11.0",
     "docz-theme-default": "^0.13.4",

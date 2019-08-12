@@ -6,7 +6,8 @@ route: /components/Notification
 
 import { PropsTable, Playground } from 'docz';
 import Notification from '../../src/components/molecules/Notification';
-import Headline from '../../src/components/atoms/Headline'
+import Headline from '../../src/components/atoms/Headline';
+import StatefulComponent from '../StatefulComponent';
 
 # Notification
 
@@ -27,9 +28,25 @@ Using the scss files:
 ## Basic Usage
 
 <Playground>
-    <Notification isOpen style={{backgroundColor: 'lightblue'}}>
-        <Headline importance>Vivid Seats </Headline>
-        <Headline>Buy In-App,</Headline>
-        <Headline>Earn Credit Back</Headline>
-    </Notification>
+    <StatefulComponent initialState={{open: true}}>
+            {
+        ({state, setState}) => {
+            const { open } = state;
+
+            const handleClose = () => {
+                setState({open: false})
+                setTimeout(() => setState({open: true}), 2000)
+            }
+
+            return (
+                <Notification isOpen={open} onClickClose={handleClose} style={{backgroundColor: 'lightblue'}}>
+                    <Headline importance={3}>Vivid Seats </Headline>
+                    <Headline importance={3}>Buy In-App,</Headline>
+                    <Headline importance={3}>Earn Credit Back</Headline>
+                </Notification>
+            )
+        }
+    }
+    </StatefulComponent>
+
 </Playground>
