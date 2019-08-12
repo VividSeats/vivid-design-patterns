@@ -300,9 +300,9 @@ interface Column extends HTMLAttributes<HTMLDivElement> {}
 declare var Column: FC<Column>;
 
 interface Venue {
-    name: string;
-    city: string;
-    regionCode: string;
+    name?: string;
+    city?: string;
+    regionCode?: string;
     countryCode?: string;
 }
 
@@ -311,8 +311,8 @@ interface Thumbnail {
     alt?: string;
 }
 interface EventRow extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
-    href: string;
-    venue: Venue;
+    href?: string;
+    venue?: Venue;
     title: ReactNode;
     subtitle?: ReactNode;
     dateRange?: string;
@@ -463,3 +463,16 @@ interface TextField extends Input {
     helperText?: string;
 }
 declare const TextField: FC<TextField>;
+
+interface LoadingSpinner {
+    size?: number;
+    className?: string;
+}
+declare const LoadingSpinner: FC<LoadingSpinner>;
+
+interface Toast {
+    isOpen: boolean;
+    children: ReactNode | ReactNodeArray;
+    animateOpacity?: boolean;
+}
+declare const Toast: FC<Toast>;

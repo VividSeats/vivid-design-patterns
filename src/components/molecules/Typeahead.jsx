@@ -70,14 +70,14 @@ class Typeahead extends React.Component {
         return suggestions.map(hierarchy => {
             const { title, items, renderSuggestion, limit } = hierarchy;
             const startingIndex = acc;
-            acc += items.length;
+            acc += limit || items.length;
             return (
                 !!items.length && (
                     <Typeahead.DropdownSection key={title}>
                         <Typeahead.DropdownHeader>{title}</Typeahead.DropdownHeader>
                         {this.getSuggestions({
                             suggestions: items,
-                            startingIndex: limit || startingIndex,
+                            startingIndex,
                             renderSuggestion,
                             displayLimit: limit
                         })}

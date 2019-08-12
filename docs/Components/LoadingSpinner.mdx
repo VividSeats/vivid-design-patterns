@@ -1,0 +1,29 @@
+---
+    name: LoadingSpinner
+    menu: Components
+    route: /components/loadingSpinner
+---
+
+import { PropsTable, Playground } from 'docz';
+
+import LoadingSpinner from '../../src/components/atoms/LoadingSpinner';
+
+# Loading Spinner
+## Installation
+Using the react components:
+
+    import LoadingSpinner from '@vividseats/vivid-design-patterns/dist/atom/LoadingSpinner';
+
+Using the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/loadingSpinner';
+
+## Basic Usage
+<Playground style={ { minHeight: '200px', height: '100%' } }>
+    <LoadingSpinner size={30} />
+</Playground>
+
+## LoadingSpinner Props
+### LoadingSpinner
+<PropsTable of={LoadingSpinner}/>
+
