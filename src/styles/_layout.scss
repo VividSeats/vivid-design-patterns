@@ -39,6 +39,7 @@ hr {
 }
 .vdp-main-content {
     margin-top: $sizing-LG;
+    margin-bottom: $sizing-3XL;
 }
 [class^='vdp-wrapper'] {
     @include flex;
