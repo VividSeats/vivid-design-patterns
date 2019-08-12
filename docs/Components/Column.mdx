@@ -7,6 +7,7 @@
 import { PropsTable, Playground } from 'docz';
 
 import Column from '../../src/components/molecules/Column';
+import Row from '../../src/components/molecules/Row';
 
 # Column
 ## Installation
@@ -22,9 +23,15 @@ Using the react components:
 
 `className="vdp-col"`
 <Playground>
+  <Row>
     <Column className="">
-      <p>The unread story is not a story; it is little black marks on wood pulp.</p>
-      <p>The reader, reading it, makes it live: a live thing, a story.</p>
-      <p>-Ursula K. LeGuin</p>
+      1
     </Column>
+    <Column className="">
+      +2
+    </Column>
+    <Column className="">
+      =3
+    </Column>
+  </Row>
 </Playground>
