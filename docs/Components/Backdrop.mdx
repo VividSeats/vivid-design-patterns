@@ -6,6 +6,7 @@
 
 import { PropsTable, Playground } from 'docz'
 import Backdrop from '../../src/components/atoms/Backdrop';
+import Modal from '../../src/components/molecules/Modal';
 
 # Backdrop
 ## Installation
@@ -20,6 +21,20 @@ Using the scss files:
 ## Props
 <PropsTable of={Backdrop}/>
 
-## Basic Usage
+## Common Usage
+Most often used implicitly inside a <Modal/>.
 <Playground>
+  <Modal dataState="opened" onClick={() => window.alert('on click fired')}>
+    <p>Another belief of mine: that everyone else my age is an adult, whereas I am merely in disguise.</p>
+    <p>-Margaret Atwood</p>
+  </Modal>
+</Playground>
+
+## Standalone Usage
+May be used on its own.
+<Playground>
+  <Backdrop
+    dataState="opened"
+    onClick={() => window.alert('on click fired')}
+  />
 </Playground>
