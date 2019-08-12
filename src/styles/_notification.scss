@@ -10,42 +10,42 @@ $border-radius: 18px;
 
     &.vdp-toast {
         @include transition(all 0.25s ease-in-out);
-        box-shadow: 0px 2px 4px $color-gray-medium;
         border-top-left-radius: $border-radius;
         border-top-right-radius: $border-radius;
         bottom: -100%;
+        box-shadow: 0px 2px 4px $color-gray-medium;
+        left: 0;
         padding: 1em;
         position: fixed;
         right: 0;
-        left: 0;
-        z-index: 9999;
+        z-index: $z-index-alert;
 
         @include size-min-desktop {
-            margin: 1em;
             border-bottom-left-radius: $border-radius;
             border-bottom-right-radius: $border-radius;
-            left: initial;
-            right: -100%;
             bottom: 0;
+            left: initial;
+            margin: 1em;
+            right: -100%;
         }
 
         .close-btn {
+            cursor: pointer;
             margin: 0;
             padding: 0;
             position: absolute;
             right: 10px;
             top: 10px;
-            cursor: pointer;
         }
 
         &.open {
             bottom: 0;
-            right: 0;
             left: 0;
+            right: 0;
 
             @include size-min-desktop {
-                right: 0;
                 left: initial;
+                right: 0;
             }
         }
     }
