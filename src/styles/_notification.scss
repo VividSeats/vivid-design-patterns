@@ -20,7 +20,7 @@ $border-radius: 18px;
         left: 0;
         z-index: 9999;
 
-        @include size-only-desktop {
+        @include size-min-desktop {
             margin: 1em;
             border-bottom-left-radius: $border-radius;
             border-bottom-right-radius: $border-radius;
@@ -43,7 +43,7 @@ $border-radius: 18px;
             right: 0;
             left: 0;
 
-            @include size-only-desktop {
+            @include size-min-desktop {
                 right: 0;
                 left: initial;
             }
