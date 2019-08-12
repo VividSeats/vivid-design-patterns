@@ -19,6 +19,7 @@
     "babel-plugin-transform-es5-property-mutators": "^6.24.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "docz": "^0.13.4",
+    "docz": "^0.13.4",
     "docz-plugin-css": "^0.11.0",
     "docz-theme-default": "^0.13.4",
     "enzyme": "^3.8.0",
@@ -56,9 +57,9 @@
     "src/fonts/**"
   ],
   "peerDependencies": {
-    "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "dependencies": {
     "classnames": "^2.2.6",
