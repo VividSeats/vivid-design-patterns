@@ -1,7 +1,7 @@
 {
   "name": "@vividseats/vivid-design-patterns",
   "Author": "Vivid Seats",
-  "version": "0.0.0-COM-475-1565730833",
+  "version": "3.6.2",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
@@ -63,9 +63,6 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "moment": "^2.24.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "react-slidedown": "^2.0.7"
   },
   "lint-staged": {
