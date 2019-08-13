@@ -133,16 +133,18 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
 
 // Centered
 [class^='vdp-page-hero'][class*='--centered'] {
-    .vdp-page-hero__content {
-        @include align-content(center);
-        @include justify-content(center);
-        @include flex-wrap(wrap);
-        margin: 0 auto;
-        max-width: 600px;
-        text-align: center;
-    }
-    .vdp-page-hero__tabs {
-        @include justify-content(center);
+    @include size-min-tablet {
+        .vdp-page-hero__content {
+            @include align-content(center);
+            @include justify-content(center);
+            @include flex-wrap(wrap);
+            margin: 0 auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        .vdp-page-hero__tabs {
+            @include justify-content(center);
+        }
     }
 }
 

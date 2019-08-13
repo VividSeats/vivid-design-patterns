@@ -86,3 +86,7 @@ hr {
     @include align-items(center);
     @include justify-content(space-between);
 }
+.sticky-bar {
+    @include position(fixed, 0 0 null 0);
+    z-index: $z-index-nav;
+}

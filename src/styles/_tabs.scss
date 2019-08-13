@@ -9,9 +9,6 @@
     padding-left: 0;
     padding-right: 0;
 
-    &[class*='--centered'] {
-        @include justify-content(center);
-    }
     &:not([class*='--inverted']) {
         background-color: $color-white;
     }
@@ -24,6 +21,9 @@
         }
     }
     @include size-min-tablet {
+        &[class*='--centered'] {
+            @include justify-content(center);
+        }
         &[class*='--compressed'] .vdp-tab {
             line-height: $sizing-4XL;
         }
@@ -81,8 +81,13 @@
     }
 }
 
-// Stretched
 @include size-only-mobile {
+    // Scroll
+    [class^='vdp-tab-bar'][class*='--scroll'] {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+    // Stretched
     [class^='vdp-tab-bar'][class*='--stretched'] .vdp-tab {
         @include flex-grow(1);
         @include justify-content(center);
