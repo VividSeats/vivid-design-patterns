@@ -24,16 +24,16 @@ function defaultRenderInput({ placeholder, onChange, onFocus, value, ...a11yAttr
 
 class Typeahead extends React.Component {
     static Dropdown = ({ className = '', children, ...htmlProps }) => (
-        <div className={`vdp-typeahead__dropdown ${className}`} {...htmlProps}>
+        <ul className={`vdp-typeahead__dropdown ${className}`} {...htmlProps}>
             {children}
-        </div>
+        </ul>
     );
 
     static SuggestionItem = ({ isHighlighted, className = '', children, ...props }) => {
         return (
-            <div className={`vdp-typeahead__suggestion ${isHighlighted ? '--highlight' : ''} ${className}`} {...props}>
+            <li className={`vdp-typeahead__suggestion ${isHighlighted ? '--highlight' : ''} ${className}`} {...props}>
                 {children}
-            </div>
+            </li>
         );
     };
 

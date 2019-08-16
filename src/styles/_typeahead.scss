@@ -29,7 +29,7 @@
         background: $color-white;
         z-index: $z-index-nav !important;
         width: 100%;
-
+        padding-inline-start: 0;
         @include size-only-mobile {
             @include border(top);
             bottom: 0;
@@ -57,7 +57,7 @@
         line-height: $sizing-LG;
         margin: 0 $sizing-SM;
         padding: $sizing-SM;
-
+        list-style: none;
         &[class*='--highlight'] {
             background-color: $color-brand-blue-light !important;
             color: $color-brand-blue;
