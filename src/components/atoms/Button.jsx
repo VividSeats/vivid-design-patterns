@@ -49,11 +49,13 @@ const Button = ({
 
     return href ? (
         <a {...{ ...props, href }}>
-            {iconNode} {children}
+            {iconNode}
+            {children}
         </a>
     ) : (
         <button {...{ ...props, type, disabled }}>
-            {iconNode} {children}
+            {iconNode}
+            {children}
         </button>
     );
 };
