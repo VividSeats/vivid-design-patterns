@@ -3,8 +3,31 @@
 @import 'mixins/prefixes';
 
 .vdp-promo-banner {
-    .vdp-row,
+    .vdp-row {
+        @include center-align;
+        background-color: pink;
+        padding: $sizing-MD;
+        .vdp-type-subhead {
+            margin-right: $sizing-SM;
+            &:last-of-type {
+                margin-right: 0px;
+            }
+        }
+        .carat {
+            &::after {
+                @include pseudo-icon('\e908', $color-off-white);
+            }
+            &--rotated::after {
+                @include pseudo-icon('\e908', $color-off-white);
+                transform: rotate(180deg);
+            }
+        }
+    }
     .vdp-col {
-        @include center-align();
+        @include center-align;
+        .vdp-type-small,
+        .vdp-type-tiny {
+            margin-top: $sizing-MD;
+        }
     }
 }
