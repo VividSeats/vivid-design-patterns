@@ -121,6 +121,7 @@
 // Button Elements
 .vdp-button__icon {
     margin-right: $sizing-XS;
+    margin-left: -$sizing-SM;
 
     [class^='vdp-button'][class*='--small'] & {
         font-size: $font-size-XL;
