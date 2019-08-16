@@ -35,7 +35,7 @@ const Button = ({
         [`--block`]: block
     });
 
-    const iconNode = typeof icon === 'string' ? <Icon className="vdp-button__icon" type={icon} /> : icon;
+    const iconNode = icon ? <Icon className="vdp-button__icon" type={icon} /> : icon;
 
     const props = {
         className: className ? `${buttonClassNames} ${className}` : buttonClassNames,
