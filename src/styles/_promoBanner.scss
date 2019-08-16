@@ -1,0 +1,10 @@
+@import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
+
+.vdp-promo-banner {
+    .vdp-row,
+    .vdp-col {
+        @include center-align();
+    }
+}

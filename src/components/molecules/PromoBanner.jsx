@@ -32,8 +32,8 @@ class PromoBanner extends React.Component {
         const { showDetails, caratType } = this.state;
         const { offerType, offerHeadline, offerSubheadline, offerDetails, legalText } = this.props;
         return (
-            <React.Fragment className="vdp-promo-banner">
-                <Row className="--centered">
+            <div className="vdp-promo-banner">
+                <Row>
                     <Subhead className="--gold">{offerType}</Subhead>
                     <Subhead>{offerHeadline}</Subhead>
                     <Subhead>{offerSubheadline}</Subhead>
@@ -41,12 +41,16 @@ class PromoBanner extends React.Component {
                 </Row>
 
                 {showDetails && (
-                    <Column>
-                        <SmallText>{offerDetails}</SmallText>
-                        <TinyText>{legalText}</TinyText>
-                    </Column>
+                    <React.Fragment>
+                        <Column>
+                            <SmallText>{offerDetails}</SmallText>
+                        </Column>
+                        <Column>
+                            <TinyText>{legalText}</TinyText>
+                        </Column>
+                    </React.Fragment>
                 )}
-            </React.Fragment>
+            </div>
         );
     }
 }

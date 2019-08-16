@@ -78,6 +78,11 @@
     top: $amount;
 }
 
+@mixin center-align {
+    display: flex;
+    justify-content: center;
+}
+
 // Responsive Media Queries
 @mixin size-min-tablet {
     @media screen and (min-width: $breakpoint-tablet) {
