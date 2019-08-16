@@ -5,12 +5,11 @@
 .vdp-promo-banner {
     .vdp-row {
         @include center-align;
-        background-color: pink;
         padding: $sizing-MD;
         .vdp-type-subhead {
             margin-right: $sizing-SM;
             &:last-of-type {
-                margin-right: 0px;
+                margin-right: 0;
             }
         }
         .carat {
