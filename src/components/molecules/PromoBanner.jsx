@@ -10,11 +10,11 @@ import Column from './Column';
 class PromoBanner extends React.Component {
     state = {
         showDetails: false,
-        caratType: 'carat-down'
+        caratType: 'carat'
     };
 
     changeCaratType = () => {
-        return this.state.caratType === 'carat-down' ? 'carat-up' : 'carat-down';
+        return this.state.caratType === 'carat' ? 'carat--rotated' : 'carat';
     };
 
     toggleShowDetails = () => {
@@ -34,21 +34,21 @@ class PromoBanner extends React.Component {
         return (
             <div className="vdp-promo-banner">
                 <Row>
-                    <Subhead className="--gold">{offerType}</Subhead>
-                    <Subhead>{offerHeadline}</Subhead>
-                    <Subhead>{offerSubheadline}</Subhead>
-                    <Icon type={caratType} onClick={this.handleClick} />
+                    <Subhead className="vdp-type-subhead--gold">{offerType}</Subhead>
+                    <Subhead className="vdp-type-subhead--inverted">{offerHeadline}</Subhead>
+                    <Subhead className="vdp-type-subhead--inverted">{offerSubheadline}</Subhead>
+                    <div className={caratType} onClick={this.handleClick} />
                 </Row>
 
                 {showDetails && (
-                    <React.Fragment>
+                    <div>
                         <Column>
                             <SmallText>{offerDetails}</SmallText>
                         </Column>
                         <Column>
-                            <TinyText>{legalText}</TinyText>
+                            <TinyText opaque>{legalText}</TinyText>
                         </Column>
-                    </React.Fragment>
+                    </div>
                 )}
             </div>
         );
