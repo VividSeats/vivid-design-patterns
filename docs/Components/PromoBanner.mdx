@@ -1,0 +1,32 @@
+---
+name: PromoBanner
+menu: Components
+route: /components/PromoBanner
+---
+
+import { PropsTable, Playground } from 'docz';
+import PromoBanner from '../../src/components/molecules/PromoBanner';
+
+# PromoBanner
+
+## Installation
+
+Using the react components:
+
+    import PromoBanner from '@vividseats/vivid-design-patterns/dist/molecules/PromoBanner';
+
+## Props
+
+<PropsTable of={PromoBanner} />
+
+## Basic Usage
+
+<Playground>
+    <PromoBanner
+        offerType="Offer type"
+        offerHeadline="Offer headline"
+        offerSubheadline="Offer subheadline"
+        offerDetails="Offer details"
+        legalText="Legal text"
+    />
+</Playground>
