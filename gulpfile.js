@@ -11,7 +11,7 @@ gulp.task('bundle_js', () => {
     const dist = 'dist';
 
     return gulp
-        .src('src/components/**/*.{js,jsx}')
+        .src(['src/components/**/*.{js,jsx}', 'src/index.js'])
         .pipe(gulpif(isDev, changed(dist)))
         .pipe(
             rollUpEach(rollUpConfig, file => ({

@@ -1,0 +1,45 @@
+$offset: 200;
+$duration: 1.5s;
+
+.vdp-loading-spinner__container {
+    width: fit-content;
+
+    .vdp-loading-spinner {
+        animation: rotator $duration linear infinite;
+        width: 65px;
+        height: 65px;
+        stroke: #de3e35;
+        position: relative;
+
+        @keyframes rotator {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .path {
+            stroke-dasharray: 1 $offset;
+            stroke-dashoffset: 0;
+            transform-origin: center;
+            animation: dash $duration ease-in-out infinite;
+        }
+
+        @keyframes dash {
+            0% {
+                stroke-dasharray: 1, $offset;
+                stroke-dashoffset: 0;
+            }
+            50% {
+                stroke-dasharray: 89, $offset;
+                stroke-dashoffset: -35;
+            }
+            100% {
+                stroke-dasharray: 89, $offset;
+                stroke-dashoffset: -124;
+            }
+        }
+    }
+}

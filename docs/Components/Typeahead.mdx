@@ -1,0 +1,142 @@
+---
+    name: Typeahead
+    menu: Components
+    route: /components/typeahead
+---
+
+import Typeahead from '../../src/components/molecules/Typeahead';
+import TextField from '../../src/components/molecules/TextField';
+import Button from '../../src/components/atoms/Button';
+import StatefulComponent from '../StatefulComponent';
+import EventRow from '../../src/components/molecules/EventRow';
+import { PropsTable, Playground } from 'docz'
+import { getTeamSuggestions, getHiearchalSuggestions, getCustomEventSuggestions, getCustomHiearchalSuggestions } from '../getSuggestions';
+import Toggle from '../../src/components/atoms/Toggle';
+
+## Installation
+
+Using the react Component:
+
+    import Typeahead from '@vividseats/vivid-design-patterns/dist/molecules/Typeahead'
+
+Importing the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/typeahead.scss'
+
+## Basic Usage
+The example below shows typeahead searching a database of football teams that include `Wisconsin Badgers`, `Illinois Fighting Illini`, `Iowa Hawkeyes`, `Notre Dame Fighting Irish`, `Northwestern Wildcats`, `Clemson Tigers`.
+<Playground>
+    <StatefulComponent initialState={{suggestions: []}}>
+    {
+        ({state, setState}) => {
+            const getSuggestion = (input) => {
+                setState({
+                     suggestions: getTeamSuggestions(input)
+                 })
+            }
+
+            const onSelect = (selected) => alert(selected)
+
+            return <Typeahead placeholder="Search by team, artist, event or venue" onChange={e => getSuggestion(e)} onSelect={onSelect} suggestions={state.suggestions}/>
+        }
+    }
+    </StatefulComponent>
+</Playground>
+
+
+## Hierarchal Data
+The example below shows how the results can be split into hierarchal data for stadiums, games and teams. By default, heirarchal dropdowns expect the suggestions array to be in the following shape:
+
+        [
+            {
+                title: String // Section header title,
+                items: Array<Suggestions>
+                limit: number // Max number of suggestions to show for section,
+                renderMethod: func // Custom renderMethod for selected section. For more info, see below
+            }
+        ]
+
+Try typing `No` in the example below.
+<Playground>
+    <StatefulComponent initialState={{suggestions: []}}>
+    {
+        ({state, setState}) => {
+            const getSuggestion = (input) => {
+                const { suggestedStadiums, suggestedEvents, suggestedTeams } = getHiearchalSuggestions(input)
+
+                setState({
+                    suggestions: [{title: 'Stadiums', items: suggestedStadiums}, {title: 'Events',items: suggestedEvents}, {title: 'Teams', items: suggestedTeams }]
+                })
+
+            };
+            const onSelect = (selected) => alert(selected);
+            return <Typeahead showHierarchicalDropdown placeholder="Search by team, artist, event or venue" onChange={e => getSuggestion(e)} onSelect={onSelect} suggestions={state.suggestions}/>
+        }
+    }
+    </StatefulComponent>
+</Playground>
+
+
+## Custom Suggestion Item
+By default the dropdown just renders string. If you want something more complex, just pass in a custom `renderSuggestion` method. The method receives the individual suggestion, the suggestion elemnt props (`onMouseEnter`, `onClick`) and whether its highlighted or not as arguments.
+<Playground>
+    <StatefulComponent initialState={{suggestions: []}}>
+    {
+        ({state, setState}) => {
+            const getSuggestion = (input) => {
+                setState({
+                    suggestions: getCustomEventSuggestions(input)
+                })
+
+            };
+            const onSelect = (selected) => alert(JSON.stringify(selected));
+            const renderSuggestion = ({suggestion, suggestionProps, isHighlighted}) => <EventRow {...suggestionProps} title={suggestion.name} date={suggestion.date} style={{background: isHighlighted ? '#eee' : '#FFF'}}/>
+            return <Typeahead renderSuggestion={renderSuggestion} placeholder="Search by team, artist, event or venue" onChange={e => getSuggestion(e)} onSelect={onSelect} suggestions={state.suggestions}/>
+        }
+    }
+    </StatefulComponent>
+</Playground>
+
+## Custom Dropdown Format
+If you want to add extra elements to the dropdown besides displaying the suggestions, such as a `Show All` button, just pass in a custom `renderDropdown` method. The renderMethod will receive dropdownContent as an argument.
+<Playground>
+    <StatefulComponent initialState={{suggestions: []}}>
+    {
+        ({state, setState}) => {
+        const getSuggestion = (input) => {
+            setState({
+                suggestions: getCustomEventSuggestions(input)
+            })
+        };
+        const onSelect = (selected) => alert(JSON.stringify(selected));
+        const renderSuggestion = ({suggestion, suggestionProps, isHighlighted}) => <EventRow {...suggestionProps} title={suggestion.name} date={suggestion.date} style={{background: isHighlighted ? '#eee' : '#FFF'}}/>
+        const renderDropdown = (dropdownContent) => <React.Fragment><Button importance="text">Show all</Button>{dropdownContent}</React.Fragment>
+        return <Typeahead renderDropdown={renderDropdown} renderSuggestion={renderSuggestion} placeholder="Search by team, artist, event or venue" onChange={e => getSuggestion(e)} onSelect={onSelect} suggestions={state.suggestions}/>
+        }
+    }
+    </StatefulComponent>
+</Playground>
+
+
+## Custom Input Element
+If you want to render your own input element, pass in a renderInput method. The method will receive a object containing props for onFocus and onChange
+<Playground>
+    <StatefulComponent initialState={{suggestions: []}}>
+        {
+            ({state, setState}) => {
+                const getSuggestion = (input) => {
+                setState({
+                    suggestions: getTeamSuggestions(input)
+                })
+            };
+            const onSelect = (selected) => alert(JSON.stringify(selected));
+            const renderInput = (inputProps) => <TextField outlined noValidate {...inputProps}/>
+            const renderDropdown = (dropdownContent) => <React.Fragment><Button importance="text">Show all</Button>{dropdownContent}</React.Fragment>
+            return <Typeahead placeholder="Search by team, artist, event or venue" renderInput={renderInput} onChange={e => getSuggestion(e)} onSelect={onSelect} suggestions={state.suggestions}/>
+        }
+    }
+</StatefulComponent>
+</Playground>
+
+## Props API
+<PropsTable of={Typeahead}/>
