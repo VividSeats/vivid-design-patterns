@@ -1,14 +1,17 @@
 ---
-    name: Search Field
-    menu: Components
-    route: /components/search-field
+name: Search Field
+menu: Components
+route: /components/search-field
 ---
 
-import { PropsTable, Playground } from 'docz'
+import { Props, Playground } from 'docz';
 import SearchField from '../../src/components/molecules/SearchField';
+import '../docz.scss';
 
 # Button
+
 ## Installation
+
 Using the react components:
 
     import SearchField from '@vividseats/vivid-design-patterns/dist/molecules/SearchField';
@@ -18,35 +21,51 @@ Using the scss files:
     @import '@vividseats/vivid-design-patterns/src/styles/search.scss';
 
 ## Props
-<PropsTable of={SearchField}/>
+
+<Props of={SearchField} />
 
 ## Basic Usage
+
 <Playground>
-    <SearchField></SearchField>
+    <SearchField />
 </Playground>
 
 ### Submit
+
 `onSubmit={() => {alert('hi')}}` keypress=Enter
+
 <Playground>
-    <SearchField onSubmit={() => {alert('hi')}}></SearchField>
+    <SearchField
+        onSubmit={() => {
+            alert('hi');
+        }}
+    />
 </Playground>
 
 ### Placeholder
+
 `placeholder="Search by team, artist, event or venue"`
+
 <Playground>
-    <SearchField placeholder="Search by team, artist, event or venue"></SearchField>
+    <SearchField placeholder="Search by team, artist, event or venue" />
 </Playground>
 
 ### Value
+
 `value="Chicago White Sox"`
+
 <Playground>
-    <SearchField value="Chicago White Sox"></SearchField>
+    <SearchField value="Chicago White Sox" />
 </Playground>
 
 ### onChange
+
 `onChange={() => {alert('hi')}}`
 
 <Playground>
-    <SearchField onChange={() => {alert('hi')}}></SearchField>
+    <SearchField
+        onChange={() => {
+            alert('hi');
+        }}
+    />
 </Playground>
-

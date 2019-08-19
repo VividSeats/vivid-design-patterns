@@ -1,16 +1,19 @@
 ---
-    name: Fab
-    menu: Components
-    route: /components/fab
+name: Fab
+menu: Components
+route: /components/fab
 ---
 
-import { PropsTable, Playground } from 'docz';
+import { Props, Playground } from 'docz';
 
 import Fab from '../../src/components/molecules/Fab';
 import Icon from '../../src/components/atoms/Icon';
+import '../docz.scss';
 
 # Fab
+
 ## Installation
+
 Using the react components:
 
     import Fab from '@vividseats/vivid-design-patterns/dist/molecules/Fab';
@@ -20,28 +23,35 @@ Using the scss files:
     @import '@vividseats/vivid-design-patterns/src/styles/fab';
 
 ## Basic Usage
+
 `class="vdp-fab" visible="true"`
-<Playground style={ { minHeight: '200px', height: '100%' } }>
+
+<Playground style={{ minHeight: '200px', height: '100%' }}>
     <Fab visible={true}>
         <span>All Locations</span>
     </Fab>
 </Playground>
 
 ## Fab Props
+
 ### Fab
-<PropsTable of={Fab}/>
+
+<Props of={Fab} />
 
 ### Fab Child
-<PropsTable of={Fab.Child}/>
+
+<Props of={Fab.Child} />
 
 ## Sub-Component Usage
+
 ```
 <Fab>
     <Fab.Child />
     <Fab.Child />
 </Fab>
 ```
-<Playground style={ { minHeight: '200px', height: '100%' } }>
+
+<Playground style={{ minHeight: '200px', height: '100%' }}>
     <Fab>
         <Fab.Child>
             <Icon type="location" />

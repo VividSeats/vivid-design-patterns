@@ -1,15 +1,18 @@
 ---
-    name: Icon
-    menu: Components
-    route: /components/icon
+name: Icon
+menu: Components
+route: /components/icon
 ---
 
-import { PropsTable, Playground } from 'docz'
+import { Props, Playground } from 'docz';
 import Icon from '../../src/components/atoms/Icon';
 import '../../src/styles/_icon.scss';
+import '../docz.scss';
 
 # Icon
+
 ## Installation
+
 Using the react components:
 
     import Icon from '@vividseats/vivid-design-patterns/dist/atoms/Icon';
@@ -19,16 +22,21 @@ Using the scss files:
     @import '@vividseats/vivid-design-patterns/src/styles/_icon.scss';
 
 ## Prop Example
+
 `type="location"`
+
 <Playground>
     <Icon type="location" />
 </Playground>
 
 ## Child Example
+
 `<Icon>&#xe91c;</Icon>`
+
 <Playground>
     <Icon>&#xe91c;</Icon>
 </Playground>
 
 ## Icon Props
-<PropsTable of={Icon}/>
+
+<Props of={Icon} />

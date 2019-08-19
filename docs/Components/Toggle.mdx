@@ -1,13 +1,15 @@
 ---
-    name: Toggle
-    menu: Components
-    route: /components/toggle
+name: Toggle
+menu: Components
+route: /components/toggle
 ---
 
-import { PropsTable, Playground } from 'docz'
+import { Props, Playground } from 'docz';
 import Toggle from '../../src/components/atoms/Toggle';
+import '../docz.scss';
 
 # Toggle
+
 ## Installation
 
 Using the React Component:
@@ -25,26 +27,35 @@ Importing the scss:
 </Playground>
 
 ## Props
-<PropsTable of={Toggle}/>
 
+<Props of={Toggle} />
 
 ## Usages
+
 ### Default state
+
 <Playground>
     <Toggle defaultOn={true} />
 </Playground>
 
 ### Controlled
+
 <Playground>
     <Toggle on />
 </Playground>
 
 ### With label
+
 <Playground>
     <Toggle title="I can be toggled on and off." />
 </Playground>
 
 ### `onToggle` callback
+
 <Playground>
-    <Toggle onToggle={ (val) => { alert(`Hello. input value: ${val}`) } } />
+    <Toggle
+        onToggle={val => {
+            alert(`Hello. input value: ${val}`);
+        }}
+    />
 </Playground>

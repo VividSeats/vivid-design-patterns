@@ -69,5 +69,4 @@ function getCustomEventSuggestions(input) {
     });
 }
 
-
-export { getTeamSuggestions, getHiearchalSuggestions, getCustomEventSuggestions, getCustomHiearchalSuggestions };
+export { getTeamSuggestions, getHiearchalSuggestions, getCustomEventSuggestions };

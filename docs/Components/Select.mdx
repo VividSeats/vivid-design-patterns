@@ -1,14 +1,17 @@
 ---
-    name: Select
-    menu: Components
-    route: /components/select
+name: Select
+menu: Components
+route: /components/select
 ---
 
-import { PropsTable, Playground } from 'docz'
+import { Props, Playground } from 'docz';
 import Select from '../../src/components/molecules/Select';
+import '../docz.scss';
 
 # Select
+
 ## Installation
+
 Using the react components:
 
     import Select from '@vividseats/vivid-design-patterns/dist/molecules/Select';
@@ -18,69 +21,82 @@ Using the scss files:
     @import '@vividseats/vivid-design-patterns/src/styles/inputs.scss';
 
 ## Props
-<PropsTable of={Select}/>
+
+<Props of={Select} />
 
 ## Basic Usage
+
 <Playground>
-  <Select label="Choose your option:" id="selectOne">
-    <Select.Option value="1">Option 1</Select.Option>
-    <Select.Option value="2">Option 2</Select.Option>
-    <Select.Option value="3">Option 3</Select.Option>
-  </Select>
+    <Select label="Choose your option:" id="selectOne">
+        <Select.Option value="1">Option 1</Select.Option>
+        <Select.Option value="2">Option 2</Select.Option>
+        <Select.Option value="3">Option 3</Select.Option>
+    </Select>
 </Playground>
 
 ### Disabled
+
 <Playground>
-  <Select value="3" disabled>
-    <Select.Option value="3">Option 3</Select.Option>
-  </Select>
+    <Select value="3" disabled>
+        <Select.Option value="3">Option 3</Select.Option>
+    </Select>
 </Playground>
 
 ### Sizes:
+
 `class="--small"` `class="--large"`
+
 <Playground>
-  <Select outlined>
-    <Select.Option value="1">Option 1</Select.Option>
-    <Select.Option value="2">Option 2</Select.Option>
-    <Select.Option value="3">Option 3</Select.Option>
-  </Select>
-  <Select outlined small>
-    <Select.Option value="1">Option 1</Select.Option>
-    <Select.Option value="2">Option 2</Select.Option>
-    <Select.Option value="3">Option 3</Select.Option>
-  </Select>
-  <Select outlined medium>
-    <Select.Option value="1">Option 1</Select.Option>
-    <Select.Option value="2">Option 2</Select.Option>
-    <Select.Option value="3">Option 3</Select.Option>
-  </Select>
+    <Select outlined>
+        <Select.Option value="1">Option 1</Select.Option>
+        <Select.Option value="2">Option 2</Select.Option>
+        <Select.Option value="3">Option 3</Select.Option>
+    </Select>
+    <Select outlined small>
+        <Select.Option value="1">Option 1</Select.Option>
+        <Select.Option value="2">Option 2</Select.Option>
+        <Select.Option value="3">Option 3</Select.Option>
+    </Select>
+    <Select outlined medium>
+        <Select.Option value="1">Option 1</Select.Option>
+        <Select.Option value="2">Option 2</Select.Option>
+        <Select.Option value="3">Option 3</Select.Option>
+    </Select>
 </Playground>
 
 ### Controlled Value
+
 `value="2"`
+
 <Playground>
-  <Select value="2" label="Choose an option:">
-    <Select.Option value="1">Option 1</Select.Option>
-    <Select.Option value="2">Option 2</Select.Option>
-    <Select.Option value="3">Option 3</Select.Option>
-  </Select>
+    <Select value="2" label="Choose an option:">
+        <Select.Option value="1">Option 1</Select.Option>
+        <Select.Option value="2">Option 2</Select.Option>
+        <Select.Option value="3">Option 3</Select.Option>
+    </Select>
 </Playground>
 
 ### Error State
+
 <Playground>
-  <Select error="There was an error" label="Choose an option:">
-    <Select.Option value="1">Option 1</Select.Option>
-    <Select.Option value="2">Option 2</Select.Option>
-    <Select.Option value="3">Option 3</Select.Option>
-  </Select>
+    <Select error="There was an error" label="Choose an option:">
+        <Select.Option value="1">Option 1</Select.Option>
+        <Select.Option value="2">Option 2</Select.Option>
+        <Select.Option value="3">Option 3</Select.Option>
+    </Select>
 </Playground>
 
 ### onChange
+
 `onChange={() => {alert('hi')}}`
+
 <Playground>
-  <Select onChange={() => {alert('hi')}}>
-    <Select.Option value="1">Option 1</Select.Option>
-    <Select.Option value="2">Option 2</Select.Option>
-    <Select.Option value="3">Option 3</Select.Option>
-  </Select>
+    <Select
+        onChange={() => {
+            alert('hi');
+        }}>
+        <Select.Option value="1">Option 1</Select.Option>
+        <Select.Option value="2">Option 2</Select.Option>
+        <Select.Option value="3">Option 3</Select.Option>
+    </Select>
 </Playground>

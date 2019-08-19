@@ -1,15 +1,18 @@
 ---
-    name: Backdrop
-    menu: Components
-    route: /components/backdrop
+name: Backdrop
+menu: Components
+route: /components/backdrop
 ---
 
-import { PropsTable, Playground } from 'docz'
+import { Props, Playground } from 'docz';
 import Backdrop from '../../src/components/atoms/Backdrop';
 import Modal from '../../src/components/molecules/Modal';
+import '../docz.scss';
 
 # Backdrop
+
 ## Installation
+
 Using the react components:
 
     import Backdrop from '@vividseats/vivid-design-patterns/dist/atoms/Backdrop';
@@ -19,22 +22,24 @@ Using the scss files:
     @import '@vividseats/vivid-design-patterns/src/styles/_backdrop.scss';
 
 ## Props
-<PropsTable of={Backdrop}/>
+
+<Props of={Backdrop} />
 
 ## Common Usage
+
 Most often used implicitly inside a <Modal/>.
+
 <Playground>
-  <Modal dataState="opened" onClick={() => window.alert('on click fired')}>
-    <p>Another belief of mine: that everyone else my age is an adult, whereas I am merely in disguise.</p>
-    <p>-Margaret Atwood</p>
-  </Modal>
+    <Modal dataState="opened" onClick={() => window.alert('on click fired')}>
+        <p>Another belief of mine: that everyone else my age is an adult, whereas I am merely in disguise.</p>
+        <p>-Margaret Atwood</p>
+    </Modal>
 </Playground>
 
 ## Standalone Usage
+
 May be used on its own.
+
 <Playground>
-  <Backdrop
-    dataState="opened"
-    onClick={() => window.alert('on click fired')}
-  />
+    <Backdrop dataState="opened" onClick={() => window.alert('on click fired')} />
 </Playground>

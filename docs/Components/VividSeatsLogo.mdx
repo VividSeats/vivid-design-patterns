@@ -1,31 +1,33 @@
 ---
-    name: Vivid Seats Logo
-    menu: Components
-    route: /components/vivid-seats-logo
+name: Vivid Seats Logo
+menu: Components
+route: /components/vivid-seats-logo
 ---
 
-import { PropsTable, Playground } from 'docz'
+import { Props, Playground } from 'docz';
 import VividSeatsLogo from '../../src/components/atoms/VividSeatsLogo';
-
-
+import '../docz.scss';
 
 # Badge
+
 ## Installation
+
 Using the react components:
 
     import VividSeatsLogo from '@vividseats/vivid-design-patterns/dist/atoms/BrandLogo';
 
-
 ## Props
-<PropsTable of={VividSeatsLogo}/>
+
+<Props of={VividSeatsLogo} />
 
 ## Basic Usage
+
 <Playground>
-    <VividSeatsLogo/>
+    <VividSeatsLogo />
 </Playground>
 
-
 ## Additional attributes
+
 You can pass in any additional attributes that can be applied to an anchor tag (onClick, onMouseOver, etc):
 
 <Playground>
@@ -47,4 +49,5 @@ You can pass in any additional attributes that can be applied to an anchor tag (
             )
         }
     }
+
 </Playground>
