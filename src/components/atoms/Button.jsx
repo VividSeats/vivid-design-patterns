@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Icon from './Icon';
 
 const Button = ({
     children,
@@ -15,6 +16,7 @@ const Button = ({
     type = 'submit',
     grouped,
     disabled,
+    icon = null,
     onClick = () => {},
     onFocus = () => {},
     onMouseEnter = () => {},
@@ -33,6 +35,8 @@ const Button = ({
         [`--block`]: block
     });
 
+    const iconNode = icon ? <Icon className="vdp-button__icon" type={icon} /> : icon;
+
     const props = {
         className: className ? `${buttonClassNames} ${className}` : buttonClassNames,
         onMouseEnter,
@@ -43,7 +47,17 @@ const Button = ({
         ...htmlAttributes
     };
 
-    return href ? <a {...{ ...props, href }}> {children}</a> : <button {...{ ...props, type, disabled }}>{children}</button>;
+    return href ? (
+        <a {...{ ...props, href }}>
+            {iconNode}
+            {children}
+        </a>
+    ) : (
+        <button {...{ ...props, type, disabled }}>
+            {iconNode}
+            {children}
+        </button>
+    );
 };
 
 Button.propTypes = {
@@ -73,7 +87,9 @@ Button.propTypes = {
     onMouseLeave: PropTypes.func,
     onMouseEnter: PropTypes.func,
     /** renders to html `--secondary`, `--tertiary` `--text` */
-    importance: PropTypes.oneOf(['secondary', 'tertiary', 'text'])
+    importance: PropTypes.oneOf(['secondary', 'tertiary', 'text']),
+    /** adds a VDP icon to the left of the button */
+    icon: PropTypes.string
 };
 
 export default Button;

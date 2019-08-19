@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
@@ -7,6 +7,7 @@ import Button from '../atoms/Button';
 import Link from '../atoms/Link';
 import SmallText from '../atoms/SmallText';
 import DateColumn from '../atoms/DateColumn';
+import Icon from '../atoms/Icon';
 
 const EventRow = ({
     href,
@@ -18,6 +19,7 @@ const EventRow = ({
     thumbnail = null,
     isTimeTbd = false,
     hasButton = true,
+    hasCheckbox = false,
     minListPrice = 0,
     imageUrl,
     schemaDescription,
@@ -25,12 +27,16 @@ const EventRow = ({
     performerName,
     performerType,
     performerUrl,
+    onChange = () => {},
+    onClick = () => {},
     ...htmlAttributes
 }) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
     const { BUTTON, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
     const { regionCode, countryCode, city, name: venueName } = venue;
     const countryCodeString = countryCode !== 'US' ? `, ${countryCode}` : '';
+
+    const [checkboxState, setCheckboxState] = useState(false);
 
     return (
         <Link
@@ -40,6 +46,11 @@ const EventRow = ({
             itemScope
             itemType="http://schema.org/Event"
             role="row"
+            onClick={e => {
+                onChange(!checkboxState);
+                setCheckboxState(!checkboxState);
+                onClick(e);
+            }}
             {...htmlAttributes}>
             {/* Thumbnail Image */}
             {!!thumbnail && !!thumbnail.src && !!thumbnail.alt && (
@@ -80,9 +91,15 @@ const EventRow = ({
                 </div>
             )}
             {/* Button */}
-            {hasButton && (
+            {hasButton && !hasCheckbox && (
                 <div className={getColClassName(BUTTON)}>
                     <Button>{!!dateRange ? BUTTON_TEXT.DATE_RANGE : BUTTON_TEXT.DATE}</Button>
+                </div>
+            )}
+            {/* Checkbox */}
+            {hasCheckbox && (
+                <div className={getColClassName(BUTTON)}>
+                    <Icon type={`checkbox-${checkboxState ? 'on' : 'off'}`} />
                 </div>
             )}
             <link className="schema-url" itemProp="url" href={href} />
@@ -153,7 +170,11 @@ EventRow.propTypes = {
     performerName: PropTypes.string,
     performerType: PropTypes.string,
     performerUrl: PropTypes.string,
-    hasButton: PropTypes.bool
+    hasButton: PropTypes.bool,
+    hasCheckbox: PropTypes.bool,
+    /** onChange is passed a boolean indicating the new checkbox state */
+    onChange: PropTypes.func,
+    onClick: PropTypes.func
 };
 
 export default EventRow;

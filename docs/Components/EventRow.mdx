@@ -96,3 +96,18 @@ If a event is not in the current year, the event will display with the year badg
         date: new Date().setFullYear(new Date().getFullYear() + 1)
     }} />
 </Playground>
+
+
+## Checkbox
+To allow the user to check and uncheck the event, add the `hasCheckbox` and `onChange` props
+`className="vp-event-row"`
+<Playground>
+    <EventRow
+        onChange={state => console.log(`the event row is now ${state ? '' : 'not '}checked!`)}
+        hasCheckbox
+        {...{
+            title: 'Chicago Blackhawks',
+            subtitle: 'United Center - Chicago, IL'
+        }}
+    />
+</Playground>
