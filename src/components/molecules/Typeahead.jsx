@@ -10,7 +10,7 @@ function defaultRenderSuggestion({ isHighlighted, suggestion, suggestionProps })
         );
     }
 
-    throw new Error('A renderSuggestion prop is required if the suggestions is not an array of strings.');
+    throw new Error('A renderSuggestion prop is required if the suggestions is not an array of strings. If you want to render hierarchical suggestions, please use the showHierarchicalDropdown prop.');
 }
 
 function defaultRenderDropdown(dropDownContent) {
