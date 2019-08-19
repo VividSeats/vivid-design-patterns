@@ -2,31 +2,54 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 
-@include size-min-tablet {
-    [class^='vdp-banner']:not([class*='__']) {
-        @include flex;
-        @include justify-content(center);
+[class^='vdp-banner']:not([class*='__']) {
+    @include align-items(center);
+    @include flex;
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+    box-shadow: 0 1px 0 rgba($color-black, 0.15);
+    height: $sizing-3XL;
+    position: relative;
+    z-index: $z-index-nav;
 
-        + .site-header {
-            @include border(top);
-        }
+    > p {
+        padding: 0 $sizing-2XS;
     }
-    .vdp-banner--promo {
-        border-image-repeat: stretch;
-        border-image-slice: 2;
-        border-image-width: 2px 50%;
-        border-top: 1px solid;
-        box-shadow: 0 1px 0 $color-gray-light;
-        height: $sizing-4XL;
-        position: relative;
-        z-index: $z-index-nav;
+}
+[class^='vdp-banner__trigger'] {
+    color: $text-color-muted;
+    cursor: pointer;
+    padding: 0 $sizing-SM;
 
-        .vdp-banner__image {
-            background-position: center center;
-            background-repeat: no-repeat;
-            height: 100%;
-            width: 100%;
-        }
+    &[class*='--inverted'] {
+        color: $color-white;
+    }
+    .vdp-icon {
+        font-size: $font-size-XL !important;
+        line-height: $sizing-3XL !important;
+    }
+}
+.vdp-banner__details {
+    @include border(top);
+    @include flex(1 0 100%);
+    @include flex-direction(column);
+    background-color: $color-white;
+    padding: $sizing-MD $sizing-MD $sizing-LG;
+    text-align: center;
+}
+
+// Legacy Promos
+.vdp-banner--promo {
+    border-image-repeat: stretch;
+    border-image-slice: 2;
+    border-image-width: 2px 50%;
+    border-top: 1px solid;
+
+    .vdp-banner__image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
     }
 }
 

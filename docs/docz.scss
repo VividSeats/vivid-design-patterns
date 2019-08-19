@@ -36,7 +36,10 @@
 @import '../src/styles/toggle';
 @import '../src/styles/typeahead';
 @import '../src/styles/notification';
-@import '../src/styles/promoBanner';
+
+.banner-playground {
+    padding: 0 0 6rem;
+}
 
 /*=====================================================
 
