@@ -478,9 +478,19 @@ interface Notification extends HTMLAttributes<HTMLDivElement> {
 }
 declare const Notification: FC<Notification>;
 
-interface Toast {
-    isOpen: boolean;
-    children: ReactNode | ReactNodeArray;
-    animateOpacity?: boolean;
+interface RenderArgument<T = any> {
+    isHighlighted: boolean;
+    suggestionProps: {
+        onClick: MouseEvent<HTMLElement>;
+        onMouseEnter: MouseEvent<HTMLElement>;
+    };
+    suggestion: T;
 }
-declare const Toast: FC<Toast>;
+
+type SuggestionRenderProp<T = any> = (args: RenderArgument<T>) => ReactNode;
+
+interface SuggestionGroup<T> {
+    title: string;
+    items: T[];
+    renderSuggestion: SuggestionRenderProp<T>;
+}
