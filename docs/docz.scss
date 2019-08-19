@@ -103,7 +103,7 @@ form {
 }
 
 // Modal - overrides for playground wrapper
-.react-live-preview {
+[class^='Playground__Overlay'] {
     [class^='vdp-backdrop'] {
         position: absolute;
         height: 100%;
