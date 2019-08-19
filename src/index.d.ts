@@ -70,6 +70,7 @@ interface ButtonProps extends Partial<HTMLAttributes<HTMLButtonElement | HTMLAnc
     onBlur?: (e?: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
     onMouseLeave?: (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
     onMouseEnter?: (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    icon?: string;
 }
 
 declare var Button: FC<ButtonProps>;
@@ -310,7 +311,7 @@ interface Thumbnail {
     src?: string;
     alt?: string;
 }
-interface EventRow extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
+interface EventRow extends Omit<Omit<HTMLAttributes<HTMLDivElement>, 'title'>, 'onChange'> {
     href?: string;
     venue?: Venue;
     title: ReactNode;
@@ -327,6 +328,8 @@ interface EventRow extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
     performerType?: string;
     performerUrl?: string;
     hasButton?: boolean;
+    hasCheckbox?: boolean;
+    onChange?: (checked: boolean) => void;
 }
 declare var EventRow: FC<EventRow>;
 
@@ -494,3 +497,6 @@ interface SuggestionGroup<T> {
     items: T[];
     renderSuggestion: SuggestionRenderProp<T>;
 }
+
+/** refine this! */
+declare const Typeahead: FC<any>;
