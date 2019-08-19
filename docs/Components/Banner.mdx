@@ -1,0 +1,62 @@
+---
+name: Banner
+menu: Components
+route: /components/Banner
+---
+
+import { PropsTable, Playground } from 'docz';
+import Banner from '../../src/components/molecules/Banner';
+import BodyText from '../../src/components/atoms/BodyText';
+import SmallText from '../../src/components/atoms/SmallText';
+import TinyText from '../../src/components/atoms/TinyText';
+import Subhead from '../../src/components/atoms/Subhead';
+
+# Banner
+
+## Installation
+
+Using the react components:
+
+    import Banner from '@vividseats/vivid-design-patterns/dist/molecules/Banner';
+
+Using the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/banner';
+
+## Props
+
+<PropsTable of={Banner} />
+
+## Basic Usage
+
+<Playground className="banner-playground">
+    <Banner>
+        <BodyText>Banner Content</BodyText>
+    </Banner>
+</Playground>
+
+## Banner with Details
+
+<Playground className="banner-playground">
+    <Banner>
+        <BodyText>Banner Content with Details</BodyText>
+        <Banner.Details>
+            <BodyText importance="2">Banner Details</BodyText>
+        </Banner.Details>
+    </Banner>
+</Playground>
+
+## Use Case: Promo Banners
+
+<Playground className="banner-playground">
+    <Banner className="bg-slate">
+        <Subhead className="--gold">Offer Type</Subhead>
+        <Subhead state="inverted">Offer Headline</Subhead>
+        <Subhead state="inverted">Offer Subheadline</Subhead>
+        <Banner.Details>
+            <BodyText importance="2">Offer Details</BodyText>
+            <TinyText state="muted">Legal Text</TinyText>
+        </Banner.Details>
+    </Banner>
+</Playground>
+
