@@ -470,6 +470,14 @@ interface LoadingSpinner {
 }
 declare const LoadingSpinner: FC<LoadingSpinner>;
 
+interface Notification extends HTMLAttributes<HTMLDivElement> {
+    isOpen: boolean;
+    type: 'toast';
+    children?: ReactNode | ReactNodeArray;
+    onClickClose?: () => void;
+}
+declare const Notification: FC<Notification>;
+
 interface Toast {
     isOpen: boolean;
     children: ReactNode | ReactNodeArray;
