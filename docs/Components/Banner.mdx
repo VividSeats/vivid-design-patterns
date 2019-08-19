@@ -10,6 +10,7 @@ import BodyText from '../../src/components/atoms/BodyText';
 import SmallText from '../../src/components/atoms/SmallText';
 import TinyText from '../../src/components/atoms/TinyText';
 import Subhead from '../../src/components/atoms/Subhead';
+import Icon from '../../src/components/atoms/Icon';
 
 # Banner
 
@@ -60,3 +61,19 @@ Using the scss files:
     </Banner>
 </Playground>
 
+## User Case: Legacy Promo Banner
+<Playground className="banner-playground">
+    <Banner className="vdp-banner--promo" style={{borderImageSource:'url(https://a.vsstatic.com/promo/10p-off-50-max.png)'}}>
+        <div class="vdp-banner__image" style={{backgroundImage:'url(https://a.vsstatic.com/promo/10p-off-50-max.png)'}}></div>
+    </Banner>
+</Playground>
+
+## Use Case: Disclaimer Banner
+<Playground className="banner-playground">
+    <Banner>
+        <span class="text-gradient-gold">
+            <Icon type="ticket-guarantee-filled"/>
+        </span>
+        <SmallText state="muted">Our Buyer Guarantee ensures valid tickets, on time. Resellers may list tickets above or below face value.</SmallText>
+    </Banner>
+</Playground>
