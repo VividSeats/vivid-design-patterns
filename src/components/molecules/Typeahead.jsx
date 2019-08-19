@@ -140,11 +140,15 @@ class Typeahead extends React.Component {
 
     onChange = e => {
         const { value } = e.target;
+        const { onChange, minQueryLength } = this.props;
         this.setState({
             highlightedIndex: -1,
             value
         });
-        this.props.onChange(value);
+
+        if (value.length >= minQueryLength) {
+            onChange(value);
+        }
     };
 
     showDropdown = () => {
@@ -193,6 +197,19 @@ class Typeahead extends React.Component {
         );
     }
 
+    shouldRenderDropdown = () => {
+        const { isDropdownShown } = this.state;
+        const { showHierarchicalDropdown, suggestions } = this.props;
+        let resultLength = suggestions.length;
+        if (showHierarchicalDropdown) {
+            resultLength = Object.keys(suggestions).reduce((acc, curr) => {
+                return (acc += suggestions[curr].items.length);
+            }, 0);
+        }
+
+        return resultLength > 0 && isDropdownShown;
+    };
+
     render() {
         const {
             className,
@@ -208,17 +225,18 @@ class Typeahead extends React.Component {
             displayLimit,
             renderInput,
             dismissOnSelect,
+            minQueryLength,
             ...htmlAttributes
         } = this.props;
-        const { isDropdownShown, value } = this.state;
-        const showDropdown = !!suggestions.length && isDropdownShown;
+        const { value } = this.state;
+        const showDropdown = this.shouldRenderDropdown();
         const dropdownContent = showHierarchicalDropdown
             ? this.getHierarchicalDropdown(suggestions)
             : this.getSuggestions({ suggestions, displayLimit });
         const a11yAttributes = {
             role: 'combobox',
             'aria-haspopup': 'listbox',
-            'aria-expanded': { showDropdown }
+            'aria-expanded': showDropdown
         };
         return (
             <div ref={this.typeahead} className={`vdp-typeahead ${className}`} onKeyDown={this.onKeyDown} {...htmlAttributes}>
@@ -248,6 +266,8 @@ Typeahead.propTypes = {
     renderInput: PropTypes.func,
     /* limit the number of suggestions displayed */
     displayLimit: PropTypes.number,
+    /* minimum query length before the onChange prop is called */
+    minQueryLength: PropTypes.number,
     dismissOnSelect: PropTypes.bool
 };
 
@@ -260,6 +280,7 @@ Typeahead.defaultProps = {
     renderDropdown: defaultRenderDropdown,
     displayLimit: 10,
     dismissOnSelect: true,
+    minQueryLength: 2,
     onDropdownShown: () => {},
     onDropdownHidden: () => {}
 };
