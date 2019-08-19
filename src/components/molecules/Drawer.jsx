@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Drawer = ({children, className, small, visible, position, ...htmlProps }) => {
+/* eslint-disable */
+
+const Drawer = ({ children, className, small, visible, position, ...htmlProps }) => {
     const drawerClassNames = classNames('vdp-drawer', {
         '--small': small,
         [className]: className
@@ -10,9 +12,9 @@ const Drawer = ({children, className, small, visible, position, ...htmlProps }) 
 
     return (
         <div className={drawerClassNames} data-position={position} data-state={visible ? 'visible' : ''} {...htmlProps}>
-            { children }
+            {children}
         </div>
-    )
+    );
 };
 
 Drawer.propTypes = {
@@ -29,15 +31,15 @@ Drawer.defaultProps = {
     visible: false
 };
 
-Drawer.Header = ({children, className = '', ...htmlProps }) => {
+Drawer.Header = ({ children, className = '', ...htmlProps }) => {
     return (
         <div className={`vdp-drawer__header ${className}`} {...htmlProps}>
-            { children }
+            {children}
         </div>
-    )
+    );
 };
 
-Drawer.Body = ({children, className = '', compressed, ...htmlProps }) => {
+Drawer.Body = ({ children, className = '', compressed, ...htmlProps }) => {
     const drawerBodyClassNames = classNames('vdp-drawer__body', {
         '--compressed': compressed,
         [className]: className
@@ -45,25 +47,17 @@ Drawer.Body = ({children, className = '', compressed, ...htmlProps }) => {
 
     return (
         <div className={drawerBodyClassNames} {...htmlProps}>
-            { children }
+            {children}
         </div>
-    )
+    );
 };
 
-Drawer.Footer = ({children, className = '', ...htmlProps }) => {
+Drawer.Footer = ({ children, className = '', ...htmlProps }) => {
     return (
         <div className={`vdp-drawer__footer ${className}`} {...htmlProps}>
-            { children }
+            {children}
         </div>
-    )
+    );
 };
 
 export default Drawer;
-
-
-
-
-
-
-
-
