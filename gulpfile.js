@@ -7,9 +7,13 @@ const rename = require('gulp-rename');
 const rollUpConfig = require('./rollup.config');
 const isDev = process.env.NODE_ENV === 'dev';
 
-gulp.task('bundle_js', () => {
-    const dist = 'dist';
+const dist = 'dist';
 
+gulp.task('copy_ts', () => {
+    return gulp.src('src/index.d.ts').pipe(gulp.dest(dist));
+});
+
+gulp.task('bundle_js', () => {
     return gulp
         .src(['src/components/**/*.{js,jsx}', 'src/index.js'])
         .pipe(gulpif(isDev, changed(dist)))

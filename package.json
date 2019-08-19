@@ -1,99 +1,99 @@
 {
-  "name": "@vividseats/vivid-design-patterns",
-  "Author": "Vivid Seats",
-  "version": "0.0.0-typeahead-1565975164",
-  "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
-    "@babel/preset-env": "^7.2.3",
-    "@babel/preset-react": "^7.0.0",
-    "@vividseats/eslint-config-vividseats": "^1.0.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-array-includes": "^2.0.3",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
-    "babel-plugin-transform-es3-property-literals": "^6.22.0",
-    "babel-plugin-transform-es5-property-mutators": "^6.24.1",
-    "babel-plugin-transform-object-assign": "^6.22.0",
-    "docz": "^0.13.4",
-    "docz-plugin-css": "^0.11.0",
-    "docz-theme-default": "^0.13.4",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.7.1",
-    "eslint": "^5.10.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "git-raw-commits": "^2.0.0",
-    "gulp": "^4.0.0",
-    "gulp-changed": "^3.2.0",
-    "gulp-if": "^2.0.2",
-    "gulp-rename": "^1.4.0",
-    "gulp-rollup-each": "^2.2.0",
-    "husky": "^1.2.0",
-    "jest": "^23.6.0",
-    "jest-junit": "^5.2.0",
-    "lint-staged": "^8.1.0",
-    "node-sass": "^4.11.0",
-    "prettier": "^1.15.3",
-    "rimraf": "^2.6.2",
-    "rollup": "^0.68.1",
-    "rollup-plugin-babel": "^4.1.0",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-replace": "^2.1.0",
-    "rollup-plugin-terser": "^3.0.0",
-    "sass-loader": "^7.1.0"
-  },
-  "files": [
-    "dist/**",
-    "src/styles/**",
-    "src/fonts/**",
-    "src/index.d.ts"
-  ],
-  "peerDependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  },
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "moment": "^2.24.0",
-    "react-slidedown": "^2.0.7"
-  },
-  "lint-staged": {
-    "*.{js,jsx,scss}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+    "name": "@vividseats/vivid-design-patterns",
+    "Author": "Vivid Seats",
+    "version": "0.0.0-typeahead-1565975164",
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+        "@babel/preset-env": "^7.2.3",
+        "@babel/preset-react": "^7.0.0",
+        "@vividseats/eslint-config-vividseats": "^1.0.0",
+        "babel-core": "^7.0.0-bridge.0",
+        "babel-eslint": "^10.0.1",
+        "babel-jest": "^23.6.0",
+        "babel-loader": "^8.0.4",
+        "babel-plugin-array-includes": "^2.0.3",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
+        "babel-plugin-transform-es3-property-literals": "^6.22.0",
+        "babel-plugin-transform-es5-property-mutators": "^6.24.1",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "docz": "^0.13.4",
+        "docz-plugin-css": "^0.11.0",
+        "docz-theme-default": "^0.13.4",
+        "enzyme": "^3.8.0",
+        "enzyme-adapter-react-16": "^1.7.1",
+        "eslint": "^5.10.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-config-prettier": "^3.3.0",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-jsx-a11y": "^6.1.2",
+        "eslint-plugin-react": "^7.11.1",
+        "git-raw-commits": "^2.0.0",
+        "gulp": "^4.0.0",
+        "gulp-changed": "^3.2.0",
+        "gulp-if": "^2.0.2",
+        "gulp-rename": "^1.4.0",
+        "gulp-rollup-each": "^2.2.0",
+        "husky": "^1.2.0",
+        "jest": "^23.6.0",
+        "jest-junit": "^5.2.0",
+        "lint-staged": "^8.1.0",
+        "node-sass": "^4.11.0",
+        "prettier": "^1.15.3",
+        "rimraf": "^2.6.2",
+        "rollup": "^0.68.1",
+        "rollup-plugin-babel": "^4.1.0",
+        "rollup-plugin-commonjs": "^9.2.0",
+        "rollup-plugin-node-resolve": "^4.0.0",
+        "rollup-plugin-replace": "^2.1.0",
+        "rollup-plugin-terser": "^3.0.0",
+        "sass-loader": "^7.1.0"
+    },
+    "files": [
+        "dist/**",
+        "src/styles/**",
+        "src/fonts/**",
+        "src/index.d.ts"
+    ],
+    "peerDependencies": {
+        "prop-types": "^15.7.2",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    },
+    "dependencies": {
+        "classnames": "^2.2.6",
+        "moment": "^2.24.0",
+        "react-slidedown": "^2.0.7"
+    },
+    "lint-staged": {
+        "*.{js,jsx,scss}": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "scripts": {
+        "clean": "./node_modules/.bin/rimraf ./dist",
+        "changelog": "node ./generate-changelog.js",
+        "start:docs": "./node_modules/.bin/docz dev",
+        "build:docs": "./node_modules/.bin/docz build",
+        "build:js": "./node_modules/.bin/gulp bundle_js && ./node_modules/.bin/gulp copy_ts",
+        "watch:js": "NODE_ENV=dev ./node_modules/.bin/gulp bundle_js watch_js",
+        "prepublishOnly": "yarn run format && yarn run test && yarn run lint && yarn run build:js",
+        "postversion": "yarn run changelog && git add CHANGELOG.md && git commit -m 'Post publish change-log generation commit'",
+        "publish:branch": "yarn publish --tag $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) --new-version 0.0.0-$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)-$(date +%s) --no-git-tag-version",
+        "format": "./node_modules/.bin/prettier --write **/*/*.{js,jsx}",
+        "lint": "./node_modules/.bin/eslint --ext .js,.jsx ./src",
+        "lint:ci": "./node_modules/.bin/eslint --format junit --output-file ./reports/eslint.xml --ext .js,.jsx ./src",
+        "test": "./node_modules/.bin/jest",
+        "test:watch": "./node_modules/.bin/jest --watch"
+    },
+    "resolutions": {
+        "docz/**/webpack": "4.28.4"
     }
-  },
-  "scripts": {
-    "clean": "./node_modules/.bin/rimraf ./dist",
-    "changelog": "node ./generate-changelog.js",
-    "start:docs": "./node_modules/.bin/docz dev",
-    "build:docs": "./node_modules/.bin/docz build",
-    "build:js": "./node_modules/.bin/gulp bundle_js",
-    "watch:js": "NODE_ENV=dev ./node_modules/.bin/gulp bundle_js watch_js",
-    "prepublishOnly": "yarn run format && yarn run test && yarn run lint && yarn run build:js",
-    "postversion": "yarn run changelog && git add CHANGELOG.md && git commit -m 'Post publish change-log generation commit'",
-    "publish:branch": "yarn publish --tag $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) --new-version 0.0.0-$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)-$(date +%s) --no-git-tag-version",
-    "format": "./node_modules/.bin/prettier --write **/*/*.{js,jsx}",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx ./src",
-    "lint:ci": "./node_modules/.bin/eslint --format junit --output-file ./reports/eslint.xml --ext .js,.jsx ./src",
-    "test": "./node_modules/.bin/jest",
-    "test:watch": "./node_modules/.bin/jest --watch"
-  },
-  "resolutions": {
-    "docz/**/webpack": "4.28.4"
-  }
 }
