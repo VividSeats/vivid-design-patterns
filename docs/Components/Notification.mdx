@@ -1,52 +1,52 @@
----	
-name: Notification	
-menu: Components	
-route: /components/Notification	
----	
+---
+name: Notification
+menu: Components
+route: /components/Notification
+---
 
-import { PropsTable, Playground } from 'docz';	
-import Notification from '../../src/components/molecules/Notification';	
-import Headline from '../../src/components/atoms/Headline';	
-import StatefulComponent from '../StatefulComponent';	
+import { PropsTable, Playground } from 'docz';
+import Notification from '../../src/components/molecules/Notification';
+import Headline from '../../src/components/atoms/Headline';
+import StatefulComponent from '../StatefulComponent';
 
- # Notification	
+# Notification
 
- ## Installation	
+## Installation
 
- Using the react components:	
+Using the react components:
 
-     import Notification from '@vividseats/vivid-design-patterns/dist/molecules/Notification';	
+    import Notification from '@vividseats/vivid-design-patterns/dist/molecules/Notification';
 
- Using the scss files:	
+Using the scss files:
 
-     @import "@vividseats/vivid-design-patterns/src/styles/notification.scss";	
+    @import "@vividseats/vivid-design-patterns/src/styles/notification.scss";
 
- ## Props	
+## Props
 
- <PropsTable of={Notification} />	
+<PropsTable of={Notification} />
 
- ## Basic Usage	
+## Basic Usage
 
- <Playground>	
-    <StatefulComponent initialState={{open: true}}>	
-            {	
-        ({state, setState}) => {	
-            const { open } = state;	
+<Playground>
+    <StatefulComponent initialState={{open: true}}>
+            {
+        ({state, setState}) => {
+            const { open } = state;
 
-             const handleClose = () => {	
-                setState({open: false})	
-                setTimeout(() => setState({open: true}), 2000)	
-            }	
+            const handleClose = () => {
+                setState({open: false})
+                setTimeout(() => setState({open: true}), 2000)
+            }
 
-             return (	
-                <Notification isOpen={open} onClickClose={handleClose} style={{backgroundColor: 'lightblue'}}>	
-                    <Headline importance={3}>Vivid Seats </Headline>	
-                    <Headline importance={3}>Buy In-App,</Headline>	
-                    <Headline importance={3}>Earn Credit Back</Headline>	
-                </Notification>	
-            )	
-        }	
-    }	
-    </StatefulComponent>	
+            return (
+                <Notification isOpen={open} onClickClose={handleClose} style={{backgroundColor: 'lightblue'}}>
+                    <Headline importance={3}>Vivid Seats </Headline>
+                    <Headline importance={3}>Buy In-App,</Headline>
+                    <Headline importance={3}>Earn Credit Back</Headline>
+                </Notification>
+            )
+        }
+    }
+    </StatefulComponent>
 
- </Playground>
+</Playground>
