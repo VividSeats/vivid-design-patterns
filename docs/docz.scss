@@ -34,6 +34,7 @@
 @import '../src/styles/skeleton';
 @import '../src/styles/tabs';
 @import '../src/styles/toggle';
+@import '../src/styles/typeahead';
 @import '../src/styles/notification';
 @import '../src/styles/typeahead';
 
@@ -104,7 +105,7 @@ form {
 }
 
 // Modal - overrides for playground wrapper
-.react-live-preview {
+[class^='Playground__Overlay'] {
     [class^='vdp-backdrop'] {
         position: absolute;
         height: 100%;

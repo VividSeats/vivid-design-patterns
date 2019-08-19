@@ -1,25 +1,30 @@
 ---
-    name: FilterGroup
-    menu: Components
-    route: /components/filter-group
+name: FilterGroup
+menu: Components
+route: /components/filter-group
 ---
 
-import { PropsTable, Playground } from 'docz'
+import { Props, Playground } from 'docz';
 import FilterGroup from '../../src/components/molecules/FilterGroup';
+import '../docz.scss';
 
 # FilterGroup
+
 ## Installation
+
 Using the react components:
 
     import FilterGroup from '@vividseats/vivid-design-patterns/dist/molecules/FilterGroup';
 
 ## Props
-<PropsTable of={FilterGroup}/>
+
+<Props of={FilterGroup} />
 
 ## Basic Usage
+
 <Playground>
 
-  <FilterGroup groupName='By Venue' onSelect={(e) => console.log(e.target.innerHTML) }>
+<FilterGroup groupName="By Venue" onSelect={e => console.log(e.target.innerHTML)}>
     <FilterGroup.Item>All-State Arena</FilterGroup.Item>
     <FilterGroup.Item>Soldier Field</FilterGroup.Item>
     <FilterGroup.Item>United Center</FilterGroup.Item>
@@ -28,36 +33,44 @@ Using the react components:
     <FilterGroup.Item>Oracle Arena</FilterGroup.Item>
     <FilterGroup.Item>Pepsi Center</FilterGroup.Item>
     <FilterGroup.Item>Kohl Center</FilterGroup.Item>
-  </FilterGroup>
+</FilterGroup>
 
 </Playground>
 
 ### Selection Callback
+
 `onSelect={(e) => {alert('ID of element:' + e.target.id)`
+
 <Playground>
-    <FilterGroup groupName='By Teams' onSelect={(e) => {alert('ID of element: ' + e.target.id) }}>
-      <FilterGroup.Item id="1">Chicago White Sox</FilterGroup.Item>
-      <FilterGroup.Item id="2">Chicago Cubs</FilterGroup.Item>
-      <FilterGroup.Item id="3">Anaheim Angels</FilterGroup.Item>
-      <FilterGroup.Item id="4">Colorado Rockies</FilterGroup.Item>
-      <FilterGroup.Item id="5">Atlanta Braves</FilterGroup.Item>
-      <FilterGroup.Item id="6">LA Dodgers</FilterGroup.Item>
-      <FilterGroup.Item id="7">New York Yankees</FilterGroup.Item>
-      <FilterGroup.Item id="8">New York Mets</FilterGroup.Item>
+    <FilterGroup
+        groupName="By Teams"
+        onSelect={e => {
+            alert('ID of element: ' + e.target.id);
+        }}>
+        <FilterGroup.Item id="1">Chicago White Sox</FilterGroup.Item>
+        <FilterGroup.Item id="2">Chicago Cubs</FilterGroup.Item>
+        <FilterGroup.Item id="3">Anaheim Angels</FilterGroup.Item>
+        <FilterGroup.Item id="4">Colorado Rockies</FilterGroup.Item>
+        <FilterGroup.Item id="5">Atlanta Braves</FilterGroup.Item>
+        <FilterGroup.Item id="6">LA Dodgers</FilterGroup.Item>
+        <FilterGroup.Item id="7">New York Yankees</FilterGroup.Item>
+        <FilterGroup.Item id="8">New York Mets</FilterGroup.Item>
     </FilterGroup>
 </Playground>
 
 ### Limit
+
 `limit={2}`
+
 <Playground>
-    <FilterGroup groupName='By Teams' limit={2}>
-      <FilterGroup.Item id="1">Chicago White Sox</FilterGroup.Item>
-      <FilterGroup.Item id="2">Chicago Cubs</FilterGroup.Item>
-      <FilterGroup.Item id="3">Anaheim Angels</FilterGroup.Item>
-      <FilterGroup.Item id="4">Colorado Rockies</FilterGroup.Item>
-      <FilterGroup.Item id="5">Atlanta Braves</FilterGroup.Item>
-      <FilterGroup.Item id="6">LA Dodgers</FilterGroup.Item>
-      <FilterGroup.Item id="7">New York Yankees</FilterGroup.Item>
-      <FilterGroup.Item id="8">New York Mets</FilterGroup.Item>
+    <FilterGroup groupName="By Teams" limit={2}>
+        <FilterGroup.Item id="1">Chicago White Sox</FilterGroup.Item>
+        <FilterGroup.Item id="2">Chicago Cubs</FilterGroup.Item>
+        <FilterGroup.Item id="3">Anaheim Angels</FilterGroup.Item>
+        <FilterGroup.Item id="4">Colorado Rockies</FilterGroup.Item>
+        <FilterGroup.Item id="5">Atlanta Braves</FilterGroup.Item>
+        <FilterGroup.Item id="6">LA Dodgers</FilterGroup.Item>
+        <FilterGroup.Item id="7">New York Yankees</FilterGroup.Item>
+        <FilterGroup.Item id="8">New York Mets</FilterGroup.Item>
     </FilterGroup>
 </Playground>

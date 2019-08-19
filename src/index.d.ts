@@ -470,9 +470,27 @@ interface LoadingSpinner {
 }
 declare const LoadingSpinner: FC<LoadingSpinner>;
 
-interface Toast {
+interface Notification extends HTMLAttributes<HTMLDivElement> {
     isOpen: boolean;
-    children: ReactNode | ReactNodeArray;
-    animateOpacity?: boolean;
+    type: 'toast';
+    children?: ReactNode | ReactNodeArray;
+    onClickClose?: () => void;
 }
-declare const Toast: FC<Toast>;
+declare const Notification: FC<Notification>;
+
+interface RenderArgument<T = any> {
+    isHighlighted: boolean;
+    suggestionProps: {
+        onClick: MouseEvent<HTMLElement>;
+        onMouseEnter: MouseEvent<HTMLElement>;
+    };
+    suggestion: T;
+}
+
+type SuggestionRenderProp<T = any> = (args: RenderArgument<T>) => ReactNode;
+
+interface SuggestionGroup<T> {
+    title: string;
+    items: T[];
+    renderSuggestion: SuggestionRenderProp<T>;
+}

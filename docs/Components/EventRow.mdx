@@ -1,15 +1,18 @@
 ---
-    name: EventRow
-    menu: Components
-    route: /components/event-row
+name: EventRow
+menu: Components
+route: /components/event-row
 ---
 
-import { PropsTable, Playground } from 'docz';
+import { Props, Playground } from 'docz';
 
 import EventRow from '../../src/components/molecules/EventRow';
+import '../docz.scss';
 
 # EventRow
+
 ## Installation
+
 Using the react components:
 
     import EventRow from '@vividseats/vivid-design-patterns/dist/molecules/EventRow';
@@ -19,88 +22,107 @@ Using the scss files:
     @import '@vividseats/vivid-design-patterns/src/styles/eventRow.scss';
 
 ## EventRow Props
-<PropsTable of={EventRow}/>
+
+<Props of={EventRow} />
 
 # Examples
 
 ## Default
+
 `className="vp-event-row"`
+
 <Playground>
-    <EventRow {...{
-        href: 'javascript:alert("click")',
-        title: 'Chicago Blackhawks',
-        subtitle: 'United Center - Chicago, IL'
-    }} />
+    <EventRow
+        {...{
+            href: 'javascript:alert("click")',
+            title: 'Chicago Blackhawks',
+            subtitle: 'United Center - Chicago, IL'
+        }}
+    />
 </Playground>
 
 ## Date Range
+
 <Playground>
-    <EventRow {...{
-        dateRange: 'Aug 21. 2018 - Sept 16, 2018',
-        href: 'javascript:alert("click")',
-        title: 'Chicago Blackhawks',
-        subtitle: 'United Center - Chicago, IL'
-    }} />
+    <EventRow
+        {...{
+            dateRange: 'Aug 21. 2018 - Sept 16, 2018',
+            href: 'javascript:alert("click")',
+            title: 'Chicago Blackhawks',
+            subtitle: 'United Center - Chicago, IL'
+        }}
+    />
 </Playground>
 
 ## Thumbnail
+
 <Playground>
-    <EventRow {...{
-        href: 'javascript:alert("click")',
-        title: 'Chicago Blackhawks',
-        subtitle: 'United Center - Chicago, IL',
-        thumbnail: {
-            src: 'https://a.vsstatic.com/event/concerts/taylor-swift.jpg',
-            alt: 'Taylor Swift Tickets'
-        }
-    }} />
+    <EventRow
+        {...{
+            href: 'javascript:alert("click")',
+            title: 'Chicago Blackhawks',
+            subtitle: 'United Center - Chicago, IL',
+            thumbnail: {
+                src: 'https://a.vsstatic.com/event/concerts/taylor-swift.jpg',
+                alt: 'Taylor Swift Tickets'
+            }
+        }}
+    />
 </Playground>
 
 ## Date
+
 <Playground>
-    <EventRow {...{
-        href: 'javascript:alert("click")',
-        title: 'Chicago Blackhawks',
-        subtitle: 'United Center - Chicago, IL',
-        date: new Date().toUTCString()
-    }} />
+    <EventRow
+        {...{
+            href: 'javascript:alert("click")',
+            title: 'Chicago Blackhawks',
+            subtitle: 'United Center - Chicago, IL',
+            date: new Date().toUTCString()
+        }}
+    />
 </Playground>
 
 ## Passing in Venue Object
-The EventRow component also takes in a venue object. If passed, it will be displayed as the subtitle on the row.
-<Playground>
-    <EventRow {...{
-    href: 'javascript:alert("click")',
-    title: 'Chicago Blackhawks',
-    venue: {
-        name: 'United Center',
-        regionCode: 'IL',
-        countryCode: 'US',
-        city: 'Chicago',
-    },
-    date: new Date().toUTCString()
-    }} />
-</Playground>
 
+The EventRow component also takes in a venue object. If passed, it will be displayed as the subtitle on the row.
+
+<Playground>
+    <EventRow
+        {...{
+            href: 'javascript:alert("click")',
+            title: 'Chicago Blackhawks',
+            venue: {
+                name: 'United Center',
+                regionCode: 'IL',
+                countryCode: 'US',
+                city: 'Chicago'
+            },
+            date: new Date().toUTCString()
+        }}
+    />
+</Playground>
 
 ## Events past current calendar year
 
 If a event is not in the current year, the event will display with the year badge.
 
-
 <Playground>
-    <EventRow {...{
-        href: 'javascript:alert("click")',
-        title: 'Chicago Blackhawks',
-        subtitle: 'United Center - Chicago, IL',
-        date: new Date().setFullYear(new Date().getFullYear() + 1)
-    }} />
+    <EventRow
+        {...{
+            href: 'javascript:alert("click")',
+            title: 'Chicago Blackhawks',
+            subtitle: 'United Center - Chicago, IL',
+            date: new Date().setFullYear(new Date().getFullYear() + 1)
+        }}
+    />
 </Playground>
 
-
 ## Checkbox
+
 To allow the user to check and uncheck the event, add the `hasCheckbox` and `onChange` props
 `className="vp-event-row"`
+
 <Playground>
     <EventRow
         onChange={state => console.log(`the event row is now ${state ? '' : 'not '}checked!`)}
