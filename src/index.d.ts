@@ -268,13 +268,14 @@ interface VividSeatsLogo extends HTMLAttributes<HTMLAnchorElement> {
 declare var VividSeatsLogo: FC<VividSeatsLogo>;
 
 interface Accordion {
+    children?: ReactNode | ReactNodeArray;
     initialOpenedIndex?: number;
     /** For controlled components. Use -1 to indicate no Collapse components are open. */
     openedIndex?: number;
     /** For use with controlled props. Fires when an accordion is open with the opened element's index */
-    onAccordionOpen: (currentIndex: number) => void;
+    onAccordionOpen?: (currentIndex: number) => void;
 }
-declare var Accordion: FC<Accordion>;
+declare const Accordion: FC<Accordion> & { Collapse: FC<Collapse> };
 
 interface Card {
     type?: 'standard' | 'list' | 'anchor';
@@ -284,7 +285,7 @@ interface Card {
     role?: string;
 }
 
-declare var Card: FC<Card>;
+declare const Card: FC<Card>;
 
 interface Collapse extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
     open?: boolean;
@@ -292,10 +293,10 @@ interface Collapse extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
     wrap?: boolean;
     collapseOnMobileOnly?: boolean;
     onOpenChange?: (openState: boolean) => void;
-    title: ReactNode;
+    title?: ReactNode;
 }
 
-declare var Collapse: FC<Collapse>;
+declare const Collapse: FC<Collapse>;
 
 interface Column extends HTMLAttributes<HTMLDivElement> {}
 declare var Column: FC<Column>;
@@ -389,7 +390,7 @@ interface Modal extends HTMLAttributes<HTMLElement> {
     closeOnBackdropClick?: boolean;
 }
 
-declare const Modal: FC<Modal>;
+declare const Modal: FC<Modal> & { Footer: FC<ModalFooter>; Header: FC<ModalHeader>; Body: FC<ModalBody>; Backdrop: FC<BackdropProps> };
 
 interface PasswordInput extends Input {}
 declare const PasswordInput: FC<PasswordInput>;
@@ -499,4 +500,4 @@ interface SuggestionGroup<T> {
 }
 
 /** refine this! */
-declare const Typeahead: FC<any>;
+declare const Typeahead: FC<any> & any;
