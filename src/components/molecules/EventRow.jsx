@@ -31,7 +31,7 @@ const MobileMinListCol = ({ minListPrice = 0, isInternationalVenue }) => (
         </SmallText>
         <BodyText height="compressed" className="lead-price" importance={2}>
             ${minListPrice}
-            {!!isInternationalVenue && <div>USD</div>}
+            {!!isInternationalVenue && <p className="usd">USD</p>}
         </BodyText>
     </div>
 );
