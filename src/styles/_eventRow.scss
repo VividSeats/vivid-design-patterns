@@ -8,7 +8,7 @@
 $column-date-width: 5rem;
 $column-thumb-width: 4.25rem;
 $column-thumb-margin: $sizing-MD;
-$column-button-width: 6.75rem;
+$column-button-width: 8.2rem;
 $row-height: 4.5rem;
 
 [class*='vdp-event-row']:not([class*='__']) {
@@ -44,11 +44,36 @@ $row-height: 4.5rem;
 
         @include size-min-tablet {
             display: inherit;
-            width: $column-button-width;
+            width: $column-button-width !important;
             padding-right: $sizing-MD;
             text-align: right;
+            i {
+                font-size: 0.9em;
+            }
+            button {
+                padding: 0 !important;
+            }
         }
     }
+
+    &[class*='--mobile-button'] {
+        text-align: right;
+        padding-right: $sizing-SM;
+
+        i {
+            color: #888b93;
+        }
+
+        .lead-price {
+            color: $color-brand-blue;
+            font-weight: bold;
+        }
+
+        @include size-min-tablet {
+            display: none !important;
+        }
+    }
+
     &[class*='--date'] {
         @include border(right);
         padding: $sizing-2XS $sizing-SM;
