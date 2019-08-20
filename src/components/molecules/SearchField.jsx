@@ -4,8 +4,19 @@ import Icon from '../atoms/Icon';
 import onEnterPress from '../../utils/onEnterPress';
 import { HeaderContext } from './Header';
 
-const SearchField = props => {
-    const [inputValue, setInputValue] = useState(props.value);
+const SearchField = ({
+    id = 'searchField',
+    name = 'searchField',
+    type = 'text',
+    autoComplete = 'off',
+    placeholder = '',
+    className = '',
+    onChange = () => {},
+    onKeyPress = () => {},
+    onSubmit = () => {},
+    ...props
+}) => {
+    const [inputValue, setInputValue] = useState(props.value || '');
 
     SearchField.propTypes = {
         id: PropTypes.string,
@@ -25,80 +36,45 @@ const SearchField = props => {
         onSubmit: PropTypes.func
     };
 
-    SearchField.defaultProps = {
-        id: 'searchField',
-        name: 'searchField',
-        value: '',
-        type: 'text',
-        autoComplete: 'off',
-        placeholder: '',
-        className: '',
-        onClick: () => {},
-        onFocus: () => {},
-        onBlur: () => {},
-        onChange: () => {},
-        onMouseLeave: () => {},
-        onMouseEnter: () => {},
-        onKeyPress: () => {},
-        onSubmit: () => {}
-    };
+    const inputRef = useContext(HeaderContext);
 
     const resetInput = () => {
         setInputValue('');
-        props.onChange('');
+        onChange('');
     };
 
-    const onChange = event => {
-        const { value } = event.target;
-        setInputValue(value);
-        props.onChange(event);
+    const internalOnChange = event => {
+        const { value: eventValue } = event.currentTarget;
+        setInputValue(eventValue);
+        onChange(event);
     };
 
-    const onKeyPress = event => {
-        const { value } = event.target;
+    const internalOnKeyPress = event => {
+        const { value: eventValue } = event.target;
         const isEnterPressed = event.which === 13 || event.keyCode === 13 || event.key === 'Enter';
         if (isEnterPressed) {
-            props.onSubmit(value);
+            onSubmit(eventValue);
         }
-        props.onKeyPress(value);
-    };
-
-    const {
-        className,
-        onClick,
-        onFocus,
-        onMouseEnter,
-        onMouseLeave,
-        onBlur,
-        placeholder,
-        name,
-        autoComplete,
-        id,
-        type,
-        onSubmit,
-        value,
-        ...htmlAttributes
-    } = props;
-    const inputProps = {
-        onMouseEnter,
-        onMouseLeave,
-        onClick,
-        onFocus,
-        onBlur,
-        placeholder,
-        name,
-        id,
-        type,
-        autoComplete,
-        value: inputValue,
-        onChange,
-        onKeyPress,
-        ...htmlAttributes
+        onKeyPress(eventValue);
     };
     return (
         <div className="vdp-search-field">
             <Icon className="vdp-search-field__icon-search" type="search" />
-            <input className={`vdp-search-field__input ${className}`} {...inputProps} />
+            <input
+                className={`vdp-search-field__input ${className}`}
+                {...{
+                    ...props,
+                    value: inputValue,
+                    onChange: internalOnChange,
+                    onKeyPress: internalOnKeyPress,
+                    id,
+                    name,
+                    type,
+                    autoComplete,
+                    placeholder,
+                    ref: inputRef
+                }}
+            />
             {!!inputValue && (
                 <Icon
                     className="vdp-search-field__icon-close"
