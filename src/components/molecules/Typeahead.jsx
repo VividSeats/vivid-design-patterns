@@ -207,7 +207,7 @@ class Typeahead extends React.Component {
         const { suggestions } = this.props;
         return suggestions.reduce((acc, curr) => {
             const { limit, items } = curr;
-            const displayedItems = typeof limit !== 'undefined' ? items.splice(0, limit) : items;
+            const displayedItems = typeof limit !== 'undefined' ? items.slice(0, limit) : items;
             return [...acc, ...displayedItems];
         }, []);
     }
