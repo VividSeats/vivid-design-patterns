@@ -23,7 +23,7 @@ Drawer.propTypes = {
     className: PropTypes.string,
     small: PropTypes.bool,
     visible: PropTypes.bool,
-    position: PropTypes.oneOf(['0', '1', '2']).isRequired
+    position: PropTypes.oneOf(['0', '1', '2'])
 };
 
 Drawer.defaultProps = {

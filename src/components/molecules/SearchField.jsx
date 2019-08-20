@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Icon from '../atoms/Icon';
 import onEnterPress from '../../utils/onEnterPress';
 
 class SearchField extends React.Component {
@@ -100,13 +101,14 @@ class SearchField extends React.Component {
         };
         return (
             <div className="vdp-search-field">
-                <i className="vdp-search-field__icon-search vdp-icon-search" />
+                <Icon className="vdp-search-field__icon-search" type="search" />
                 <input className={`vdp-search-field__input ${className}`} {...props} />
                 {!!inputValue && (
-                    <i
-                        className="vdp-search-field__icon-close vdp-icon-close-circle"
+                    <Icon
+                        className="vdp-search-field__icon-close"
+                        type="close-circle"
                         onClick={this.resetInput}
-                        onKeyPress={onEnterPress.bind(this.resetInput, this)}
+                        onKeyPress={() => onEnterPress(this.resetInput)}
                     />
                 )}
             </div>

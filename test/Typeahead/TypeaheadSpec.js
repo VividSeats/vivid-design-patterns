@@ -6,13 +6,15 @@ describe('<Typeahead />', () => {
     const getSuggestions = jest.fn();
     const onSelect = jest.fn();
     describe('Default typeahead component', () => {
-        const component = <Typeahead onChange={getSuggestions} placeholder="Search" onSelect={onSelect} />;
-        it('Calls onChange when user starts typing in the input', () => {
+        const component = <Typeahead onChange={getSuggestions} placeholder="Search" onSelect={onSelect} minQueryLength={3} />;
+        it('Calls onChange when user starts typing in the input greater than minQueryLength', () => {
             const wrapper = mount(component);
             const input = wrapper.find('input');
             expect(input.exists()).toBe(true);
             input.simulate('change', { target: { value: 'a' } });
-            expect(getSuggestions).toBeCalledWith('a');
+            expect(getSuggestions).not.toHaveBeenCalled();
+            input.simulate('change', { target: { value: 'abc' } });
+            expect(getSuggestions).toBeCalledWith('abc');
         });
 
         it('It displays a list of suggestions when suggestions are present', () => {
@@ -105,7 +107,9 @@ describe('<Typeahead />', () => {
         const getSuggestions = jest.fn();
 
         const onSelect = jest.fn();
-        const component = <Typeahead showHierarchicalDropdown onChange={getSuggestions} placeholder="Search" onSelect={onSelect} />;
+        const component = (
+            <Typeahead showHierarchicalDropdown onChange={getSuggestions} placeholder="Search" onSelect={onSelect} minQueryLength={0} />
+        );
 
         it('Calls onChange when user starts typing in the input', () => {
             const wrapper = mount(component);
