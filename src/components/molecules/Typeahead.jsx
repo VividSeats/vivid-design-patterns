@@ -20,8 +20,17 @@ function defaultRenderDropdown(dropDownContent) {
 }
 
 // eslint-disable-next-line react/prop-types
-function defaultRenderInput({ placeholder, onChange, onFocus, value, ...a11yAttributes }) {
-    return <SearchField placeholder={placeholder} onChange={onChange} onFocus={onFocus} value={value} {...a11yAttributes} />;
+function defaultRenderInput({ placeholder, onChange, onFocus, value, handleReset, ...a11yAttributes }) {
+    return (
+        <SearchField
+            placeholder={placeholder}
+            onChange={onChange}
+            onFocus={onFocus}
+            value={value}
+            onReset={handleReset}
+            {...a11yAttributes}
+        />
+    );
 }
 
 class Typeahead extends React.Component {
@@ -251,7 +260,14 @@ class Typeahead extends React.Component {
         };
         return (
             <div ref={this.typeahead} className={`vdp-typeahead ${className}`} onKeyDown={this.onKeyDown} {...htmlAttributes}>
-                {renderInput({ placeholder, onFocus: this.showDropdown, onChange: this.onChange, value, ...a11yAttributes })}
+                {renderInput({
+                    placeholder,
+                    onFocus: this.showDropdown,
+                    onChange: this.onChange,
+                    value,
+                    handleReset: () => this.setState({ value: '' }),
+                    ...a11yAttributes
+                })}
                 {showDropdown && <Typeahead.Dropdown>{renderDropdown(dropdownContent)}</Typeahead.Dropdown>}
             </div>
         );
