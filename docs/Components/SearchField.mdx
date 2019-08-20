@@ -7,9 +7,11 @@ route: /components/search-field
 import { Props, Playground } from 'docz';
 import SearchField from '../../src/components/molecules/SearchField';
 import Header from '../../src/components/molecules/Header';
+import Button from '../../src/components/atoms/Button';
+import StatefulComponent from '../StatefulComponent';
 import '../docz.scss';
 
-# Button
+# Search Field
 
 ## Installation
 
@@ -71,10 +73,31 @@ Using the scss files:
     />
 </Playground>
 
-### withHeaderContext
+### With Header Context
+
+When nested as a child of `<Header />`, pass a `RefObject` as a prop to `<Header />` to gain access to the `input` DOM element within `SearchField`
 
 <Playground>
-    <Header inputRef={React.createRef()}>
-        <SearchField />
-    </Header>
+        <StatefulComponent initialState={{open: true}}>
+            { ({state, setState}) => {
+            const ref = React.createRef();
+
+            const handleClick = () => {
+                ref.current.focus();
+            }
+
+            return (
+                <>
+                <Button onClick={handleClick}>Focus!</Button>
+                <br />
+                <br />
+                    <Header inputRef={ref}>
+                        <SearchField />
+                    </Header>
+                </>
+            )
+        }
+    }
+    </StatefulComponent>
+
 </Playground>
