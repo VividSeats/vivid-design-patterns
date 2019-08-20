@@ -448,6 +448,7 @@ declare const SkeletonLoader: FC<SkeletonLoader>;
 interface TabGroup extends HTMLAttributes<HTMLUListElement> {
     dark?: boolean;
     compressed?: boolean;
+    type?: 'bar' | 'group';
 }
 declare const TabGroup: FC<TabGroup>;
 
@@ -509,7 +510,7 @@ interface Drawer {}
 declare const Drawer: FC<any> & { Header: FC<any>; Body: FC<any>; Footer: FC<any> };
 
 interface Header {
-    inputRef?: RefObject;
+    inputRef?: RefObject<HTMLElement>;
     children: ReactNode | ReactNodeArray;
 }
 declare const Header: FC<Header>;
