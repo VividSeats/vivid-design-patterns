@@ -206,7 +206,9 @@ class Typeahead extends React.Component {
     flattenSuggestions() {
         const { suggestions } = this.props;
         return suggestions.reduce((acc, curr) => {
-            return [...acc, ...curr.items];
+            const { limit, items } = curr;
+            const displayedItems = typeof limit !== 'undefined' ? items.slice(0, limit) : items;
+            return [...acc, ...displayedItems];
         }, []);
     }
 
