@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../atoms/Icon';
 import onEnterPress from '../../utils/onEnterPress';
@@ -19,10 +19,6 @@ const SearchField = ({
     ...props
 }) => {
     const inputRef = useContext(HeaderContext);
-
-    const resetInput = () => {
-        onReset();
-    };
 
     const internalOnKeyPress = event => {
         const { value: eventValue } = event.target;
@@ -54,8 +50,8 @@ const SearchField = ({
                 <Icon
                     className="vdp-search-field__icon-close"
                     type="close-circle"
-                    onClick={resetInput}
-                    onKeyPress={() => onEnterPress(resetInput)}
+                    onClick={onReset}
+                    onKeyPress={() => onEnterPress(onReset)}
                 />
             )}
         </div>
