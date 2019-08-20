@@ -215,7 +215,6 @@ describe('<Typeahead />', () => {
                 .find('.vdp-typeahead__suggestion')
                 .first()
                 .simulate('mouseenter');
-            console.log(wrapper.debug());
             expect(
                 wrapper
                     .find('.vdp-typeahead__suggestion')
