@@ -30,6 +30,11 @@
         z-index: $z-index-nav !important;
         width: 100%;
         padding-inline-start: 0;
+        position: absolute;
+        left: 0px;
+        display: block;
+        right: auto;
+
         @include size-only-mobile {
             @include border(top);
             bottom: 0;

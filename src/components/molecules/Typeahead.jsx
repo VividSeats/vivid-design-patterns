@@ -122,6 +122,7 @@ class Typeahead extends React.Component {
                 this.onSelect(flatSuggestions[highlightedIndex]);
             }
         } else if (keyCode === '40' || which === '40' || key === 'ArrowDown') {
+            e.preventDefault();
             if (highlightedIndex < flatSuggestions.length - 1) {
                 highlightedIndex += 1;
             }
@@ -130,6 +131,7 @@ class Typeahead extends React.Component {
                 highlightedIndex
             });
         } else if (keyCode === '38' || which === '38' || key === 'ArrowUp') {
+            e.preventDefault();
             if (highlightedIndex > -1) {
                 highlightedIndex -= 1;
             }
@@ -149,7 +151,10 @@ class Typeahead extends React.Component {
         });
 
         if (value.length >= minQueryLength) {
+            this.showDropdown();
             onChange(value);
+        } else {
+            this.hideDropdown();
         }
     };
 
