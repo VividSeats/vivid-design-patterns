@@ -73,7 +73,9 @@ Using the scss files:
     />
 </Playground>
 
-### with header context
+### With Header Context
+
+When nested as a child of `<Header />`, pass a `RefObject` as a prop to `<Header />` to gain access to the `input` DOM element within `SearchField`
 
 <Playground>
         <StatefulComponent initialState={{open: true}}>
@@ -87,6 +89,8 @@ Using the scss files:
             return (
                 <>
                 <Button onClick={handleClick}>Focus!</Button>
+                <br />
+                <br />
                     <Header inputRef={ref}>
                         <SearchField />
                     </Header>

@@ -14,6 +14,7 @@ const SearchField = ({
     onChange = () => {},
     onKeyPress = () => {},
     onSubmit = () => {},
+    onReset = () => {},
     ...props
 }) => {
     const [inputValue, setInputValue] = useState(props.value || '');
@@ -33,14 +34,15 @@ const SearchField = ({
         onMouseLeave: PropTypes.func,
         onMouseEnter: PropTypes.func,
         onKeyPress: PropTypes.func,
-        onSubmit: PropTypes.func
+        onSubmit: PropTypes.func,
+        onReset: PropTypes.func
     };
 
     const inputRef = useContext(HeaderContext);
 
     const resetInput = () => {
         setInputValue('');
-        onChange('');
+        onReset();
     };
 
     const internalOnChange = event => {
