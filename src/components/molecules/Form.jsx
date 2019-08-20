@@ -99,7 +99,7 @@ class Form extends React.Component {
         const { props, setForm } = this;
 
         // pull out htmlAttributes from props and pass them to the dom element
-        const { onSubmit, onValidationFailure, scrollToTopError, ...htmlAttributes } = props;
+        const { onSubmit, onValidationFailure, ...htmlAttributes } = props;
         return (
             <form {...{ onSubmit: this.onSubmit, ...htmlAttributes }}>
                 <FormContext.Provider value={{ setForm }}>{props.children}</FormContext.Provider>

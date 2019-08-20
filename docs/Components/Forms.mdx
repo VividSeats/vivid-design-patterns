@@ -1,21 +1,25 @@
 ---
-    name: Forms
-    menu: Components
-    route: /components/forms
+name: Forms
+menu: Components
+route: /components/forms
 ---
 
-import { PropsTable, Playground } from 'docz'
+import { Props, Playground } from 'docz';
 import Form from '../../src/components/molecules/Form';
 import TextField from '../../src/components/molecules/TextField';
 import Button from '../../src/components/atoms/Button';
+import '../docz.scss';
 
 # Forms
+
 ## Installation
+
 Using the react component:
 
     import Form from '@vividseats/vivid-design-patterns/dist/molecules/Form';
 
 ## Basic Usage
+
 Forms provide a `setForm` callback via a Context Consumer. This `setForm` callback, when set as the `ref` on the form fields, attaches them to the form. When the form is submitted, each field is validated via the field's `validationMethod` prop. `validationMethod` should be a function that takes a value as a parameter and returns an error message if the validation fails and null if the validation is successful.
 `name` prop of input and select elements are used as property keys in output object in the `onSubmit` callback `prop`.
 
@@ -35,7 +39,9 @@ Forms provide a `setForm` callback via a Context Consumer. This `setForm` callba
             )}
         </Form.ContextConsumer>
     </Form>
+
 </Playground>
 
 ## Props
-<PropsTable of={Form}/>
+
+<Props of={Form} />

@@ -1,14 +1,17 @@
 ---
-    name: Button
-    menu: Components
-    route: /components/button
+name: Button
+menu: Components
+route: /components/button
 ---
 
-import { PropsTable, Playground } from 'docz'
+import { Props, Playground } from 'docz';
 import Button from '../../src/components/atoms/Button';
+import '../docz.scss';
 
 # Button
+
 ## Installation
+
 Using the react components:
 
     import Button from '@vividseats/vivid-design-patterns/dist/atoms/Button';
@@ -18,59 +21,85 @@ Using the scss files:
     @import '@vividseats/vivid-design-patterns/src/styles/button.scss';
 
 ## Basic Usage
+
 `class="vdp-button"`
+
 <Playground>
-<Button>Click</Button>
+    <Button>Click</Button>
 </Playground>
 
 ## Props
-<PropsTable of={Button}/>
+
+<Props of={Button} />
 
 ## Attributes
+
 ### Links
 
 Buttons with a href attribute will render as `<a>` tags instead of `<button>` tags
 
 ### Sizing
+
 `class="vdp-button--small"`
 `class="vdp-button--large"`
+
 <Playground>
-    <Button size='small'>Small</Button>
+    <Button size="small">Small</Button>
     <Button>Default</Button>
-    <Button size='large'>Large</Button>
+    <Button size="large">Large</Button>
 </Playground>
 
 ### Importance
+
 `class="vdp-button--secondary"`
 `class="vdp-button--tertiary"`
 `class="vdp-button--text"`
 `class="vdp-button--text--muted"`
+
 <Playground>
     <Button>Default</Button>
-    <Button importance='secondary'>Secondary</Button>
-    <Button importance='tertiary'>Tertiary</Button>
-    <Button importance='text'>Text</Button>
-    <Button importance='text' muted>Muted Text</Button>
+    <Button importance="secondary">Secondary</Button>
+    <Button importance="tertiary">Tertiary</Button>
+    <Button importance="text">Text</Button>
+    <Button importance="text" muted>
+        Muted Text
+    </Button>
 </Playground>
 
 ### Grouped
+
 `class="vdp-grouped-button"`
 `class="vdp-grouped-button--selected"`
+
 <Playground>
     <Button grouped>Grouped Button</Button>
     <Button grouped>Grouped Button</Button>
-    <Button grouped selected>Selected Grouped Button</Button>
+    <Button grouped selected>
+        Selected Grouped Button
+    </Button>
+</Playground>
+
+### Icon
+
+<Playground>
+    <Button icon="filter">Add Filters</Button>
+    <Button icon="refresh">Refresh</Button>
+    <Button icon="copy">Copy</Button>
 </Playground>
 
 ### Block
- `class="vdp-button--block"`
+
+`class="vdp-button--block"`
+
 <Playground>
     <Button block>Block</Button>
 </Playground>
 
 ### Miscellaneous
+
 `class="vdp-button--raised"`
 `class="vdp-button--disabled"`
+
 <Playground>
     <Button raised>Raised</Button>
     <Button disabled>Disabled</Button>

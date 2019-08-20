@@ -1,37 +1,35 @@
 ---
-    name: Column
-    menu: Components
-    route: /components/column
+name: Column
+menu: Components
+route: /components/column
 ---
 
-import { PropsTable, Playground } from 'docz';
+import { Props, Playground } from 'docz';
 
 import Column from '../../src/components/molecules/Column';
 import Row from '../../src/components/molecules/Row';
+import '../docz.scss';
 
 # Column
+
 ## Installation
+
 Using the react components:
 
     import Column from '@vividseats/vivid-design-patterns/dist/molecules/Column';
 
 ## Column Props
-<PropsTable of={Column}/>
+
+<Props of={Column} />
 
 # Example
 
-
 `className="vdp-col"`
+
 <Playground>
-  <Row>
-    <Column className="">
-      1
-    </Column>
-    <Column className="">
-      +2
-    </Column>
-    <Column className="">
-      =3
-    </Column>
-  </Row>
+    <Row>
+        <Column className="">1</Column>
+        <Column className="">+2</Column>
+        <Column className="">=3</Column>
+    </Row>
 </Playground>

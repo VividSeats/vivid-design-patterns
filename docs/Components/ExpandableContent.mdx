@@ -1,14 +1,16 @@
 ---
-    name: ExpandableContent
-    menu: Components
-    route: /components/expandable-content
+name: ExpandableContent
+menu: Components
+route: /components/expandable-content
 ---
 
-import { PropsTable, Playground } from 'docz'
+import { Props, Playground } from 'docz';
 import ExpandableContent from '../../src/components/molecules/ExpandableContent';
 import Card from '../../src/components/molecules/Card';
+import '../docz.scss';
 
 ## Installation
+
 Using the react components:
 
     import ExpandableContent from '@vividseats/vivid-design-patterns/dist/molecule/ExpandableContent';
@@ -18,36 +20,55 @@ Using the scss files:
     @import '@vividseats/vivid-design-patterns/src/styles/ExpandableContent.scss';
 
 ## Basic Usage
+
 `class="vdp-expandable-content"`
 
 <Playground>
-        <Card>
-            <ExpandableContent maxHeight="30rem">
-                <Card.Body>
-                    <h2>Production Details</h2>
-                    <p className="vdp-type-body1">
-                        Lorem ipsum dolor amet biodiesel yr kombucha, kitsch everyday carry heirloom synth shaman. Street art ennui 90's la croix. Pok pok tacos single-origin coffee hoodie lyft, taxidermy cred chillwave chicharrones. Offal ennui freegan knausgaard austin etsy. Listicle four loko pork belly selfies iceland.
-                    </p>
-                    <br/>
-                    <p className="vdp-type-body1">
-                        PBR&B actually jianbing, schlitz plaid cornhole pickled. Flexitarian tote bag sartorial biodiesel, af brooklyn fashion axe put a bird on it salvia meh wolf taxidermy. Drinking vinegar DIY cloud bread chambray wolf, dreamcatcher activated charcoal helvetica gentrify. Vexillologist pabst poke, aesthetic bicycle rights af schlitz try-hard whatever pinterest pickled tilde DIY.
-                    </p>
-                    <br/>
-                    <p className="vdp-type-body1">
-                        Neutra drinking vinegar 90's helvetica letterpress microdosing kitsch narwhal kinfolk edison bulb gentrify thundercats. Subway tile poutine small batch copper mug retro vexillologist migas listicle pickled. Kale chips ethical humblebrag, cardigan photo booth cornhole shabby chic. Flexitarian health goth tbh, swag distillery raw denim truffaut stumptown. Vexillologist copper mug biodiesel, man braid four loko meh health goth la croix farm-to-table intelligentsia try-hard. Vexillologist put a bird on it gentrify thundercats. Yr truffaut crucifix shabby chic echo park yuccie farm-to-table godard hexagon poutine ennui slow-carb vegan.
-                    </p>
-                    <br/>
-                    <p className="vdp-type-body1">
-                        Godard skateboard street art jean shorts ramps, trust fund gochujang. IPhone meggings affogato thundercats raclette, paleo franzen locavore occupy mumblecore. Craft beer tousled forage, jean shorts pop-up bitters succulents farm-to-table ramps. Woke asymmetrical lomo, palo santo messenger bag sriracha tbh food truck direct trade. Leggings tbh kale chips deep v mustache. Kickstarter man braid tbh pug lumbersexual irony green juice, affogato +1 8-bit live-edge.
-                    </p>
-                    <br/>
-                    <p className="vdp-type-body1">
-                        Drinking vinegar unicorn deep v 3 wolf moon. 90's tumblr intelligentsia venmo DIY pabst pok pok humblebrag actually kale chips pitchfork schlitz tote bag hot chicken. Pinterest brunch kale chips food truck fixie hot chicken. Prism direct trade umami, art party pickled mustache hoodie pop-up meditation kinfolk heirloom vexillologist gentrify affogato. Chartreuse shoreditch locavore, craft beer jean shorts you probably haven't heard of them letterpress cardigan banjo kale chips. Copper mug retro direct trade man bun green juice chicharrones hella farm-to-table.
-                    </p>
-                </Card.Body>
-            </ExpandableContent>
-        </Card>
+    <Card>
+        <ExpandableContent maxHeight="30rem">
+            <Card.Body>
+                <h2>Production Details</h2>
+                <p className="vdp-type-body1">
+                    Lorem ipsum dolor amet biodiesel yr kombucha, kitsch everyday carry heirloom synth shaman. Street art ennui 90's la
+                    croix. Pok pok tacos single-origin coffee hoodie lyft, taxidermy cred chillwave chicharrones. Offal ennui freegan
+                    knausgaard austin etsy. Listicle four loko pork belly selfies iceland.
+                </p>
+                <br />
+                <p className="vdp-type-body1">
+                    PBR&B actually jianbing, schlitz plaid cornhole pickled. Flexitarian tote bag sartorial biodiesel, af brooklyn fashion
+                    axe put a bird on it salvia meh wolf taxidermy. Drinking vinegar DIY cloud bread chambray wolf, dreamcatcher activated
+                    charcoal helvetica gentrify. Vexillologist pabst poke, aesthetic bicycle rights af schlitz try-hard whatever pinterest
+                    pickled tilde DIY.
+                </p>
+                <br />
+                <p className="vdp-type-body1">
+                    Neutra drinking vinegar 90's helvetica letterpress microdosing kitsch narwhal kinfolk edison bulb gentrify thundercats.
+                    Subway tile poutine small batch copper mug retro vexillologist migas listicle pickled. Kale chips ethical humblebrag,
+                    cardigan photo booth cornhole shabby chic. Flexitarian health goth tbh, swag distillery raw denim truffaut stumptown.
+                    Vexillologist copper mug biodiesel, man braid four loko meh health goth la croix farm-to-table intelligentsia try-hard.
+                    Vexillologist put a bird on it gentrify thundercats. Yr truffaut crucifix shabby chic echo park yuccie farm-to-table
+                    godard hexagon poutine ennui slow-carb vegan.
+                </p>
+                <br />
+                <p className="vdp-type-body1">
+                    Godard skateboard street art jean shorts ramps, trust fund gochujang. IPhone meggings affogato thundercats raclette,
+                    paleo franzen locavore occupy mumblecore. Craft beer tousled forage, jean shorts pop-up bitters succulents farm-to-table
+                    ramps. Woke asymmetrical lomo, palo santo messenger bag sriracha tbh food truck direct trade. Leggings tbh kale chips
+                    deep v mustache. Kickstarter man braid tbh pug lumbersexual irony green juice, affogato +1 8-bit live-edge.
+                </p>
+                <br />
+                <p className="vdp-type-body1">
+                    Drinking vinegar unicorn deep v 3 wolf moon. 90's tumblr intelligentsia venmo DIY pabst pok pok humblebrag actually kale
+                    chips pitchfork schlitz tote bag hot chicken. Pinterest brunch kale chips food truck fixie hot chicken. Prism direct
+                    trade umami, art party pickled mustache hoodie pop-up meditation kinfolk heirloom vexillologist gentrify affogato.
+                    Chartreuse shoreditch locavore, craft beer jean shorts you probably haven't heard of them letterpress cardigan banjo
+                    kale chips. Copper mug retro direct trade man bun green juice chicharrones hella farm-to-table.
+                </p>
+            </Card.Body>
+        </ExpandableContent>
+    </Card>
 </Playground>
 
 ## Props
-<PropsTable of={ExpandableContent}/>
+
+<Props of={ExpandableContent} />
