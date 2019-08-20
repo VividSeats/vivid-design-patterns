@@ -160,7 +160,7 @@ class Typeahead extends React.Component {
     };
 
     showDropdown = () => {
-        if (this.props.suggestions) {
+        if (this.shouldRenderDropdown()) {
             this.setState(
                 {
                     isDropdownShown: true
