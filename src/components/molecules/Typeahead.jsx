@@ -188,6 +188,20 @@ class Typeahead extends React.Component {
         this.hideDropdown();
     };
 
+    shouldRenderDropdown = () => {
+        const { isDropdownShown } = this.state;
+        const { showHierarchicalDropdown, suggestions } = this.props;
+        let resultLength = suggestions.length;
+        if (showHierarchicalDropdown) {
+            resultLength = Object.keys(suggestions).reduce((acc, curr) => {
+                acc += suggestions[curr].items.length;
+                return acc;
+            }, 0);
+        }
+
+        return resultLength > 0 && isDropdownShown;
+    };
+
     flattenSuggestions() {
         const { suggestions } = this.props;
         return suggestions.reduce((acc, curr) => {
@@ -203,19 +217,6 @@ class Typeahead extends React.Component {
             this.props.onDropdownHidden
         );
     }
-
-    shouldRenderDropdown = () => {
-        const { isDropdownShown } = this.state;
-        const { showHierarchicalDropdown, suggestions } = this.props;
-        let resultLength = suggestions.length;
-        if (showHierarchicalDropdown) {
-            resultLength = Object.keys(suggestions).reduce((acc, curr) => {
-                return (acc += suggestions[curr].items.length);
-            }, 0);
-        }
-
-        return resultLength > 0 && isDropdownShown;
-    };
 
     render() {
         const {

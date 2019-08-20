@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
-/* eslint-disable */
+import DrawerHeader from '../atoms/DrawerHeader';
+import DrawerBody from '../atoms/DrawerBody';
+import DrawerFooter from '../atoms/DrawerFooter';
 
 const Drawer = ({ children, className, small, visible, position, ...htmlProps }) => {
     const drawerClassNames = classNames('vdp-drawer', {
@@ -19,45 +20,20 @@ const Drawer = ({ children, className, small, visible, position, ...htmlProps })
 
 Drawer.propTypes = {
     children: PropTypes.node.isRequired,
-    classNames: PropTypes.string,
+    className: PropTypes.string,
     small: PropTypes.bool,
     visible: PropTypes.bool,
     position: PropTypes.oneOf(['0', '1', '2']).isRequired
 };
 
 Drawer.defaultProps = {
-    classNames: '',
+    className: '',
     small: false,
     visible: false
 };
 
-Drawer.Header = ({ children, className = '', ...htmlProps }) => {
-    return (
-        <div className={`vdp-drawer__header ${className}`} {...htmlProps}>
-            {children}
-        </div>
-    );
-};
-
-Drawer.Body = ({ children, className = '', compressed, ...htmlProps }) => {
-    const drawerBodyClassNames = classNames('vdp-drawer__body', {
-        '--compressed': compressed,
-        [className]: className
-    });
-
-    return (
-        <div className={drawerBodyClassNames} {...htmlProps}>
-            {children}
-        </div>
-    );
-};
-
-Drawer.Footer = ({ children, className = '', ...htmlProps }) => {
-    return (
-        <div className={`vdp-drawer__footer ${className}`} {...htmlProps}>
-            {children}
-        </div>
-    );
-};
+Drawer.Header = DrawerHeader;
+Drawer.Body = DrawerBody;
+Drawer.Footer = DrawerFooter;
 
 export default Drawer;
