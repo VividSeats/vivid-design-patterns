@@ -20,7 +20,7 @@ const MinListPriceButton = ({ minListPrice = 0, isInternationalVenue }) => (
 );
 
 const MobileMinListCol = ({ minListPrice = 0, isInternationalVenue }) => (
-    <div className="vdp-event-row__col--mobile-button">
+    <div className="vdp-event-row__col--mobile-min-price">
         <SmallText>
             <i>from</i>
         </SmallText>
