@@ -114,7 +114,7 @@ const EventRow = ({
                 </div>
             )}
             {/* Button */}
-            {!!hasButton && (
+            {!!hasButton && !hasCheckbox && (
                 <div className={`${getColClassName(BUTTON)}`}>
                     {!!minListPrice ? (
                         <MinListPriceButton minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />
