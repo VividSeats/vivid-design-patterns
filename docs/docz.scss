@@ -143,3 +143,10 @@ form {
         border-radius: $border-radius-XS;
     }
 }
+
+//Typeahead
+[class^='Playground__Overlay'] {
+    .vdp-typeahead__dropdown {
+        position: initial;
+    }
+}
