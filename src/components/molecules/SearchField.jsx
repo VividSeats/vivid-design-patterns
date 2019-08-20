@@ -15,44 +15,13 @@ const SearchField = ({
     onKeyPress = () => {},
     onSubmit = () => {},
     onReset = () => {},
+    value,
     ...props
 }) => {
-    const [inputValue, setInputValue] = useState(props.value || '');
-
-    useEffect(() => {
-        setInputValue(props.value);
-    }, [props.value]);
-
-    SearchField.propTypes = {
-        id: PropTypes.string,
-        name: PropTypes.string,
-        value: PropTypes.string,
-        type: PropTypes.string,
-        autoComplete: PropTypes.string,
-        placeholder: PropTypes.string,
-        className: PropTypes.string,
-        onClick: PropTypes.func,
-        onFocus: PropTypes.func,
-        onBlur: PropTypes.func,
-        onChange: PropTypes.func,
-        onMouseLeave: PropTypes.func,
-        onMouseEnter: PropTypes.func,
-        onKeyPress: PropTypes.func,
-        onSubmit: PropTypes.func,
-        onReset: PropTypes.func
-    };
-
     const inputRef = useContext(HeaderContext);
 
     const resetInput = () => {
-        if (!props.value) setInputValue('');
         onReset();
-    };
-
-    const internalOnChange = event => {
-        const { value: eventValue } = event.currentTarget;
-        if (!props.value) setInputValue(eventValue);
-        onChange(event);
     };
 
     const internalOnKeyPress = event => {
@@ -70,8 +39,8 @@ const SearchField = ({
                 className={`vdp-search-field__input ${className}`}
                 {...{
                     ...props,
-                    value: inputValue,
-                    onChange: internalOnChange,
+                    value,
+                    onChange,
                     onKeyPress: internalOnKeyPress,
                     id,
                     name,
@@ -81,7 +50,7 @@ const SearchField = ({
                     ref: inputRef
                 }}
             />
-            {!!inputValue && (
+            {!!value && (
                 <Icon
                     className="vdp-search-field__icon-close"
                     type="close-circle"
@@ -91,6 +60,25 @@ const SearchField = ({
             )}
         </div>
     );
+};
+
+SearchField.propTypes = {
+    id: PropTypes.string,
+    name: PropTypes.string,
+    value: PropTypes.string,
+    type: PropTypes.string,
+    autoComplete: PropTypes.string,
+    placeholder: PropTypes.string,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onMouseLeave: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onKeyPress: PropTypes.func,
+    onSubmit: PropTypes.func,
+    onReset: PropTypes.func
 };
 
 export default SearchField;
