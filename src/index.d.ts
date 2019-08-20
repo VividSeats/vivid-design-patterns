@@ -15,7 +15,8 @@ import {
     Ref,
     MouseEventHandler,
     FocusEventHandler,
-    KeyboardEventHandler
+    KeyboardEventHandler,
+    RefObject
 } from 'react';
 
 type ValidationMethod = (value: string) => string | null;
@@ -451,7 +452,7 @@ interface TabGroup extends HTMLAttributes<HTMLUListElement> {
 declare const TabGroup: FC<TabGroup>;
 
 interface TextField extends Input {
-    id: string;
+    id?: string;
     label: string;
     name: string;
     /** If the noValidate prop is present, the field will not turn green or red to indicate its validation status. Do not pass this in if you are passing in a validationMethod Prop */
@@ -501,3 +502,14 @@ interface SuggestionGroup<T> {
 
 /** refine this! */
 declare const Typeahead: FC<any> & any;
+
+interface Drawer {}
+
+/** refine this! */
+declare const Drawer: FC<any> & { Header: FC<any>; Body: FC<any>; Footer: FC<any> };
+
+interface Header {
+    inputRef?: RefObject;
+    children: ReactNode | ReactNodeArray;
+}
+declare const Header: FC<Header>;
