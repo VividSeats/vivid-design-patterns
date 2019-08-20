@@ -243,7 +243,7 @@ class Typeahead extends React.Component {
             minQueryLength,
             ...htmlAttributes
         } = this.props;
-        const { value, isDropdownShown } = this.state;
+        const { value } = this.state;
         const showDropdown = this.hasSuggestions();
         const dropdownContent = showHierarchicalDropdown
             ? this.getHierarchicalDropdown(suggestions)
