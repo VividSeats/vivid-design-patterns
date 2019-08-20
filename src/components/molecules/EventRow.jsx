@@ -19,6 +19,11 @@ const MinListPriceButton = ({ minListPrice = 0, isInternationalVenue }) => (
     </Button>
 );
 
+MinListPriceButton.propTypes = {
+    minListPrice: PropTypes.number,
+    isInternationalVenue: PropTypes.bool
+};
+
 const MobileMinListCol = ({ minListPrice = 0, isInternationalVenue }) => (
     <div className="vdp-event-row__col--mobile-min-price">
         <SmallText>
@@ -30,6 +35,11 @@ const MobileMinListCol = ({ minListPrice = 0, isInternationalVenue }) => (
         </BodyText>
     </div>
 );
+
+MobileMinListCol.propTypes = {
+    minListPrice: PropTypes.number,
+    isInternationalVenue: PropTypes.bool
+};
 
 const EventRow = ({
     href,
@@ -123,7 +133,7 @@ const EventRow = ({
                     )}
                 </div>
             )}
-            {/* Mobile Col for Min List Price*/}
+            {/* Mobile Col for Min List Price */}
             {!!minListPrice && <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />}
             {/* Checkbox */}
             {hasCheckbox && (
