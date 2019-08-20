@@ -38,7 +38,7 @@ interface TypographyProps<T> extends HTMLAttributes<T> {
     className?: string;
     weight?: 'black' | 'bold' | 'medium' | 'regular';
     height?: 'compressed' | 'expanded';
-    state?: 'disabled' | 'inverted' | 'muted';
+    state?: 'disabled' | 'inverted' | 'muted' | 'hover';
     alignment?: 'left' | 'center' | 'right';
     capitalization?: 'uppercase' | 'lowercase';
     truncate?: boolean;
@@ -374,7 +374,7 @@ interface FormContextConsumer {
 declare const FormContextConsumer: FC<FormContextConsumer>;
 
 interface LinkGroup extends HTMLAttributes<HTMLUListElement> {
-    type?: 'striped' | 'muted';
+    type?: 'striped' | 'muted' | 'hover';
 }
 
 declare const LinkGroup: FC<LinkGroup>;
