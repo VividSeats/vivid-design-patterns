@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../atoms/Icon';
 import onEnterPress from '../../utils/onEnterPress';
@@ -18,6 +18,10 @@ const SearchField = ({
     ...props
 }) => {
     const [inputValue, setInputValue] = useState(props.value || '');
+
+    useEffect(() => {
+        setInputValue(props.value);
+    }, [props.value]);
 
     SearchField.propTypes = {
         id: PropTypes.string,
@@ -41,13 +45,13 @@ const SearchField = ({
     const inputRef = useContext(HeaderContext);
 
     const resetInput = () => {
-        setInputValue('');
+        if (!props.value) setInputValue('');
         onReset();
     };
 
     const internalOnChange = event => {
         const { value: eventValue } = event.currentTarget;
-        setInputValue(eventValue);
+        if (!props.value) setInputValue(eventValue);
         onChange(event);
     };
 
