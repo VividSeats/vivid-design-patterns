@@ -161,22 +161,17 @@ class Typeahead extends React.Component {
         });
 
         if (value.length >= minQueryLength) {
-            this.showDropdown();
             onChange(value);
-        } else {
-            this.hideDropdown();
         }
     };
 
     showDropdown = () => {
-        if (this.props.suggestions) {
-            this.setState(
-                {
-                    isDropdownShown: true
-                },
-                this.props.onDropdownShown
-            );
-        }
+        this.setState(
+            {
+                isDropdownShown: true
+            },
+            this.props.onDropdownShown
+        );
     };
 
     onSelect = value => {
@@ -198,9 +193,9 @@ class Typeahead extends React.Component {
         this.hideDropdown();
     };
 
-    shouldRenderDropdown = () => {
-        const { isDropdownShown } = this.state;
-        const { showHierarchicalDropdown, suggestions } = this.props;
+    hasSuggestions = () => {
+        const { isDropdownShown, value } = this.state;
+        const { showHierarchicalDropdown, suggestions, minQueryLength } = this.props;
         let resultLength = suggestions.length;
         if (showHierarchicalDropdown) {
             resultLength = Object.keys(suggestions).reduce((acc, curr) => {
@@ -209,7 +204,7 @@ class Typeahead extends React.Component {
             }, 0);
         }
 
-        return resultLength > 0 && isDropdownShown;
+        return resultLength > 0 && isDropdownShown && value.length >= minQueryLength;
     };
 
     flattenSuggestions() {
@@ -249,7 +244,7 @@ class Typeahead extends React.Component {
             ...htmlAttributes
         } = this.props;
         const { value } = this.state;
-        const showDropdown = this.shouldRenderDropdown();
+        const showDropdown = this.hasSuggestions();
         const dropdownContent = showHierarchicalDropdown
             ? this.getHierarchicalDropdown(suggestions)
             : this.getSuggestions({ suggestions, displayLimit });
