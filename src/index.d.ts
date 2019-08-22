@@ -16,7 +16,8 @@ import {
     MouseEventHandler,
     FocusEventHandler,
     KeyboardEventHandler,
-    RefObject
+    RefObject,
+    MutableRefObject
 } from 'react';
 
 type ValidationMethod = (value: string) => string | null;
@@ -66,11 +67,11 @@ interface ButtonProps extends Partial<HTMLAttributes<HTMLButtonElement | HTMLAnc
     className?: string;
     grouped?: boolean;
     importance?: 'secondary' | 'tertiary' | 'text';
-    onClick?: (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onFocus?: (e?: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onBlur?: (e?: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onMouseLeave?: (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onMouseEnter?: (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onClick?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onFocus?: (e: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onBlur?: (e: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onMouseLeave?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onMouseEnter?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
     icon?: string;
 }
 
@@ -510,7 +511,7 @@ interface Drawer {}
 declare const Drawer: FC<any> & { Header: FC<any>; Body: FC<any>; Footer: FC<any> };
 
 interface Header {
-    inputRef?: RefObject<HTMLElement>;
+    inputRef?: MutableRefObject<HTMLElement | undefined>;
     children: ReactNode | ReactNodeArray;
 }
 declare const Header: FC<Header>;
