@@ -103,6 +103,7 @@ const EventRow = ({
                 </div>
             )}
             <link className="schema-url" itemProp="url" href={href} />
+            <meta itemProp="sameAs" content={href} />
             {!!imageUrl && <meta itemProp="image" content={imageUrl} />}
             {!!schemaDescription && <meta itemProp="description" content={schemaDescription} />}
             <div itemProp="offers" itemScope itemType="http://schema.org/AggregateOffer">
