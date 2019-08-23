@@ -25,7 +25,7 @@ interface BackdropProps {
     dataState: 'opening' | 'closing' | 'opened' | 'closed';
     onClick?: (e?: MouseEvent<HTMLDivElement>) => void;
 }
-declare var Backdrop: FC<BackdropProps>;
+declare const Backdrop: FC<BackdropProps>;
 
 interface BadgeProps {
     className?: string;
@@ -73,25 +73,25 @@ interface ButtonProps extends Partial<HTMLAttributes<HTMLButtonElement | HTMLAnc
     icon?: string;
 }
 
-declare var Button: FC<ButtonProps>;
+declare const Button: FC<ButtonProps>;
 
 interface CardBodyProps {
     className?: string;
 }
-declare var CardBody: FC<CardBodyProps>;
+declare const CardBody: FC<CardBodyProps>;
 
 interface CardFooterProps {
     className?: string;
     children: ReactNode | ReactNodeArray;
     centered?: boolean;
 }
-declare var CardFooter: FC<CardFooterProps>;
+declare const CardFooter: FC<CardFooterProps>;
 
 interface CardHeaderProps {
     className?: string;
     children: ReactNode | ReactNodeArray;
 }
-declare var CardHeader: FC<CardHeaderProps>;
+declare const CardHeader: FC<CardHeaderProps>;
 
 interface CardHeroProps {
     alt: string;
@@ -99,7 +99,7 @@ interface CardHeroProps {
     imageSrc: string;
     loadImageViaCss?: boolean;
 }
-declare var CardHero: FC<CardHeroProps>;
+declare const CardHero: FC<CardHeroProps>;
 
 interface CheckboxProps {
     id: string;
@@ -110,7 +110,7 @@ interface CheckboxProps {
     label?: string;
     className?: string;
 }
-declare var Checkbox: FC<CheckboxProps>;
+declare const Checkbox: FC<CheckboxProps>;
 
 interface ChipProps {
     label: string;
@@ -118,20 +118,20 @@ interface ChipProps {
     value?: string;
     onClose?: (value?: string) => void;
 }
-declare var Chip: FC<ChipProps>;
+declare const Chip: FC<ChipProps>;
 
 interface DateColProps {
     date: string | number | Date;
     isTimeTdb?: boolean;
 }
 
-declare var DateColumn: FC<DateColProps>;
+declare const DateColumn: FC<DateColProps>;
 
 interface ErrorMessageProps {
     error: string;
 }
 
-declare var ErrorMessage: FC<ErrorMessageProps>;
+declare const ErrorMessage: FC<ErrorMessageProps>;
 
 interface FabChild extends HTMLAttributes<HTMLDivElement> {
     children: ReactNode | ReactNodeArray;
@@ -139,20 +139,20 @@ interface FabChild extends HTMLAttributes<HTMLDivElement> {
     isDivider?: boolean;
 }
 
-declare var FabChild: FC<FabChild>;
+declare const FabChild: FC<FabChild>;
 
 interface FilterGroupItem extends HTMLAttributes<HTMLLIElement> {
     children: ReactNode | ReactNodeArray;
     className?: string;
 }
 
-declare var FilterGroupItem: FC<FilterGroupItem>;
+declare const FilterGroupItem: FC<FilterGroupItem>;
 
 interface Headline extends TypographyProps<HTMLHeadingElement> {
     importance?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
-declare var Headline: FC<Headline>;
+declare const Headline: FC<Headline>;
 
 interface Icon extends HTMLAttributes<HTMLElement> {
     className?: string;
@@ -160,18 +160,18 @@ interface Icon extends HTMLAttributes<HTMLElement> {
     type?: string;
 }
 
-declare var Icon: FC<Icon>;
+declare const Icon: FC<Icon>;
 
 interface Input extends HTMLAttributes<HTMLInputElement> {}
 
-declare var Input: FC<Input>;
+declare const Input: FC<Input>;
 
 interface Label {
     label?: string;
     id?: string;
 }
 
-declare var Label: FC<Label>;
+declare const Label: FC<Label>;
 
 interface Link extends TypographyProps<HTMLAnchorElement> {
     href: string;
@@ -180,30 +180,24 @@ interface Link extends TypographyProps<HTMLAnchorElement> {
     onClick?: (e?: MouseEvent<HTMLAnchorElement>) => void;
 }
 
-declare var Link: FC<Link>;
+declare const Link: FC<Link>;
 
 interface ModalBody extends HTMLAttributes<HTMLDivElement> {}
 
-declare var ModalBody: FC<ModalBody>;
+declare const ModalBody: FC<ModalBody>;
 
 interface ModalFooter extends HTMLAttributes<HTMLDivElement> {
-    onDismiss?: (e?: MouseEvent<HTMLButtonElement>) => void;
+    onDismiss?: MouseEventHandler<HTMLButtonElement>;
 }
 
-declare var ModalFooter: FC<ModalFooter>;
-
-interface ModalFooter extends HTMLAttributes<HTMLDivElement> {
-    onDismiss?: (e?: MouseEvent<HTMLButtonElement>) => void;
-}
-
-declare var ModalFooter: FC<ModalFooter>;
+declare const ModalFooter: FC<ModalFooter>;
 
 interface ModalHeader extends HTMLAttributes<HTMLDivElement> {
     importance?: 1 | 2 | 3 | 4 | 5 | 6;
     title?: string;
 }
 
-declare var ModalHeader: FC<ModalHeader>;
+declare const ModalHeader: FC<ModalHeader>;
 
 interface NativeSelect extends HTMLAttributes<HTMLSelectElement> {
     /** could be more specific -- should only be <option> elements */
@@ -213,7 +207,7 @@ interface NativeSelect extends HTMLAttributes<HTMLSelectElement> {
     medium?: boolean;
 }
 
-declare var NativeSelect: FC<NativeSelect>;
+declare const NativeSelect: FC<NativeSelect>;
 
 interface Radio extends HTMLAttributes<HTMLInputElement> {
     label: string;
@@ -221,35 +215,35 @@ interface Radio extends HTMLAttributes<HTMLInputElement> {
     id?: string;
 }
 
-declare var Radio: FC<Radio>;
+declare const Radio: FC<Radio>;
 
 interface SelectOption extends HTMLAttributes<HTMLOptionElement> {}
-declare var SelectOption: FC<SelectOption>;
+declare const SelectOption: FC<SelectOption>;
 
 interface SkeletonBone {
     firstColumnLineCount?: number;
     secondColumnLineCount?: number;
 }
-declare var SkeletonBone: FC<SkeletonBone>;
+declare const SkeletonBone: FC<SkeletonBone>;
 
 interface SmallText extends TypographyProps<HTMLParagraphElement> {}
-declare var SmallText: FC<SmallText>;
+declare const SmallText: FC<SmallText>;
 
 interface Subhead extends TypographyProps<HTMLParagraphElement> {}
-declare var Subhead: FC<Subhead>;
+declare const Subhead: FC<Subhead>;
 
 interface Subtitle extends TypographyProps<HTMLParagraphElement> {
     importance?: 1 | 2;
 }
-declare var Subtitle: FC<Subtitle>;
+declare const Subtitle: FC<Subtitle>;
 
 interface Tab extends TypographyProps<HTMLLIElement> {
     active?: boolean;
 }
-declare var Tab: FC<Tab>;
+declare const Tab: FC<Tab>;
 
 interface TinyText extends TypographyProps<HTMLLIElement> {}
-declare var TinyText: FC<TinyText>;
+declare const TinyText: FC<TinyText>;
 
 interface Toggle extends HTMLAttributes<HTMLLabelElement> {
     title?: string;
@@ -258,14 +252,14 @@ interface Toggle extends HTMLAttributes<HTMLLabelElement> {
     onToggle?: ChangeEventHandler<HTMLInputElement>;
     defaultOn?: boolean;
 }
-declare var Toggle: FC<Toggle>;
+declare const Toggle: FC<Toggle>;
 
 interface VividSeatsLogo extends HTMLAttributes<HTMLAnchorElement> {
     href?: string;
     width?: string;
     height?: string;
 }
-declare var VividSeatsLogo: FC<VividSeatsLogo>;
+declare const VividSeatsLogo: FC<VividSeatsLogo>;
 
 interface Accordion {
     children?: ReactNode | ReactNodeArray;
@@ -280,12 +274,17 @@ declare const Accordion: FC<Accordion> & { Collapse: FC<Collapse> };
 interface Card {
     type?: 'standard' | 'list' | 'anchor';
     /** this method is also called upon when users presses the enter key on the card element */
-    onClick?: (e?: MouseEvent<HTMLElement> | KeyboardEvent) => void;
+    onClick?: (e: MouseEvent<HTMLElement> | KeyboardEvent) => void;
     children: ReactNode | ReactNodeArray;
     role?: string;
 }
 
-declare const Card: FC<Card>;
+declare const Card: FC<Card> & {
+    Footer: FC<CardFooterProps>;
+    Header: FC<CardHeaderProps>;
+    Body: FC<CardBodyProps>;
+    Hero: FC<CardHeroProps>;
+};
 
 interface Collapse extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
     open?: boolean;
@@ -296,10 +295,15 @@ interface Collapse extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
     title?: ReactNode;
 }
 
-declare const Collapse: FC<Collapse>;
+interface Title {
+    onClick: MouseEventHandler;
+    onKeyPress: KeyboardEventHandler;
+}
+
+declare const Collapse: FC<Collapse> & { Title: FC<Title> };
 
 interface Column extends HTMLAttributes<HTMLDivElement> {}
-declare var Column: FC<Column>;
+declare const Column: FC<Column>;
 
 interface Venue {
     name?: string;
@@ -332,7 +336,7 @@ interface EventRow extends Omit<Omit<HTMLAttributes<HTMLDivElement>, 'title'>, '
     hasCheckbox?: boolean;
     onChange?: (checked: boolean) => void;
 }
-declare var EventRow: FC<EventRow>;
+declare const EventRow: FC<EventRow>;
 
 interface ExpandableContent extends HTMLAttributes<HTMLDivElement> {
     maxHeight?: string;
@@ -341,13 +345,13 @@ interface ExpandableContent extends HTMLAttributes<HTMLDivElement> {
     children: ReactNode | ReactNodeArray;
 }
 
-declare var ExpandableContent: FC<ExpandableContent>;
+declare const ExpandableContent: FC<ExpandableContent>;
 
 interface Fab extends HTMLAttributes<HTMLDivElement> {
     visible?: boolean;
 }
 
-declare var Fab: FC<Fab>;
+declare const Fab: FC<Fab>;
 
 interface FilterGroup extends Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
     groupName: string;
@@ -356,7 +360,7 @@ interface FilterGroup extends Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
     limit?: number;
 }
 
-declare var FilterGroup: FC<FilterGroup>;
+declare const FilterGroup: FC<FilterGroup>;
 
 interface Form extends HTMLAttributes<HTMLFormElement> {
     /** Callback is passed plain JavaScript object with key/value pairs of `name` props and input value at time of submission. */
@@ -493,11 +497,52 @@ interface RenderArgument<T = any> {
 
 type SuggestionRenderProp<T = any> = (args: RenderArgument<T>) => ReactNode;
 
-interface SuggestionGroup<T> {
+export interface SuggestionGroup<T = any> {
     title: string;
     items: T[];
     renderSuggestion: SuggestionRenderProp<T>;
 }
 
-/** refine this! */
-declare const Typeahead: FC<any> & any;
+/** refine these types!!! */
+interface Typeahead {
+    placeholder: string;
+    onChange: (query: string) => void;
+    suggestions?: SuggestionGroup[] | any[];
+    onDropdownShown?: () => void;
+    onDropdownHidden?: () => void;
+    showHierarchicalDropdown?: boolean;
+    onSelect?: (item: any) => void;
+    renderSuggestion?: SuggestionRenderProp;
+    renderDropdown?: (dropdownContent: ReactNode) => ReactNode;
+    renderInput?: (inputProps: any) => ReactNode;
+    displayLimit?: number;
+    minQueryLength?: number;
+    dismissOnSelect?: boolean;
+}
+
+declare const Typeahead: FC<Typeahead> & { Dropdown: any; SuggestionItem: any; DropdownSection: any; DropdownHeader: any };
+
+interface DrawerHeader extends HTMLAttributes<HTMLDivElement> {}
+declare const DrawerHeader: FC<DrawerHeader>;
+
+interface DrawerFooter extends HTMLAttributes<HTMLDivElement> {}
+declare const DrawerFooter: FC<DrawerFooter>;
+
+interface DrawerBody extends HTMLAttributes<HTMLDivElement> {
+    compressed?: boolean;
+}
+declare const DrawerBody: FC<DrawerBody>;
+
+interface Drawer extends HTMLAttributes<HTMLDivElement> {
+    children: ReactNode;
+    small?: boolean;
+    visible?: boolean;
+    position?: '0' | '1' | '2';
+}
+declare const Drawer: FC<Drawer> & { Header: FC<DrawerHeader>; Body: FC<DrawerBody>; Footer: FC<DrawerFooter> };
+
+interface Header {
+    inputRef?: MutableRefObject<HTMLElement | undefined>;
+    children?: ReactNode | ReactNodeArray;
+}
+declare const Header: FC<Header>;
