@@ -15,7 +15,9 @@ import {
     Ref,
     MouseEventHandler,
     FocusEventHandler,
-    KeyboardEventHandler
+    KeyboardEventHandler,
+    RefObject,
+    MutableRefObject
 } from 'react';
 
 type ValidationMethod = (value: string) => string | null;
@@ -38,7 +40,7 @@ interface TypographyProps<T> extends HTMLAttributes<T> {
     className?: string;
     weight?: 'black' | 'bold' | 'medium' | 'regular';
     height?: 'compressed' | 'expanded';
-    state?: 'disabled' | 'inverted' | 'muted';
+    state?: 'disabled' | 'inverted' | 'muted' | 'hover';
     alignment?: 'left' | 'center' | 'right';
     capitalization?: 'uppercase' | 'lowercase';
     truncate?: boolean;
@@ -65,11 +67,11 @@ interface ButtonProps extends Partial<HTMLAttributes<HTMLButtonElement | HTMLAnc
     className?: string;
     grouped?: boolean;
     importance?: 'secondary' | 'tertiary' | 'text';
-    onClick?: (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onFocus?: (e?: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onBlur?: (e?: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onMouseLeave?: (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onMouseEnter?: (e?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onClick?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onFocus?: (e: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onBlur?: (e: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onMouseLeave?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onMouseEnter?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
     icon?: string;
 }
 
@@ -378,7 +380,7 @@ interface FormContextConsumer {
 declare const FormContextConsumer: FC<FormContextConsumer>;
 
 interface LinkGroup extends HTMLAttributes<HTMLUListElement> {
-    type?: 'striped' | 'muted';
+    type?: 'striped' | 'muted' | 'hover';
 }
 
 declare const LinkGroup: FC<LinkGroup>;
@@ -451,11 +453,12 @@ declare const SkeletonLoader: FC<SkeletonLoader>;
 interface TabGroup extends HTMLAttributes<HTMLUListElement> {
     dark?: boolean;
     compressed?: boolean;
+    type?: 'bar' | 'group';
 }
 declare const TabGroup: FC<TabGroup>;
 
 interface TextField extends Input {
-    id: string;
+    id?: string;
     label: string;
     name: string;
     /** If the noValidate prop is present, the field will not turn green or red to indicate its validation status. Do not pass this in if you are passing in a validationMethod Prop */

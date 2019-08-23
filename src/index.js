@@ -58,3 +58,5 @@ export { default as TabGroup } from './components/molecules/TabGroup';
 export { default as TextField } from './components/molecules/TextField';
 export { default as Typeahead } from './components/molecules/Typeahead';
 export { default as Notification } from './components/molecules/Notification';
+export { default as Header } from './components/molecules/Header';
+export { default as Drawer } from './components/molecules/Drawer';
