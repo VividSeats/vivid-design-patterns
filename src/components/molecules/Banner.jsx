@@ -29,12 +29,14 @@ class Banner extends React.Component {
     render() {
         const { children, className, invertTrigger, ...htmlAttributes } = this.props;
         const { showDetails } = this.state;
+        let bannerDetails = '';
 
         return (
             <React.Fragment>
                 <div className={'vdp-banner ' + className} {...htmlAttributes}>
                     {React.Children.map(children, child => {
                         if (child.type.displayName === 'BannerDetails') {
+                            bannerDetails = child;
                             return (
                                 <React.Fragment>
                                     <span
@@ -42,14 +44,18 @@ class Banner extends React.Component {
                                         onClick={this.handleClick}>
                                         <Icon type={showDetails ? 'carat-up' : 'carat-down'} />
                                     </span>
-                                    {showDetails && child}
                                 </React.Fragment>
                             );
                         }
                         return child;
                     })}
                 </div>
-                {showDetails && <Backdrop dataState={'opened'} onClick={this.handleClick} />}
+                {!!showDetails && bannerDetails && (
+                    <React.Fragment>
+                        {bannerDetails}
+                        <Backdrop dataState={'opened'} onClick={this.handleClick} />
+                    </React.Fragment>
+                )}
             </React.Fragment>
         );
     }

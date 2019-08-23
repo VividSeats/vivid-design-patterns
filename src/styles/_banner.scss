@@ -10,7 +10,7 @@
     box-shadow: 0 1px 0 rgba($color-black, 0.15);
     height: $sizing-3XL;
     position: relative;
-    z-index: $z-index-nav;
+    z-index: $z-index-banner;
 
     > p {
         padding: 0 $sizing-2XS;
@@ -36,6 +36,8 @@
     background-color: $color-white;
     padding: $sizing-MD $sizing-MD $sizing-LG;
     text-align: center;
+    position: relative;
+    z-index: $z-index-banner;
 }
 
 // Legacy Promos
