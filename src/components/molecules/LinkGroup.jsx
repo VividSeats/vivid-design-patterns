@@ -24,7 +24,7 @@ LinkGroup.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     /** renders to html class `--striped`, `--muted` */
-    type: PropTypes.oneOf(['striped', 'muted'])
+    type: PropTypes.oneOf(['striped', 'muted', 'hover'])
 };
 
 export default LinkGroup;
