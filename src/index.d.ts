@@ -16,7 +16,8 @@ import {
     FocusEventHandler,
     KeyboardEventHandler,
     RefObject,
-    MutableRefObject
+    MutableRefObject,
+    AnchorHTMLAttributes
 } from 'react';
 
 type ValidationMethod = (value: string) => string | null;
@@ -174,7 +175,7 @@ interface Label {
 
 declare const Label: FC<Label>;
 
-interface Link extends TypographyProps<HTMLAnchorElement> {
+interface Link extends TypographyProps<HTMLAnchorElement>, AnchorHTMLAttributes<HTMLAnchorElement> {
     href: string;
     className?: string;
     type?: 'link' | 'anchor';
