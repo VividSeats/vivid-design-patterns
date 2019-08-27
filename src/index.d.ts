@@ -520,6 +520,7 @@ interface Typeahead {
     displayLimit?: number;
     minQueryLength?: number;
     dismissOnSelect?: boolean;
+    renderInputValue?: (item: any) => string;
 }
 
 declare const Typeahead: FC<Typeahead> & { Dropdown: any; SuggestionItem: any; DropdownSection: any; DropdownHeader: any };

@@ -82,8 +82,8 @@ Try typing `No` in the example below.
 
 </Playground>
 
-
 ## Custom Suggestion Item
+
 By default the dropdown just renders string. If you want something more complex, just pass in a custom `renderSuggestion` method. The method receives the individual suggestion, the suggestion elemnt props (`onMouseEnter`, `onClick`) and whether its highlighted or not as arguments.
 
 <Playground>
@@ -98,7 +98,8 @@ By default the dropdown just renders string. If you want something more complex,
             };
             const onSelect = (selected) => alert(JSON.stringify(selected));
             const renderSuggestion = ({suggestion, suggestionProps, isHighlighted}) => <EventRow {...suggestionProps} title={suggestion.name} date={suggestion.date} style={{background: isHighlighted ? '#eee' : '#FFF'}}/>
-            return <Typeahead renderSuggestion={renderSuggestion} placeholder="Search by team, artist, event or venue" onChange={e => getSuggestion(e)} onSelect={onSelect} suggestions={state.suggestions}/>
+            const renderInputValue = ({name}) => (name);
+            return <Typeahead renderSuggestion={renderSuggestion} placeholder="Search by team, artist, event or venue" onChange={e => getSuggestion(e)} onSelect={onSelect} suggestions={state.suggestions} renderInputValue={renderInputValue}/>
         }
     }
     </StatefulComponent>
@@ -132,6 +133,7 @@ If you want to add extra elements to the dropdown besides displaying the suggest
                     {dropdownContent}
                 </React.Fragment>
             );
+            const renderInputValue = ({ name }) => name;
             return (
                 <Typeahead
                     renderDropdown={renderDropdown}
@@ -140,6 +142,7 @@ If you want to add extra elements to the dropdown besides displaying the suggest
                     onChange={e => getSuggestion(e)}
                     onSelect={onSelect}
                     suggestions={state.suggestions}
+                    renderInputValue={renderInputValue}
                 />
             );
         }}
