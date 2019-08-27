@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Icon from '../atoms/Icon';
 import Backdrop from '../atoms/Backdrop';
 import BannerDetails from '../atoms/BannerDetails';
+import onEnterPress from '../../utils/onEnterPress';
 
 class Banner extends React.Component {
     static Details = BannerDetails;
@@ -26,6 +27,10 @@ class Banner extends React.Component {
         this.setState({ showDetails });
     };
 
+    handleKeyPress = e => {
+        onEnterPress(this.handleClick, e);
+    };
+
     render() {
         const { children, className, invertTrigger, ...htmlAttributes } = this.props;
         const { showDetails } = this.state;
@@ -40,7 +45,11 @@ class Banner extends React.Component {
                             bannerDetails = child;
                             return (
                                 <React.Fragment>
-                                    <span className={`vdp-banner__trigger ${inverted}`} onClick={this.handleClick}>
+                                    <span
+                                        className={`vdp-banner__trigger ${inverted}`}
+                                        onClick={this.handleClick}
+                                        onKeyPress={this.handleKeyPress}
+                                        tabIndex={0}>
                                         <Icon type={showDetails ? 'carat-up' : 'carat-down'} />
                                     </span>
                                 </React.Fragment>
