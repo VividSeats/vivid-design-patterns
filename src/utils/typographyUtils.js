@@ -34,7 +34,7 @@ const TYPOGRAPHY_PROP_TYPES = {
     /** Line height. */
     height: PropTypes.oneOf(['compressed', 'expanded']),
 
-    state: PropTypes.oneOf(['disabled', 'inverted', 'muted']),
+    state: PropTypes.oneOf(['disabled', 'inverted', 'muted', 'hover']),
     /** Text alignment */
     alignment: PropTypes.oneOf(['left', 'center', 'right']),
     /** type casing */

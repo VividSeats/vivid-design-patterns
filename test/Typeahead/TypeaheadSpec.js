@@ -6,18 +6,22 @@ describe('<Typeahead />', () => {
     const getSuggestions = jest.fn();
     const onSelect = jest.fn();
     describe('Default typeahead component', () => {
-        const component = <Typeahead onChange={getSuggestions} placeholder="Search" onSelect={onSelect} />;
-        it('Calls onChange when user starts typing in the input', () => {
+        const component = <Typeahead onChange={getSuggestions} placeholder="Search" onSelect={onSelect} minQueryLength={3} />;
+        it('Calls onChange when user starts typing in the input greater than minQueryLength', () => {
             const wrapper = mount(component);
             const input = wrapper.find('input');
             expect(input.exists()).toBe(true);
             input.simulate('change', { target: { value: 'a' } });
-            expect(getSuggestions).toBeCalledWith('a');
+            expect(getSuggestions).not.toHaveBeenCalled();
+            input.simulate('change', { target: { value: 'abc' } });
+            expect(getSuggestions).toBeCalledWith('abc');
         });
 
         it('It displays a list of suggestions when suggestions are present', () => {
             const wrapper = mount(component);
             const suggestion = 'Hello';
+            const input = wrapper.find('input');
+            input.simulate('change', { target: { value: 'abc' } });
             wrapper.setProps({ suggestions: [suggestion] });
             expect(wrapper.find('.vdp-typeahead__dropdown').exists()).toBe(true);
             const suggestionItem = wrapper.find('.vdp-typeahead__suggestion');
@@ -32,6 +36,8 @@ describe('<Typeahead />', () => {
             const suggestion1 = 'Hello';
             const suggestion2 = 'Good bye';
             const suggestions = [suggestion1, suggestion2];
+            const input = wrapper.find('input');
+            input.simulate('change', { target: { value: 'abc' } });
             wrapper.setProps({ suggestions });
             wrapper.find('input').simulate('keyDown', { key: 'ArrowDown' });
             expect(
@@ -74,6 +80,7 @@ describe('<Typeahead />', () => {
             const fakeElement = mount(<div id="fakeElement">Hello</div>);
             const wrapper = mount(
                 <Typeahead
+                    minQueryLength={0}
                     suggestions={suggestions}
                     onChange={getSuggestions}
                     onDropdownHidden={onDropdownHidden}
@@ -105,7 +112,9 @@ describe('<Typeahead />', () => {
         const getSuggestions = jest.fn();
 
         const onSelect = jest.fn();
-        const component = <Typeahead showHierarchicalDropdown onChange={getSuggestions} placeholder="Search" onSelect={onSelect} />;
+        const component = (
+            <Typeahead showHierarchicalDropdown onChange={getSuggestions} placeholder="Search" onSelect={onSelect} minQueryLength={0} />
+        );
 
         it('Calls onChange when user starts typing in the input', () => {
             const wrapper = mount(component);
@@ -194,7 +203,15 @@ describe('<Typeahead />', () => {
             </Typeahead.SuggestionItem>
         );
         const suggestion = 'Hello';
-        const component = <Typeahead onChange={getSuggestions} placeholder={'Hello'} onSelect={onSelect} renderSuggestion={renderMethod} />;
+        const component = (
+            <Typeahead
+                onChange={getSuggestions}
+                placeholder={'Hello'}
+                onSelect={onSelect}
+                minQueryLength={0}
+                renderSuggestion={renderMethod}
+            />
+        );
         it('it should display the custom rendermethod item', () => {
             const wrapper = mount(component);
             wrapper.setProps({ suggestions: [suggestion] });
@@ -211,7 +228,6 @@ describe('<Typeahead />', () => {
                 .find('.vdp-typeahead__suggestion')
                 .first()
                 .simulate('mouseenter');
-            console.log(wrapper.debug());
             expect(
                 wrapper
                     .find('.vdp-typeahead__suggestion')
