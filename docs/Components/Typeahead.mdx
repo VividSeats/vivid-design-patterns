@@ -98,8 +98,8 @@ By default the dropdown just renders string. If you want something more complex,
             };
             const onSelect = (selected) => alert(JSON.stringify(selected));
             const renderSuggestion = ({suggestion, suggestionProps, isHighlighted}) => <EventRow {...suggestionProps} title={suggestion.name} date={suggestion.date} style={{background: isHighlighted ? '#eee' : '#FFF'}}/>
-            const renderInputValue = ({name}) => (name);
-            return <Typeahead renderSuggestion={renderSuggestion} placeholder="Search by team, artist, event or venue" onChange={e => getSuggestion(e)} onSelect={onSelect} suggestions={state.suggestions} renderInputValue={renderInputValue}/>
+            const renderSelectedValue = ({name}) => (name);
+            return <Typeahead renderSuggestion={renderSuggestion} placeholder="Search by team, artist, event or venue" onChange={e => getSuggestion(e)} onSelect={onSelect} suggestions={state.suggestions} renderSelectedValue={renderSelectedValue}/>
         }
     }
     </StatefulComponent>
@@ -133,7 +133,7 @@ If you want to add extra elements to the dropdown besides displaying the suggest
                     {dropdownContent}
                 </React.Fragment>
             );
-            const renderInputValue = ({ name }) => name;
+            const renderSelectedValue = ({ name }) => name;
             return (
                 <Typeahead
                     renderDropdown={renderDropdown}
@@ -142,7 +142,7 @@ If you want to add extra elements to the dropdown besides displaying the suggest
                     onChange={e => getSuggestion(e)}
                     onSelect={onSelect}
                     suggestions={state.suggestions}
-                    renderInputValue={renderInputValue}
+                    renderSelectedValue={renderSelectedValue}
                 />
             );
         }}

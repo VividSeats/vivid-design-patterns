@@ -178,7 +178,7 @@ class Typeahead extends React.Component {
         const { onSelect, dismissOnSelect } = this.props;
         onSelect(value);
         this.setState({
-            value
+            value: this.props.renderSelectedValue(value)
         });
         if (dismissOnSelect) {
             this.hideDropdown();
@@ -241,7 +241,7 @@ class Typeahead extends React.Component {
             renderInput,
             dismissOnSelect,
             minQueryLength,
-            renderInputValue,
+            renderSelectedValue,
             ...htmlAttributes
         } = this.props;
         const { value } = this.state;
@@ -260,7 +260,7 @@ class Typeahead extends React.Component {
                     placeholder,
                     onFocus: this.showDropdown,
                     onChange: this.onChange,
-                    value: renderInputValue(value),
+                    value,
                     handleReset: () => this.setState({ value: '' }),
                     ...a11yAttributes
                 })}
@@ -293,7 +293,7 @@ Typeahead.propTypes = {
     minQueryLength: PropTypes.number,
     dismissOnSelect: PropTypes.bool,
     /* for item values that are objects -- provide a function to resolve its data to a string for display in the input element when selected */
-    renderInputValue: PropTypes.func
+    renderSelectedValue: PropTypes.func
 };
 
 Typeahead.defaultProps = {
@@ -308,7 +308,7 @@ Typeahead.defaultProps = {
     minQueryLength: 2,
     onDropdownShown: () => {},
     onDropdownHidden: () => {},
-    renderInputValue: item => item
+    renderSelectedValue: item => item
 };
 
 export default Typeahead;
