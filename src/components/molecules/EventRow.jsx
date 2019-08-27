@@ -148,7 +148,7 @@ EventRow.BUTTON_TEXT = {
 };
 
 EventRow.propTypes = {
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     venue: PropTypes.shape({
         name: PropTypes.string.isRequired,
         city: PropTypes.string.isRequired,

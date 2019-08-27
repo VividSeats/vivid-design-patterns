@@ -30,7 +30,7 @@ SkeletonLoader.propTypes = {
     firstColumnLineCount: PropTypes.number,
     secondColumnLineCount: PropTypes.number,
     skeletonBone: PropTypes.node,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node
 };
 
 SkeletonLoader.defaultProps = {
