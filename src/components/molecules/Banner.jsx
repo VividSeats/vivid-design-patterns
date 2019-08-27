@@ -45,13 +45,13 @@ class Banner extends React.Component {
                             bannerDetails = child;
                             return (
                                 <React.Fragment>
-                                    <span
+                                    <textBox
                                         className={`vdp-banner__trigger ${inverted}`}
                                         onClick={this.handleClick}
                                         onKeyPress={this.handleKeyPress}
                                         tabIndex="0">
                                         <Icon type={showDetails ? 'carat-up' : 'carat-down'} />
-                                    </span>
+                                    </textBox>
                                 </React.Fragment>
                             );
                         }
