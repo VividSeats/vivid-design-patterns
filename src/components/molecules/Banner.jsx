@@ -49,7 +49,7 @@ class Banner extends React.Component {
                                         className={`vdp-banner__trigger ${inverted}`}
                                         onClick={this.handleClick}
                                         onKeyPress={this.handleKeyPress}
-                                        tabIndex={0}>
+                                        tabIndex="0">
                                         <Icon type={showDetails ? 'carat-up' : 'carat-down'} />
                                     </span>
                                 </React.Fragment>
