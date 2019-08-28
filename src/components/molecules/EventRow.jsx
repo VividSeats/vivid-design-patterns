@@ -65,7 +65,7 @@ const EventRow = ({
     ...htmlAttributes
 }) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
-    const { BUTTON, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
+    const { BUTTON, DATE_RANGE, INFO, THUMBNAIL, CHECKBOX } = COL_CLASSNAMES;
     const { regionCode, countryCode, city, name: venueName } = venue;
     const countryCodeString = countryCode !== 'US' ? `, ${countryCode}` : '';
 
@@ -137,7 +137,7 @@ const EventRow = ({
             {!!minListPrice && <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />}
             {/* Checkbox */}
             {hasCheckbox && (
-                <div className={getColClassName(BUTTON)}>
+                <div className={getColClassName(CHECKBOX)}>
                     <Icon type={`checkbox-${checkboxState ? 'on' : 'off'}`} />
                 </div>
             )}
@@ -178,7 +178,8 @@ EventRow.COL_CLASSNAMES = {
     BUTTON: 'button',
     DATE_RANGE: 'date-range',
     INFO: 'info',
-    THUMBNAIL: 'thumbnail'
+    THUMBNAIL: 'thumbnail',
+    CHECKBOX: 'checkbox'
 };
 
 EventRow.BUTTON_TEXT = {

@@ -56,6 +56,15 @@ $row-height: 4.5rem;
         }
     }
 
+    &[class*='--checkbox'] {
+        @include size-min-tablet {
+            display: inherit;
+            width: $column-button-width !important;
+            padding-right: $sizing-MD;
+            text-align: right;
+        }
+    }
+
     &[class*='--mobile-min-price'] {
         text-align: right;
         padding-right: $sizing-SM;
@@ -105,6 +114,9 @@ $row-height: 4.5rem;
         padding: 0 $sizing-LG;
 
         + .vdp-event-row__col--button {
+            width: auto;
+        }
+        + .vdp-event-row__col--checkbox {
             width: auto;
         }
         @include size-only-mobile {
