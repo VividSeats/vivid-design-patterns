@@ -8,7 +8,6 @@
     @include flex-wrap(wrap);
     @include justify-content(center);
     box-shadow: 0 1px 0 rgba($color-black, 0.15);
-    height: $sizing-3XL;
     position: relative;
     z-index: $z-index-banner;
 
@@ -17,8 +16,11 @@
     }
 }
 [class^='vdp-banner__trigger'] {
+    background: none;
+    border: none;
     color: $text-color-muted;
     cursor: pointer;
+    outline: none;
     padding: 0 $sizing-SM;
 
     &[class*='--inverted'] {
@@ -30,14 +32,13 @@
     }
 }
 .vdp-banner__details {
+    @include border(bottom);
     @include border(top);
     @include flex(1 0 100%);
     @include flex-direction(column);
     background-color: $color-white;
     padding: $sizing-MD $sizing-MD $sizing-LG;
     text-align: center;
-    position: relative;
-    z-index: $z-index-banner;
 }
 
 // Legacy Promos
