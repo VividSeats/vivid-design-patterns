@@ -15,14 +15,8 @@ class Banner extends React.Component {
         showDetails: false
     };
 
-    toggleShowDetails = () => {
-        return !this.state.showDetails;
-    };
-
     handleClick = () => {
-        const showDetails = this.toggleShowDetails();
-
-        this.setState({ showDetails });
+        this.setState(({ showDetails }) => ({ showDetails: !showDetails }));
     };
 
     render() {
