@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from './Icon';
 
-function BannerDetails({ children, invertTrigger }) {
+function BannerDetails({ children, invertedTrigger }) {
     const [showDetails, setShowDetails] = React.useState(false);
 
     const handleClick = () => {
-        setShowDetails(!showDetails);
+        setShowDetails(prevShowDetails => !prevShowDetails);
     };
 
-    const inverted = invertTrigger ? '--inverted' : '';
+    const inverted = invertedTrigger ? '--inverted' : '';
 
     return (
         <React.Fragment>

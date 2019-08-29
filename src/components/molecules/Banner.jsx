@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../atoms/Icon';
 import BannerDetails from '../atoms/BannerDetails';
 
 class Banner extends React.Component {
