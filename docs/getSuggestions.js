@@ -68,5 +68,4 @@ function getCustomEventSuggestions(input) {
         return !!input && event.name.includes(input);
     });
 }
-
 export { getTeamSuggestions, getHiearchalSuggestions, getCustomEventSuggestions };

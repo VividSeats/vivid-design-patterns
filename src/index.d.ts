@@ -5,7 +5,6 @@ import {
     FocusEvent,
     MouseEvent,
     ReactNode,
-    ReactNodeArray,
     FormEvent,
     ReactElement,
     ChangeEventHandler,
@@ -17,7 +16,8 @@ import {
     FocusEventHandler,
     KeyboardEventHandler,
     RefObject,
-    MutableRefObject
+    MutableRefObject,
+    AnchorHTMLAttributes
 } from 'react';
 
 type ValidationMethod = (value: string) => string | null;
@@ -25,7 +25,7 @@ type ValidationMethod = (value: string) => string | null;
 interface BackdropProps {
     className?: string;
     dataState: 'opening' | 'closing' | 'opened' | 'closed';
-    onClick?: (e?: MouseEvent<HTMLDivElement>) => void;
+    onClick?: MouseEventHandler<HTMLDivElement>;
 }
 declare const Backdrop: FC<BackdropProps>;
 
@@ -67,11 +67,11 @@ interface ButtonProps extends Partial<HTMLAttributes<HTMLButtonElement | HTMLAnc
     className?: string;
     grouped?: boolean;
     importance?: 'secondary' | 'tertiary' | 'text';
-    onClick?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onFocus?: (e: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onBlur?: (e: FocusEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onMouseLeave?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-    onMouseEnter?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+    onFocus?: FocusEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+    onBlur?: FocusEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+    onMouseLeave?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+    onMouseEnter?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
     icon?: string;
 }
 
@@ -84,14 +84,14 @@ declare const CardBody: FC<CardBodyProps>;
 
 interface CardFooterProps {
     className?: string;
-    children: ReactNode | ReactNodeArray;
+    children: ReactNode;
     centered?: boolean;
 }
 declare const CardFooter: FC<CardFooterProps>;
 
 interface CardHeaderProps {
     className?: string;
-    children: ReactNode | ReactNodeArray;
+    children: ReactNode;
 }
 declare const CardHeader: FC<CardHeaderProps>;
 
@@ -104,7 +104,7 @@ interface CardHeroProps {
 declare const CardHero: FC<CardHeroProps>;
 
 interface CheckboxProps {
-    id: string;
+    id?: string;
     onChange?: (e: FormEvent<HTMLInputElement>) => void;
     checked?: boolean;
     defaultChecked?: boolean;
@@ -136,7 +136,7 @@ interface ErrorMessageProps {
 declare const ErrorMessage: FC<ErrorMessageProps>;
 
 interface FabChild extends HTMLAttributes<HTMLDivElement> {
-    children: ReactNode | ReactNodeArray;
+    children: ReactNode;
     className?: string;
     isDivider?: boolean;
 }
@@ -144,7 +144,7 @@ interface FabChild extends HTMLAttributes<HTMLDivElement> {
 declare const FabChild: FC<FabChild>;
 
 interface FilterGroupItem extends HTMLAttributes<HTMLLIElement> {
-    children: ReactNode | ReactNodeArray;
+    children: ReactNode;
     className?: string;
 }
 
@@ -175,7 +175,7 @@ interface Label {
 
 declare const Label: FC<Label>;
 
-interface Link extends TypographyProps<HTMLAnchorElement> {
+interface Link extends TypographyProps<HTMLAnchorElement>, AnchorHTMLAttributes<HTMLAnchorElement> {
     href: string;
     className?: string;
     type?: 'link' | 'anchor';
@@ -264,7 +264,7 @@ interface VividSeatsLogo extends HTMLAttributes<HTMLAnchorElement> {
 declare const VividSeatsLogo: FC<VividSeatsLogo>;
 
 interface Accordion {
-    children?: ReactNode | ReactNodeArray;
+    children?: ReactNode;
     initialOpenedIndex?: number;
     /** For controlled components. Use -1 to indicate no Collapse components are open. */
     openedIndex?: number;
@@ -277,7 +277,7 @@ interface Card {
     type?: 'standard' | 'list' | 'anchor';
     /** this method is also called upon when users presses the enter key on the card element */
     onClick?: (e: MouseEvent<HTMLElement> | KeyboardEvent) => void;
-    children: ReactNode | ReactNodeArray;
+    children: ReactNode;
     role?: string;
 }
 
@@ -344,7 +344,7 @@ interface ExpandableContent extends HTMLAttributes<HTMLDivElement> {
     maxHeight?: string;
     buttonText?: string;
     forceExpanded?: boolean;
-    children: ReactNode | ReactNodeArray;
+    children: ReactNode;
 }
 
 declare const ExpandableContent: FC<ExpandableContent>;
@@ -357,7 +357,7 @@ declare const Fab: FC<Fab>;
 
 interface FilterGroup extends Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
     groupName: string;
-    children: ReactNode | ReactNodeArray;
+    children: ReactNode;
     onSelect?: (e?: MouseEvent<HTMLElement>) => void;
     limit?: number;
 }
@@ -366,7 +366,7 @@ declare const FilterGroup: FC<FilterGroup>;
 
 interface Form extends HTMLAttributes<HTMLFormElement> {
     /** Callback is passed plain JavaScript object with key/value pairs of `name` props and input value at time of submission. */
-    onSubmit: (output: object) => void;
+    onSubmit: (output: any) => void;
     /** Custom callback when validation fails on the form. Takes in an array of inputs with errors as the parameter */
     onValidationFailure: (errors: ReactElement[]) => void;
     children?: FormContextConsumer | ReactNode;
@@ -374,7 +374,7 @@ interface Form extends HTMLAttributes<HTMLFormElement> {
 declare const Form: FC<Form>;
 
 interface FormContextConsumer {
-    children: (ctx: Context<{ setForm: (ref: Ref<ReactNode>) => void }>) => ReactNode | ReactNodeArray;
+    children: (ctx: Context<{ setForm: (ref: Ref<ReactNode>) => void }>) => ReactNode;
 }
 
 declare const FormContextConsumer: FC<FormContextConsumer>;
@@ -446,7 +446,7 @@ interface SkeletonLoader {
     firstColumnLineCount?: number;
     secondColumnLineCount?: number;
     skeletonBone?: ReactNode;
-    children: ReactNode | ReactNodeArray;
+    children?: ReactNode;
 }
 declare const SkeletonLoader: FC<SkeletonLoader>;
 
@@ -484,7 +484,7 @@ declare const LoadingSpinner: FC<LoadingSpinner>;
 interface Notification extends HTMLAttributes<HTMLDivElement> {
     isOpen: boolean;
     type: 'toast';
-    children?: ReactNode | ReactNodeArray;
+    children?: ReactNode;
     onClickClose?: () => void;
 }
 declare const Notification: FC<Notification>;
@@ -492,8 +492,8 @@ declare const Notification: FC<Notification>;
 interface RenderArgument<T = any> {
     isHighlighted: boolean;
     suggestionProps: {
-        onClick: MouseEvent<HTMLElement>;
-        onMouseEnter: MouseEvent<HTMLElement>;
+        onClick: MouseEventHandler<HTMLElement>;
+        onMouseEnter: MouseEventHandler<HTMLElement>;
     };
     suggestion: T;
 }
@@ -521,6 +521,7 @@ interface Typeahead {
     displayLimit?: number;
     minQueryLength?: number;
     dismissOnSelect?: boolean;
+    renderSelectedValue?: (item: any) => string;
 }
 
 declare const Typeahead: FC<Typeahead> & { Dropdown: any; SuggestionItem: any; DropdownSection: any; DropdownHeader: any };
@@ -537,7 +538,7 @@ interface DrawerBody extends HTMLAttributes<HTMLDivElement> {
 declare const DrawerBody: FC<DrawerBody>;
 
 interface Drawer extends HTMLAttributes<HTMLDivElement> {
-    children: ReactNode;
+    children?: ReactNode;
     small?: boolean;
     visible?: boolean;
     position?: '0' | '1' | '2';
@@ -546,6 +547,6 @@ declare const Drawer: FC<Drawer> & { Header: FC<DrawerHeader>; Body: FC<DrawerBo
 
 interface Header {
     inputRef?: MutableRefObject<HTMLElement | undefined>;
-    children?: ReactNode | ReactNodeArray;
+    children?: ReactNode;
 }
 declare const Header: FC<Header>;
