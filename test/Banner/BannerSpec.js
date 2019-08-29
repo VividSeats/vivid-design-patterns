@@ -32,5 +32,8 @@ describe('<Banner />', () => {
         wrapper.find('.vdp-icon').simulate('click');
         expect(wrapper.exists('.vdp-banner__details')).toBe(true);
         expect(wrapper.exists('.vdp-icon-carat-up')).toBe(true);
+        wrapper.find('.vdp-icon').simulate('click');
+        expect(wrapper.exists('.vdp-banner__details')).toBe(false);
+        expect(wrapper.exists('.vdp-icon-carat-down')).toBe(true);
     });
 });
