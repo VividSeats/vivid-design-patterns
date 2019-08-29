@@ -7,38 +7,15 @@ class Banner extends React.Component {
     static Details = BannerDetails;
 
     static defaultProps = {
-        className: 'bg-white',
-        invertTrigger: false
-    };
-
-    state = {
-        showDetails: false
-    };
-
-    handleClick = () => {
-        this.setState(({ showDetails }) => ({ showDetails: !showDetails }));
+        className: 'bg-white'
     };
 
     render() {
-        const { children, className, invertTrigger, ...htmlAttributes } = this.props;
-        const { showDetails } = this.state;
-        const inverted = invertTrigger ? '--inverted' : '';
+        const { children, className, ...htmlAttributes } = this.props;
 
         return (
             <div className={`vdp-banner ${className}`} {...htmlAttributes}>
-                {React.Children.map(children, child => {
-                    if (child.type.displayName === 'BannerDetails') {
-                        return (
-                            <React.Fragment>
-                                <button className={`vdp-banner__trigger ${inverted}`} onClick={this.handleClick}>
-                                    <Icon type={showDetails ? 'carat-up' : 'carat-down'} />
-                                </button>
-                                {showDetails && child}
-                            </React.Fragment>
-                        );
-                    }
-                    return child;
-                })}
+                {children}
             </div>
         );
     }

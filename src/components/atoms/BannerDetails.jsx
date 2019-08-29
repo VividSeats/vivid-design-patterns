@@ -1,18 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Icon from './Icon';
 
-function BannerDetails({ children }) {
+function BannerDetails({ children, invertTrigger }) {
+    const [showDetails, setShowDetails] = React.useState(false);
+
+    const handleClick = () => {
+        setShowDetails(!showDetails);
+    };
+
+    const inverted = invertTrigger ? '--inverted' : '';
+
     return (
-        <div className="vdp-banner__details">
-            <div className="vdp-container--article">{children}</div>
-        </div>
+        <React.Fragment>
+            <button className={`vdp-banner__trigger ${inverted}`} onClick={handleClick}>
+                <Icon type={showDetails ? 'carat-up' : 'carat-down'} />
+            </button>
+            {showDetails && (
+                <div className="vdp-banner__details">
+                    <div className="vdp-container--article">{children}</div>
+                </div>
+            )}
+        </React.Fragment>
     );
 }
 
 BannerDetails.displayName = 'BannerDetails';
 
 BannerDetails.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
+    invertedTrigger: PropTypes.bool
+};
+BannerDetails.defaultProps = {
+    invertedTrigger: false
 };
 
 export default BannerDetails;
