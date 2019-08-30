@@ -18,7 +18,7 @@ Notification.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     type: PropTypes.oneOf(['toast']).isRequired,
-    /* Called when user clicks on the 'X' button in the Notification. If a click handler is not passed, the 'X' will not be displayed */
+    /** Called when user clicks on the 'X' button in the Notification. If a click handler is not passed, the 'X' will not be displayed */
     onClickClose: PropTypes.func
 };
 
