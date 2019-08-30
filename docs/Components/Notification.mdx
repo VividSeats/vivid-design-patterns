@@ -3,10 +3,11 @@ name: Notification
 menu: Components
 route: /components/Notification
 ---
-
+import {Fragment} from 'react';
 import { Props, Playground } from 'docz';
 import Notification from '../../src/components/molecules/Notification';
 import Headline from '../../src/components/atoms/Headline';
+import Button from '../../src/components/atoms/Button';
 import StatefulComponent from '../StatefulComponent';
 import '../docz.scss';
 
@@ -29,25 +30,63 @@ Using the scss files:
 ## Basic Usage
 
 <Playground>
-    <StatefulComponent initialState={{open: true}}>
+    <StatefulComponent initialState={{open: false}}>
             {
         ({state, setState}) => {
             const { open } = state;
 
             const handleClose = () => {
                 setState({open: false})
-                setTimeout(() => setState({open: true}), 2000)
+            }
+
+            const toggleNotification = () => {
+                setState({open: !open})
             }
 
             return (
-                <Notification type="toast" isOpen={open} onClickClose={handleClose} style={{backgroundColor: 'lightblue'}}>
-                    <Headline importance={3}>Vivid Seats </Headline>
-                    <Headline importance={3}>Buy In-App,</Headline>
-                    <Headline importance={3}>Earn Credit Back</Headline>
-                </Notification>
+                <Fragment>
+                    <Button onClick={toggleNotification}>Toggle Notification</Button>
+                    <Notification type="toast" isOpen={open} onClickClose={handleClose}>
+                        <Headline state="inverted" importance={3}>Vivid Seats </Headline>
+                        <Headline state="inverted" importance={3}>Buy In-App,</Headline>
+                        <Headline state="inverted" importance={3}>Earn Credit Back</Headline>
+                    </Notification>
+                </Fragment>
             )
         }
     }
     </StatefulComponent>
 
+</Playground>
+
+
+## Without an 'X' button
+If no `onClickClose` callback is passed, the notification component will not render a 'X' button
+<Playground>
+    <StatefulComponent initialState={{open: false}}>
+        {
+                ({state, setState}) => {
+                    const { open } = state;
+                    const handleClose = () => {
+                        setState({open: false})
+                    }
+
+                    const toggleNotification = () => {
+                        setState({open: !open})
+                    }
+
+                    return (
+                        <Fragment>
+                            <Button onClick={toggleNotification}>Toggle Notification</Button>
+                            <Notification type="toast" isOpen={open}>
+                                <Headline state="inverted" importance={3}>Vivid Seats </Headline>
+                                <Headline state="inverted" importance={3}>Buy In-App,</Headline>
+                                <Headline state="inverted" importance={3}>Earn Credit Back</Headline>
+                                <Button onClick={handleClose}> Close </Button>
+                            </Notification>
+                        </Fragment>
+                )
+            }
+        }
+    </StatefulComponent>
 </Playground>

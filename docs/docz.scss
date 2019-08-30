@@ -150,3 +150,10 @@ form {
         position: initial;
     }
 }
+
+// Notification
+[class^='Playground__Overlay'] {
+    .vdp-notification {
+        background: url(https://a.vsstatic.com/company/rewards/promo-banner-bg.png);
+    }
+}
