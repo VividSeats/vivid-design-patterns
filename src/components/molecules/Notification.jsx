@@ -5,7 +5,7 @@ import Icon from '../atoms/Icon';
 const Notification = ({ isOpen, children, className = '', onClickClose, ...props }) => {
     return (
         <div
-            className={`vdp-notification vdp-notification--${type} ${isOpen ? 'vdp-notification--toast--open' : ''} ${className}`}
+            className={`vdp-notification vdp-notification--toast ${isOpen ? 'vdp-notification--toast--open' : ''} ${className}`}
             {...props}>
             {typeof onClickClose !== 'undefined' && <Icon type="close" className="vdp-notification__dismiss" onClick={onClickClose} />}
             {children}
