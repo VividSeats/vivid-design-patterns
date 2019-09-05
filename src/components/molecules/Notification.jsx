@@ -1,13 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTransition, animated } from 'react-spring';
+import { useMedia } from 'react-use-media';
 import Icon from '../atoms/Icon';
 
-const Notification = ({ isOpen, children, className = '', onClickClose, ...props }) => {
-    return (
-        <div className={`vdp-notification ${isOpen ? '--open' : ''} ${className}`} {...props}>
-            {typeof onClickClose !== 'undefined' && <Icon type="close" className="vdp-notification__dismiss" onClick={onClickClose} />}
-            {children}
-        </div>
+const Notification = ({ isOpen, children, className = '', onClickClose = () => {}, style = {}, ...props }) => {
+    const isMobile = useMedia({ maxWidth: 768 });
+
+    const transitions = useTransition(isOpen, null, {
+        from: isMobile ? { bottom: '-100%' } : { right: '-100%' },
+        enter: isMobile ? { bottom: '0%' } : { right: '0%' },
+        leave: isMobile ? { bottom: '-100%' } : { right: '-100%' }
+    });
+
+    return transitions.map(
+        ({ item, props: animatedProps, key }) =>
+            item && (
+                <animated.div key={key} style={{ ...style, ...animatedProps }} className={`vdp-notification ${className}`} {...props}>
+                    {typeof onClickClose !== 'undefined' && (
+                        <Icon type="close" className="vdp-notification__dismiss" onClick={onClickClose} />
+                    )}
+                    {children}
+                </animated.div>
+            )
     );
 };
 

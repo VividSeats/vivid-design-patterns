@@ -3,28 +3,24 @@
 @import 'mixins/prefixes';
 
 .vdp-notification {
-    display: flex;
-    flex-direction: column;
-
-    @include transition(all 0.25s ease-in-out);
     border-top-left-radius: $border-radius-LG;
     border-top-right-radius: $border-radius-LG;
     bottom: -100%;
     box-shadow: 0px 2px 4px $color-gray-medium;
+    display: flex;
+    flex-direction: column;
     left: 0;
     padding: 1em;
     position: fixed;
     right: 0;
     z-index: $z-index-alert;
 
-    @include size-min-desktop {
+    @include size-min-tablet {
         border-bottom-left-radius: $border-radius-LG;
         border-bottom-right-radius: $border-radius-LG;
         bottom: 0;
-        left: auto;
         left: initial;
         margin: 1em;
-        right: -100%;
     }
 
     .vdp-notification__dismiss {
@@ -33,17 +29,5 @@
         position: absolute;
         right: 3px;
         top: 3px;
-    }
-
-    &.--open {
-        bottom: 0;
-        left: 0;
-        right: 0;
-
-        @include size-min-desktop {
-            left: auto;
-            left: initial;
-            right: 0;
-        }
     }
 }

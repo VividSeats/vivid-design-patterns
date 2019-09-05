@@ -3,7 +3,8 @@ name: Notification
 menu: Components
 route: /components/Notification
 ---
-import {Fragment} from 'react';
+
+import { Fragment } from 'react';
 import { Props, Playground } from 'docz';
 import Notification from '../../src/components/molecules/Notification';
 import Headline from '../../src/components/atoms/Headline';
@@ -59,9 +60,10 @@ Using the scss files:
 
 </Playground>
 
-
 ## Without an 'X' button
+
 If no `onClickClose` callback is passed, the notification component will not render a 'X' button
+
 <Playground>
     <StatefulComponent initialState={{open: false}}>
         {
@@ -89,4 +91,5 @@ If no `onClickClose` callback is passed, the notification component will not ren
             }
         }
     </StatefulComponent>
+
 </Playground>
