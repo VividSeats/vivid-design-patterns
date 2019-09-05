@@ -7,6 +7,7 @@ route: /components/backdrop
 import { Props, Playground } from 'docz';
 import Backdrop from '../../src/components/atoms/Backdrop';
 import Modal from '../../src/components/molecules/Modal';
+import StatefulComponent from '../StatefulComponent';
 import '../docz.scss';
 
 # Backdrop
@@ -41,5 +42,21 @@ Most often used implicitly inside a Modal component.
 May be used on its own.
 
 <Playground>
-    <Backdrop dataState="opened" onClick={() => window.alert('on click fired')} />
+    <StatefulComponent initialState={{open:true}}>
+            {
+        ({state, setState}) => {
+            const { open } = state;
+
+            const handleClose = () => {
+                setState({open: false})
+                setTimeout(() => setState({open: true}), 2000)
+            }
+
+            return (
+                <Backdrop isOpen={open} onClick={handleClose} />
+            )
+        }
+    }
+        </StatefulComponent>
+
 </Playground>
