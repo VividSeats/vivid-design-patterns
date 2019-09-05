@@ -16,12 +16,12 @@ describe('<Modal />', () => {
 
     it('should have a backdrop', () => {
         const wrapper = mount(<Modal dataState="opened" />);
-        expect(wrapper.exists('.vdp-backdrop')).toBe(true);
+        expect(wrapper.exists('.vdp-react-backdrop')).toBe(true);
     });
 
     it('should have a backdrop disabled when specified', () => {
         const wrapper = mount(<Modal dataState="opened" disableBackdrop />);
-        expect(wrapper.exists('.vdp-backdrop')).toBe(false);
+        expect(wrapper.exists('.vdp-react-backdrop')).toBe(false);
     });
 
     it('can be a sheet modal', () => {
@@ -44,7 +44,7 @@ describe('<Modal />', () => {
     it('can be dismissed by clicking on the backdrop', done => {
         const mockOnClose = jest.fn();
         const wrapper = mount(<Modal dataState="opened" onClose={mockOnClose} />);
-        wrapper.find('.vdp-backdrop').simulate('click');
+        wrapper.find('div.vdp-react-backdrop').simulate('click');
 
         setTimeout(() => {
             expect(mockOnClose).toHaveBeenCalledTimes(1);
@@ -56,7 +56,7 @@ describe('<Modal />', () => {
     it("won't be dismissed by clicking on the backdrop if prop is false", done => {
         const mockOnClose = jest.fn();
         const wrapper = mount(<Modal dataState="opened" onClose={mockOnClose} closeOnBackdropClick={false} />);
-        wrapper.find('.vdp-backdrop').simulate('click');
+        wrapper.find('div.vdp-react-backdrop').simulate('click');
 
         setTimeout(() => {
             expect(mockOnClose).toHaveBeenCalledTimes(0);
