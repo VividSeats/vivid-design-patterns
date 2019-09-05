@@ -105,7 +105,8 @@ form {
 
 // Modal - overrides for playground wrapper
 [class^='Playground__Overlay'] {
-    [class^='vdp-backdrop'] {
+    [class^='vdp-backdrop'],
+    .vdp-react-backdrop {
         position: absolute;
         height: 100%;
         width: 100%;
