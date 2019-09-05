@@ -5,7 +5,7 @@
 .vdp-notification {
     border-top-left-radius: $border-radius-LG;
     border-top-right-radius: $border-radius-LG;
-    bottom: -100%;
+    bottom: 0;
     box-shadow: 0px 2px 4px $color-gray-medium;
     display: flex;
     flex-direction: column;

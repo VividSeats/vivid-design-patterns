@@ -11,9 +11,10 @@ const Backdrop = ({ className = '', children, isOpen = false, onClick = () => {}
     });
 
     return transitions.map(
-        ({ item, props }) =>
+        ({ item, props, key }) =>
             item && (
                 <animated.div
+                    key={key}
                     style={props}
                     {...{
                         onClick,

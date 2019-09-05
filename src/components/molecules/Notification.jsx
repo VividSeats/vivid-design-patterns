@@ -14,17 +14,25 @@ const Notification = ({ isOpen, children, className = '', onClickClose = () => {
         leave: isMobile ? { bottom: '-100%' } : { right: '-100%' }
     });
 
-    return transitions.map(
-        ({ item, props: animatedProps, key }) =>
-            item && (
-                <animated.div key={key} style={{ ...style, ...animatedProps }} className={`vdp-notification ${className}`} {...props}>
-                    {typeof onClickClose !== 'undefined' && (
-                        <Icon type="close" className="vdp-notification__dismiss" onClick={onClickClose} />
-                    )}
-                    {children}
-                    {hasBackdrop && <Backdrop isOpen={isOpen} />}
-                </animated.div>
-            )
+    return (
+        <>
+            {transitions.map(
+                ({ item, props: animatedProps, key }) =>
+                    item && (
+                        <animated.div
+                            key={key}
+                            style={{ ...style, ...animatedProps }}
+                            className={`vdp-notification ${className}`}
+                            {...props}>
+                            {typeof onClickClose !== 'undefined' && (
+                                <Icon type="close" className="vdp-notification__dismiss" onClick={onClickClose} />
+                            )}
+                            {children}
+                        </animated.div>
+                    )
+            )}
+            {hasBackdrop && <Backdrop isOpen={isOpen} />}
+        </>
     );
 };
 
@@ -34,7 +42,8 @@ Notification.propTypes = {
     className: PropTypes.string,
     /** Called when user clicks on the 'X' button in the Notification. If a click handler is not passed, the 'X' will not be displayed */
     onClickClose: PropTypes.func,
-    hasBackdrop: PropTypes.bool
+    hasBackdrop: PropTypes.bool,
+    style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
 export default Notification;

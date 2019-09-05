@@ -47,7 +47,7 @@ Using the scss files:
             return (
                 <Fragment>
                     <Button onClick={toggleNotification}>Toggle Notification</Button>
-                    <Notification type="toast" isOpen={open} onClickClose={handleClose}>
+                    <Notification hasBackdrop isOpen={open} onClickClose={handleClose}>
                         <Headline state="inverted" importance={3}>Vivid Seats </Headline>
                         <Headline state="inverted" importance={3}>Buy In-App,</Headline>
                         <Headline state="inverted" importance={3}>Earn Credit Back</Headline>
@@ -80,16 +80,16 @@ If no `onClickClose` callback is passed, the notification component will not ren
                     return (
                         <Fragment>
                             <Button onClick={toggleNotification}>Toggle Notification</Button>
-                            <Notification type="toast" isOpen={open}>
+                            <Notification isOpen={open}>
                                 <Headline state="inverted" importance={3}>Vivid Seats </Headline>
                                 <Headline state="inverted" importance={3}>Buy In-App,</Headline>
                                 <Headline state="inverted" importance={3}>Earn Credit Back</Headline>
                                 <Button onClick={handleClose}> Close </Button>
-                            </Notification>
-                        </Fragment>
-                )
-            }
+                    </Notification>
+                </Fragment>
+            )
         }
+    }
     </StatefulComponent>
 
 </Playground>
