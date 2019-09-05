@@ -149,7 +149,7 @@ class Modal extends React.Component {
                     </div>
                     {BackdropChild ||
                         (!disableBackdrop && (
-                            <Modal.Backdrop dataState={dataState} onClick={closeOnBackdropClick ? toggleModal : () => {}} />
+                            <Modal.Backdrop isOpen={dataState === 'opened'} onClick={closeOnBackdropClick ? toggleModal : () => {}} />
                         ))}
                 </aside>
             </React.Fragment>
