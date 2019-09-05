@@ -59,9 +59,7 @@ $row-height: 4.5rem;
     &[class*='--checkbox'] {
         @include size-min-tablet {
             display: inherit;
-            width: $column-button-width !important;
-            padding-right: $sizing-MD;
-            text-align: right;
+            padding-left: $sizing-MD;
         }
     }
 
