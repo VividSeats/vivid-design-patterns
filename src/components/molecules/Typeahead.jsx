@@ -226,6 +226,11 @@ class Typeahead extends React.Component {
         );
     }
 
+    handleReset = () => {
+        this.setState({ value: '', highlightedIndex: -1, isDropdownShown: false });
+        this.props.onChange('');
+    };
+
     render() {
         const {
             className,
@@ -262,7 +267,7 @@ class Typeahead extends React.Component {
                     onFocus: this.showDropdown,
                     onChange: this.onChange,
                     value,
-                    handleReset: () => this.setState({ value: '', highlightedIndex: -1, isDropdownShown: false }),
+                    handleReset: this.handleReset,
                     ...a11yAttributes
                 })}
                 {showDropdown && <Typeahead.Dropdown>{renderDropdown(dropdownContent)}</Typeahead.Dropdown>}
