@@ -10,7 +10,8 @@ import Modal from '../../src/components/molecules/Modal';
 import Icon from '../../src/components/atoms/Icon';
 import Headline from '../../src/components/atoms/Headline';
 import Button from '../../src/components/atoms/Button';
-import ModalButtonExample from '../ModalButtonExample';
+import BodyText from '../../src/components/atoms/BodyText';
+import StatefulComponent from '../StatefulComponent';
 import '../docz.scss';
 
 # Modal
@@ -60,16 +61,6 @@ Modal headers can either take in a title prop to render a default Header, or tak
 
 <Props of={Modal.Backdrop} />
 
-## Props Example
-
-`dataState="opened" title="Modal Title" type="sheet" onClose={() => window.alert('on close fired')`
-
-<Playground style={{ minHeight: '400px', height: '100%' }}>
-    <Modal dataState="opened" title="Modal Title" type="sheet" onClose={() => window.alert('on close fired')}>
-        This sheet modal is uses a prop for the modal title, passes in the body text, and uses the default modal footer and dismiss button.
-    </Modal>
-</Playground>
-
 ## Sub-Component Example
 
 ```
@@ -81,7 +72,7 @@ Modal headers can either take in a title prop to render a default Header, or tak
 ```
 
 <Playground style={{ minHeight: '400px', height: '100%' }}>
-    <Modal dataState="opened">
+    <Modal isOpen>
         <Modal.Header>
             <Headline importance={6}>Custom Modal H4 Header</Headline>
         </Modal.Header>
@@ -105,11 +96,13 @@ Modal headers can either take in a title prop to render a default Header, or tak
 The full screen modal is available only for mobile screen sizes and doesn't have a default modal footer subcomponent.
 
 <Playground style={{ minHeight: '400px', height: '100%' }}>
-    <Modal type="full-screen" dataState="opened">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-        in culpa qui officia deserunt mollit anim id est laborum.
+    <Modal type="full-screen" isOpen>
+        <Modal.Body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+            sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </Modal.Body>
     </Modal>
 </Playground>
 
@@ -119,50 +112,34 @@ The full screen modal is available only for mobile screen sizes and doesn't have
 
 `dataState={!!state.opened ? 'opened' : 'closed'}`
 
-<Playground style={ { minHeight: '400px', height: '100%' } } >
-    {/*
-        class ModalButtonExample extends React.Component {
-            state = {
-                opened: false
-            };
-
-            onClick = opened => {
-                this.setState({ opened });
-            };
-
-            render() {
-                const { state, onClick } = this;
-
-                return (
-                    <React.Fragment>
-                        <Button onClick={() => onClick(true)}>Click</Button>
-                        <Modal dataState={!!state.opened ? 'opened' : 'closed'}>
-                            <Modal.Header>Modal Header</Modal.Header>
-                            <Modal.Body>
-                                <BodyText importance={2}>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                    laborum.
-                                </BodyText>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button muted importance="text" onClick={() => onClick(false)}>
-                                    Dismiss
-                                </Button>
-                                <Button importance="text" onClick={() => onClick(false)}>
-                                    Confirm
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
-                    </React.Fragment>
-                );
-            }
-        }
-
-    */}
-
-    <ModalButtonExample />
-
+<Playground style={{ minHeight: '400px', height: '100%' }}>
+    <StatefulComponent initialState={{ isOpen: false }}>
+        {({ state, setState }) => {
+            return (
+                <React.Fragment>
+                    <Button onClick={() => setState({ isOpen: !state.isOpen })}>Click</Button>
+                    <Modal isOpen={state.isOpen}>
+                        <Modal.Header>Modal Header</Modal.Header>
+                        <Modal.Body>
+                            <BodyText importance={2}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                                anim id est laborum.
+                            </BodyText>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button muted importance="text" onClick={() => setState({ isOpen: false })}>
+                                Dismiss
+                            </Button>
+                            <Button importance="text" onClick={() => setState({ isOpen: false })}>
+                                Confirm
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </React.Fragment>
+            );
+        }}
+    </StatefulComponent>
 </Playground>
