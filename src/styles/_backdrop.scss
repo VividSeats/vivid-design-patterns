@@ -33,7 +33,7 @@
     height: 100%;
     pointer-events: none;
     width: 100%;
-    z-index: $z-index-backdrop;
+    z-index: $z-index-modal - 1;
     pointer-events: all;
 
     [class^='vdp-modal'] & {

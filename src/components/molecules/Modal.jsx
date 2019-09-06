@@ -46,7 +46,10 @@ const Modal = props => {
                             className={`vdp-react-modal${typeClassName}${!!className ? ` ${className}` : ''}`}
                             onClick={onClickBackdrop}
                             {...htmlAtrributes}>
-                            <animated.div style={{ ...animationProps, ...style }} className="vdp-react-modal__container">
+                            <animated.div
+                                style={{ ...animationProps, ...style }}
+                                onClick={e => e.stopPropagation()}
+                                className="vdp-react-modal__container">
                                 {children}
                             </animated.div>
                         </animated.aside>
@@ -73,7 +76,6 @@ Modal.propTypes = {
     children: PropTypes.node,
     isOpen: PropTypes.bool.isRequired,
     disableBackdrop: PropTypes.bool,
-    title: PropTypes.string,
     type: PropTypes.oneOf([Modal.TYPES.SHEET, Modal.TYPES.FULL_SCREEN]),
     onClickBackdrop: PropTypes.func
 };

@@ -83,11 +83,6 @@
         }
     }
 }
-@include size-min-tablet {
-    [class^='vdp-react-modal'][class*='--full-screen'] {
-        display: none;
-    }
-}
 
 // Scrollable Content
 [data-scrollable='true'] {

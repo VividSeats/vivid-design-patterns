@@ -31,7 +31,7 @@ Using the scss files:
 `React: className="vdp-modal" dataState="opened" HTML: class="vdp-modal" data-state="opened"`
 
 <Playground style={{ minHeight: '400px', height: '100%' }}>
-    <Modal dataState="opened">
+    <Modal isOpen>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
         reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
@@ -72,30 +72,6 @@ Modal headers can either take in a title prop to render a default Header, or tak
 ```
 
 <Playground style={{ minHeight: '400px', height: '100%' }}>
-    <Modal isOpen>
-        <Modal.Header>
-            <Headline importance={6}>Custom Modal H4 Header</Headline>
-        </Modal.Header>
-        <Modal.Body>
-            <p>This modal is using subcomponents for the modal header, body, and footer.</p>
-        </Modal.Body>
-        <Modal.Footer>
-            <Button importance="tertiary" onClick={() => window.alert('custom button clicked')}>
-                Custom button
-            </Button>
-        </Modal.Footer>
-    </Modal>
-</Playground>
-
-## Full Screen Example
-
-```
-    <Modal type="full-screen"/>
-```
-
-The full screen modal is available only for mobile screen sizes and doesn't have a default modal footer subcomponent.
-
-<Playground style={{ minHeight: '400px', height: '100%' }}>
     <Modal type="full-screen" isOpen>
         <Modal.Body>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -106,11 +82,7 @@ The full screen modal is available only for mobile screen sizes and doesn't have
     </Modal>
 </Playground>
 
-## Example with External Button
-
-### Modal is rendered by a component that passes in a changing dataState prop
-
-`dataState={!!state.opened ? 'opened' : 'closed'}`
+### Modal is rendered by a component that passes in a changing isOpen prop
 
 <Playground style={{ minHeight: '400px', height: '100%' }}>
     <StatefulComponent initialState={{ isOpen: false }}>
@@ -118,7 +90,7 @@ The full screen modal is available only for mobile screen sizes and doesn't have
             return (
                 <React.Fragment>
                     <Button onClick={() => setState({ isOpen: !state.isOpen })}>Click</Button>
-                    <Modal isOpen={state.isOpen}>
+                    <Modal isOpen={state.isOpen} onClickBackdrop={() => setState({ isOpen: false })}>
                         <Modal.Header>Modal Header</Modal.Header>
                         <Modal.Body>
                             <BodyText importance={2}>
