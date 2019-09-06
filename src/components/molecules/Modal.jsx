@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useTransition, animated } from 'react-spring';
 import { useMedia } from 'react-use-media';

@@ -273,7 +273,7 @@ interface Accordion {
 }
 declare const Accordion: FC<Accordion> & { Collapse: FC<Collapse> };
 
-interface Card {
+interface Card extends HTMLAttributes<HTMLDivElement> {
     type?: 'standard' | 'list' | 'anchor';
     /** this method is also called upon when users presses the enter key on the card element */
     onClick?: (e: MouseEvent<HTMLElement> | KeyboardEvent) => void;
