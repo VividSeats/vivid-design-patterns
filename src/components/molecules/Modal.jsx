@@ -41,18 +41,18 @@ const Modal = props => {
             {transitions.map(
                 ({ key, item, props: animationProps }) =>
                     item && (
-                        <Fragment key={key}>
-                            <animated.aside
-                                className={`vdp-react-modal${typeClassName}${!!className ? ` ${className}` : ''}`}
-                                {...htmlAtrributes}>
-                                <animated.div style={{ ...animationProps, ...style }} className="vdp-react-modal__container">
-                                    {children}
-                                </animated.div>
-                            </animated.aside>
-                        </Fragment>
+                        <animated.aside
+                            key={key}
+                            className={`vdp-react-modal${typeClassName}${!!className ? ` ${className}` : ''}`}
+                            onClick={onClickBackdrop}
+                            {...htmlAtrributes}>
+                            <animated.div style={{ ...animationProps, ...style }} className="vdp-react-modal__container">
+                                {children}
+                            </animated.div>
+                        </animated.aside>
                     )
             )}
-            {!disableBackdrop && <Backdrop isOpen={isOpen} onClick={onClickBackdrop} />}
+            {!disableBackdrop && <Backdrop isOpen={isOpen} />}
         </>
     );
 };
