@@ -26,8 +26,6 @@ const Backdrop = ({ className = '', children, isOpen = false, onClick = () => {}
     );
 };
 
-Backdrop.displayName = 'Backdrop';
-
 Backdrop.propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,

@@ -8,18 +8,16 @@ import ModalBody from '../atoms/ModalBody';
 import ModalFooter from '../atoms/ModalFooter';
 import Backdrop from '../atoms/Backdrop';
 
-const Modal = props => {
-    const {
-        backgroundImage,
-        className = '',
-        disableBackdrop = false,
-        isOpen = false,
-        type = '',
-        children,
-        onClickBackdrop = () => {},
-        ...htmlAtrributes
-    } = props;
-
+const Modal = ({
+    backgroundImage,
+    className = '',
+    disableBackdrop = false,
+    isOpen = false,
+    type = '',
+    children,
+    onClickBackdrop = () => {},
+    ...htmlAtrributes
+}) => {
     const isMobile = useMedia({ maxWidth: 768 });
 
     const sheet = {
@@ -28,9 +26,9 @@ const Modal = props => {
     };
 
     const transitions = useTransition(isOpen, null, {
-        from: { opacity: 0, ...(type === 'sheet' ? sheet.closed : {}), ...(!isMobile ? { transform: 'scale(0.5)' } : {}) },
-        enter: { opacity: 1, ...(type === 'sheet' ? sheet.open : {}), ...(!isMobile ? { transform: 'scale(1)' } : {}) },
-        leave: { opacity: 0, ...(type === 'sheet' ? sheet.closed : {}), ...(!isMobile ? { transform: 'scale(0.5)' } : {}) }
+        from: { ...(type === 'sheet' ? sheet.closed : { opacity: 1 }), ...(!isMobile ? { transform: 'scale(0.3)' } : {}) },
+        enter: { ...(type === 'sheet' ? sheet.open : { opacity: 1 }), ...(!isMobile ? { transform: 'scale(1)' } : {}) },
+        leave: { ...(type === 'sheet' ? sheet.closed : { opacity: 0 }), ...(!isMobile ? { transform: 'scale(0.3)' } : {}) }
     });
 
     const typeClassName = !!type.length ? `--${type}` : type;
