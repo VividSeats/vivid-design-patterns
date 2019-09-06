@@ -162,6 +162,7 @@ class Typeahead extends React.Component {
 
         if (value.length >= minQueryLength) {
             onChange(value);
+            this.showDropdown();
         }
     };
 
