@@ -262,7 +262,7 @@ class Typeahead extends React.Component {
                     onFocus: this.showDropdown,
                     onChange: this.onChange,
                     value,
-                    handleReset: () => this.setState({ value: '' }),
+                    handleReset: () => this.setState({ value: '', highlightedIndex: -1, isDropdownShown: false }),
                     ...a11yAttributes
                 })}
                 {showDropdown && <Typeahead.Dropdown>{renderDropdown(dropdownContent)}</Typeahead.Dropdown>}
