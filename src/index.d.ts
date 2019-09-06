@@ -176,10 +176,10 @@ interface Label {
 declare const Label: FC<Label>;
 
 interface Link extends TypographyProps<HTMLAnchorElement>, AnchorHTMLAttributes<HTMLAnchorElement> {
-    href: string;
+    href?: string;
     className?: string;
     type?: 'link' | 'anchor';
-    onClick?: (e?: MouseEvent<HTMLAnchorElement>) => void;
+    onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 declare const Link: FC<Link>;
