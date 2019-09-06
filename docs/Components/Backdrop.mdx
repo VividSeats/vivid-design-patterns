@@ -7,6 +7,7 @@ route: /components/backdrop
 import { Props, Playground } from 'docz';
 import Backdrop from '../../src/components/atoms/Backdrop';
 import Modal from '../../src/components/molecules/Modal';
+import Button from '../../src/components/atoms/Button';
 import StatefulComponent from '../StatefulComponent';
 import '../docz.scss';
 
@@ -26,18 +27,7 @@ Using the scss files:
 
 <Props of={Backdrop} />
 
-## Common Usage
-
-Most often used implicitly inside a Modal component.
-
-<Playground>
-    <Modal dataState="opened" onClick={() => window.alert('on click fired')}>
-        <p>Another belief of mine: that everyone else my age is an adult, whereas I am merely in disguise.</p>
-        <p>-Margaret Atwood</p>
-    </Modal>
-</Playground>
-
-## Standalone Usage
+## Usage
 
 May be used on its own.
 
@@ -47,13 +37,13 @@ May be used on its own.
         ({state, setState}) => {
             const { open } = state;
 
-            const handleClose = () => {
-                setState({open: false})
-                setTimeout(() => setState({open: true}), 2000)
-            }
-
             return (
-                <Backdrop isOpen={open} onClick={handleClose} />
+                <React.Fragment>
+                    <Button style={{zIndex: 10000000}} onClick={() => setState({open: !open})}>{open ? 'Close' : 'Open'}</Button>
+                    <div style={{position: 'relative', height: '400px'}}>
+                        <Backdrop isOpen={open} />
+                    </div>
+                </React.Fragment>
             )
         }
     }
