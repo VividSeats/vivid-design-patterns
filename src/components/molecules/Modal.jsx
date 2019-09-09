@@ -27,9 +27,18 @@ const Modal = ({
     };
 
     const transitions = useTransition(isOpen, null, {
-        from: { ...(type === 'sheet' ? sheet.closed : { opacity: 1 }), ...(!isMobile ? { transform: 'scale(0.3)' } : {}) },
-        enter: { ...(type === 'sheet' ? sheet.open : { opacity: 1 }), ...(!isMobile ? { transform: 'scale(1)' } : {}) },
-        leave: { ...(type === 'sheet' ? sheet.closed : { opacity: 0 }), ...(!isMobile ? { transform: 'scale(0.3)' } : {}) }
+        from: {
+            ...(type === 'sheet' && isMobile ? sheet.closed : { opacity: 1 }),
+            ...(!isMobile || type !== 'sheet' ? { transform: 'scale(0.3)' } : {})
+        },
+        enter: {
+            ...(type === 'sheet' && isMobile ? sheet.open : { opacity: 1 }),
+            ...(!isMobile || type !== 'sheet' ? { transform: 'scale(1)' } : {})
+        },
+        leave: {
+            ...(type === 'sheet' && isMobile ? sheet.closed : { opacity: 0 }),
+            ...(!isMobile || type !== 'sheet' ? { transform: 'scale(0.3)' } : {})
+        }
     });
 
     const typeClassName = !!type.length ? `--${type}` : type;
