@@ -44,4 +44,17 @@ describe('<Modal />', () => {
         wrapper.find('aside.vdp-react-modal').simulate('click');
         expect(mockOnClose).toHaveBeenCalled();
     });
+    it('renders its child static components', async () => {
+        const wrapper = mount(
+            <Modal isOpen>
+                <Modal.Header> Hello </Modal.Header>
+                <Modal.Body> Body </Modal.Body>
+                <Modal.Footer>Footer</Modal.Footer>
+            </Modal>
+        );
+        await wait(200);
+        expect(wrapper.exists('.vdp-modal__body')).toBe(true);
+        expect(wrapper.exists('.vdp-modal__footer')).toBe(true);
+        expect(wrapper.exists('.vdp-modal__header')).toBe(true);
+    });
 });
