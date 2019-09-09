@@ -37,4 +37,11 @@ describe('<Modal />', () => {
         await wait(200);
         expect(wrapper.exists('.vdp-react-backdrop')).toBe(false);
     });
+    it('calls onClickBackdrop when backdrop is clicked', async () => {
+        const mockOnClose = jest.fn();
+        const wrapper = mount(<Modal isOpen onClickBackdrop={mockOnClose} />);
+        await wait(200);
+        wrapper.find('aside.vdp-react-modal').simulate('click');
+        expect(mockOnClose).toHaveBeenCalled();
+    });
 });
