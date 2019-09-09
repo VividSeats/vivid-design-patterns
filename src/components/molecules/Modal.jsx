@@ -22,7 +22,8 @@ const Modal = ({
 
     const sheet = {
         open: { bottom: '0%' },
-        closed: { bottom: '-100%' }
+        closed: { bottom: '-100%' },
+        config: { duration: 300 }
     };
 
     const transitions = useTransition(isOpen, null, {
