@@ -22,23 +22,13 @@ const Modal = ({
 
     const sheet = {
         open: { bottom: '0%' },
-        closed: { bottom: '-100%' },
-        config: { duration: 300 }
+        closed: { bottom: '-100%' }
     };
 
     const transitions = useTransition(isOpen, null, {
-        from: {
-            ...(type === 'sheet' && isMobile ? sheet.closed : { opacity: 1 }),
-            ...(!isMobile || type !== 'sheet' ? { transform: 'scale(0.3)' } : {})
-        },
-        enter: {
-            ...(type === 'sheet' && isMobile ? sheet.open : { opacity: 1 }),
-            ...(!isMobile || type !== 'sheet' ? { transform: 'scale(1)' } : {})
-        },
-        leave: {
-            ...(type === 'sheet' && isMobile ? sheet.closed : { opacity: 0 }),
-            ...(!isMobile || type !== 'sheet' ? { transform: 'scale(0.3)' } : {})
-        }
+        from: type === 'sheet' && isMobile ? sheet.closed : { opacity: 1, transform: 'scale(0.3)' },
+        enter: type === 'sheet' && isMobile ? sheet.open : { opacity: 1, transform: 'scale(1)' },
+        leave: type === 'sheet' && isMobile ? sheet.closed : { opacity: 0, transform: 'scale(0.3)' }
     });
 
     const typeClassName = !!type.length ? `--${type}` : type;
