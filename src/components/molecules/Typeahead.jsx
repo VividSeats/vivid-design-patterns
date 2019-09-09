@@ -162,6 +162,7 @@ class Typeahead extends React.Component {
 
         if (value.length >= minQueryLength) {
             onChange(value);
+            this.showDropdown();
         }
     };
 
@@ -205,6 +206,11 @@ class Typeahead extends React.Component {
         }
 
         return resultLength > 0 && isDropdownShown && value.length >= minQueryLength;
+    };
+
+    handleReset = () => {
+        this.setState({ value: '', highlightedIndex: -1, isDropdownShown: false });
+        this.props.onChange('');
     };
 
     flattenSuggestions() {
@@ -261,7 +267,7 @@ class Typeahead extends React.Component {
                     onFocus: this.showDropdown,
                     onChange: this.onChange,
                     value,
-                    handleReset: () => this.setState({ value: '' }),
+                    handleReset: this.handleReset,
                     ...a11yAttributes
                 })}
                 {showDropdown && <Typeahead.Dropdown>{renderDropdown(dropdownContent)}</Typeahead.Dropdown>}

@@ -141,8 +141,10 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         max-width: 600px;
         text-align: center;
     }
-    .vdp-page-hero__tabs {
-        @include justify-content(center);
+    @include size-min-tablet {
+        .vdp-page-hero__tabs {
+            @include justify-content(center);
+        }
     }
 }
 

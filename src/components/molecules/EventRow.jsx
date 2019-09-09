@@ -85,6 +85,12 @@ const EventRow = ({
                 onClick(e);
             }}
             {...htmlAttributes}>
+            {/* Checkbox */}
+            {hasCheckbox && (
+                <div className={getColClassName(CHECKBOX)}>
+                    <Icon type={`checkbox-${checkboxState ? 'on' : 'off'}`} />
+                </div>
+            )}
             {/* Thumbnail Image */}
             {!!thumbnail && !!thumbnail.src && !!thumbnail.alt && (
                 <div className={getColClassName(THUMBNAIL)}>
@@ -135,12 +141,6 @@ const EventRow = ({
             )}
             {/* Mobile Col for Min List Price */}
             {!!minListPrice && <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />}
-            {/* Checkbox */}
-            {hasCheckbox && (
-                <div className={getColClassName(CHECKBOX)}>
-                    <Icon type={`checkbox-${checkboxState ? 'on' : 'off'}`} />
-                </div>
-            )}
             <link className="schema-url" itemProp="url" href={href} />
             <meta itemProp="sameAs" content={href} />
             {!!imageUrl && <meta itemProp="image" content={imageUrl} />}

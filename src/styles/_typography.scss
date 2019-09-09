@@ -249,6 +249,9 @@ a {
     &[class*='--disabled'] {
         color: $text-color-disabled;
     }
+    &[class*='--error'] {
+        color: $color-state-error;
+    }
     &[class*='--inverted'] {
         color: $color-white;
     }
@@ -257,6 +260,9 @@ a {
     }
     &[class*='--gold'] {
         color: $color-brand-gold;
+    }
+    &[class*='--success'] {
+        color: $color-state-success;
     }
     &[class*='--left'] {
         text-align: left;

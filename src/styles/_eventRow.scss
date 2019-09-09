@@ -57,11 +57,19 @@ $row-height: 4.5rem;
     }
 
     &[class*='--checkbox'] {
+        color: $text-color-muted;
+
+        .vdp-icon-checkbox-on {
+            color: $text-color-link;
+        }
+
+        + .vdp-event-row__col--date {
+            padding-left: 0;
+        }
+
         @include size-min-tablet {
             display: inherit;
-            width: $column-button-width !important;
-            padding-right: $sizing-MD;
-            text-align: right;
+            padding-left: $sizing-MD;
         }
     }
 

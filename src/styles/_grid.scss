@@ -63,6 +63,14 @@
             padding-right: 0;
         }
     }
+    &[class*='--nowrap'] {
+        @include flex-wrap(nowrap);
+
+        [class^='vdp-col'] {
+            @include flex-basis(0);
+            @include flex-grow(1);
+        }
+    }
     // Nested Row
     [class*='vdp-row'] {
         margin-left: 0;
