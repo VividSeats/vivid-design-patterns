@@ -18,7 +18,7 @@ const Backdrop = ({ className = '', children, isOpen = false, onClick = () => {}
                     style={props}
                     {...{
                         onClick,
-                        className: `vdp-react-backdrop ${className}`
+                        className: `vdp-backdrop ${className}`
                     }}>
                     {children}
                 </animated.div>

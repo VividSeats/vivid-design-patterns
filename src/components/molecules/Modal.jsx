@@ -41,13 +41,13 @@ const Modal = ({
                     item && (
                         <animated.aside
                             key={key}
-                            className={`vdp-react-modal${typeClassName}${!!className ? ` ${className}` : ''}`}
+                            className={`vdp-modal${typeClassName}${!!className ? ` ${className}` : ''}`}
                             onClick={onClickBackdrop}
                             {...htmlAtrributes}>
                             <animated.div
                                 style={{ ...animationProps, ...style }}
                                 onClick={e => e.stopPropagation()}
-                                className="vdp-react-modal__container">
+                                className="vdp-modal__container">
                                 {children}
                             </animated.div>
                         </animated.aside>

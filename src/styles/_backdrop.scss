@@ -2,7 +2,7 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 
-[class^='vdp-backdrop'] {
+[class^='vdp-backdrop-legacy'] {
     @include position(fixed, 0 null null 0);
     @include transition(opacity $transition-2);
     background-color: rgba($color-black, 0.75);
@@ -22,12 +22,12 @@
     [data-state='opening'] {
         @include transition(opacity $transition-2);
     }
-    [class^='vdp-modal'] & {
+    [class^='vdp-modal-legacy'] & {
         z-index: -1;
     }
 }
 
-[class^='vdp-react-backdrop'] {
+[class^='vdp-backdrop'] {
     @include position(fixed, 0 null null 0);
     background-color: rgba($color-black, 0.75);
     height: 100%;
@@ -41,8 +41,8 @@
         z-index: -1;
     }
 }
-[class^='vdp-react-modal'] + [class^='vdp-react-backdrop'] {
-    &[class^='vdp-react-backdrop'] {
+[class^='vdp-modal'] + [class^='vdp-backdrop'] {
+    &[class^='vdp-backdrop'] {
         z-index: $z-index-modal - 1;
     }
 }
