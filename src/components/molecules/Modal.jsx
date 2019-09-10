@@ -41,7 +41,7 @@ const Modal = ({
                     item && (
                         <animated.aside
                             key={key}
-                            className={`vdp-modal${typeClassName}${!!className ? ` ${className}` : ''}`}
+                            className={`vdp-modal ${typeClassName}${!!className ? ` ${className}` : ''}`}
                             onClick={onClickBackdrop}
                             {...htmlAtrributes}>
                             <animated.div

@@ -27,7 +27,7 @@
     }
 }
 
-[class^='vdp-backdrop'] {
+.vdp-backdrop {
     @include position(fixed, 0 null null 0);
     background-color: rgba($color-black, 0.75);
     height: 100%;
@@ -41,8 +41,8 @@
         z-index: -1;
     }
 }
-[class^='vdp-modal'] + [class^='vdp-backdrop'] {
-    &[class^='vdp-backdrop'] {
+.vdp-modal + .vdp-backdrop {
+    &.vdp-backdrop {
         z-index: $z-index-modal - 1;
     }
 }
