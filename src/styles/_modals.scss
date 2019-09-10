@@ -3,7 +3,7 @@
 @import 'mixins/prefixes';
 @import './_legacy-modal';
 // Block
-.vdp-modal:not([class*='__']) {
+.vdp-react-modal:not([class*='__']) {
     @include align-items(center);
     @include flex;
     @include justify-content(center);
@@ -11,39 +11,38 @@
     height: 100%;
     width: 100%;
     z-index: $z-index-modal;
+    // Elements
+    .vdp-react-modal__container {
+        @include flex;
+        @include flex-direction(column);
+        @include justify-content(space-around);
+        background: $color-white;
+        border-radius: $border-radius-MD;
+        margin: $sizing-LG;
+        max-height: calc(100% - 32px);
+        max-width: 600px;
+        min-width: 200px;
+        width: auto;
+        -ms-flex: 1 0 auto;
+    }
 }
 
-// Elements
-.vdp-modal__container {
-    @include flex;
-    @include flex-direction(column);
-    @include justify-content(space-around);
-    background: $color-white;
-    border-radius: $border-radius-MD;
-    margin: $sizing-LG;
-    max-height: calc(100% - 32px);
-    max-width: 600px;
-    min-width: 200px;
-    width: auto;
-    -ms-flex: 1 0 auto;
-
-    @include size-min-tablet {
-        [class^='vdp-modal'][class*='--sm'] & {
-            height: 320px;
-        }
-        [class^='vdp-modal'][class*='--md'] & {
-            height: 480px;
-        }
-        [class^='vdp-modal'][class*='--lg'] & {
-            max-width: 900px;
-        }
+@include size-min-tablet {
+    [class^='vdp-react-modal'][class*='--sm'] .vdp-react-modal__container {
+        height: 320px;
+    }
+    [class^='vdp-react-modal'][class*='--md'] .vdp-react-modal__container {
+        height: 480px;
+    }
+    [class^='vdp-react-modal'][class*='--lg'] .vdp-react-modal__container {
+        max-width: 900px;
     }
 }
 
 @include size-only-mobile {
-    .vdp-modal {
+    .vdp-react-modal {
         &[class*='--sheet'] {
-            .vdp-modal__container {
+            .vdp-react-modal__container {
                 @include position(absolute, null null -100vh null);
                 border-radius: $border-radius-LG $border-radius-LG 0 0;
                 margin: 0;
@@ -53,7 +52,7 @@
             @include position(absolute, null null 0 null);
         }
         &[class*='--full-screen'] {
-            .vdp-modal__container {
+            .vdp-react-modal__container {
                 border-radius: 0;
                 margin: 0;
                 height: 100vh;

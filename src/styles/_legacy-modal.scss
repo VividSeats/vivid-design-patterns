@@ -3,7 +3,7 @@
 @import 'mixins/prefixes';
 
 // Block
-[class^='vdp-modal-legacy']:not([class*='__']) {
+[class^='vdp-modal']:not([class*='__']) {
     @include align-items(center);
     @include flex;
     @include justify-content(center);
@@ -15,47 +15,47 @@
     &[data-state='closed'] {
         display: none;
     }
-    // Elements
-    .vdp-modal__container {
-        @include flex;
-        @include flex-direction(column);
-        @include justify-content(space-around);
-        @include transform(scale(0.5));
-        @include transition(all $transition-2);
-        background: $color-white;
-        border-radius: $border-radius-MD;
-        margin: $sizing-LG;
-        max-height: calc(100% - 32px);
-        max-width: 600px;
-        min-width: 200px;
-        opacity: 0;
-        width: auto;
-        -ms-flex: 1 0 auto;
+}
 
-        [data-state='opening'] &,
-        [data-state='closing'] & {
-            @include transition(all $transition-2);
+// Elements
+.vdp-modal__container {
+    @include flex;
+    @include flex-direction(column);
+    @include justify-content(space-around);
+    @include transform(scale(0.5));
+    @include transition(all $transition-2);
+    background: $color-white;
+    border-radius: $border-radius-MD;
+    margin: $sizing-LG;
+    max-height: calc(100% - 32px);
+    max-width: 600px;
+    min-width: 200px;
+    opacity: 0;
+    width: auto;
+    -ms-flex: 1 0 auto;
+
+    [data-state='opening'] &,
+    [data-state='closing'] & {
+        @include transition(all $transition-2);
+    }
+    [data-state='opened'] & {
+        @include transform(scale(1));
+        opacity: 1;
+    }
+    @include size-min-tablet {
+        [class^='vdp-modal'][class*='--sm'] & {
+            height: 320px;
         }
-        [data-state='opened'] & {
-            @include transform(scale(1));
-            opacity: 1;
+        [class^='vdp-modal'][class*='--md'] & {
+            height: 480px;
         }
-        @include size-min-tablet {
-            [class^='vdp-modal-legacy'][class*='--sm'] & {
-                height: 320px;
-            }
-            [class^='vdp-modal-legacy'][class*='--md'] & {
-                height: 480px;
-            }
-            [class^='vdp-modal-legacy'][class*='--lg'] & {
-                max-width: 900px;
-            }
+        [class^='vdp-modal'][class*='--lg'] & {
+            max-width: 900px;
         }
     }
 }
-
 @include size-only-mobile {
-    [class^='vdp-modal-legacy'] {
+    [class^='vdp-modal'] {
         &[class*='--sheet'] {
             .vdp-modal__container {
                 @include position(absolute, null null -100vh null);
@@ -101,7 +101,7 @@
     }
 }
 @include size-min-tablet {
-    [class^='vdp-modal-legacy'][class*='--full-screen'] {
+    [class^='vdp-modal'][class*='--full-screen'] {
         display: none;
     }
 }

@@ -2,7 +2,7 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 
-[class^='vdp-backdrop-legacy'] {
+[class^='vdp-backdrop'] {
     @include position(fixed, 0 null null 0);
     @include transition(opacity $transition-2);
     background-color: rgba($color-black, 0.75);
@@ -27,7 +27,7 @@
     }
 }
 
-.vdp-backdrop {
+.vdp-react-backdrop {
     @include position(fixed, 0 null null 0);
     background-color: rgba($color-black, 0.75);
     height: 100%;
@@ -41,8 +41,8 @@
         z-index: -1;
     }
 }
-.vdp-modal + .vdp-backdrop {
-    &.vdp-backdrop {
+.vdp-react-modal + .vdp-react-backdrop {
+    &.vdp-react-backdrop {
         z-index: $z-index-modal - 1;
     }
 }

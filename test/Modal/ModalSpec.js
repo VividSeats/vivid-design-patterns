@@ -10,38 +10,38 @@ window.matchMedia = () => ({
 });
 
 describe('<Modal />', () => {
-    it('renders a div with .vdp-modal', async () => {
+    it('renders a div with .vdp-react-modal', async () => {
         const wrapper = shallow(<Modal isOpen />);
         await wait(300);
-        expect(wrapper.exists('.vdp-modal')).toBe(true);
+        expect(wrapper.exists('.vdp-react-modal')).toBe(true);
         await wait(600);
-        expect(wrapper.find('.vdp-modal__container').prop('style').opacity.value).toBeGreaterThan(0.95);
-        expect(wrapper.exists('.vdp-modal__container')).toBe(true);
+        expect(wrapper.find('.vdp-react-modal__container').prop('style').opacity.value).toBeGreaterThan(0.95);
+        expect(wrapper.exists('.vdp-react-modal__container')).toBe(true);
     });
 
-    it('does not render a div with .vdp-modal when isOpen = false', async () => {
+    it('does not render a div with .vdp-react-modal when isOpen = false', async () => {
         const wrapper = shallow(<Modal isOpen={false} />);
         await wait(200);
-        expect(wrapper.exists('.vdp-modal')).toBe(false);
-        expect(wrapper.exists('.vdp-modal___container')).toBe(false);
+        expect(wrapper.exists('.vdp-react-modal')).toBe(false);
+        expect(wrapper.exists('.vdp-react-modal___container')).toBe(false);
     });
 
     it('does render backdrop when `isOpen` = true', async () => {
         const wrapper = mount(<Modal isOpen />);
         await wait(200);
-        expect(wrapper.exists('.vdp-backdrop')).toBe(true);
+        expect(wrapper.exists('.vdp-react-backdrop')).toBe(true);
     });
 
     it('does not render backdrop when `disableBackdrop` = true', async () => {
         const wrapper = mount(<Modal isOpen disableBackdrop />);
         await wait(200);
-        expect(wrapper.exists('.vdp-backdrop')).toBe(false);
+        expect(wrapper.exists('.vdp-react-backdrop')).toBe(false);
     });
     it('calls onClickBackdrop when backdrop is clicked', async () => {
         const mockOnClose = jest.fn();
         const wrapper = mount(<Modal isOpen onClickBackdrop={mockOnClose} />);
         await wait(200);
-        wrapper.find('aside.vdp-modal').simulate('click');
+        wrapper.find('aside.vdp-react-modal').simulate('click');
         expect(mockOnClose).toHaveBeenCalled();
     });
     it('renders its child static components', async () => {
