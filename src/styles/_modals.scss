@@ -49,7 +49,7 @@
                 opacity: 1;
                 width: 100%;
             }
-            @include position(absolute, null null 0 null);
+            position: fixed;
         }
         &[class*='--full-screen'] {
             .vdp-react-modal__container {
