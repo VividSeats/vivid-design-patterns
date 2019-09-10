@@ -22,7 +22,7 @@
     [data-state='opening'] {
         @include transition(opacity $transition-2);
     }
-    [class^='vdp-modal-legacy'] & {
+    [class^='vdp-modal'] & {
         z-index: -1;
     }
 }
