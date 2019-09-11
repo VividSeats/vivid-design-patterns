@@ -392,7 +392,7 @@ interface Modal extends HTMLAttributes<HTMLElement> {
     onClose?: () => void;
     onOpen?: () => void;
     type?: 'sheet' | 'full-screen';
-    onClickBackdrop?: boolean;
+    onClickBackdrop?: () => void;
 }
 
 declare const Modal: FC<Modal> & { Footer: FC<ModalFooter>; Header: FC<ModalHeader>; Body: FC<ModalBody>; Backdrop: FC<BackdropProps> };
@@ -482,7 +482,6 @@ declare const LoadingSpinner: FC<LoadingSpinner>;
 
 interface Notification extends HTMLAttributes<HTMLDivElement> {
     isOpen: boolean;
-    type: 'toast';
     children?: ReactNode;
     onClickClose?: () => void;
     onClickBackdrop?: () => void;
