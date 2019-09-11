@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTransition, animated } from 'react-spring';
+import { useTransition, animated } from 'react-spring/web.cjs';
 import { useMedia } from 'react-use-media';
 import Backdrop from '../atoms/Backdrop';
 import Icon from '../atoms/Icon';
