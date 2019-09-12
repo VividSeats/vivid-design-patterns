@@ -1,7 +1,10 @@
+import 'core-js';
+import 'core-js/es7';
+import 'core-js/es6';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTransition, animated } from 'react-spring/web.cjs';
-import { useMedia } from 'react-use-media';
+import useMedia from 'use-media';
 
 import ModalHeader from '../atoms/ModalHeader';
 import ModalBody from '../atoms/ModalBody';
