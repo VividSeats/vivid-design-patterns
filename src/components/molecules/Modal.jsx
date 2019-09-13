@@ -1,6 +1,12 @@
 import 'core-js';
-import 'core-js/es7';
-import 'core-js/es6';
+import 'core-js/es6/string';
+import 'core-js/es6/object';
+import 'core-js/es7/object';
+import 'core-js/es6/array';
+import 'core-js/es7/array';
+import 'core-js/es6/set';
+import 'core-js/es7/set';
+import 'core-js/modules/es6.regexp.constructor';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTransition, animated } from 'react-spring/web.cjs';
