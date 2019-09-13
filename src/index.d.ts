@@ -389,8 +389,6 @@ interface Modal extends HTMLAttributes<HTMLElement> {
     isOpen: boolean;
     backgroundImage?: string;
     disableBackdrop?: boolean;
-    onClose?: () => void;
-    onOpen?: () => void;
     type?: 'sheet' | 'full-screen';
     onClickBackdrop?: () => void;
 }
