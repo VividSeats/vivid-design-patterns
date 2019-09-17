@@ -16,6 +16,7 @@
         @include flex;
         @include flex-direction(column);
         @include justify-content(space-around);
+        will-change: transform, opacity;
         background: $color-white;
         border-radius: $border-radius-MD;
         margin: $sizing-LG;
@@ -93,5 +94,14 @@
     }
     .vdp-modal__footer {
         @include border(top);
+    }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .vdp-react-modal__container {
+        &.--open {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
     }
 }
