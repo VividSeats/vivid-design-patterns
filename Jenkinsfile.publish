@@ -43,7 +43,7 @@ pipeline {
 
     stage('Publish') {
         steps {
-            sh "GITHUB_AUTH=${env.GITHUB_TOKEN}"
+            sh "export GITHUB_AUTH=${env.GITHUB_TOKEN}"
             sh "yarn publish --new-version ${params.SEM_VER_TYPE}"
         }
     }
