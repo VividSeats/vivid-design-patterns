@@ -55,7 +55,7 @@ Using the scss files:
             return (
                 <React.Fragment>
                     <Button onClick={() => setState({ isOpen: !state.isOpen })}>Click</Button>
-                    <Modal isOpen={state.isOpen} onClickBackdrop={() => setState({ isOpen: false })}>
+                    <Modal isOpen={state.isOpen} onClose={() => setState({ isOpen: false })}>
                         <Modal.Header>Modal Header</Modal.Header>
                         <Modal.Body>
                             <BodyText importance={2}>

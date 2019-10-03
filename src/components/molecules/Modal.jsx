@@ -25,11 +25,24 @@ const Modal = ({
     isOpen = false,
     type = '',
     children,
-    onClickBackdrop = () => {},
+    onClickBackdrop,
     animate = true,
+    closeWithEscapeKey = true,
+    /** Method called when user wants to close the Modal */
+    onClose = () => {},
     ...htmlAtrributes
 }) => {
+    const modalRef = React.useRef();
+    const [isRested, setIsRested] = React.useState(false);
+    // Focus on modal once animation is finished so user can hit escape
+    React.useLayoutEffect(() => {
+        if (isOpen && !!modalRef.current) {
+            const isModalFocused = document.activeElement === modalRef.current || modalRef.current.contains(document.activeElement);
+            !isModalFocused && modalRef.current.focus();
+        }
+    }, [isOpen, isRested]);
     const isMobile = useMedia({ maxWidth: 768 });
+
     const sheet = {
         open: { bottom: '0%' },
         closed: { bottom: '-100%' }
@@ -45,18 +58,34 @@ const Modal = ({
     const isIe11 = !!window.MSInputMethodContext && !!document.documentMode;
     const shouldAnimate = !isIe11 && animate;
     const backgroundStyle = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : null;
+    const handleKeyDown = e => {
+        const { key, keyCode, which } = e;
+        if (closeWithEscapeKey && (key === 'Escape' || which === 27 || keyCode === 27)) {
+            onClose();
+            e.preventDefault();
+        }
+    };
+
     return (
         <>
-            <Transition native items={isOpen} immediate={!shouldAnimate} {...transitionProps}>
+            <Transition
+                native
+                items={isOpen}
+                onStart={() => setIsRested(false)}
+                onRest={() => setIsRested(true)}
+                immediate={!shouldAnimate}
+                {...transitionProps}>
                 {show =>
                     show &&
                     (animationProps => {
                         return (
                             <animated.aside
                                 className={`vdp-react-modal ${typeClassName}${!!className ? ` ${className}` : ''}`}
-                                onClick={onClickBackdrop}
                                 {...htmlAtrributes}>
                                 <animated.div
+                                    tabIndex="-1"
+                                    ref={modalRef}
+                                    onKeyDown={handleKeyDown}
                                     style={{ ...animationProps, ...backgroundStyle }}
                                     onClick={e => e.stopPropagation()}
                                     className={`vdp-react-modal__container ${isOpen ? '--open' : ''}`}>
@@ -67,7 +96,7 @@ const Modal = ({
                     })
                 }
             </Transition>
-            {!disableBackdrop && <Backdrop isOpen={isOpen} />}
+            {!disableBackdrop && <Backdrop isOpen={isOpen} onClick={typeof onClickBackdrop === 'undefined' ? onClose : onClickBackdrop} />}
         </>
     );
 };
@@ -90,7 +119,9 @@ Modal.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     disableBackdrop: PropTypes.bool,
     type: PropTypes.oneOf([Modal.TYPES.SHEET, Modal.TYPES.FULL_SCREEN]),
-    onClickBackdrop: PropTypes.func
+    onClickBackdrop: PropTypes.func,
+    onClose: PropTypes.func,
+    closeWithEscapeKey: PropTypes.bool
 };
 
 export default Modal;
