@@ -26,6 +26,7 @@ const Modal = ({
     type = '',
     children,
     /** Defaults to onClose */
+    canCloseWithBackdropClick = true,
     onClickBackdrop,
     animate = true,
     closeWithEscapeKey = true,
@@ -39,7 +40,9 @@ const Modal = ({
     React.useLayoutEffect(() => {
         if (isOpen && !!modalRef.current) {
             const isModalFocused = document.activeElement === modalRef.current || modalRef.current.contains(document.activeElement);
-            !isModalFocused && modalRef.current.focus();
+            if (!isModalFocused) {
+                modalRef.current.focus();
+            }
         }
     }, [isOpen, isRested]);
     const isMobile = useMedia({ maxWidth: 768 });
@@ -67,6 +70,13 @@ const Modal = ({
         }
     };
 
+    const handleBackdropClick = () => {
+        if (canCloseWithBackdropClick && typeof onClickBackdrop === 'undefined') {
+            onClose();
+        } else if (!!onClickBackdrop) {
+            onClickBackdrop();
+        }
+    };
     return (
         <>
             <Transition
@@ -97,7 +107,7 @@ const Modal = ({
                     })
                 }
             </Transition>
-            {!disableBackdrop && <Backdrop isOpen={isOpen} onClick={typeof onClickBackdrop === 'undefined' ? onClose : onClickBackdrop} />}
+            {!disableBackdrop && <Backdrop isOpen={isOpen} onClick={handleBackdropClick} />}
         </>
     );
 };
