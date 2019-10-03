@@ -25,6 +25,7 @@ const Modal = ({
     isOpen = false,
     type = '',
     children,
+    /** Defaults to onClose */
     onClickBackdrop,
     animate = true,
     closeWithEscapeKey = true,
