@@ -91,6 +91,7 @@ const Modal = ({
                     (animationProps => {
                         return (
                             <animated.aside
+                                onClick={handleBackdropClick}
                                 className={`vdp-react-modal ${typeClassName}${!!className ? ` ${className}` : ''}`}
                                 {...htmlAtrributes}>
                                 <animated.div
@@ -107,7 +108,7 @@ const Modal = ({
                     })
                 }
             </Transition>
-            {!disableBackdrop && <Backdrop isOpen={isOpen} onClick={handleBackdropClick} />}
+            {!disableBackdrop && <Backdrop isOpen={isOpen} />}
         </>
     );
 };
@@ -132,6 +133,7 @@ Modal.propTypes = {
     type: PropTypes.oneOf([Modal.TYPES.SHEET, Modal.TYPES.FULL_SCREEN]),
     onClickBackdrop: PropTypes.func,
     onClose: PropTypes.func,
+    canCloseWithBackdropClick: PropTypes.bool,
     closeWithEscapeKey: PropTypes.bool
 };
 
