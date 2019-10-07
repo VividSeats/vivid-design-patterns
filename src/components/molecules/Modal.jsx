@@ -10,6 +10,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Transition, animated } from 'react-spring/renderprops.cjs';
 import useMedia from 'use-media';
+import classNames from 'classnames';
 
 import ModalHeader from '../atoms/ModalHeader';
 import ModalBody from '../atoms/ModalBody';
@@ -32,6 +33,7 @@ const Modal = ({
     closeWithEscapeKey = true,
     /** Method called when user wants to close the Modal */
     onClose = () => {},
+    size,
     ...htmlAtrributes
 }) => {
     const modalRef = React.useRef();
@@ -58,7 +60,11 @@ const Modal = ({
         leave: type === 'sheet' && isMobile ? sheet.closed : { opacity: 0, transform: 'scale(0.3)' }
     };
 
-    const typeClassName = !!type.length ? `--${type}` : type;
+    const modalClassNames = classNames('vdp-react-modal', {
+        [`--${type}`]: type,
+        [`--${size}`]: size,
+        [className]: className
+    });
     const isIe11 = !!window.MSInputMethodContext && !!document.documentMode;
     const shouldAnimate = !isIe11 && animate;
     const backgroundStyle = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : null;
@@ -90,10 +96,7 @@ const Modal = ({
                     show &&
                     (animationProps => {
                         return (
-                            <animated.aside
-                                onClick={handleBackdropClick}
-                                className={`vdp-react-modal ${typeClassName}${!!className ? ` ${className}` : ''}`}
-                                {...htmlAtrributes}>
+                            <animated.aside onClick={handleBackdropClick} className={modalClassNames} {...htmlAtrributes}>
                                 <animated.div
                                     tabIndex="-1"
                                     ref={modalRef}
@@ -123,6 +126,12 @@ Modal.TYPES = {
     FULL_SCREEN: 'full-screen'
 };
 
+Modal.SIZES = {
+    SMALL: 'sm',
+    MEDIUM: 'md',
+    LARGE: 'lg'
+};
+
 Modal.propTypes = {
     backgroundImage: PropTypes.string,
     animate: PropTypes.bool,
@@ -134,7 +143,8 @@ Modal.propTypes = {
     onClickBackdrop: PropTypes.func,
     onClose: PropTypes.func,
     canCloseWithBackdropClick: PropTypes.bool,
-    closeWithEscapeKey: PropTypes.bool
+    closeWithEscapeKey: PropTypes.bool,
+    size: PropTypes.oneOf([Modal.SIZES.SMALL, Modal.SIZES.MEDIUM, Modal.SIZES.LARGE])
 };
 
 export default Modal;
