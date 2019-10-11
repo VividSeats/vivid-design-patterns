@@ -25,6 +25,10 @@
         min-width: 200px;
         width: auto;
         -ms-flex: 1 0 auto;
+
+        &:focus {
+            outline: none;
+        }
     }
 }
 
@@ -56,7 +60,7 @@
             .vdp-react-modal__container {
                 border-radius: 0;
                 margin: 0;
-                height: 100vh;
+                height: 100%;
                 max-height: unset;
                 width: 100vw;
                 background-size: 120vw 120vh;

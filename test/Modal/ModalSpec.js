@@ -37,6 +37,17 @@ describe('<Modal />', () => {
         wrapper.find('aside.vdp-react-modal').simulate('click');
         expect(mockOnClose).toHaveBeenCalled();
     });
+
+    it('Does not call onClose when canCloseWithBackdropClick is false ', async () => {
+        const mockOnClose = jest.fn();
+        const wrapper = mount(<Modal isOpen onClose={mockOnClose} canCloseWithBackdropClick={false} animate={false} />);
+        wrapper
+            .find('.vdp-react-backdrop')
+            .first()
+            .simulate('click');
+        expect(mockOnClose).not.toHaveBeenCalled();
+    });
+
     it('renders its child static components', async () => {
         const wrapper = mount(
             <Modal isOpen animate={false}>
