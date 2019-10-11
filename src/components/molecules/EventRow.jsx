@@ -218,7 +218,8 @@ EventRow.propTypes = {
     hasCheckbox: PropTypes.bool,
     /** onChange is passed a boolean indicating the new checkbox state */
     onChange: PropTypes.func,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    eventType: PropTypes.string
 };
 
 export default EventRow;
