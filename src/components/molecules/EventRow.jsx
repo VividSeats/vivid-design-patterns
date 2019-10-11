@@ -62,6 +62,7 @@ const EventRow = ({
     onChange = () => {},
     onClick = () => {},
     isInternationalVenue = false,
+    eventType = 'Event',
     ...htmlAttributes
 }) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
@@ -77,7 +78,7 @@ const EventRow = ({
             href={href}
             type="anchor"
             itemScope
-            itemType="http://schema.org/Event"
+            itemType={`http://schema.org/${eventType}`}
             role="row"
             onClick={e => {
                 onChange(!checkboxState);
