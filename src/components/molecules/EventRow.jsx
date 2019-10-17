@@ -116,7 +116,6 @@ const EventRow = ({
                                 </React.Fragment>
                             )}
                             {countryCodeString}
-                            <meta itemProp="addressCountry" content={countryCode} />
                         </span>
                     </SmallText>
                 ) : (
