@@ -5,12 +5,14 @@ Vivid Design Patterns are a collection of styles, design tokens and re-usable re
 Full documentation here: http://vivid-design-patterns-master.vividseats.test
 
 ## How to Install
+
+Create an .npmrc file in the root with the following content:
+`registry=http://artifactory.vividseats.com/artifactory/api/npm/npm/`
+
+Then run:
 `yarn add @vividseats/vivid-design-patterns`
-
 or
-
 `npm install @vividseats/vivid-design-patterns --save`
-
 
 ## Documentation
 To run and view documentation locally:
