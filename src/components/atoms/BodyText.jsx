@@ -14,6 +14,7 @@ const BodyText = ({
     truncate,
     list,
     opaque,
+    as = 'p',
     ...htmlAttributes
 }) => {
     const classNames = getTypeClassNames(`vdp-type-body${importance}`, {
@@ -32,7 +33,7 @@ const BodyText = ({
         ...htmlAttributes
     };
 
-    return <p {...attributes}>{children}</p>;
+    return React.createElement(as, { ...attributes }, children);
 };
 
 BodyText.propTypes = {

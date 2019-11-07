@@ -45,6 +45,7 @@ interface TypographyProps<T> extends HTMLAttributes<T> {
     capitalization?: 'uppercase' | 'lowercase';
     truncate?: boolean;
     list?: boolean;
+    as?: string,
     opaque?: boolean;
 }
 

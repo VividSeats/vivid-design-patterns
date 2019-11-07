@@ -14,6 +14,7 @@ const Subtitle = ({
     truncate,
     list,
     opaque,
+    as = 'p',
     ...htmlAttributes
 }) => {
     const classNames = getTypeClassNames(`vdp-type-subtitle${importance}`, {
@@ -32,7 +33,7 @@ const Subtitle = ({
         ...htmlAttributes
     };
 
-    return <p {...attributes}>{children}</p>;
+    return React.createElement(as, { ...attributes }, children);
 };
 
 Subtitle.propTypes = {

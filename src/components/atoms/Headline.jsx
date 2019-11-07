@@ -14,6 +14,7 @@ const Headline = ({
     truncate,
     list,
     opaque,
+    as,
     ...htmlAttributes
 }) => {
     const classNames = getTypeClassNames(`vdp-type-headline${importance}`, {
@@ -31,6 +32,10 @@ const Headline = ({
         className: classNames,
         ...htmlAttributes
     };
+
+    if (typeof as !== 'undefined') {
+        return React.createElement(as, { ...attributes }, children);
+    }
 
     switch (importance) {
         case 1: {

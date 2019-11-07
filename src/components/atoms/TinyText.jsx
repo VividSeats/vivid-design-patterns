@@ -1,7 +1,7 @@
 import React from 'react';
 import { getTypeClassNames, TYPOGRAPHY_PROP_TYPES } from '../../utils/typographyUtils';
 
-const SmallText = ({
+const TinyText = ({
     children,
     className,
     weight,
@@ -12,6 +12,7 @@ const SmallText = ({
     truncate,
     list,
     opaque,
+    as = 'p',
     ...htmlAttributes
 }) => {
     const classNames = getTypeClassNames('vdp-type-tiny', {
@@ -30,9 +31,9 @@ const SmallText = ({
         ...htmlAttributes
     };
 
-    return <p {...attributes}>{children}</p>;
+    return React.createElement(as, { ...attributes }, children);
 };
 
-SmallText.propTypes = TYPOGRAPHY_PROP_TYPES;
+TinyText.propTypes = TYPOGRAPHY_PROP_TYPES;
 
-export default SmallText;
+export default TinyText;

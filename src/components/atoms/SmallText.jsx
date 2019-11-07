@@ -12,6 +12,7 @@ const SmallText = ({
     truncate,
     list,
     opaque,
+    as = 'p',
     ...htmlAttributes
 }) => {
     const classNames = getTypeClassNames('vdp-type-small', {
@@ -30,7 +31,7 @@ const SmallText = ({
         ...htmlAttributes
     };
 
-    return <p {...attributes}>{children}</p>;
+    return React.createElement(as, { ...attributes }, children);
 };
 
 SmallText.propTypes = TYPOGRAPHY_PROP_TYPES;
