@@ -5,4 +5,4 @@ import SmallText from './SmallText';
 import TinyText from './TinyText';
 import BodyText from './BodyText';
 
-export { Headline, Subhead, Subtitle, SmallText, TinyText, BodyText };
+export default { Headline, Subhead, Subtitle, SmallText, TinyText, BodyText };

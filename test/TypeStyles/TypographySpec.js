@@ -49,6 +49,11 @@ describe('<BodyText />', () => {
 typographyPropTests.forEach(({ describes, component, defaultElement, defaultStyle }) =>
     describe(`<${describes} />`, () => {
         const constructedComponent = { component };
+        it('renders span tag when passed an "as" prop', () => {
+            const wrapper = shallow(<constructedComponent.component as="span">Hello</constructedComponent.component>);
+            const searchQuery = wrapper.find(`span.${typographyBaseStyle}${defaultStyle}`);
+            expect(searchQuery.exists()).toBe(true);
+        });
 
         it(`renders ${defaultElement} tag with the style '${defaultElement}.${typographyBaseStyle}${defaultStyle}'`, () => {
             const wrapper = shallow(<constructedComponent.component>Welcome, Bob.</constructedComponent.component>);
