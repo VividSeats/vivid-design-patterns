@@ -46,7 +46,6 @@ hr {
     @include flex-direction(column);
     background-color: $color-off-white;
     min-height: 100vh;
-    overflow-x: hidden;
 
     &[class*='--row'] {
         @include flex-direction(row);

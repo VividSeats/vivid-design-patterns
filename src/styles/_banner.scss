@@ -66,21 +66,6 @@
     position: relative;
     width: 100%;
 
-    &:before,
-    &:after {
-        @include position(absolute, 0 null 0 null);
-        background: rgba($color-black, 0.15);
-        content: '';
-        width: 100%;
-    }
-    &:before {
-        @include transform(skewX(10deg));
-        right: 96%;
-    }
-    &:after {
-        @include transform(skewX(-10deg));
-        left: 96%;
-    }
     > * {
         flex: 0.25;
         white-space: nowrap;
