@@ -51,13 +51,20 @@ pipeline {
         }
     }
 
-    stage('Push version change and changelog to github') {
+    stage('Push version change') {
           steps {
-            sh "git add CHANGELOG.md"
-            sh "git commit -m 'Post publish change-log generation commit'"
             sh "git push origin HEAD:master --follow-tag"
            }
      }
+
+     stage('Generate Changelog') {
+           steps {
+             sh "yarn changelog"
+             sh "git add CHANGELOG.md"
+             sh "git commit -m 'Post publish change-log generation commit'"
+             sh "git push origin HEAD:master --follow-tag"
+            }
+      }
   }
 
   post {
