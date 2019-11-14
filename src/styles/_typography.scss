@@ -9,31 +9,31 @@ $fontFaces: (
         Regular
     ),
     RobotoRegular: (
-        'roboto',
+        ('roboto', sans-serif),
         400,
         normal,
         regular
     ),
     RobotoItalic: (
-        'roboto',
+        ('roboto', sans-serif),
         400,
         italic,
         italic
     ),
     RobotoMedium: (
-        'roboto',
+        ('roboto', sans-serif),
         500,
         normal,
         medium
     ),
     RobotoBold: (
-        'roboto',
+        ('roboto', sans-serif),
         700,
         normal,
         bold
     ),
     RobotoBlack: (
-        'roboto',
+        ('roboto', sans-serif),
         900,
         normal,
         'black'
@@ -127,6 +127,7 @@ $typeStyles: (
         font-family: nth($attr, 1);
         font-weight: nth($attr, 2);
         font-style: nth($attr, 3);
+        font-display: swap;
         src: url('https://a.vsstatic.com/font/#{$fontName}.eot');
         src: url('https://a.vsstatic.com/font/#{$fontName}.eot?#iefix') format('embedded-opentype'),
             url('https://a.vsstatic.com/font/#{$fontName}.woff2') format('woff2'),
