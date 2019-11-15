@@ -1,7 +1,7 @@
 {
     "name": "@vividseats/vivid-design-patterns",
     "Author": "Vivid Seats",
-    "version": "0.0.0-DOT-925-1573750275",
+    "version": "5.3.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/VividSeats/vivid-design-patterns.git"
