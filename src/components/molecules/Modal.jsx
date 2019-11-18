@@ -33,6 +33,10 @@ const Modal = ({
     closeWithEscapeKey = true,
     /** Method called when user wants to close the Modal */
     onClose = () => {},
+    /** Method called when modal is fully opened and animation is complete*/
+    onOpened = () => {},
+    /** Method called when modal is fully closed and animation is complete*/
+    onClosed = () => {},
     size,
     ...htmlAtrributes
 }) => {
@@ -83,15 +87,23 @@ const Modal = ({
             onClickBackdrop();
         }
     };
+
+    const onStart = () => {
+        setIsRested(false);
+    };
+
+    const onRest = () => {
+        setIsRested(true);
+        if (isOpen) {
+            onOpened();
+        } else {
+            onClosed();
+        }
+    };
+
     return (
         <>
-            <Transition
-                native
-                items={isOpen}
-                onStart={() => setIsRested(false)}
-                onRest={() => setIsRested(true)}
-                immediate={!shouldAnimate}
-                {...transitionProps}>
+            <Transition native items={isOpen} onStart={onStart} onRest={onRest} immediate={!shouldAnimate} {...transitionProps}>
                 {show =>
                     show &&
                     (animationProps => {
@@ -133,6 +145,8 @@ Modal.SIZES = {
 };
 
 Modal.propTypes = {
+    onOpened: PropTypes.func,
+    onClosed: PropTypes.func,
     backgroundImage: PropTypes.string,
     animate: PropTypes.bool,
     className: PropTypes.string,
