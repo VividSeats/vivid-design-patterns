@@ -33,9 +33,9 @@ const Modal = ({
     closeWithEscapeKey = true,
     /** Method called when user wants to close the Modal */
     onClose = () => {},
-    /** Method called when modal is fully opened and animation is complete*/
+    /** Method called when modal is fully opened and animation is complete */
     onOpened = () => {},
-    /** Method called when modal is fully closed and animation is complete*/
+    /** Method called when modal is fully closed and animation is complete */
     onClosed = () => {},
     size,
     ...htmlAtrributes
