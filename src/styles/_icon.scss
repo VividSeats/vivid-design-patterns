@@ -5,6 +5,7 @@
     font-family: $font-family-icons;
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
     src: url('#{$font-family-path}#{$font-family-icons}.woff') format('woff'),
         url('#{$font-family-path}#{$font-family-icons}.ttf') format('ttf');
 }
