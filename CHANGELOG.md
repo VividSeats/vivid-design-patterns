@@ -1,10 +1,11 @@
 
-## Unreleased (2019-11-15)
+## Unreleased (2019-11-19)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#128](https://github.com/VividSeats/vivid-design-patterns/pull/128) Add onOpened and onClosed callbacks for Modal component. Add base typography styles to Typography components. ([@ylin6](https://github.com/ylin6))
 * [#127](https://github.com/VividSeats/vivid-design-patterns/pull/127) DOT-925 add font-display: swap for @font-face and sans-serif font-fam… ([@pvogenthaler](https://github.com/pvogenthaler))
 * [#125](https://github.com/VividSeats/vivid-design-patterns/pull/125) Adding `as` prop to Typography components to allow users to specify rendered element ([@ylin6](https://github.com/ylin6))
 * [#119](https://github.com/VividSeats/vivid-design-patterns/pull/119) Adding country code to event row ([@billHinderman](https://github.com/billHinderman))
