@@ -44,7 +44,7 @@ const TYPOGRAPHY_PROP_TYPES = {
     /**  Add padding for list items. */
     list: PropTypes.bool,
     /** Underlying rendered element */
-    as: PropTypes.oneOf(['p', 'small', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'div']),
+    as: PropTypes.oneOf(['p', 'small', 'strong', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'div']),
     opaque: PropTypes.bool
 };
 

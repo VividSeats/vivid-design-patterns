@@ -140,7 +140,7 @@ $typeStyles: (
 .material-icons {
     direction: ltr;
     display: inline-block;
-    font-family: 'MaterialIcons';
+    font-family: 'MaterialIcons' !important;
     font-feature-settings: 'liga';
     font-size: $font-size-2XL; /* Preferred icon size */
     font-style: normal;
