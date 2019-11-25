@@ -31,6 +31,9 @@
     &[class*='--xl'] {
         font-size: $font-size-6XL;
     }
+    &[class*='--sm'] {
+        font-size: $font-size-LG;
+    }
 }
 
 // Inputs
