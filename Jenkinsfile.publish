@@ -11,7 +11,8 @@ pipeline {
   }
 
   environment {
-    GITHUB_AUTH = vault path: "jenkins/master", key: "GITHUB_TOKEN", engineVersion: "1"
+    GITHUB_AUTH = vault path: "jenkins/master", key: "GITHUB_TOKEN", engineVersion: "1",
+    NPM_AUTH= vault path: "jenkins/master", key: "NPM_AUTH", engineVersion: "1",
   }
 
   parameters {
@@ -47,6 +48,7 @@ pipeline {
 
     stage('Publish') {
         steps {
+            sh "./login.sh" 
             sh "yarn publish --new-version ${params.SEM_VER_TYPE}"
         }
     }
