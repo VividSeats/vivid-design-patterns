@@ -48,7 +48,7 @@ pipeline {
 
     stage('Publish') {
         steps {
-            sh "./login.sh" 
+            sh "./login.sh"
             sh "yarn publish --new-version ${params.SEM_VER_TYPE}"
         }
     }
