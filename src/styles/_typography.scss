@@ -9,31 +9,31 @@ $fontFaces: (
         Regular
     ),
     RobotoRegular: (
-        ('roboto', sans-serif),
+        'roboto',
         400,
         normal,
         regular
     ),
     RobotoItalic: (
-        ('roboto', sans-serif),
+        'roboto',
         400,
         italic,
         italic
     ),
     RobotoMedium: (
-        ('roboto', sans-serif),
+        'roboto',
         500,
         normal,
         medium
     ),
     RobotoBold: (
-        ('roboto', sans-serif),
+        'roboto',
         700,
         normal,
         bold
     ),
     RobotoBlack: (
-        ('roboto', sans-serif),
+        'roboto',
         900,
         normal,
         'black'
@@ -124,7 +124,7 @@ $typeStyles: (
 @each $fontFace, $attr in $fontFaces {
     $fontName: #{nth($attr, 1)}-#{nth($attr, 4)};
     @font-face {
-        font-family: nth($attr, 1);
+        font-family: nth($attr, 1), sans-serif;
         font-weight: nth($attr, 2);
         font-style: nth($attr, 3);
         font-display: swap;
