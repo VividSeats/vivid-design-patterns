@@ -1,5 +1,5 @@
 
-## Unreleased (2019-11-25)
+## Unreleased (2019-11-26)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
@@ -18,6 +18,7 @@
 * [#102](https://github.com/VividSeats/vivid-design-patterns/pull/102) [COM-476] Add lead pricing to EventRows component ([@ealmiladi](https://github.com/ealmiladi))
 
 #### :bug: Bug Fix
+* [#132](https://github.com/VividSeats/vivid-design-patterns/pull/132) DOT-1235 fixes font url paths ([@mgorman87](https://github.com/mgorman87))
 * [#129](https://github.com/VividSeats/vivid-design-patterns/pull/129) Fix legacy material icons. Add additional documentation for Typography components. ([@ylin6](https://github.com/ylin6))
 * [#126](https://github.com/VividSeats/vivid-design-patterns/pull/126) DOT-624 minor visual ie11 bug fixes ([@mgorman87](https://github.com/mgorman87))
 * [#113](https://github.com/VividSeats/vivid-design-patterns/pull/113) Fix typeahead ([@ylin6](https://github.com/ylin6))
