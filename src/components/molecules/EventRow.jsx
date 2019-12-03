@@ -41,6 +41,20 @@ MobileMinListCol.propTypes = {
     isInternationalVenue: PropTypes.bool
 };
 
+const eventUtmMedium = url => {
+    const QUESTION_MARK = '?';
+    const utmMediumParam = 'utm_medium=event-interface';
+    if (url.indexOf(QUESTION_MARK) === -1) {
+        return QUESTION_MARK + utmMediumParam;
+    }
+
+    if (url.substr(-1) === QUESTION_MARK) {
+        return utmMediumParam;
+    }
+
+    return `&${utmMediumParam}`;
+};
+
 const EventRow = ({
     href,
     subtitle,
@@ -142,12 +156,12 @@ const EventRow = ({
             )}
             {/* Mobile Col for Min List Price */}
             {!!minListPrice && <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />}
-            <link className="schema-url" itemProp="url" href={href} />
-            <meta itemProp="sameAs" content={href} />
+            <link className="schema-url" itemProp="url" href={href + eventUtmMedium(href)} />
+            <meta itemProp="sameAs" content={href + eventUtmMedium(href)} />
             {!!imageUrl && <meta itemProp="image" content={imageUrl} />}
             {!!schemaDescription && <meta itemProp="description" content={schemaDescription} />}
             <div itemProp="offers" itemScope itemType="http://schema.org/AggregateOffer">
-                <link itemProp="url" href={href} />
+                <link itemProp="url" href={href + eventUtmMedium(href)} />
                 <meta itemProp="priceCurrency" content="USD" />
                 {ticketCount > 0 ? (
                     <link itemProp="availability" href="http://schema.org/InStock" />
