@@ -30,7 +30,8 @@ class IconExample extends React.Component {
         const el = document.createElement('textarea');
         el.value = value;
         el.setAttribute('readonly', '');
-        el.style.display = 'none';
+        el.style.position = 'absolute';
+        el.style.left = '-9999px';
         document.body.appendChild(el);
         el.select();
         document.execCommand('copy');
