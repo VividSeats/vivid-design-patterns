@@ -1,0 +1,8 @@
+# These are the owners of the vivid-design-patterns repo.
+# If you feel like you should be added to this list, please make a PR adding your github username to the list below.
+
+# excluded from codeowners
+!package.json
+
+# UX and Web team
+* @billhinderman @ealmiladi @ed-wentworth-vivid @jeffborders @pvogenthaler @ylin6 @sgibson47 @oleksandra-holovina @metzelhoff @ivangallegoLLC @jeissonflorez @jhfonseca72 @jannonlee @klam27 @mgorman87 @vividseats-build
