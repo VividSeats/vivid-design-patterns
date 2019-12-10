@@ -157,9 +157,6 @@ $typeStyles: (
 }
 
 // Typography Base
-.vdp-type {
-    @include typography();
-}
 [class^='vdp-type'] {
     color: $text-color-default;
     font-family: $font-family-default;
