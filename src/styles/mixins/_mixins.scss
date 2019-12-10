@@ -72,6 +72,21 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
+@mixin typography(
+    $color: $text-color-default,
+    $fontFamily: $font-family-default,
+    $fontSize: $font-size-base,
+    $fontWeight: $font-weight-reg,
+    $lineHeight: $line-height-MD
+) {
+    color: $color;
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
 @mixin vertical-align($pos: relative, $amount: 50%) {
     @include transform(translateY(-$amount));
     position: $pos;

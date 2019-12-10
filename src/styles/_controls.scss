@@ -42,9 +42,8 @@
     }
 }
 .vdp-control__span {
+    @include typography($fontSize: $font-size-MD, $lineHeight: $line-height-LG);
     display: inline-block;
-    font-size: $font-size-MD;
-    line-height: $line-height-LG;
     padding: $sizing-SM $sizing-SM $sizing-SM $sizing-2XL;
     position: relative;
     vertical-align: middle;

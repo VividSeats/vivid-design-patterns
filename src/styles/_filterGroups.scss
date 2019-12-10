@@ -17,9 +17,9 @@
         padding: 0;
     }
     .vdp-filter-group__item {
+        @include typography($fontSize: $font-size-MD);
         border-radius: $border-radius-SM;
         cursor: pointer;
-        font-size: $font-size-MD;
         padding: $sizing-XS $sizing-SM;
         position: relative;
         margin: 0 0 0 #{-$sizing-SM};

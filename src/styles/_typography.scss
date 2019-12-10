@@ -157,15 +157,18 @@ $typeStyles: (
 }
 
 // Typography Base
-[class^='vdp-type'],
 .vdp-type {
+    @include typography();
+}
+[class^='vdp-type'] {
     color: $text-color-default;
     font-family: $font-family-default;
-    font-size: $font-size-base;
-    font-weight: $font-weight-reg;
-    line-height: $line-height-MD;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
+    [class^='vdp-type'] {
+        color: inherit;
+    }
 }
 
 // Build Base Type Styles

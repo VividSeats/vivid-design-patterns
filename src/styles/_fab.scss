@@ -11,9 +11,8 @@
     text-align: center;
 
     .vdp-fab__child {
+        @include typography($fontSize: $font-size-MD, $fontWeight: $font-weight-bld);
         cursor: pointer;
-        font-size: $font-size-MD;
-        font-weight: $font-weight-bld;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
