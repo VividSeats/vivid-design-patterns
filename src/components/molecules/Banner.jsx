@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import BannerDetails from '../atoms/BannerDetails';
 
 class Banner extends React.Component {
-    static Details = BannerDetails;
-
     static defaultProps = {
         className: 'bg-white'
     };
+
+    static Details = BannerDetails;
 
     render() {
         const { children, className, ...htmlAttributes } = this.props;

@@ -29,6 +29,11 @@ class Card extends React.Component {
         onClick: () => {}
     };
 
+    onKeyPress = e => {
+        const { onClick } = this.props;
+        onEnterPress(onClick, e);
+    };
+
     static Footer = CardFooter;
 
     static Header = CardHeader;
@@ -36,11 +41,6 @@ class Card extends React.Component {
     static Body = CardBody;
 
     static Hero = CardHero;
-
-    onKeyPress = e => {
-        const { onClick } = this.props;
-        onEnterPress(onClick, e);
-    };
 
     render() {
         const { className, type, children, onClick, role, ...htmlAttributes } = this.props;

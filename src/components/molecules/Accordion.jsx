@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import Collapse from './Collapse';
 
 class Accordion extends React.Component {
-    static Collapse = Collapse;
-
     state = {
         openedIndex: typeof this.props.initialOpenedIndex !== 'undefined' ? this.props.initialOpenedIndex : this.props.openedIndex
     };
@@ -28,6 +26,8 @@ class Accordion extends React.Component {
     isControlled() {
         return this.props.openedIndex !== undefined;
     }
+
+    static Collapse = Collapse;
 
     render() {
         const { children } = this.props;
