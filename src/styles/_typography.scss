@@ -186,6 +186,10 @@ a {
     text-decoration: none;
     color: inherit;
 }
+// handle default color on nested text elements
+[class^='vdp-type']:not([class*='--']) .vdp-type-link:not([class*='--']) {
+    color: $text-color-link;
+}
 [class^='vdp-type-link'] {
     @include transition(all $transition-1);
     color: $text-color-link;
