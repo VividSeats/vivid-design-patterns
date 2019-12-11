@@ -12,10 +12,8 @@
         @include justify-content(space-between);
     }
     .vdp-toggle__label {
+        @include typography($fontSize: $font-size-MD, $lineHeight: $sizing-2XL);
         display: inline-block;
-        color: $text-color-default;
-        font-size: $font-size-MD;
-        line-height: $sizing-2XL;
         vertical-align: middle;
         padding-right: $sizing-SM;
     }

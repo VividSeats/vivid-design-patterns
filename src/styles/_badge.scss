@@ -3,13 +3,10 @@
 @import 'mixins/prefixes';
 
 [class^='vdp-badge'] {
+    @include typography($color: $color-white, $fontSize: $font-size-XS, $fontWeight: $font-weight-bld, $lineHeight: $line-height-LG);
     background-color: $color-gray;
     border-radius: $border-radius-XS;
-    color: $color-white;
     display: inline-block;
-    font-size: $font-size-XS;
-    font-weight: $font-weight-bld;
-    line-height: $font-size-LG;
     padding: 1px $sizing-SM;
 
     &[class*='--lg'] {
@@ -61,7 +58,6 @@
         @include linear-gradient(to left, $color-gradient-red);
         @include position(relative, #{-$sizing-XS} null null null);
         border-radius: $border-radius-round;
-        color: $color-white;
         height: $sizing-LG;
         line-height: $sizing-LG;
         padding: 0 0;

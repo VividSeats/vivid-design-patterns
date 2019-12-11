@@ -7,15 +7,12 @@ a:link.vdp-chip,
 a:visited.vdp-chip {
     @include linear-gradient(to right, $color-gradient-blue);
     @include transition(all $transition-1);
+    @include typography($color: $color-white, $fontSize: $font-size-SM, $fontWeight: $font-weight-bld, $lineHeight: $sizing-LG);
     border-radius: $border-radius-XL;
     box-shadow: inset 0 0 1px 0 rgba($color-black, 0.75);
-    color: $color-white;
     cursor: pointer;
     display: inline-block;
-    font-size: $font-size-SM;
-    font-weight: $font-weight-bld;
     height: $sizing-XL;
-    line-height: $sizing-LG;
     margin: $sizing-XS;
     padding: $sizing-XS $sizing-XL $sizing-XS $sizing-MD;
     position: relative;
