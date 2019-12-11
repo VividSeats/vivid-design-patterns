@@ -1,0 +1,32 @@
+{
+  "containerDefinitions": [
+    {
+      "memoryReservation": 256,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "name": "patterns-service",
+      "environment": [
+        {"name": "ENVIRONMENT", "value": "production"},
+        {"name": "APP_ENV", "value": "production"},
+        {"name": "BUILD_NUMBER", "value": "$BUILD_NUMBER"},
+        {"name": "BUILD_TIMESTAMP", "value": "$BUILD_TIMESTAMP"}
+      ],
+      "logConfiguration": {
+        "logDriver": "json-file",
+        "options": {
+          "max-size": "30m",
+          "max-file": "10"
+        }
+      },
+      "image": "$IMAGE_NAME:$IMAGE_TAG_LOWER",
+      "cpu": 512,
+      "privileged": true
+    }
+  ],
+  "family": "$ECS_TASK_FAMILY"
+}

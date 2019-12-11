@@ -1,0 +1,5 @@
+export ECS_CLUSTER="external-services"
+export ECS_TASK_FAMILY="patterns-service"
+export ECS_SERVICE_NAME="patterns-service"
+export TASK_DEFINITION_PATH="jenkins/ecs/task-definition.json"
+export ENVIRONMENT="production"

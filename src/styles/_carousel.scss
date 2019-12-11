@@ -85,9 +85,12 @@
                 padding-left: 56%;
             }
             h3 {
-                font-size: $font-size-4XL;
-                font-weight: $font-weight-blk;
-                line-height: $line-height-SM;
+                @include typography(
+                    $color: $color-white,
+                    $fontSize: $font-size-4XL,
+                    $fontWeight: $font-weight-blk,
+                    $lineHeight: $line-height-SM
+                );
                 margin: 0;
 
                 i {
@@ -96,8 +99,7 @@
                 }
             }
             p {
-                font-size: $font-size-MD;
-                line-height: $line-height-MD;
+                @include typography($color: $color-white, $fontSize: $font-size-MD, $lineHeight: $line-height-MD);
                 margin: 0 0 1rem;
             }
             a {

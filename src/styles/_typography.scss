@@ -157,15 +157,15 @@ $typeStyles: (
 }
 
 // Typography Base
-[class^='vdp-type'],
-.vdp-type {
+[class^='vdp-type'] {
     color: $text-color-default;
     font-family: $font-family-default;
-    font-size: $font-size-base;
-    font-weight: $font-weight-reg;
-    line-height: $line-height-MD;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
+    [class^='vdp-type'] {
+        color: inherit;
+    }
 }
 
 // Build Base Type Styles
@@ -185,6 +185,10 @@ a {
     @include transition(all $transition-1);
     text-decoration: none;
     color: inherit;
+}
+// handle default color on nested text elements
+[class^='vdp-type']:not([class*='--']) .vdp-type-link:not([class*='--']) {
+    color: $text-color-link;
 }
 [class^='vdp-type-link'] {
     @include transition(all $transition-1);

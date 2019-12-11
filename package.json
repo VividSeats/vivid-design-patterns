@@ -1,11 +1,12 @@
 {
     "name": "@vividseats/vivid-design-patterns",
     "Author": "Vivid Seats",
-    "version": "5.5.2",
+    "version": "5.7.1",
     "repository": {
         "type": "git",
         "url": "https://github.com/VividSeats/vivid-design-patterns.git"
     },
+    "description": "Flexible react components for the Vivid Seats design system",
     "devDependencies": {
         "@babel/core": "^7.2.2",
         "@babel/plugin-proposal-object-rest-spread": "^7.2.0",

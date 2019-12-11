@@ -11,11 +11,9 @@
 
 [class^='vdp-helper-text'] {
     @include transition(all $transition-1);
-    color: $text-color-muted;
+    @include typography($color: $text-color-muted, $fontSize: $font-size-SM, $lineHeight: $line-height-XS);
     display: block;
-    font-size: $font-size-SM;
     height: 0;
-    line-height: $line-height-XS;
     opacity: 0;
     padding-left: $sizing-XS;
     padding-right: $sizing-XS;

@@ -56,10 +56,8 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         z-index: 1;
     }
     .vdp-page-hero__subtitle {
+        @include typography($color-white);
         display: block;
-        color: $color-white;
-        font-size: $sizing-LG;
-        font-weight: $font-weight-reg;
         margin-top: $sizing-SM;
 
         @include size-min-tablet {
@@ -95,10 +93,7 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         }
     }
     .vdp-page-hero__title {
-        color: $color-white;
-        font-size: $sizing-XL;
-        font-weight: $font-weight-blk;
-        line-height: $line-height-XS;
+        @include typography($color: $color-white, $fontSize: $sizing-XL, $fontWeight: $font-weight-blk, $lineHeight: $line-height-XS);
         margin: -5px 0 0 0;
         padding: 0 $sizing-SM;
 

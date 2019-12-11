@@ -20,7 +20,7 @@ const Icon = ({ children, className, size, type, ...htmlAttributes }) => {
 Icon.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    size: PropTypes.oneOf(['lg', 'xl']),
+    size: PropTypes.oneOf(['lg', 'xl', 'sm']),
     type: PropTypes.string
 };
 

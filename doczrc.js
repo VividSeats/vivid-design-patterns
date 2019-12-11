@@ -24,10 +24,9 @@ export default {
             src: '//a.vsstatic.com/common/logo/logo.svg',
             width: 140
         },
-        styles: {
-            body: {
-                fontFamily: "'Roboto', 'Arial', 'Helvetica', sans-serif"
-            }
+        fonts: {
+            display: '"Roboto", sans-serif',
+            ui: '"Roboto", sans-serif'
         }
     },
     dest: 'server/static/'

@@ -43,14 +43,17 @@
 
 // Legacy Promos
 .vdp-banner--promo {
+    border-bottom: 0;
     border-image-repeat: stretch;
     border-image-slice: 2;
     border-image-width: 2px 50%;
-    border-top: 1px solid;
-    height: $sizing-3XL;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-top: 0;
+    height: $sizing-4XL;
 
     .vdp-banner__image {
-        background-position: center center;
+        background-position: bottom center;
         background-repeat: no-repeat;
         height: 100%;
         width: 100%;

@@ -41,15 +41,7 @@ pipeline {
     stage('Produce Image') {
       steps {
         container('docker') {
-          sh 'docker build -t vividseats/vivid-design-patterns:$BRANCH_LOWER .'
-        }
-      }
-    }
-
-    stage('Push Image') {
-      steps {
-        container('docker') {
-          sh 'docker push vividseats/vivid-design-patterns:$BRANCH_LOWER'
+            dockerBuildAndPush image: 'vividseats/vivid-design-patterns', tag: branchName().toLowerCase(), args: [ 'app_sha': env.GIT_COMMIT ]
         }
       }
     }
