@@ -1,10 +1,12 @@
 
-## Unreleased (2019-12-04)
+## Unreleased (2019-12-11)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#143](https://github.com/VividSeats/vivid-design-patterns/pull/143) DSYS-39 include typography in components ([@mgorman87](https://github.com/mgorman87))
+* [#136](https://github.com/VividSeats/vivid-design-patterns/pull/136) DOT-432 Add utm medium to event urls ([@oleksandra-holovina](https://github.com/oleksandra-holovina))
 * [#128](https://github.com/VividSeats/vivid-design-patterns/pull/128) Add onOpened and onClosed callbacks for Modal component. Add base typography styles to Typography components. ([@ylin6](https://github.com/ylin6))
 * [#127](https://github.com/VividSeats/vivid-design-patterns/pull/127) DOT-925 add font-display: swap for @font-face and sans-serif font-fam… ([@pvogenthaler](https://github.com/pvogenthaler))
 * [#125](https://github.com/VividSeats/vivid-design-patterns/pull/125) Adding `as` prop to Typography components to allow users to specify rendered element ([@ylin6](https://github.com/ylin6))
@@ -27,7 +29,7 @@
 * [#105](https://github.com/VividSeats/vivid-design-patterns/pull/105) Fix typeahead bug where the input value is not displayed correctly when a item is selected from the dropdown ([@cmoog](https://github.com/cmoog))
 * [#101](https://github.com/VividSeats/vivid-design-patterns/pull/101) patches to ts declaration file ([@cmoog](https://github.com/cmoog))
 
-#### Committers: 11
+#### Committers: 12
 - Bill Hinderman ([@billHinderman](https://github.com/billHinderman))
 - Charles Moog ([@cmoog](https://github.com/cmoog))
 - David Metzler ([@metzelhoff](https://github.com/metzelhoff))
@@ -37,5 +39,6 @@
 - Sam Gibson ([@sgibson47](https://github.com/sgibson47))
 - Yucheng Lin ([@ylin6](https://github.com/ylin6))
 - [@ealmiladi](https://github.com/ealmiladi)
+- [@oleksandra-holovina](https://github.com/oleksandra-holovina)
 - [@vivid-lukeloresch](https://github.com/vivid-lukeloresch)
 - ivan gallego ([@ivangallegoLLC](https://github.com/ivangallegoLLC))

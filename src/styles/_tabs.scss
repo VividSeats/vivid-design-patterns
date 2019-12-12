@@ -35,11 +35,8 @@
     @include align-self(flex-end);
     @include flex(0 0 auto);
     @include transition(all $transition-1);
-    color: $text-color-muted;
+    @include typography($color: $text-color-muted, $fontSize: $font-size-SM, $fontWeight: $font-weight-bld, $lineHeight: $sizing-4XL);
     cursor: pointer;
-    font-size: $font-size-SM;
-    font-weight: $font-weight-bld;
-    line-height: $sizing-4XL;
     overflow: hidden;
     padding: 0 $sizing-MD;
     position: relative;

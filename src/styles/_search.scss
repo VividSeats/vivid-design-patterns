@@ -6,11 +6,10 @@
     @include border;
     @include flex;
     @include justify-content(center);
+    @include typography($fontSize: $font-size-MD);
     background-color: $color-white;
     border-radius: $border-radius-XL;
     cursor: text;
-    font-size: $font-size-MD;
-    font-weight: $font-weight-reg;
     margin: 0 $sizing-LG;
     padding: 0 $sizing-LG;
     position: relative;
@@ -30,12 +29,11 @@
         right: 0;
     }
     .vdp-search-field__input {
+        @include typography($color: $text-color-muted, $fontSize: $font-size-MD);
         background: none;
         border: none;
         box-shadow: none;
-        color: $text-color-muted;
         display: block;
-        font-size: $font-size-MD;
         height: 36px;
         outline: none;
         position: relative;
@@ -71,11 +69,10 @@
     }
 }
 .vdp-search-result {
+    @include typography($fontSize: $font-size-MD, $lineHeight: $sizing-LG);
     border-radius: $border-radius-SM;
     color: $text-color-default;
     cursor: pointer;
-    font-size: $font-size-MD;
-    line-height: $sizing-LG;
     margin: 0 $sizing-SM;
     padding: $sizing-SM;
 
