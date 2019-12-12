@@ -130,7 +130,7 @@ const EventRow = ({
                                 </React.Fragment>
                             )}
                             {countryCodeString}
-                            <meta itemProp="addressCountry" content={countryCode} />
+                            <meta itemProp="addressCountry" content={countryCode || 'US'} />
                         </span>
                     </SmallText>
                 ) : (
