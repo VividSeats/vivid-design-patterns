@@ -1,0 +1,153 @@
+---
+    name: Utilities
+    menu: Foundation
+    route: /foundation/utilities
+---
+
+import { Props, Playground } from 'docz';
+import '../docz.scss';
+
+# Utilities
+
+CSS classes to quickly apply general styles without writing new CSS.  
+**Components should NOT use utilities to define styles**
+
+
+## Installation
+
+Using the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/_utilities.scss';
+
+---
+
+## Layout Utilities
+**Structure:** {Class Base}-{Optional Responsive Appendage}  
+**Example:** To align text to the right on desktop screens apply ***tar-min-d***
+
+### Background Position
+| Class Base | Property Value | Result |
+|:---|:---|:---|
+| **bg-pos-bc** | Bottom Center | background-position: bottom center |
+| **bg-pos-cc** | Center Center | background-position: center center |
+| **bg-pos-tc** | Top Center | background-position: top center |
+
+### Background Repeat
+| Class Base | Property Value | Result |
+|:---|:---|:---|
+| **bg-rpt-n** | No Repeat | background-repeat: no-repeat |
+| **bg-rpt-x** | Repeat X | background-repeat: repeat-x |
+| **bg-rpt-y** | Repeat Y | background-repeat: repeat-y |
+
+### Background Size
+| Class Base | Property Value | Result |
+|:---|:---|:---|
+| **bg-sz-a** | Auto | background-size: auto |
+| **bg-sz-cv** | Cover | background-size: cover |
+| **bg-sz-ct** | Contain | background-size: contain |
+
+### Border
+| Class Base | Property Value | Result |
+|:---|:---|:---|
+| **bb** | Bottom | border-bottom: 1px solid $color-gray-light |
+| **bl** | Left | border-left: 1px solid $color-gray-light |
+| **bt** | Top | border-top: 1px solid $color-gray-light |
+| **br** | Right | border-right: 1px solid $color-gray-light |
+
+### Display
+| Class Base | Property Value | Result |
+|:---|:---|:---|
+| **db** | Block | display: block !important |
+| **dib** | Inline Block | display: inline-block !important |
+| **dn** | None | display: none !important |
+| **dt** | Table | display: table !important |
+| **dtc** | Table Cell | display: table-cell !important |
+
+### Float
+| Class Base | Property Value | Result |
+|:---|:---|:---|
+| **fl** | Left | float: left !important |
+| **fr** | Right | float: right !important |
+
+### Overflow
+| Class Base | Property Value | Result |
+|:---|:---|:---|
+| **ovf-h** | Hidden | overflow: hidden !important |
+| **ovf-s** | Scroll | overflow: scroll !important |
+| **ovf-v** | Visible | overflow: visible !important |
+
+### Position
+| Class Base | Property Value | Result |
+|:---|:---|:---|
+| **pos-a** | Absolute | position: absolute !important |
+| **pos-f** | Fixed | position: fixed !important |
+| **pos-r** | Relative | position: relative !important |
+
+### Text Align
+| Class Base | Property Value | Result |
+|:---|:---|:---|
+| **tac** | Center | text-align: center !important |
+| **tal** | Left | text-align: left !important |
+| **tar** | Right | text-align: right !important |
+
+### Vertical Align
+| Class Base | Property Value | Result |
+|:---|:---|:---|
+| **vab** | Bottom | vertical-align: bottom !important |
+| **vam** | Middle | vertical-align: middle !important |
+| **vat** | Top | vertical-align: top !important |
+
+---
+
+## Sizing Utilities
+**Structure:** {Class Base}-{Size Appendage}-{Optional Responsive Appendage}  
+**Example:** To add 2rem margin to the top and bottom of an element apply ***mv-2xl***
+
+### Properties
+| Class Base | Property |
+|:---|:---|
+| **h** | Height |
+| **lh** | Line-Height |
+| **m** | Margin |
+| **mb** | Margin-Bottom |
+| **ml** | Margin-Left |
+| **mr** | Margin-Right |
+| **mh** | Margin Horizontal (Left and Right) |
+| **mv** | Margin Vertical (Top and Bottom) |
+| **p** | Padding |
+| **pb** | Padding-Bottom |
+| **pl** | Padding-Left |
+| **pr** | Padding-Right |
+| **ph** | Padding Horizontal (Left and Right) |
+| **pv** | Padding Vertical (Top and Bottom) |
+| **w** | Width |
+
+### Size Appendages
+| Class Appendage | Token | Value |
+|:---|:---|:---|
+| **2xs** | $sizing-2XS | 0.125rem / 2px |
+| **xs** | $sizing-XS | 0.25rem / 4px |
+| **sm** | $sizing-SM | 0.5rem / 8px |
+| **md** | $sizing-MD | 0.75rem / 12px |
+| **lg** | $sizing-LG | 1rem / 16px |
+| **xl** | $sizing-XL | 1.5rem / 24px |
+| **2xl** | $sizing-2XL | 2rem / 32px |
+| **3xl** | $sizing-3XL | 2.5rem / 40px |
+| **4xl** | $sizing-4XL | 3rem / 48px |
+| **5xl** | $sizing-5XL | 3.5rem / 56px |
+| **6xl** | $sizing-6XL | 4rem / 64px |
+| **100** | | 100% |
+| **n** | | 0 |
+
+---
+
+## Responsive Appendages
+
+| Class Appendage | Result |
+|:---|:---|
+| **min-t** | Minimum Tablet |
+| **min-d** | Minimum Desktop |
+| **min-dxl** | Minimum Desktop XL |
+| **m** | Only Mobile |
+| **t** | Only Tablet |
+| **d** | Only Desktop |
