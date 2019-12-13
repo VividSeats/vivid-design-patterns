@@ -63,77 +63,41 @@ $sizingUtils: (
 );
 // Custom Naming Classes
 // Used for classes that don't follow the pattern of .{propertyFirstLetter}{valueFirstLetter}
-@mixin customNamingClasses {
-    // Background Position
-    .bg-pos-bc {
-        background-position: bottom center;
-    }
-    .bg-pos-cc {
-        background-position: center center;
-    }
-    .bg-pos-tc {
-        background-position: top center;
-    }
-    // Background Repeat
-    .bg-rpt-n {
-        background-repeat: no-repeat;
-    }
-    .bg-rpt-x {
-        background-repeat: repeat-x;
-    }
-    .bg-rpt-y {
-        background-repeat: repeat-y;
-    }
-    // Background Size
-    .bg-sz-a {
-        background-size: auto;
-    }
-    .bg-sz-cv {
-        background-size: cover;
-    }
-    .bg-sz-ct {
-        background-size: contain;
-    }
-    // Border Radius
-    .br-xs {
-        border-radius: $border-radius-XS;
-    }
-    .br-sm {
-        border-radius: $border-radius-SM;
-    }
-    .br-md {
-        border-radius: $border-radius-MD;
-    }
-    .br-lg {
-        border-radius: $border-radius-LG;
-    }
-    .br-xl {
-        border-radius: $border-radius-XL;
-    }
-    .br-round {
-        border-radius: $border-radius-round;
-    }
-    // Overflow
-    .ovf-h {
-        overflow: hidden !important;
-    }
-    .ovf-s {
-        overflow: scroll !important;
-    }
-    .ovf-v {
-        overflow: visible !important;
-    }
-    // Position
-    .pos-a {
-        position: absolute !important;
-    }
-    .pos-f {
-        position: fixed !important;
-    }
-    .pos-r {
-        position: relative !important;
-    }
-}
+$customNamedClasses: (
+    background-position: (
+        bg-pos-bc 'bottom center',
+        bg-pos-cc 'center center',
+        bg-pos-tc 'top center'
+    ),
+    background-repeat: (
+        bg-rpt-n 'no-repeat',
+        bg-rpt-x 'repeat-x',
+        bg-rpt-y 'repeat-y'
+    ),
+    background-size: (
+        bg-sz-a 'auto',
+        bg-sz-cv 'cover',
+        bg-sz-ct 'contain'
+    ),
+    border-radius: (
+        br-xs $border-radius-XS,
+        br-sm $border-radius-SM,
+        br-md $border-radius-MD,
+        br-lg $border-radius-LG,
+        br-xl $border-radius-XL,
+        br-round $border-radius-round
+    ),
+    overflow: (
+        ovf-h 'hidden !important',
+        ovf-s 'scroll !important',
+        ovf-v 'visible !important'
+    ),
+    position: (
+        pos-a 'absolute !important',
+        pos-f 'fixed !important',
+        pos-r 'relative !important'
+    )
+);
 
 @function splitCheck($string) {
     $splitInt: str-index($string, '-');
@@ -184,7 +148,13 @@ $sizingUtils: (
             }
         }
     }
-    @include customNamingClasses;
+    @each $util, $values in $customNamedClasses {
+        @each $value in $values {
+            .#{nth($value, 1)}#{$sizePrefix}#{$size} {
+                #{$util}: #{nth($value, 2)};
+            }
+        }
+    }
 }
 @include utilityBuilder();
 @include size-min-tablet {
