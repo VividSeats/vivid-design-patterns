@@ -23,7 +23,7 @@ describe('<EventRow />', () => {
         expect(wrapper.exists()).toBe(true);
         expectColExists(wrapper, INFO);
         expect(wrapper.find('a').getElement().props.href).toBe(href);
-        expect(wrapper.find('.schema-url').getElement().props.href).toBe(href + '?utm_medium=event-interface');
+        expect(wrapper.find('.schema-url').getElement().props.href).toBe(href + '?utm_medium=organic&utm_source=google_eventsearch');
     });
 
     it('renders a date range event row', () => {
@@ -54,7 +54,7 @@ describe('<EventRow />', () => {
         expectColExists(wrapper, INFO);
         expectColExists(wrapper, THUMBNAIL);
         expect(wrapper.find('a').getElement().props.href).toBe(href);
-        expect(wrapper.find('.schema-url').getElement().props.href).toBe(href + '?utm_medium=event-interface');
+        expect(wrapper.find('.schema-url').getElement().props.href).toBe(href + '?utm_medium=organic&utm_source=google_eventsearch');
     });
 
     it('renders a date event row', () => {
