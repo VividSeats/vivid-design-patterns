@@ -1,4 +1,4 @@
-$sizingSizes: (
+$positiveSizes: (
     '2xs' $sizing-2XS,
     'xs' $sizing-XS,
     'sm' $sizing-SM,
@@ -12,6 +12,19 @@ $sizingSizes: (
     '6xl' $sizing-6XL,
     '100' 100%,
     'n' 0
+);
+$negativeSizes: (
+    'neg-2xs' (-$sizing-2XS),
+    'neg-xs' (-$sizing-XS),
+    'neg-sm' (-$sizing-SM),
+    'neg-md' (-$sizing-MD),
+    'neg-lg' (-$sizing-LG),
+    'neg-xl' (-$sizing-XL),
+    'neg-2xl' (-$sizing-2XL),
+    'neg-3xl' (-$sizing-3XL),
+    'neg-4xl' (-$sizing-4XL),
+    'neg-5xl' (-$sizing-5XL),
+    'neg-6xl' (-$sizing-6XL)
 );
 $layoutUtils: (
     border: (
@@ -107,6 +120,28 @@ $customNamedClasses: (
         @return str-slice($string, 0, 1);
     }
 }
+@mixin sizingBuilder($util, $sizes, $size, $sizePrefix) {
+    @each $value in $sizes {
+        $name: $util;
+        $sizing: nth($value, 2);
+        $splitInt: str-index($util, '-');
+
+        @if (str-index($util, 'horz') or str-index($util, 'vert')) {
+            $name: str-slice($util, 0, $splitInt - 1);
+        }
+        &#{nth($value, 1)}#{$sizePrefix}#{$size} {
+            @if (str-index($util, 'horz')) {
+                #{$name}-left: #{$sizing};
+                #{$name}-right: #{$sizing};
+            } @else if (str-index($util, 'vert')) {
+                #{$name}-bottom: #{$sizing};
+                #{$name}-top: #{$sizing};
+            } @else {
+                #{$name}: #{$sizing};
+            }
+        }
+    }
+}
 @mixin utilityBuilder($size: null, $sizePrefix: null) {
     @if $size != null {
         $sizePrefix: '-';
@@ -126,25 +161,9 @@ $customNamedClasses: (
     }
     @each $util in $sizingUtils {
         .#{splitCheck($util)}- {
-            @each $value in $sizingSizes {
-                $name: $util;
-                $spacing: nth($value, 2);
-                $splitInt: str-index($util, '-');
-
-                @if (str-index($util, 'horz') or str-index($util, 'vert')) {
-                    $name: str-slice($util, 0, $splitInt - 1);
-                }
-                &#{nth($value, 1)}#{$sizePrefix}#{$size} {
-                    @if (str-index($util, 'horz')) {
-                        #{$name}-left: #{$spacing};
-                        #{$name}-right: #{$spacing};
-                    } @else if (str-index($util, 'vert')) {
-                        #{$name}-bottom: #{$spacing};
-                        #{$name}-top: #{$spacing};
-                    } @else {
-                        #{$name}: #{$spacing};
-                    }
-                }
+            @include sizingBuilder($util, $positiveSizes, $size, $sizePrefix);
+            @if (str-index($util, 'margin')) {
+                @include sizingBuilder($util, $negativeSizes, $size, $sizePrefix);
             }
         }
     }
