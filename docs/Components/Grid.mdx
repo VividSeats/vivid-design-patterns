@@ -1,0 +1,75 @@
+---
+name: Grid
+menu: Components
+route: /components/Grid
+---
+
+import { Props, Playground } from 'docz';
+
+import Column from '../../src/components/molecules/Column';
+import Row from '../../src/components/molecules/Row';
+import GridItem from '../GridItem';
+
+import '../docz.scss';
+
+# Grid
+
+## Installation
+
+Using the react components:
+
+    import {Column, Row} from '@vividseats/vivid-design-patterns/dist;
+
+Using the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/grid.scss';
+
+## Usage
+The Column and Row components are based on a 12 column grid.
+
+<Playground>
+    <>
+        <Row>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+        </Row>
+        <Row>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+        </Row>
+        <Row>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+        </Row>
+    </>
+</Playground>
+
+## Props
+Column and Rows take several different flex properties.
+
+### Column
+<Props of={Column} />
+
+### Row
+<Props of={Row} />
