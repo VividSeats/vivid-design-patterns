@@ -1,10 +1,12 @@
 
-## Unreleased (2019-12-11)
+## Unreleased (2019-12-13)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#147](https://github.com/VividSeats/vivid-design-patterns/pull/147) Adds negative margin utils ([@mgorman87](https://github.com/mgorman87))
+* [#146](https://github.com/VividSeats/vivid-design-patterns/pull/146) DOT-659 adds utilities styles ([@mgorman87](https://github.com/mgorman87))
 * [#143](https://github.com/VividSeats/vivid-design-patterns/pull/143) DSYS-39 include typography in components ([@mgorman87](https://github.com/mgorman87))
 * [#136](https://github.com/VividSeats/vivid-design-patterns/pull/136) DOT-432 Add utm medium to event urls ([@oleksandra-holovina](https://github.com/oleksandra-holovina))
 * [#128](https://github.com/VividSeats/vivid-design-patterns/pull/128) Add onOpened and onClosed callbacks for Modal component. Add base typography styles to Typography components. ([@ylin6](https://github.com/ylin6))
@@ -20,6 +22,7 @@
 * [#102](https://github.com/VividSeats/vivid-design-patterns/pull/102) [COM-476] Add lead pricing to EventRows component ([@ealmiladi](https://github.com/ealmiladi))
 
 #### :bug: Bug Fix
+* [#145](https://github.com/VividSeats/vivid-design-patterns/pull/145) DOT-1351 adds card hero parent to non background image card heros ([@mgorman87](https://github.com/mgorman87))
 * [#132](https://github.com/VividSeats/vivid-design-patterns/pull/132) DOT-1235 fixes font url paths ([@mgorman87](https://github.com/mgorman87))
 * [#129](https://github.com/VividSeats/vivid-design-patterns/pull/129) Fix legacy material icons. Add additional documentation for Typography components. ([@ylin6](https://github.com/ylin6))
 * [#126](https://github.com/VividSeats/vivid-design-patterns/pull/126) DOT-624 minor visual ie11 bug fixes ([@mgorman87](https://github.com/mgorman87))
