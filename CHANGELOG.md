@@ -1,5 +1,5 @@
 
-## Unreleased (2019-12-13)
+## Unreleased (2019-12-16)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
@@ -32,7 +32,7 @@
 * [#105](https://github.com/VividSeats/vivid-design-patterns/pull/105) Fix typeahead bug where the input value is not displayed correctly when a item is selected from the dropdown ([@cmoog](https://github.com/cmoog))
 * [#101](https://github.com/VividSeats/vivid-design-patterns/pull/101) patches to ts declaration file ([@cmoog](https://github.com/cmoog))
 
-#### Committers: 12
+#### Committers: 13
 - Bill Hinderman ([@billHinderman](https://github.com/billHinderman))
 - Charles Moog ([@cmoog](https://github.com/cmoog))
 - David Metzler ([@metzelhoff](https://github.com/metzelhoff))
@@ -41,6 +41,7 @@
 - Paige Vogenthaler ([@pvogenthaler](https://github.com/pvogenthaler))
 - Sam Gibson ([@sgibson47](https://github.com/sgibson47))
 - Yucheng Lin ([@ylin6](https://github.com/ylin6))
+- [@agustinflorez](https://github.com/agustinflorez)
 - [@ealmiladi](https://github.com/ealmiladi)
 - [@oleksandra-holovina](https://github.com/oleksandra-holovina)
 - [@vivid-lukeloresch](https://github.com/vivid-lukeloresch)
