@@ -99,7 +99,7 @@ const EventRow = ({
                 setCheckboxState(!checkboxState);
                 onClick(e);
             }}
-            {...(!!ticketCount ? { rel: 'nofollow' } : {})}
+            {...(!ticketCount ? { rel: 'nofollow' } : {})}
             {...htmlAttributes}>
             {/* Checkbox */}
             {hasCheckbox && (
