@@ -1,5 +1,5 @@
 
-## Unreleased (2019-12-16)
+## Unreleased (2019-12-17)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
@@ -22,6 +22,8 @@
 * [#102](https://github.com/VividSeats/vivid-design-patterns/pull/102) [COM-476] Add lead pricing to EventRows component ([@ealmiladi](https://github.com/ealmiladi))
 
 #### :bug: Bug Fix
+* [#151](https://github.com/VividSeats/vivid-design-patterns/pull/151) UXD-2781 adjust hero subtitle margin ([@mgorman87](https://github.com/mgorman87))
+* [#150](https://github.com/VividSeats/vivid-design-patterns/pull/150) UXD-2781 add padding to hero subtitle ([@mgorman87](https://github.com/mgorman87))
 * [#145](https://github.com/VividSeats/vivid-design-patterns/pull/145) DOT-1351 adds card hero parent to non background image card heros ([@mgorman87](https://github.com/mgorman87))
 * [#132](https://github.com/VividSeats/vivid-design-patterns/pull/132) DOT-1235 fixes font url paths ([@mgorman87](https://github.com/mgorman87))
 * [#129](https://github.com/VividSeats/vivid-design-patterns/pull/129) Fix legacy material icons. Add additional documentation for Typography components. ([@ylin6](https://github.com/ylin6))
