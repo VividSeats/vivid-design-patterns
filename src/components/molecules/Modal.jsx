@@ -20,6 +20,7 @@ import Backdrop from '../atoms/Backdrop';
 /* eslint-disable react/display-name */
 
 const Modal = ({
+    destroyOnClose = true,
     backgroundImage,
     className = '',
     disableBackdrop = false,
@@ -105,15 +106,16 @@ const Modal = ({
         <>
             <Transition native items={isOpen} onStart={onStart} onRest={onRest} immediate={!shouldAnimate} {...transitionProps}>
                 {show =>
-                    show &&
+                    (show || !destroyOnClose) &&
                     (animationProps => {
+                        const overrideStyles = !show && !destroyOnClose ? { display: 'none' } : {};
                         return (
                             <animated.aside onClick={handleBackdropClick} className={modalClassNames} {...htmlAtrributes}>
                                 <animated.div
                                     tabIndex="-1"
                                     ref={modalRef}
                                     onKeyDown={handleKeyDown}
-                                    style={{ ...animationProps, ...backgroundStyle }}
+                                    style={{ ...animationProps, ...backgroundStyle, ...overrideStyles }}
                                     onClick={e => e.stopPropagation()}
                                     className={`vdp-react-modal__container ${isOpen ? '--open' : ''}`}>
                                     {children}
@@ -155,6 +157,7 @@ Modal.propTypes = {
     disableBackdrop: PropTypes.bool,
     type: PropTypes.oneOf([Modal.TYPES.SHEET, Modal.TYPES.FULL_SCREEN]),
     onClickBackdrop: PropTypes.func,
+    destroyOnClose: PropTypes.bool,
     onClose: PropTypes.func,
     canCloseWithBackdropClick: PropTypes.bool,
     closeWithEscapeKey: PropTypes.bool,

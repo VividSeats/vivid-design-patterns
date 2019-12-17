@@ -60,4 +60,18 @@ describe('<Modal />', () => {
         expect(wrapper.exists('.vdp-modal__footer')).toBe(true);
         expect(wrapper.exists('.vdp-modal__header')).toBe(true);
     });
+
+    it('keeps components mounted when destroyOnClose is false', () => {
+        const wrapper = mount(
+            <Modal isOpen={false} destroyOnClose={false} animate={false}>
+                <Modal.Header>Hello </Modal.Header>
+                <Modal.Body>Body</Modal.Body>
+                <Modal.Footer>Footer</Modal.Footer>
+            </Modal>
+        );
+
+        expect(wrapper.exists('.vdp-modal__footer')).toBe(true);
+        expect(wrapper.exists('.vdp-modal__header')).toBe(true);
+        expect(wrapper.find('aside > .vdp-react-modal__container').props().style.display).toBe('none');
+    });
 });
