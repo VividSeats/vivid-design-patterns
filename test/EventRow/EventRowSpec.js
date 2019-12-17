@@ -18,19 +18,16 @@ describe('<EventRow />', () => {
     };
 
     it('renders a default event row', () => {
-        const wrapper = mount(<EventRow ticketCount={1} href={href} title={title} subtitle={subtitle} />);
+        const wrapper = mount(<EventRow href={href} title={title} subtitle={subtitle} />);
 
         expect(wrapper.exists()).toBe(true);
         expectColExists(wrapper, INFO);
         expect(wrapper.find('a').getElement().props.href).toBe(href);
         expect(wrapper.find('.schema-url').getElement().props.href).toBe(href + '?utm_medium=organic&utm_source=google_eventsearch');
-        expect(wrapper.find('a').getElement().props.rel).toBeUndefined();
     });
 
     it('renders a date range event row', () => {
-        const wrapper = mount(
-            <EventRow ticketCount={1} href={href} title={title} subtitle={subtitle} dateRange="Aug 21. 2018 - Sept 16, 2018" />
-        );
+        const wrapper = mount(<EventRow href={href} title={title} subtitle={subtitle} dateRange="Aug 21. 2018 - Sept 16, 2018" />);
 
         expect(wrapper.exists()).toBe(true);
         expectColExists(wrapper, INFO);
@@ -43,7 +40,6 @@ describe('<EventRow />', () => {
     it('renders a thumbnail event row', () => {
         const wrapper = mount(
             <EventRow
-                ticketCount={1}
                 href={href}
                 title={title}
                 subtitle={subtitle}
@@ -62,7 +58,7 @@ describe('<EventRow />', () => {
     });
 
     it('renders a date event row', () => {
-        const wrapper = mount(<EventRow ticketCount={1} href={href} title={title} subtitle={subtitle} date={new Date().toUTCString()} />);
+        const wrapper = mount(<EventRow href={href} title={title} subtitle={subtitle} date={new Date().toUTCString()} />);
 
         expect(wrapper.exists()).toBe(true);
         expectColExists(wrapper, INFO);
@@ -74,12 +70,7 @@ describe('<EventRow />', () => {
 
     it('renders a date with a year badge if the event date is not the current year', () => {
         const date = new Date().setFullYear(new Date().getFullYear() + 1);
-        const wrapper = mount(<EventRow ticketCount={1} href={href} title={title} subtitle={subtitle} date={date} />);
+        const wrapper = mount(<EventRow href={href} title={title} subtitle={subtitle} date={date} />);
         expect(wrapper.find('.vdp-badge').text()).toEqual(new Date(date).getFullYear().toString());
-    });
-
-    it('renders a event row with a rel="nofollow" attribute', () => {
-        const wrapper = mount(<EventRow ticketCount={0} href={href} title={title} subtitle={subtitle} />);
-        expect(wrapper.find('a').getElement().props.rel).toBe('nofollow');
     });
 });

@@ -69,7 +69,7 @@ const EventRow = ({
     minListPrice = 0,
     imageUrl,
     schemaDescription,
-    ticketCount,
+    ticketCount = 0,
     performerName,
     performerType,
     performerUrl,
@@ -94,7 +94,6 @@ const EventRow = ({
             itemScope
             itemType={`http://schema.org/${eventType}`}
             role="row"
-            rel={!ticketCount ? 'nofollow' : undefined}
             onClick={e => {
                 onChange(!checkboxState);
                 setCheckboxState(!checkboxState);
@@ -225,7 +224,7 @@ EventRow.propTypes = {
     minListPrice: PropTypes.number,
     isInternationalVenue: PropTypes.bool,
     schemaDescription: PropTypes.string,
-    ticketCount: PropTypes.number.isRequired,
+    ticketCount: PropTypes.number,
     performerName: PropTypes.string,
     performerType: PropTypes.string,
     performerUrl: PropTypes.string,
