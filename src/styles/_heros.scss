@@ -59,6 +59,7 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         @include typography($color-white);
         display: block;
         margin-top: $sizing-SM;
+        padding: 0 $sizing-SM;
 
         @include size-min-tablet {
             font-size: $font-size-XL;
