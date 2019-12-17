@@ -58,7 +58,7 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
     .vdp-page-hero__subtitle {
         @include typography($color-white);
         display: block;
-        margin-top: $sizing-SM;
+        margin: $sizing-SM 0 0 0;
         padding: 0 $sizing-SM;
 
         @include size-min-tablet {
