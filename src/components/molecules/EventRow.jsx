@@ -94,12 +94,12 @@ const EventRow = ({
             itemScope
             itemType={`http://schema.org/${eventType}`}
             role="row"
+            rel={!ticketCount ? 'nofollow' : false}
             onClick={e => {
                 onChange(!checkboxState);
                 setCheckboxState(!checkboxState);
                 onClick(e);
             }}
-            {...(!ticketCount ? { rel: 'nofollow' } : {})}
             {...htmlAttributes}>
             {/* Checkbox */}
             {hasCheckbox && (
