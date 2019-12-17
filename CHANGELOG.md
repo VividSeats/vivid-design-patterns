@@ -5,6 +5,7 @@
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#152](https://github.com/VividSeats/vivid-design-patterns/pull/152) Add `nofollow` to `rel` attribute to links to production pages with no tickets available ([@jeffborders](https://github.com/jeffborders))
 * [#147](https://github.com/VividSeats/vivid-design-patterns/pull/147) Adds negative margin utils ([@mgorman87](https://github.com/mgorman87))
 * [#146](https://github.com/VividSeats/vivid-design-patterns/pull/146) DOT-659 adds utilities styles ([@mgorman87](https://github.com/mgorman87))
 * [#143](https://github.com/VividSeats/vivid-design-patterns/pull/143) DSYS-39 include typography in components ([@mgorman87](https://github.com/mgorman87))
