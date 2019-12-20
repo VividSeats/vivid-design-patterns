@@ -30,7 +30,7 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         font-size: $font-size-SM;
         font-weight: $font-weight-med;
         list-style: none;
-        margin: 0;
+        margin: 0 0 $sizing-SM $sizing-SM;
         padding: 0 0 $sizing-XS;
 
         li {
