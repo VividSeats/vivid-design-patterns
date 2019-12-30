@@ -1,5 +1,127 @@
 ---
-    name: Button
-    menu: Guidelines
-    route: /guidelines/button
+name: Button
+menu: Guidelines
+route: /guidelines/button
 ---
+
+import { Props, Playground } from 'docz';
+import Button from '../../src/components/atoms/Button';
+import '../docz.scss';
+
+# Button
+
+## Description
+
+Buttons allow users to perform an action with a click or tap. Buttons must have plain and succinct labels, so users know exactly what action will be executed when they interact with them.
+
+## Usage Guidelines
+
+<table>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><Button>Primary</Button></td>
+            <td>Primary buttons are used for the most prominent call to action on the page. Avoid using primary buttons to denote different actions on the same page</td>
+        </tr>
+        <tr>
+            <td><Button importance="secondary">Secondary</Button></td>
+            <td>Secondary buttons are an alternative to primary buttons used for optional actions. Avoid pairing these next to primary buttons</td>
+        </tr>
+        <tr>
+            <td><Button importance="tertiary">Tertiary</Button></td>
+            <td>Tertiary buttons are used to denote non-primary actions (Ex: Read More), or paired with primary or secondary buttons to denote secondary actions (Ex: Cancel, Dismiss)</td>
+        </tr>
+        <tr>
+            <td><Button>Reversed</Button></td>
+            <td>Reversed buttons are used for primary actions on darker backgrounds</td>
+        </tr>
+        <tr>
+            <td><Button importance="text">Text</Button></td>
+            <td>Text buttons are used in modals or cards to denote primary actions</td>
+        </tr>
+        <tr>
+            <td><Button importance="text" muted>Muted Text</Button></td>
+            <td>Muted Text buttons are used in modals or cards to denote secondary actions (Ex: Dismiss)</td>
+        </tr>
+        <tr>
+            <td><Button disabled>Disabled</Button></td>
+            <td>Disabled buttons are used when an action is unavailable</td>
+        </tr>
+        <tr>
+            <td><Button icon="favorite">Leading Icon</Button></td>
+            <td>Leading Icon buttons are used when an icon can better explain the action. The icon should be clearly associated with the button label</td>
+        </tr>
+        <tr>
+            <td><Button importance="text" icon="favorite">Leading Icon Text</Button></td>
+            <td>Leading Icon text buttons are used in modals or cards when an icon can better explain the action. The icon should be clearly associated to the button label</td>
+        </tr>
+        <tr>
+            <td>
+                <Button grouped>Grouped Button</Button>
+                <Button grouped>Grouped Button</Button>
+                <Button grouped selected>
+                    Selected Grouped Button
+                </Button>
+            </td>
+            <td>Grouped buttons are used when there are different options for a single action (Ex: Sorting). There will always be one option in the selected state</td>
+        </tr>
+        <tr>
+            <td><Button block>Block</Button></td>
+            <td>Block buttons are used on mobile devices to span the full width of the screen. If multiple Block buttons are being stacked, order them as: Primary, followed by Tertiary</td>
+        </tr>
+    </tbody>
+</table>
+
+## Other Guidelines
+
+### Pairing
+
+Button styles can be paired to denote prioritization of actions
+
+<table>
+    <thead>
+        <tr>
+            <th>Recommended Pairings</th>
+            <th>Avoid Pairing</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><Button>Primary</Button> + <Button importance="tertiary">Tertiary</Button></td>
+            <td><Button>Primary</Button> + <Button>Primary</Button></td>
+        </tr>
+        <tr>
+            <td><Button importance="secondary">Secondary</Button> + <Button importance="tertiary">Tertiary</Button></td>
+            <td><Button>Primary</Button> + <Button importance="secondary">Secondary</Button></td>
+        </tr>
+        <tr>
+            <td><Button importance="text">Text</Button> + <Button importance="text" muted>Muted Text</Button></td>
+            <td><Button importance="secondary">Secondary</Button> + <Button importance="secondary">Secondary</Button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><Button importance="tertiary">Tertiary</Button> + <Button importance="tertiary">Tertiary</Button></td>
+        </tr>
+    </tbody>
+</table>
+
+### Labels
+
+Button labels are Title Case, lead with a strong verb that encourages action, and have concise wording. Text Buttons, however, have labels in all UPPERCASE.
+
+### Sizing
+
+Small buttons are used when the page layout has limited space (Ex: Used in desktop ticket rows on Production page). Use large buttons when there is a single important action on the page in order to draw the user’s attention (Ex: Checkout button on mobile web).
+
+### Padding
+
+Avoid adjusting padding around button labels. Use Block buttons if you need to span buttons full width, and place them within smaller columns.
+
+### Placement
+
+Buttons are placed on the bottom right on modals and cards. Use Block buttons on mobile to cover the full width of the screen.
