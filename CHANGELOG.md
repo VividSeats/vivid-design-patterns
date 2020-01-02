@@ -1,5 +1,5 @@
 
-## Unreleased (2019-12-20)
+## Unreleased (2020-01-02)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
@@ -23,6 +23,7 @@
 * [#102](https://github.com/VividSeats/vivid-design-patterns/pull/102) [COM-476] Add lead pricing to EventRows component ([@ealmiladi](https://github.com/ealmiladi))
 
 #### :bug: Bug Fix
+* [#156](https://github.com/VividSeats/vivid-design-patterns/pull/156) DOT-1393 adds hero breadcrumb margin ([@mgorman87](https://github.com/mgorman87))
 * [#155](https://github.com/VividSeats/vivid-design-patterns/pull/155) DOT-865 adjust breakpoints ([@mgorman87](https://github.com/mgorman87))
 * [#151](https://github.com/VividSeats/vivid-design-patterns/pull/151) UXD-2781 adjust hero subtitle margin ([@mgorman87](https://github.com/mgorman87))
 * [#150](https://github.com/VividSeats/vivid-design-patterns/pull/150) UXD-2781 add padding to hero subtitle ([@mgorman87](https://github.com/mgorman87))
