@@ -1,10 +1,12 @@
 
-## Unreleased (2020-01-02)
+## Unreleased (2020-01-03)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#149](https://github.com/VividSeats/vivid-design-patterns/pull/149) update grid components with more documentation and props ([@ylin6](https://github.com/ylin6))
+* [#158](https://github.com/VividSeats/vivid-design-patterns/pull/158) DSYS-45 adds responsive flexwrap classes to grid.scss ([@mgorman87](https://github.com/mgorman87))
 * [#152](https://github.com/VividSeats/vivid-design-patterns/pull/152) Add `nofollow` to `rel` attribute to links to production pages with no tickets available ([@jeffborders](https://github.com/jeffborders))
 * [#147](https://github.com/VividSeats/vivid-design-patterns/pull/147) Adds negative margin utils ([@mgorman87](https://github.com/mgorman87))
 * [#146](https://github.com/VividSeats/vivid-design-patterns/pull/146) DOT-659 adds utilities styles ([@mgorman87](https://github.com/mgorman87))
