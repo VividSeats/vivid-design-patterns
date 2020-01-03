@@ -79,11 +79,7 @@ typographyPropTests.forEach(({ describes, component, defaultElement, defaultStyl
             });
         });
 
-        [
-            ['blk', 'black'],
-            ['bld', 'bold'],
-            ['med', 'medium']
-        ].forEach(weight => {
+        [['blk', 'black'], ['bld', 'bold'], ['med', 'medium']].forEach(weight => {
             it(`renders ${defaultElement} tag with the style '--${weight[0]}'`, () => {
                 const wrapper = mount(<constructedComponent.component weight={weight[1]} />);
                 const searchQuery = wrapper.find(`${defaultElement}.${typographyBaseStyle}${defaultStyle}`);

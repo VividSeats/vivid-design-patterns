@@ -1,0 +1,121 @@
+---
+name: Grid
+menu: Components
+route: /components/Grid
+---
+
+import { Props, Playground } from 'docz';
+
+import Column from '../../src/components/molecules/Column';
+import Row from '../../src/components/molecules/Row';
+import GridItem from '../GridItem';
+
+import '../docz.scss';
+
+# Grid
+
+## Installation
+
+Using the react components:
+
+    import {Column, Row} from '@vividseats/vivid-design-patterns/dist;
+
+Using the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/grid.scss';
+
+## Usage
+The Column and Row components are based on a 12 column grid.
+
+<Playground>
+    <>
+        <Row>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+        </Row>
+        <Row>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+        </Row>
+        <Row>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+        </Row>
+    </>
+</Playground>
+
+## Responsive flex-wrap and flex-direction
+
+If you want different flex-wrap and flex-direction properties for different break points, pass in an array to flexWrap and flexDirection properties. The items in the array correspond to mobile, tablet, and desktop breakpoints.
+If you want an attribute to apply to a breakpoints, just pass in the value instead of the array. For FlexDirection, only the 'column' attribute is currently supported for all breakpoints.
+
+
+<Playground>
+    <>
+        FlexDirection column-reverse on mobile and tablet only
+        <Row flexDirection={["row-reverse", "row-reverse", "row"]}>
+            <Column sm={4} md={4} lg={4} xl={4}>
+                <GridItem>1</GridItem>
+            </Column>
+            <Column sm={4} md={4} lg={4} xl={4}>
+                <GridItem>2</GridItem>
+            </Column>
+            <Column sm={4} md={4} lg={4} xl={4}>
+                <GridItem>3</GridItem>
+            </Column>
+        </Row>
+        Now Wrap on all breakpoints
+        <Row flexWrap="nowrap">
+            <Column sm={12} lg={6}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} lg={6}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} lg={6}>
+                <GridItem/>
+            </Column>
+        </Row>
+        No Wrap on mobile only
+        <Row flexWrap={["nowrap", "wrap", "wrap"]}>
+            <Column sm={12} lg={6}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} lg={6}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} lg={6}>
+                <GridItem/>
+            </Column>
+        </Row>
+    </>
+</Playground>
+
+## Props
+Column and Rows take several different flex properties.
+### Column
+<Props of={Column} />
+
+### Row
+<Props of={Row} />
