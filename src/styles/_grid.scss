@@ -41,6 +41,14 @@
         @if $modifierType == 'flex-direction' {
             @include flex-direction($modifierValue);
         }
+        @if $modifierType == 'flex-wrap' {
+            @include flex-wrap($modifierValue);
+
+            [class^='vdp-col'] {
+                @include flex-basis(0);
+                @include flex-grow(1);
+            }
+        }
         @if $modifierType == 'justify-content' {
             @include justify-content($modifierValue);
         }
@@ -63,14 +71,7 @@
             padding-right: 0;
         }
     }
-    &[class*='--nowrap'] {
-        @include flex-wrap(nowrap);
 
-        [class^='vdp-col'] {
-            @include flex-basis(0);
-            @include flex-grow(1);
-        }
-    }
     // Nested Row
     [class*='vdp-row'] {
         margin-left: 0;
@@ -88,21 +89,25 @@
 @include grid-modifier(vdp-row, align-center, align-items, center);
 @include grid-modifier(vdp-row, align-bottom, align-items, flex-end);
 @include grid-modifier(vdp-row, column, flex-direction, column);
+@include grid-modifier(vdp-row, nowrap-all, flex-wrap, nowrap);
 
 // Responsive Row Modifiers
 @include size-only-mobile {
     @include grid-modifier(vdp-row, col-mobile, flex-direction, column);
     @include grid-modifier(vdp-row, col-reverse-mobile, flex-direction, column-reverse);
+    @include grid-modifier(vdp-row, nowrap-mobile, flex-wrap, nowrap);
     @include grid-modifier(vdp-row, reverse-mobile, flex-direction, row-reverse);
 }
 @include size-min-tablet {
     @include grid-modifier(vdp-row, col-tablet, flex-direction, column);
     @include grid-modifier(vdp-row, col-reverse-tablet, flex-direction, column-reverse);
+    @include grid-modifier(vdp-row, nowrap-tablet, flex-wrap, nowrap);
     @include grid-modifier(vdp-row, reverse-tablet, flex-direction, row-reverse);
 }
 @include size-min-desktop {
     @include grid-modifier(vdp-row, col-desktop, flex-direction, column);
     @include grid-modifier(vdp-row, col-reverse-desktop, flex-direction, column-reverse);
+    @include grid-modifier(vdp-row, nowrap-desktop, flex-wrap, nowrap);
     @include grid-modifier(vdp-row, reverse-desktop, flex-direction, row-reverse);
 }
 
