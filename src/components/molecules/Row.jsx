@@ -14,12 +14,12 @@ const getFlexDirectionClass = (flexDirection, device) => {
     }
 };
 
-const Row = ({ className = '', children, justify, align, column, flexDirection = [], flexWrap = [], ...htmlAttributes }) => {
+const Row = ({ className = '', children, justify, align, flexDirection = [], flexWrap = [], ...htmlAttributes }) => {
     const rowClassNames = classNames('vdp-row', {
         [className]: className,
         [`--justify-${justify}`]: justify,
         [`--align-${align}`]: align,
-        '--column': column,
+        '--column': flexDirection === 'column',
         [getFlexDirectionClass(flexDirection[0], 'mobile')]: flexDirection[0],
         [getFlexDirectionClass(flexDirection[1], 'tablet')]: flexDirection[1],
         [getFlexDirectionClass(flexDirection[2], 'desktop')]: flexDirection[2],
@@ -41,11 +41,13 @@ Row.propTypes = {
     children: PropTypes.node,
     justify: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between']),
     align: PropTypes.oneOf(['top', 'bottom', 'center']),
-    /** sets flex-direction css property. Takes an array where the 1st item correspond to the flex direction for mobile devices, 2nd item correspond to tablets and 3rd item corresponds to desktop */
-    flexDirection: PropTypes.arrayOf(PropTypes.oneOf(['row', 'column', 'column-reverse', 'row-reverse'])),
     /** sets flex-wrap css property. Use array for responsive breakpoint where the first item correspond to the smallest breakpoint. If you pass a value instead, will apply to all breakpoint  */
-    flexWrap: PropTypes.oneOf([PropTypes.string, PropTypes.arrayOf(PropTypes.oneOf(['wrap', 'nowrap']))]),
-    column: PropTypes.bool
+    flexDirection: PropTypes.oneOf([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.oneOf(['row', 'column', 'column-reverse', 'row-reverse']))
+    ]),
+    /** sets flex-wrap css property. Use array for responsive breakpoint where the first item correspond to the smallest breakpoint. If you pass a value instead, will apply to all breakpoint  */
+    flexWrap: PropTypes.oneOf([PropTypes.string, PropTypes.arrayOf(PropTypes.oneOf(['wrap', 'nowrap']))])
 };
 
 export default Row;
