@@ -45,12 +45,6 @@ Row.propTypes = {
     flexDirection: PropTypes.arrayOf(PropTypes.oneOf(['row', 'column', 'column-reverse', 'row-reverse'])),
     /** sets flex-wrap css property. Use array for responsive breakpoint where the first item correspond to the smallest breakpoint. If you pass a value instead, will apply to all breakpoint  */
     flexWrap: PropTypes.oneOf([PropTypes.string, PropTypes.arrayOf(PropTypes.oneOf(['wrap', 'nowrap']))]),
-    /** sets flex-wrap for mobile devices */
-    flexWrapMobile: PropTypes.oneOf(['nowrap']),
-    /** sets flex-wrap for tablets */
-    flexWrapTablet: PropTypes.oneOf(['nowrap']),
-    /** sets flex-wrap for desktop */
-    flexWrapDesktop: PropTypes.oneOf(['nowrap']),
     column: PropTypes.bool
 };
 
