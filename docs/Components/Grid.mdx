@@ -73,39 +73,39 @@ For the flexWrap, passing in a value will apply the value to all breakpoints.
 
 <Playground>
     <>
-        FlexDirection column-reverse on mobile and tablet, row-reverse on desktop
-        <Row flexDirection={["column-reverse", "column-reverse", "row-reverse"]}>
-            <Column sm={12} md={6} lg={4} xl={4}>
-                <GridItem/>
+        FlexDirection column-reverse on mobile and tablet only
+        <Row flexDirection={["row-reverse", "row-reverse", "row"]}>
+            <Column sm={4} md={4} lg={4} xl={4}>
+                <GridItem>1</GridItem>
             </Column>
-            <Column sm={12} md={6} lg={4} xl={4}>
-                <GridItem/>
+            <Column sm={4} md={4} lg={4} xl={4}>
+                <GridItem>2</GridItem>
             </Column>
-            <Column sm={12} md={6} lg={4} xl={4}>
-                <GridItem/>
+            <Column sm={4} md={4} lg={4} xl={4}>
+                <GridItem>3</GridItem>
             </Column>
         </Row>
         Now Wrap on all breakpoints
         <Row flexWrap="nowrap">
-            <Column sm={12} md={6} lg={4} xl={4}>
+            <Column sm={12} lg={6}>
                 <GridItem/>
             </Column>
-            <Column sm={12} md={6} lg={4} xl={4}>
+            <Column sm={12} lg={6}>
                 <GridItem/>
             </Column>
-            <Column sm={12} md={6} lg={4} xl={4}>
+            <Column sm={12} lg={6}>
                 <GridItem/>
             </Column>
         </Row>
         No Wrap on mobile only
-        <Row flexWrap={["nowrap"]}>
-            <Column sm={12} md={6} lg={4} xl={4}>
+        <Row flexWrap={["nowrap", "wrap", "wrap"]}>
+            <Column sm={12} lg={6}>
                 <GridItem/>
             </Column>
-            <Column sm={12} md={6} lg={4} xl={4}>
+            <Column sm={12} lg={6}>
                 <GridItem/>
             </Column>
-            <Column sm={12} md={6} lg={4} xl={4}>
+            <Column sm={12} lg={6}>
                 <GridItem/>
             </Column>
         </Row>

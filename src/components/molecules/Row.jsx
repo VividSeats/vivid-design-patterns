@@ -14,7 +14,7 @@ const getFlexDirectionClass = (flexDirection, device) => {
     }
 };
 
-const Row = ({ className = '', children, justify, align, column, flexDirection = [], flexWrap, ...htmlAttributes }) => {
+const Row = ({ className = '', children, justify, align, column, flexDirection = [], flexWrap = [], ...htmlAttributes }) => {
     const rowClassNames = classNames('vdp-row', {
         [className]: className,
         [`--justify-${justify}`]: justify,
@@ -23,10 +23,10 @@ const Row = ({ className = '', children, justify, align, column, flexDirection =
         [getFlexDirectionClass(flexDirection[0], 'mobile')]: flexDirection[0],
         [getFlexDirectionClass(flexDirection[1], 'tablet')]: flexDirection[1],
         [getFlexDirectionClass(flexDirection[2], 'desktop')]: flexDirection[2],
-        [`--${flexWrap}-all`]: flexWrap && !flexWrap.isArray(),
-        [`--${flexWrap}-mobile`]: flexWrap && flexWrap.isArray() && flexWrap[0],
-        [`--${flexWrap}-tablet`]: flexWrap && flexWrap.isArray() && flexWrap[1],
-        [`--${flexWrap}-desktop`]: flexWrap && flexWrap.isArray() && flexWrap[2]
+        [`--${flexWrap}-all`]: flexWrap && !Array.isArray(flexWrap),
+        [`--${flexWrap[0]}-mobile`]: Array.isArray(flexWrap) && flexWrap[0],
+        [`--${flexWrap[1]}-tablet`]: Array.isArray(flexWrap) && flexWrap[1],
+        [`--${flexWrap[2]}-desktop`]: Array.isArray(flexWrap) && flexWrap[2]
     });
 
     return (
@@ -42,9 +42,9 @@ Row.propTypes = {
     justify: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between']),
     align: PropTypes.oneOf(['top', 'bottom', 'center']),
     /** sets flex-direction css property. Takes an array where the 1st item correspond to the flex direction for mobile devices, 2nd item correspond to tablets and 3rd item corresponds to desktop */
-    flexDirection: PropTypes.arrayOf(PropTypes.oneOf(['column', 'column-reverse', 'row-reverse'])),
+    flexDirection: PropTypes.arrayOf(PropTypes.oneOf(['row', 'column', 'column-reverse', 'row-reverse'])),
     /** sets flex-wrap css property. Use array for responsive breakpoint where the first item correspond to the smallest breakpoint. If you pass a value instead, will apply to all breakpoint  */
-    flexWrap: PropTypes.oneOf([PropTypes.string, PropTypes.arrayOf(PropTypes.oneOf(['nowrap']))]),
+    flexWrap: PropTypes.oneOf([PropTypes.string, PropTypes.arrayOf(PropTypes.oneOf(['wrap', 'nowrap']))]),
     /** sets flex-wrap for mobile devices */
     flexWrapMobile: PropTypes.oneOf(['nowrap']),
     /** sets flex-wrap for tablets */
