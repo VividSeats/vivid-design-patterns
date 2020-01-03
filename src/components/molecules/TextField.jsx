@@ -7,14 +7,6 @@ import PasswordInput from './PasswordInput';
 /* eslint react/no-unused-state: 0 */
 
 class TextField extends React.Component {
-    static defaultProps = {
-        onChange: () => {},
-        onBlur: () => {},
-        onFocus: () => {},
-        validationMethod: () => {},
-        type: 'text'
-    };
-
     static propTypes = {
         /** If the noValidate prop is present, the field will not turn green or red to indicate its validation status. Do not pass this in if you are passing in a validationMethod Prop */
         noValidate: PropTypes.bool,
@@ -35,6 +27,14 @@ class TextField extends React.Component {
         validationMethod: PropTypes.func,
         trailingIcon: PropTypes.node,
         helperText: PropTypes.string
+    };
+
+    static defaultProps = {
+        onChange: () => {},
+        onBlur: () => {},
+        onFocus: () => {},
+        validationMethod: () => {},
+        type: 'text'
     };
 
     state = {

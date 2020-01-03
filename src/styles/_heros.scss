@@ -30,7 +30,7 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         font-size: $font-size-SM;
         font-weight: $font-weight-med;
         list-style: none;
-        margin: 0;
+        margin: 0 0 $sizing-SM $sizing-SM;
         padding: 0 0 $sizing-XS;
 
         li {
@@ -58,7 +58,8 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
     .vdp-page-hero__subtitle {
         @include typography($color-white);
         display: block;
-        margin-top: $sizing-SM;
+        margin: $sizing-SM 0 0 0;
+        padding: 0 $sizing-SM;
 
         @include size-min-tablet {
             font-size: $font-size-XL;
