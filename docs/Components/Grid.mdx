@@ -65,9 +65,55 @@ The Column and Row components are based on a 12 column grid.
     </>
 </Playground>
 
+## Responsive flex-wrap and flex-direction
+
+If you want different flex-wrap and flex-direction properties for different break points, pass in an array to flexWrap and flexDirection properties. The items in the array correspond to mobile, tablet, and desktop breakpoints.
+For the flexWrap, passing in a value will apply the value to all breakpoints.
+
+
+<Playground>
+    <>
+        FlexDirection column-reverse on mobile and tablet, row-reverse on desktop
+        <Row flexDirection={["column-reverse", "column-reverse", "row-reverse"]}>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+        </Row>
+        Now Wrap on all breakpoints
+        <Row flexWrap="nowrap">
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+        </Row>
+        No Wrap on mobile only
+        <Row flexWrap={["nowrap"]}>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+            <Column sm={12} md={6} lg={4} xl={4}>
+                <GridItem/>
+            </Column>
+        </Row>
+    </>
+</Playground>
+
 ## Props
 Column and Rows take several different flex properties.
-
 ### Column
 <Props of={Column} />
 
