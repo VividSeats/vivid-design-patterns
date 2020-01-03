@@ -62,13 +62,13 @@ Row.propTypes = {
     /** sets flex-direction property on desktop sized devices */
     flexDirectionDesktop: PropTypes.oneOf(['column', 'column-reverse', 'row-reverse']),
     /** sets flex-wrap */
-    flexWrap: PropTypes.oneOf(['no-wrap']),
+    flexWrap: PropTypes.oneOf(['nowrap']),
     /** sets flex-wrap for mobile devices */
-    flexWrapMobile: PropTypes.oneOf(['no-wrap']),
+    flexWrapMobile: PropTypes.oneOf(['nowrap']),
     /** sets flex-wrap for tablets */
-    flexWrapTablet: PropTypes.oneOf(['no-wrap']),
+    flexWrapTablet: PropTypes.oneOf(['nowrap']),
     /** sets flex-wrap for desktop */
-    flexWrapDesktop: PropTypes.oneOf(['no-wrap']),
+    flexWrapDesktop: PropTypes.oneOf(['nowrap']),
     column: PropTypes.bool
 };
 
