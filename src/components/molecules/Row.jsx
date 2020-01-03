@@ -23,6 +23,10 @@ const Row = ({
     flexDirectionMobile,
     flexDirectionTablet,
     flexDirectionDesktop,
+    flexWrap,
+    flexWrapDesktop,
+    flexWrapMobile,
+    flexWrapTablet,
     ...htmlAttributes
 }) => {
     const rowClassNames = classNames('vdp-row', {
@@ -32,7 +36,11 @@ const Row = ({
         '--column': column,
         [getFlexDirectionClass(flexDirectionMobile, 'mobile')]: flexDirectionMobile,
         [getFlexDirectionClass(flexDirectionTablet, 'tablet')]: flexDirectionTablet,
-        [getFlexDirectionClass(flexDirectionDesktop, 'desktop')]: flexDirectionDesktop
+        [getFlexDirectionClass(flexDirectionDesktop, 'desktop')]: flexDirectionDesktop,
+        [`--${flexWrap}-all`]: flexWrap,
+        [`--${flexWrapMobile}-mobile`]: flexWrapMobile,
+        [`--${flexWrapTablet}-tablet`]: flexWrapTablet,
+        [`--${flexWrapDesktop}-desktop`]: flexWrapDesktop
     });
 
     return (
@@ -53,6 +61,14 @@ Row.propTypes = {
     flexDirectionTablet: PropTypes.oneOf(['column', 'column-reverse', 'row-reverse']),
     /** sets flex-direction property on desktop sized devices */
     flexDirectionDesktop: PropTypes.oneOf(['column', 'column-reverse', 'row-reverse']),
+    /** sets flex-wrap */
+    flexWrap: PropTypes.oneOf(['no-wrap']),
+    /** sets flex-wrap for mobile devices */
+    flexWrapMobile: PropTypes.oneOf(['no-wrap']),
+    /** sets flex-wrap for tablets */
+    flexWrapTablet: PropTypes.oneOf(['no-wrap']),
+    /** sets flex-wrap for desktop */
+    flexWrapDesktop: PropTypes.oneOf(['no-wrap']),
     column: PropTypes.bool
 };
 
