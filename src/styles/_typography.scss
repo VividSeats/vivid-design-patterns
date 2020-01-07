@@ -194,6 +194,7 @@ a {
     @include transition(all $transition-1);
     color: $text-color-link;
     cursor: pointer;
+    hyphens: auto;
     font-size: inherit;
     font-weight: $font-weight-bld;
     outline: none;

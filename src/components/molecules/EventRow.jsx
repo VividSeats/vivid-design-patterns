@@ -41,18 +41,18 @@ MobileMinListCol.propTypes = {
     isInternationalVenue: PropTypes.bool
 };
 
-const eventUtmMedium = url => {
+const eventUtmTracking = url => {
     const QUESTION_MARK = '?';
-    const utmMediumParam = 'utm_medium=event-interface';
+    const utmParams = 'utm_medium=organic&utm_source=google_eventsearch';
     if (url.indexOf(QUESTION_MARK) === -1) {
-        return QUESTION_MARK + utmMediumParam;
+        return QUESTION_MARK + utmParams;
     }
 
     if (url.substr(-1) === QUESTION_MARK) {
-        return utmMediumParam;
+        return utmParams;
     }
 
-    return `&${utmMediumParam}`;
+    return `&${utmParams}`;
 };
 
 const EventRow = ({
@@ -130,6 +130,7 @@ const EventRow = ({
                                 </React.Fragment>
                             )}
                             {countryCodeString}
+                            <meta itemProp="addressCountry" content={countryCode || 'US'} />
                         </span>
                     </SmallText>
                 ) : (
@@ -156,12 +157,12 @@ const EventRow = ({
             )}
             {/* Mobile Col for Min List Price */}
             {!!minListPrice && <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />}
-            <link className="schema-url" itemProp="url" href={href + eventUtmMedium(href)} />
-            <meta itemProp="sameAs" content={href + eventUtmMedium(href)} />
+            <link className="schema-url" itemProp="url" href={href + eventUtmTracking(href)} />
+            <meta itemProp="sameAs" content={href + eventUtmTracking(href)} />
             {!!imageUrl && <meta itemProp="image" content={imageUrl} />}
             {!!schemaDescription && <meta itemProp="description" content={schemaDescription} />}
             <div itemProp="offers" itemScope itemType="http://schema.org/AggregateOffer">
-                <link itemProp="url" href={href + eventUtmMedium(href)} />
+                <link itemProp="url" href={href + eventUtmTracking(href)} />
                 <meta itemProp="priceCurrency" content="USD" />
                 {ticketCount > 0 ? (
                     <link itemProp="availability" href="http://schema.org/InStock" />

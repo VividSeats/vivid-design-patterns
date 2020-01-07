@@ -1,10 +1,15 @@
 
-## Unreleased (2019-12-11)
+## Unreleased (2020-01-03)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#149](https://github.com/VividSeats/vivid-design-patterns/pull/149) update grid components with more documentation and props ([@ylin6](https://github.com/ylin6))
+* [#158](https://github.com/VividSeats/vivid-design-patterns/pull/158) DSYS-45 adds responsive flexwrap classes to grid.scss ([@mgorman87](https://github.com/mgorman87))
+* [#152](https://github.com/VividSeats/vivid-design-patterns/pull/152) Add `nofollow` to `rel` attribute to links to production pages with no tickets available ([@jeffborders](https://github.com/jeffborders))
+* [#147](https://github.com/VividSeats/vivid-design-patterns/pull/147) Adds negative margin utils ([@mgorman87](https://github.com/mgorman87))
+* [#146](https://github.com/VividSeats/vivid-design-patterns/pull/146) DOT-659 adds utilities styles ([@mgorman87](https://github.com/mgorman87))
 * [#143](https://github.com/VividSeats/vivid-design-patterns/pull/143) DSYS-39 include typography in components ([@mgorman87](https://github.com/mgorman87))
 * [#136](https://github.com/VividSeats/vivid-design-patterns/pull/136) DOT-432 Add utm medium to event urls ([@oleksandra-holovina](https://github.com/oleksandra-holovina))
 * [#128](https://github.com/VividSeats/vivid-design-patterns/pull/128) Add onOpened and onClosed callbacks for Modal component. Add base typography styles to Typography components. ([@ylin6](https://github.com/ylin6))
@@ -20,6 +25,11 @@
 * [#102](https://github.com/VividSeats/vivid-design-patterns/pull/102) [COM-476] Add lead pricing to EventRows component ([@ealmiladi](https://github.com/ealmiladi))
 
 #### :bug: Bug Fix
+* [#156](https://github.com/VividSeats/vivid-design-patterns/pull/156) DOT-1393 adds hero breadcrumb margin ([@mgorman87](https://github.com/mgorman87))
+* [#155](https://github.com/VividSeats/vivid-design-patterns/pull/155) DOT-865 adjust breakpoints ([@mgorman87](https://github.com/mgorman87))
+* [#151](https://github.com/VividSeats/vivid-design-patterns/pull/151) UXD-2781 adjust hero subtitle margin ([@mgorman87](https://github.com/mgorman87))
+* [#150](https://github.com/VividSeats/vivid-design-patterns/pull/150) UXD-2781 add padding to hero subtitle ([@mgorman87](https://github.com/mgorman87))
+* [#145](https://github.com/VividSeats/vivid-design-patterns/pull/145) DOT-1351 adds card hero parent to non background image card heros ([@mgorman87](https://github.com/mgorman87))
 * [#132](https://github.com/VividSeats/vivid-design-patterns/pull/132) DOT-1235 fixes font url paths ([@mgorman87](https://github.com/mgorman87))
 * [#129](https://github.com/VividSeats/vivid-design-patterns/pull/129) Fix legacy material icons. Add additional documentation for Typography components. ([@ylin6](https://github.com/ylin6))
 * [#126](https://github.com/VividSeats/vivid-design-patterns/pull/126) DOT-624 minor visual ie11 bug fixes ([@mgorman87](https://github.com/mgorman87))
@@ -29,7 +39,7 @@
 * [#105](https://github.com/VividSeats/vivid-design-patterns/pull/105) Fix typeahead bug where the input value is not displayed correctly when a item is selected from the dropdown ([@cmoog](https://github.com/cmoog))
 * [#101](https://github.com/VividSeats/vivid-design-patterns/pull/101) patches to ts declaration file ([@cmoog](https://github.com/cmoog))
 
-#### Committers: 12
+#### Committers: 13
 - Bill Hinderman ([@billHinderman](https://github.com/billHinderman))
 - Charles Moog ([@cmoog](https://github.com/cmoog))
 - David Metzler ([@metzelhoff](https://github.com/metzelhoff))
@@ -38,6 +48,7 @@
 - Paige Vogenthaler ([@pvogenthaler](https://github.com/pvogenthaler))
 - Sam Gibson ([@sgibson47](https://github.com/sgibson47))
 - Yucheng Lin ([@ylin6](https://github.com/ylin6))
+- [@agustinflorez](https://github.com/agustinflorez)
 - [@ealmiladi](https://github.com/ealmiladi)
 - [@oleksandra-holovina](https://github.com/oleksandra-holovina)
 - [@vivid-lukeloresch](https://github.com/vivid-lukeloresch)

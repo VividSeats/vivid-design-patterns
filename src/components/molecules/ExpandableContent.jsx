@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import Button from '../atoms/Button';
 
 class ExpandableContent extends React.Component {
+    container = React.createRef();
+
     static propTypes = {
         className: PropTypes.string,
         maxHeight: PropTypes.string,
@@ -18,8 +20,6 @@ class ExpandableContent extends React.Component {
         buttonText: 'Show More',
         forceExpanded: false
     };
-
-    container = React.createRef();
 
     state = {
         isCollapsed: !this.props.forceExpanded

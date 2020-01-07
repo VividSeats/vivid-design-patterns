@@ -23,6 +23,10 @@ FormContextConsumer.propTypes = {
 };
 
 class Form extends React.Component {
+    static ContextConsumer = FormContextConsumer;
+
+    inputs = [];
+
     static propTypes = {
         /** Callback is passed plain JavaScript object with key/value pairs of `name` props and input value at time of submission. */
         onSubmit: PropTypes.func,
@@ -35,9 +39,6 @@ class Form extends React.Component {
         onSubmit: () => {},
         onValidationFailure: () => {}
     };
-
-    static ContextConsumer = FormContextConsumer;
-    inputs = [];
 
     setForm = ref => {
         this.inputs.push(ref);
