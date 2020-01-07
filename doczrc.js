@@ -18,7 +18,7 @@ export default {
             .loader('sass-loader')
             .end();
     },
-    menu: ['Home', 'Foundation', 'Components'],
+    menu: ['Home', 'Foundation', 'Components', 'Guidelines'],
     themeConfig: {
         logo: {
             src: '//a.vsstatic.com/common/logo/logo.svg',
