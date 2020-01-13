@@ -39,6 +39,9 @@
 * [#105](https://github.com/VividSeats/vivid-design-patterns/pull/105) Fix typeahead bug where the input value is not displayed correctly when a item is selected from the dropdown ([@cmoog](https://github.com/cmoog))
 * [#101](https://github.com/VividSeats/vivid-design-patterns/pull/101) patches to ts declaration file ([@cmoog](https://github.com/cmoog))
 
+#### :memo: Documentation
+* [#160](https://github.com/VividSeats/vivid-design-patterns/pull/160) Make className an optional type for Typeahead component ([@ylin6](https://github.com/ylin6))
+
 #### Committers: 14
 - Bill Hinderman ([@billHinderman](https://github.com/billHinderman))
 - Charles Moog ([@cmoog](https://github.com/cmoog))
