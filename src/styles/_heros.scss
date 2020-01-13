@@ -72,6 +72,11 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         @include size-only-mobile {
             overflow-x: scroll;
             -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+            scrollbar-width: none; /* Firefox */
+            &::-webkit-scrollbar {
+                display: none; /* Safari and Chrome */
+            }
         }
     }
     .vdp-page-hero__thumbnail {
