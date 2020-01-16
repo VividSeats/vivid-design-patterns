@@ -134,9 +134,9 @@ $row-height: 4.5rem;
     }
     &[class*='--thumb'] {
         border-radius: $border-radius-SM;
-        height: $sizing-3XL;
+        width: $sizing-5XL;
+        height: $sizing-5XL;
         margin-left: $column-thumb-margin;
-        width: $column-thumb-width;
         overflow: hidden;
 
         img {

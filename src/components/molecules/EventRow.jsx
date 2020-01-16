@@ -8,6 +8,7 @@ import Link from '../atoms/Link';
 import SmallText from '../atoms/SmallText';
 import DateColumn from '../atoms/DateColumn';
 import Icon from '../atoms/Icon';
+import Badge from '../atoms/Badge';
 
 const MinListPriceButton = ({ minListPrice = 0, isInternationalVenue }) => (
     <Button>
@@ -55,8 +56,19 @@ const eventUtmTracking = url => {
     return `&${utmParams}`;
 };
 
+const getThumbnailDate = date => {
+    const momentDate = moment(date);
+    let thumbnailDate = `${momentDate.format('ddd')}, ${momentDate.format('MMM DD')}`;
+
+    if (momentDate.isSame(new Date(), 'year')) {
+        return thumbnailDate.concat(` ${momentDate.format('h:mm A')}`);
+    }
+
+    return thumbnailDate.concat(`, ${momentDate.format('YYYY')} ${momentDate.format('h:mm A')}`);
+};
+
 const EventRow = ({
-    href,
+    href = '',
     subtitle,
     title,
     venue = {},
@@ -83,6 +95,8 @@ const EventRow = ({
     const { BUTTON, DATE_RANGE, INFO, THUMBNAIL, CHECKBOX } = COL_CLASSNAMES;
     const { regionCode, countryCode, city, name: venueName } = venue;
     const countryCodeString = countryCode !== 'US' ? `, ${countryCode}` : '';
+    const hasThumbnail = !!thumbnail && !!thumbnail.src && !!thumbnail.alt;
+    const thumbnailDate = getThumbnailDate(date);
 
     const [checkboxState, setCheckboxState] = useState(false);
 
@@ -107,18 +121,20 @@ const EventRow = ({
                 </div>
             )}
             {/* Thumbnail Image */}
-            {!!thumbnail && !!thumbnail.src && !!thumbnail.alt && (
+            {hasThumbnail && (
                 <div className={getColClassName(THUMBNAIL)}>
                     <img src={thumbnail.src} alt={thumbnail.alt} />
                 </div>
             )}
             {/* Date */}
-            <DateColumn date={date} isTimeTbd={isTimeTbd} />
+            {!hasThumbnail && <DateColumn date={date} isTimeTbd={isTimeTbd} />}
             {/* Event Info */}
             <div className={getColClassName(INFO)}>
                 <BodyText height="compressed" weight="black" importance={2} itemProp="name">
                     {title}
                 </BodyText>
+                {hasThumbnail && !!date && !isTimeTbd && <SmallText className="thumb-date">{thumbnailDate}</SmallText>}
+                {hasThumbnail && isTimeTbd && <SmallText className="thumb-date">TBD</SmallText>}
                 {!!Object.keys(venue).length ? (
                     <SmallText state="muted" itemProp="location" itemScope itemType="http://schema.org/Place">
                         <span itemProp="name">{venueName}</span>&nbsp;–&nbsp;
