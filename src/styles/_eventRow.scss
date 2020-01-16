@@ -134,16 +134,12 @@ $row-height: 4.5rem;
     }
     &[class*='--thumb'] {
         border-radius: $border-radius-SM;
-        width: $sizing-5XL;
-        height: $sizing-5XL;
         margin-left: $column-thumb-margin;
         overflow: hidden;
-
-        img {
-            @include align-self(center);
-            max-width: none;
-            height: 100%;
-        }
+        width: $sizing-5XL;
+        height: $sizing-5XL;
+        background-size: cover;
+        background-position: center center;
 
         + .vdp-event-row__col--info {
             max-width: calc(100% - #{$column-thumb-width + $column-thumb-margin});

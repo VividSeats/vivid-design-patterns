@@ -121,9 +121,10 @@ const EventRow = ({
             )}
             {/* Thumbnail Image */}
             {hasThumbnail && (
-                <div className={getColClassName(THUMBNAIL)}>
-                    <img src={thumbnail.src} alt={thumbnail.alt} />
-                </div>
+                <div
+                    className={getColClassName(THUMBNAIL)}
+                    alt={thumbnail.alt}
+                    style={{ 'background-image': `url(${thumbnail.src})` }}></div>
             )}
             {/* Date */}
             {!hasThumbnail && <DateColumn date={date} isTimeTbd={isTimeTbd} />}
