@@ -174,10 +174,10 @@ To allow the user to check and uncheck the event, add the `hasCheckbox` and `onC
 
 <Playground>
     <EventRow
-        href={'javascript:alert("click")'}
         onChange={state => console.log(`the event row is now ${state ? '' : 'not '}checked!`)}
         hasCheckbox
         {...{
+            href: 'javascript:alert("click")',
             title: 'Chicago Blackhawks',
             subtitle: 'United Center - Chicago, IL'
         }}
