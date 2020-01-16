@@ -8,7 +8,6 @@ import Link from '../atoms/Link';
 import SmallText from '../atoms/SmallText';
 import DateColumn from '../atoms/DateColumn';
 import Icon from '../atoms/Icon';
-import Badge from '../atoms/Badge';
 
 const MinListPriceButton = ({ minListPrice = 0, isInternationalVenue }) => (
     <Button>
