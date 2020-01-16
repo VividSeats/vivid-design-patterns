@@ -57,7 +57,7 @@ const eventUtmTracking = url => {
 
 const getThumbnailDate = date => {
     const momentDate = moment(date);
-    let thumbnailDate = `${momentDate.format('ddd')}, ${momentDate.format('MMM DD')}`;
+    const thumbnailDate = `${momentDate.format('ddd')}, ${momentDate.format('MMM DD')}`;
 
     if (momentDate.isSame(new Date(), 'year')) {
         return thumbnailDate.concat(` ${momentDate.format('h:mm A')}`);
