@@ -60,10 +60,10 @@ const getThumbnailDate = date => {
     const thumbnailDate = `${momentDate.format('ddd')}, ${momentDate.format('MMM DD')}`;
 
     if (momentDate.isSame(new Date(), 'year')) {
-        return thumbnailDate.concat(` ${momentDate.format('h:mm A')}`);
+        return `${thumbnailDate} ${momentDate.format('h:mm A')}`;
     }
 
-    return thumbnailDate.concat(`, ${momentDate.format('YYYY')} ${momentDate.format('h:mm A')}`);
+    return `${thumbnailDate}, ${momentDate.format('YYYY')} ${momentDate.format('h:mm A')}`;
 };
 
 const EventRow = ({
