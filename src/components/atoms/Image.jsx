@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 const Image = ({ fallback = '', src, alt, loadImageViaCss = false, ...htmlAttributes }) => {
     if (loadImageViaCss) {
         return <CssImage src={src} alt={alt} fallback={fallback} {...htmlAttributes} />;
-    } else {
-        return <ImageElement src={src} alt={alt} fallback={fallback} {...htmlAttributes} />;
     }
+
+    return <ImageElement src={src} alt={alt} fallback={fallback} {...htmlAttributes} />;
 };
 
 const ImageElement = ({ src, alt, fallback, ...htmlAttributes }) => {
@@ -25,7 +25,6 @@ const CssImage = ({ src, alt, fallback, height, width, ...htmlAttributes }) => {
     const [hasError, setHasError] = React.useState(false);
 
     const onLoad = args => {
-        console.log('image on load');
         setHasFetchedImage(true);
         if (htmlAttributes.onLoad) {
             htmlAttributes.onLoad(args);

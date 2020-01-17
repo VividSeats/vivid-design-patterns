@@ -236,7 +236,8 @@ EventRow.propTypes = {
     date: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.instanceOf(Date)]),
     thumbnail: PropTypes.shape({
         src: PropTypes.string,
-        alt: PropTypes.string
+        alt: PropTypes.string,
+        fallback: PropTypes.string
     }),
     isTimeTbd: PropTypes.bool,
     imageUrl: PropTypes.string,
