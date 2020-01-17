@@ -1,0 +1,39 @@
+---
+name: EventCard
+menu: Components
+route: /components/event-card
+---
+
+import { Props, Playground } from 'docz';
+import EventCard from '../../src/components/molecules/EventCard';
+import '../docz.scss';
+
+# EventRow
+
+## Installation
+
+Using the react components:
+
+    import EventCard from '@vividseats/vivid-design-patterns/dist/molecules/EventCard';
+
+## EventCard Props
+
+<Props of={EventCard} />
+
+# Examples
+
+## Default
+
+<Playground>
+    <div style={{ display: 'flex' }}>
+        <EventCard
+            {...{
+                date: new Date().toUTCString(),
+                title: 'Chicago Blackhawks',
+                subtitle: 'United Center - Chicago, IL',
+                imageSrc: 'https://a.vsstatic.com/event/concerts/taylor-swift.jpg',
+                minListPrice: 25
+            }}
+        />
+    </div>
+</Playground>
