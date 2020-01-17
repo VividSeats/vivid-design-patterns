@@ -67,7 +67,7 @@ const getThumbnailDate = date => {
 };
 
 const EventRow = ({
-    href = '',
+    href,
     subtitle,
     title,
     venue = {},
