@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Image from '../atoms/Image';
@@ -8,6 +8,8 @@ import Link from '../atoms/Link';
 import SmallText from '../atoms/SmallText';
 import DateColumn from '../atoms/DateColumn';
 import Icon from '../atoms/Icon';
+
+/* es-lint click-events-have-key-events: 0 */
 
 const MinListPriceButton = ({ minListPrice = 0, isInternationalVenue }) => (
     <Button>
@@ -99,20 +101,8 @@ const EventRow = ({
 
     const [checkboxState, setCheckboxState] = useState(false);
 
-    return (
-        <Link
-            className={BASE_CLASSNAME}
-            href={href}
-            type="anchor"
-            itemScope
-            itemType={`http://schema.org/${eventType}`}
-            role="row"
-            onClick={e => {
-                onChange(!checkboxState);
-                setCheckboxState(!checkboxState);
-                onClick(e);
-            }}
-            {...htmlAttributes}>
+    const getEventRowContent = () => (
+        <Fragment>
             {/* Checkbox */}
             {hasCheckbox && (
                 <div className={getColClassName(CHECKBOX)}>
@@ -202,7 +192,28 @@ const EventRow = ({
                     <meta itemProp="sameAs" content={performerUrl} />
                 </div>
             )}
+        </Fragment>
+    );
+
+    const eventRowProps = {
+        className: BASE_CLASSNAME,
+        itemScope: true,
+        itemType: `http://schema.org/${eventType}`,
+        role: 'row',
+        onClick: e => {
+            onChange(!checkboxState);
+            setCheckboxState(!checkboxState);
+            onClick(e);
+        },
+        ...htmlAttributes
+    };
+
+    return !!href.length ? (
+        <Link href={href} type="anchor" {...eventRowProps}>
+            {getEventRowContent()}
         </Link>
+    ) : (
+        <div {...eventRowProps}>{getEventRowContent()}</div>
     );
 };
 
@@ -223,7 +234,7 @@ EventRow.BUTTON_TEXT = {
 };
 
 EventRow.propTypes = {
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     venue: PropTypes.shape({
         name: PropTypes.string.isRequired,
         city: PropTypes.string.isRequired,

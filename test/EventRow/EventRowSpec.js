@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import EventRow from '../../src/components/molecules/EventRow';
 import DateColumn from '../../src/components/atoms/DateColumn';
 
@@ -23,7 +23,7 @@ describe('<EventRow />', () => {
         expect(wrapper.exists()).toBe(true);
         expectColExists(wrapper, INFO);
         expect(wrapper.find('a').getElement().props.href).toBe(href);
-        expect(wrapper.find('.schema-url').getElement().props.href).toBe(href + '?utm_medium=organic&utm_source=google_eventsearch');
+        expect(wrapper.find('.schema-url').getElement().props.href).toBe(`${href}?utm_medium=organic&utm_source=google_eventsearch`);
     });
 
     it('renders a date range event row', () => {
@@ -54,7 +54,7 @@ describe('<EventRow />', () => {
         expectColExists(wrapper, INFO);
         expectColExists(wrapper, THUMBNAIL);
         expect(wrapper.find('a').getElement().props.href).toBe(href);
-        expect(wrapper.find('.schema-url').getElement().props.href).toBe(href + '?utm_medium=organic&utm_source=google_eventsearch');
+        expect(wrapper.find('.schema-url').getElement().props.href).toBe(`${href}?utm_medium=organic&utm_source=google_eventsearch`);
     });
 
     it('renders a thumbnail event row with a date', () => {
@@ -76,7 +76,7 @@ describe('<EventRow />', () => {
         expectColExists(wrapper, THUMBNAIL);
         expect(wrapper.find('.thumb-date').exists()).toBe(true);
         expect(wrapper.find('a').getElement().props.href).toBe(href);
-        expect(wrapper.find('.schema-url').getElement().props.href).toBe(href + '?utm_medium=organic&utm_source=google_eventsearch');
+        expect(wrapper.find('.schema-url').getElement().props.href).toBe(`${href}?utm_medium=organic&utm_source=google_eventsearch`);
     });
 
     it('renders a date event row', () => {
@@ -94,5 +94,15 @@ describe('<EventRow />', () => {
         const date = new Date().setFullYear(new Date().getFullYear() + 1);
         const wrapper = mount(<EventRow href={href} title={title} subtitle={subtitle} date={date} />);
         expect(wrapper.find('.vdp-badge').text()).toEqual(new Date(date).getFullYear().toString());
+    });
+
+    it('renders a an a tag when an href prop is passed', () => {
+        const wrapper = shallow(<EventRow href={href} title={title} subtitle={subtitle} />);
+        expect(wrapper.getElement().props.type).toBe('anchor');
+    });
+
+    it('renders a div when no href prop is passed', () => {
+        const wrapper = shallow(<EventRow title={title} subtitle={subtitle} />);
+        expect(wrapper.getElement().type).toBe('div');
     });
 });

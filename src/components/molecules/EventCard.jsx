@@ -7,25 +7,28 @@ import Badge from '../atoms/Badge';
 const EventCard = ({
     alt,
     date,
-    href = '',
-    imageSrc = '',
+    href,
+    imageSrc,
     isInternationalVenue = false,
     isTimeTbd,
-    minListPrice,
-    subtitle = '',
-    title = ''
+    minListPrice = 0,
+    subtitle,
+    title,
+    ...htmlAttributes
 }) => (
-    <a href={href}>
-        <Card>
+    <a className="vdp-event-card" href={href} {...htmlAttributes}>
+        <Card className="vdp-card--anchor">
             <Card.Hero
                 {...{
                     alt,
                     imageSrc,
                     loadImageViaCss: true
                 }}>
-                <Badge type="angled">
-                    from ${minListPrice} {isInternationalVenue ? 'USD' : ''}
-                </Badge>
+                {minListPrice > 0 && (
+                    <Badge type="angled">
+                        from ${minListPrice} {isInternationalVenue ? 'USD' : ''}
+                    </Badge>
+                )}
             </Card.Hero>
             <EventRow
                 {...{
@@ -47,7 +50,7 @@ EventCard.propTypes = {
     imageSrc: PropTypes.string.isRequired,
     isInternationalVenue: PropTypes.bool,
     isTimeTbd: PropTypes.bool,
-    minListPrice: PropTypes.number.isRequired,
+    minListPrice: PropTypes.number,
     subtitle: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired
 };

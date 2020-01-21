@@ -29,13 +29,13 @@ describe('<Card />', () => {
         it('renders a div with an img child element', () => {
             const imageSrc = 'https://a.vsstatic.com/mobile/app/mlb/washington-nationals.jpg';
             const wrapper = mount(<Card.Hero imageSrc={imageSrc} alt="Quite the vivid picture, no?" />);
-            expect(wrapper.find('img').props()['src']).toBe(imageSrc);
+            expect(wrapper.find('img').props().src).toBe(imageSrc);
         });
 
         it('renders a div with a styled background image', () => {
             const imageSrc = 'https://a.vsstatic.com/mobile/app/mlb/washington-nationals.jpg';
             const wrapper = shallow(<Card.Hero imageSrc={imageSrc} loadImageViaCss alt="Quite the vivid picture, no?" />);
-            expect(wrapper.find('div').props()['style']).toHaveProperty('backgroundImage', `url('${imageSrc}')`);
+            expect(wrapper.find('div').props().style).toHaveProperty('backgroundImage', `url('${imageSrc}')`);
         });
     });
 

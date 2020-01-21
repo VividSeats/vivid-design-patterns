@@ -8,7 +8,7 @@ import { Props, Playground } from 'docz';
 import EventCard from '../../src/components/molecules/EventCard';
 import '../docz.scss';
 
-# EventRow
+# EventCard
 
 ## Installation
 
@@ -28,7 +28,9 @@ Using the react components:
     <div style={{ display: 'flex' }}>
         <EventCard
             {...{
+                alt: 'Taylor Switft Tickets',
                 date: new Date().toUTCString(),
+                href: 'https://www.vividseats.com/concerts/taylor-swift-tickets/taylor-swift-gillette-stadium-8-1-3260759.html',
                 title: 'Chicago Blackhawks',
                 subtitle: 'United Center - Chicago, IL',
                 imageSrc: 'https://a.vsstatic.com/event/concerts/taylor-swift.jpg',
