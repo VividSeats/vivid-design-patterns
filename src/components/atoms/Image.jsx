@@ -9,20 +9,34 @@ const Image = ({ fallback = '', src, alt, loadImageViaCss = false, ...htmlAttrib
     return <ImageElement src={src} alt={alt} fallback={fallback} {...htmlAttributes} />;
 };
 
-const ImageElement = ({ src, alt, fallback, ...htmlAttributes }) => {
-    const [hasImage, setHasImage] = React.useState(true);
+const ImageElement = ({ src: srcFromProps, alt, fallback, ...htmlAttributes }) => {
+    const [src, setSrc] = React.useState(null);
+    /* We need to set the src via useEffect in order for SSR to work. Otherwise the race condition between the onError callback
+    and hydration will cause onError/onLoad methods to not be called. This means the image will not be rendered until hydration. */
+    React.useEffect(() => {
+        setSrc(srcFromProps);
+    }, []);
+
     const onError = e => {
-        setHasImage(false);
+        setSrc(fallback);
         if (!!htmlAttributes.onError) {
             htmlAttributes.onError(e);
         }
     };
-    return <img {...htmlAttributes} onError={onError} alt={alt} src={hasImage ? src : fallback} />;
+
+    return !!src ? <img {...htmlAttributes} onError={onError} alt={alt} src={src} /> : null;
 };
 
-const CssImage = ({ src, alt, fallback, height, width, ...htmlAttributes }) => {
+const CssImage = ({ src: srcFromProps, alt, fallback, height, width, ...htmlAttributes }) => {
+    const [src, setSrc] = React.useState(null);
     const [hasFetchedImage, setHasFetchedImage] = React.useState(false);
     const [hasError, setHasError] = React.useState(false);
+
+    /* We need to set the src via useEffect in order for SSR to work. Otherwise the race condition between the onError callback
+     and hydration will cause onError/onLoad methods to not be called. This means the image will not be rendered until hydration. */
+    React.useEffect(() => {
+        setSrc(srcFromProps);
+    }, []);
 
     const onLoad = args => {
         setHasFetchedImage(true);
@@ -47,6 +61,10 @@ const CssImage = ({ src, alt, fallback, height, width, ...htmlAttributes }) => {
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat'
     };
+
+    if (!src) {
+        return null;
+    }
 
     return hasFetchedImage ? (
         <div style={style} {...htmlAttributes} />
