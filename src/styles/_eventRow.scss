@@ -141,6 +141,11 @@ $row-height: 4.5rem;
         background-size: cover;
         background-position: center center;
 
+        img {
+            @include align-self(center);
+            max-width: none;
+            height: 100%;
+        }
         + .vdp-event-row__col--info {
             max-width: calc(100% - #{$column-thumb-width + $column-thumb-margin});
             padding-left: $sizing-MD;
