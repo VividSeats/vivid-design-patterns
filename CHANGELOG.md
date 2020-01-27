@@ -1,10 +1,11 @@
 
-## Unreleased (2020-01-17)
+## Unreleased (2020-01-27)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#163](https://github.com/VividSeats/vivid-design-patterns/pull/163) Add Image Tag Componetn ([@ylin6](https://github.com/ylin6))
 * [#162](https://github.com/VividSeats/vivid-design-patterns/pull/162) DOT-1273 update event row with thumbnail ([@sgibson47](https://github.com/sgibson47))
 * [#149](https://github.com/VividSeats/vivid-design-patterns/pull/149) update grid components with more documentation and props ([@ylin6](https://github.com/ylin6))
 * [#158](https://github.com/VividSeats/vivid-design-patterns/pull/158) DSYS-45 adds responsive flexwrap classes to grid.scss ([@mgorman87](https://github.com/mgorman87))
