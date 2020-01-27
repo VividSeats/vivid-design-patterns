@@ -30,7 +30,7 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         font-size: $font-size-SM;
         font-weight: $font-weight-med;
         list-style: none;
-        margin: 0;
+        margin: 0 0 $sizing-SM $sizing-SM;
         padding: 0 0 $sizing-XS;
 
         li {
@@ -72,6 +72,11 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         @include size-only-mobile {
             overflow-x: scroll;
             -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+            scrollbar-width: none; /* Firefox */
+            &::-webkit-scrollbar {
+                display: none; /* Safari and Chrome */
+            }
         }
     }
     .vdp-page-hero__thumbnail {

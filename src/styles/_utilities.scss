@@ -101,14 +101,14 @@ $customNamedClasses: (
         br-round $border-radius-round
     ),
     overflow: (
-        ovf-h 'hidden !important',
-        ovf-s 'scroll !important',
-        ovf-v 'visible !important'
+        ovf-h 'hidden',
+        ovf-s 'scroll',
+        ovf-v 'visible'
     ),
     position: (
-        pos-a 'absolute !important',
-        pos-f 'fixed !important',
-        pos-r 'relative !important'
+        pos-a 'absolute',
+        pos-f 'fixed',
+        pos-r 'relative'
     )
 );
 
@@ -131,13 +131,13 @@ $customNamedClasses: (
         }
         &#{nth($value, 1)}#{$sizePrefix}#{$size} {
             @if (str-index($util, 'horz')) {
-                #{$name}-left: #{$sizing};
-                #{$name}-right: #{$sizing};
+                #{$name}-left: #{$sizing} !important;
+                #{$name}-right: #{$sizing} !important;
             } @else if (str-index($util, 'vert')) {
-                #{$name}-bottom: #{$sizing};
-                #{$name}-top: #{$sizing};
+                #{$name}-bottom: #{$sizing} !important;
+                #{$name}-top: #{$sizing} !important;
             } @else {
-                #{$name}: #{$sizing};
+                #{$name}: #{$sizing} !important;
             }
         }
     }
@@ -170,7 +170,7 @@ $customNamedClasses: (
     @each $util, $values in $customNamedClasses {
         @each $value in $values {
             .#{nth($value, 1)}#{$sizePrefix}#{$size} {
-                #{$util}: #{nth($value, 2)};
+                #{$util}: #{nth($value, 2)} !important;
             }
         }
     }

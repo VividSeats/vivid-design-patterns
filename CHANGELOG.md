@@ -1,10 +1,14 @@
 
-## Unreleased (2019-12-17)
+## Unreleased (2020-01-27)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#163](https://github.com/VividSeats/vivid-design-patterns/pull/163) Add Image Tag Componetn ([@ylin6](https://github.com/ylin6))
+* [#162](https://github.com/VividSeats/vivid-design-patterns/pull/162) DOT-1273 update event row with thumbnail ([@sgibson47](https://github.com/sgibson47))
+* [#149](https://github.com/VividSeats/vivid-design-patterns/pull/149) update grid components with more documentation and props ([@ylin6](https://github.com/ylin6))
+* [#158](https://github.com/VividSeats/vivid-design-patterns/pull/158) DSYS-45 adds responsive flexwrap classes to grid.scss ([@mgorman87](https://github.com/mgorman87))
 * [#152](https://github.com/VividSeats/vivid-design-patterns/pull/152) Add `nofollow` to `rel` attribute to links to production pages with no tickets available ([@jeffborders](https://github.com/jeffborders))
 * [#147](https://github.com/VividSeats/vivid-design-patterns/pull/147) Adds negative margin utils ([@mgorman87](https://github.com/mgorman87))
 * [#146](https://github.com/VividSeats/vivid-design-patterns/pull/146) DOT-659 adds utilities styles ([@mgorman87](https://github.com/mgorman87))
@@ -23,6 +27,9 @@
 * [#102](https://github.com/VividSeats/vivid-design-patterns/pull/102) [COM-476] Add lead pricing to EventRows component ([@ealmiladi](https://github.com/ealmiladi))
 
 #### :bug: Bug Fix
+* [#161](https://github.com/VividSeats/vivid-design-patterns/pull/161) DOT-1536 hide horizontal scrollbar for hero tabs ([@pvogenthaler](https://github.com/pvogenthaler))
+* [#156](https://github.com/VividSeats/vivid-design-patterns/pull/156) DOT-1393 adds hero breadcrumb margin ([@mgorman87](https://github.com/mgorman87))
+* [#155](https://github.com/VividSeats/vivid-design-patterns/pull/155) DOT-865 adjust breakpoints ([@mgorman87](https://github.com/mgorman87))
 * [#151](https://github.com/VividSeats/vivid-design-patterns/pull/151) UXD-2781 adjust hero subtitle margin ([@mgorman87](https://github.com/mgorman87))
 * [#150](https://github.com/VividSeats/vivid-design-patterns/pull/150) UXD-2781 add padding to hero subtitle ([@mgorman87](https://github.com/mgorman87))
 * [#145](https://github.com/VividSeats/vivid-design-patterns/pull/145) DOT-1351 adds card hero parent to non background image card heros ([@mgorman87](https://github.com/mgorman87))
@@ -35,10 +42,14 @@
 * [#105](https://github.com/VividSeats/vivid-design-patterns/pull/105) Fix typeahead bug where the input value is not displayed correctly when a item is selected from the dropdown ([@cmoog](https://github.com/cmoog))
 * [#101](https://github.com/VividSeats/vivid-design-patterns/pull/101) patches to ts declaration file ([@cmoog](https://github.com/cmoog))
 
-#### Committers: 13
+#### :memo: Documentation
+* [#160](https://github.com/VividSeats/vivid-design-patterns/pull/160) Make className an optional type for Typeahead component ([@ylin6](https://github.com/ylin6))
+
+#### Committers: 14
 - Bill Hinderman ([@billHinderman](https://github.com/billHinderman))
 - Charles Moog ([@cmoog](https://github.com/cmoog))
 - David Metzler ([@metzelhoff](https://github.com/metzelhoff))
+- Deepak Pradeep ([@dpac90](https://github.com/dpac90))
 - Jeff Borders ([@jeffborders](https://github.com/jeffborders))
 - Matt Gorman ([@mgorman87](https://github.com/mgorman87))
 - Paige Vogenthaler ([@pvogenthaler](https://github.com/pvogenthaler))

@@ -1,7 +1,7 @@
 {
     "name": "@vividseats/vivid-design-patterns",
     "Author": "Vivid Seats",
-    "version": "0.0.0-dontDestoryModalOnClose-1576625979",
+    "version": "5.14.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/VividSeats/vivid-design-patterns.git"
@@ -28,7 +28,7 @@
         "docz-core": "^1.2.0",
         "docz-plugin-css": "^0.11.0",
         "docz-theme-default": "^1.2.0",
-        "enzyme": "^3.8.0",
+        "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.7.1",
         "eslint": "^5.10.0",
         "eslint-config-airbnb": "^17.1.0",

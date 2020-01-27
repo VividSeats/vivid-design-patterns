@@ -85,7 +85,24 @@ Using the scss files:
     />
 </Playground>
 
-## Date
+## Thumbnail with Date
+
+<Playground>
+    <EventRow
+        {...{
+            href: 'javascript:alert("click")',
+            title: 'Chicago Blackhawks',
+            subtitle: 'United Center - Chicago, IL',
+            date: new Date().toUTCString(),
+            thumbnail: {
+                src: 'https://a.vsstatic.com/event/concerts/taylor-swift.jpg',
+                alt: 'Taylor Swift Tickets'
+            }
+        }}
+    />
+</Playground>
+
+## Date without Thumbnail
 
 <Playground>
     <EventRow
@@ -120,7 +137,7 @@ The EventRow component also takes in a venue object. If passed, it will be displ
 
 ## Events past current calendar year
 
-If a event is not in the current year, the event will display with the year badge.
+If a event is not in the current year and a thumbnail is not provided, the event will display with the year badge.
 
 <Playground>
     <EventRow
@@ -129,6 +146,23 @@ If a event is not in the current year, the event will display with the year badg
             title: 'Chicago Blackhawks',
             subtitle: 'United Center - Chicago, IL',
             date: new Date().setFullYear(new Date().getFullYear() + 1)
+        }}
+    />
+</Playground>
+
+If a event is not in the current year and a thumbnail is provided, the event will display with the year.
+
+<Playground>
+    <EventRow
+        {...{
+            href: 'javascript:alert("click")',
+            title: 'Chicago Blackhawks',
+            subtitle: 'United Center - Chicago, IL',
+            date: new Date().setFullYear(new Date().getFullYear() + 1),
+            thumbnail: {
+                src: 'https://a.vsstatic.com/event/concerts/taylor-swift.jpg',
+                alt: 'Taylor Swift Tickets'
+            }
         }}
     />
 </Playground>
@@ -143,6 +177,7 @@ To allow the user to check and uncheck the event, add the `hasCheckbox` and `onC
         onChange={state => console.log(`the event row is now ${state ? '' : 'not '}checked!`)}
         hasCheckbox
         {...{
+            href: 'javascript:alert("click")',
             title: 'Chicago Blackhawks',
             subtitle: 'United Center - Chicago, IL'
         }}

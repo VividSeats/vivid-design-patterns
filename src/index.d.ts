@@ -507,6 +507,7 @@ export interface SuggestionGroup<T = any> {
 
 /** refine these types!!! */
 interface Typeahead {
+    className?: string;
     placeholder: string;
     onChange: (query: string) => void;
     suggestions?: SuggestionGroup[] | any[];

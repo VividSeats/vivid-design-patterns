@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-
+import Image from '../atoms/Image';
 import BodyText from '../atoms/BodyText';
 import Button from '../atoms/Button';
 import Link from '../atoms/Link';
@@ -55,6 +55,17 @@ const eventUtmTracking = url => {
     return `&${utmParams}`;
 };
 
+const getThumbnailDate = date => {
+    const momentDate = moment(date);
+    const thumbnailDate = `${momentDate.format('ddd')}, ${momentDate.format('MMM DD')}`;
+
+    if (momentDate.isSame(new Date(), 'year')) {
+        return `${thumbnailDate} ${momentDate.format('h:mm A')}`;
+    }
+
+    return `${thumbnailDate}, ${momentDate.format('YYYY')} ${momentDate.format('h:mm A')}`;
+};
+
 const EventRow = ({
     href,
     subtitle,
@@ -69,7 +80,7 @@ const EventRow = ({
     minListPrice = 0,
     imageUrl,
     schemaDescription,
-    ticketCount,
+    ticketCount = 0,
     performerName,
     performerType,
     performerUrl,
@@ -83,6 +94,8 @@ const EventRow = ({
     const { BUTTON, DATE_RANGE, INFO, THUMBNAIL, CHECKBOX } = COL_CLASSNAMES;
     const { regionCode, countryCode, city, name: venueName } = venue;
     const countryCodeString = countryCode !== 'US' ? `, ${countryCode}` : '';
+    const hasThumbnail = !!thumbnail && !!thumbnail.src && !!thumbnail.alt;
+    const thumbnailDate = getThumbnailDate(date);
 
     const [checkboxState, setCheckboxState] = useState(false);
 
@@ -94,7 +107,6 @@ const EventRow = ({
             itemScope
             itemType={`http://schema.org/${eventType}`}
             role="row"
-            rel={!ticketCount ? 'nofollow' : undefined}
             onClick={e => {
                 onChange(!checkboxState);
                 setCheckboxState(!checkboxState);
@@ -108,18 +120,24 @@ const EventRow = ({
                 </div>
             )}
             {/* Thumbnail Image */}
-            {!!thumbnail && !!thumbnail.src && !!thumbnail.alt && (
-                <div className={getColClassName(THUMBNAIL)}>
-                    <img src={thumbnail.src} alt={thumbnail.alt} />
-                </div>
+            {hasThumbnail && (
+                <Image
+                    loadImageViaCss
+                    className={getColClassName(THUMBNAIL)}
+                    alt={thumbnail.alt}
+                    src={thumbnail.src}
+                    fallback={thumbnail.fallback}
+                />
             )}
             {/* Date */}
-            <DateColumn date={date} isTimeTbd={isTimeTbd} />
+            {!hasThumbnail && <DateColumn date={date} isTimeTbd={isTimeTbd} />}
             {/* Event Info */}
             <div className={getColClassName(INFO)}>
                 <BodyText height="compressed" weight="black" importance={2} itemProp="name">
                     {title}
                 </BodyText>
+                {hasThumbnail && !!date && !isTimeTbd && <SmallText className="thumb-date">{thumbnailDate}</SmallText>}
+                {hasThumbnail && isTimeTbd && <SmallText className="thumb-date">TBD</SmallText>}
                 {!!Object.keys(venue).length ? (
                     <SmallText state="muted" itemProp="location" itemScope itemType="http://schema.org/Place">
                         <span itemProp="name">{venueName}</span>&nbsp;–&nbsp;
@@ -205,7 +223,7 @@ EventRow.BUTTON_TEXT = {
 };
 
 EventRow.propTypes = {
-    href: PropTypes.string,
+    href: PropTypes.string.isRequired,
     venue: PropTypes.shape({
         name: PropTypes.string.isRequired,
         city: PropTypes.string.isRequired,
@@ -218,14 +236,15 @@ EventRow.propTypes = {
     date: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.instanceOf(Date)]),
     thumbnail: PropTypes.shape({
         src: PropTypes.string,
-        alt: PropTypes.string
+        alt: PropTypes.string,
+        fallback: PropTypes.string
     }),
     isTimeTbd: PropTypes.bool,
     imageUrl: PropTypes.string,
     minListPrice: PropTypes.number,
     isInternationalVenue: PropTypes.bool,
     schemaDescription: PropTypes.string,
-    ticketCount: PropTypes.number.isRequired,
+    ticketCount: PropTypes.number,
     performerName: PropTypes.string,
     performerType: PropTypes.string,
     performerUrl: PropTypes.string,
