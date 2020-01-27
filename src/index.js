@@ -37,6 +37,7 @@ export { default as DrawerFooter } from './components/atoms/DrawerFooter';
 export { default as DrawerBody } from './components/atoms/DrawerBody';
 export { default as DrawerHeader } from './components/atoms/DrawerHeader';
 export { default as Typography } from './components/atoms/Typography';
+export { default as Image } from './components/atoms/Image';
 /** MOLECULES */
 export { default as Accordion } from './components/molecules/Accordion';
 export { default as Card } from './components/molecules/Card';
