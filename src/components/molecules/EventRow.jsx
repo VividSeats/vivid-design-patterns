@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-
+import Image from '../atoms/Image';
 import BodyText from '../atoms/BodyText';
 import Button from '../atoms/Button';
 import Link from '../atoms/Link';
@@ -121,7 +121,13 @@ const EventRow = ({
             )}
             {/* Thumbnail Image */}
             {hasThumbnail && (
-                <div className={getColClassName(THUMBNAIL)} alt={thumbnail.alt} style={{ 'background-image': `url(${thumbnail.src})` }} />
+                <Image
+                    loadImageViaCss
+                    className={getColClassName(THUMBNAIL)}
+                    alt={thumbnail.alt}
+                    src={thumbnail.src}
+                    fallback={thumbnail.fallback}
+                />
             )}
             {/* Date */}
             {!hasThumbnail && <DateColumn date={date} isTimeTbd={isTimeTbd} />}
@@ -230,7 +236,8 @@ EventRow.propTypes = {
     date: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.instanceOf(Date)]),
     thumbnail: PropTypes.shape({
         src: PropTypes.string,
-        alt: PropTypes.string
+        alt: PropTypes.string,
+        fallback: PropTypes.string
     }),
     isTimeTbd: PropTypes.bool,
     imageUrl: PropTypes.string,
