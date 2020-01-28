@@ -72,6 +72,6 @@ describe('<Modal />', () => {
 
         expect(wrapper.exists('.vdp-modal__footer')).toBe(true);
         expect(wrapper.exists('.vdp-modal__header')).toBe(true);
-        expect(wrapper.find('aside > .vdp-react-modal__container').props().style.display).toBe('none');
+        expect(wrapper.find('aside').props().style.display).toBe('none');
     });
 });

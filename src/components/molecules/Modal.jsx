@@ -70,7 +70,7 @@ const Modal = ({
         [`--${size}`]: size,
         [className]: className
     });
-    const isIe11 = !!window.MSInputMethodContext && !!document.documentMode;
+    const isIe11 = typeof window !== 'undefined' && !!window.MSInputMethodContext && !!document.documentMode;
     const shouldAnimate = !isIe11 && animate;
     const backgroundStyle = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : null;
     const handleKeyDown = e => {
@@ -110,12 +110,16 @@ const Modal = ({
                     (animationProps => {
                         const overrideStyles = !show && !destroyOnClose ? { display: 'none' } : {};
                         return (
-                            <animated.aside onClick={handleBackdropClick} className={modalClassNames} {...htmlAtrributes}>
+                            <animated.aside
+                                onClick={handleBackdropClick}
+                                className={modalClassNames}
+                                style={overrideStyles}
+                                {...htmlAtrributes}>
                                 <animated.div
                                     tabIndex="-1"
                                     ref={modalRef}
                                     onKeyDown={handleKeyDown}
-                                    style={{ ...animationProps, ...backgroundStyle, ...overrideStyles }}
+                                    style={{ ...animationProps, ...backgroundStyle }}
                                     onClick={e => e.stopPropagation()}
                                     className={`vdp-react-modal__container ${isOpen ? '--open' : ''}`}>
                                     {children}
