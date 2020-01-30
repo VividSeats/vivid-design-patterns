@@ -14,6 +14,11 @@ const EventCard = ({
     minListPrice = 0,
     subtitle,
     title,
+    eventType,
+    venue,
+    schemaDescription,
+    ticketCount,
+    performer,
     ...htmlAttributes
 }) => (
     <a className="vdp-event-card" href={href} {...htmlAttributes}>
@@ -36,7 +41,15 @@ const EventCard = ({
                     isTimeTbd,
                     title,
                     subtitle,
-                    hasButton: false
+                    hasButton: false,
+                    eventType,
+                    venue,
+                    imageUrl: imageSrc,
+                    schemaDescription,
+                    ticketCount,
+                    performerType: performer.performerType,
+                    performerName: performer.performerName,
+                    performerUrl: performer.performerUrl
                 }}
             />
         </Card>
@@ -50,9 +63,23 @@ EventCard.propTypes = {
     imageSrc: PropTypes.string.isRequired,
     isInternationalVenue: PropTypes.bool,
     isTimeTbd: PropTypes.bool,
-    minListPrice: PropTypes.number,
+    minListPrice: PropTypes.number.isRequired,
     subtitle: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    eventType: PropTypes.string.isRequired,
+    venue: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        city: PropTypes.string.isRequired,
+        regionCode: PropTypes.string.isRequired,
+        countryCode: PropTypes.string
+    }),
+    schemaDescription: PropTypes.string,
+    ticketCount: PropTypes.number,
+    performer: PropTypes.shape({
+        performerName: PropTypes.string,
+        performerType: PropTypes.string,
+        performerUrl: PropTypes.string
+    })
 };
 
 export default EventCard;
