@@ -105,4 +105,26 @@ describe('<EventRow />', () => {
         const wrapper = shallow(<EventRow title={title} subtitle={subtitle} />);
         expect(wrapper.getElement().type).toBe('div');
     });
+
+    it('renders a event row with schema data', () => {
+        const itemTypeBase = 'http://schema.org/';
+        const eventType = 'MusicEvent';
+        const performerType = 'MusicGroup';
+        const props = {
+            title,
+            subtitle,
+            eventType,
+            performerType
+        };
+
+        const wrapper1 = shallow(<EventRow href={href} {...props} />);
+        expect(wrapper1.props().itemScope).toBe(true);
+        expect(wrapper1.props().itemType).toBe(`${itemTypeBase}${eventType}`);
+        expect(wrapper1.find('div[itemProp="performer"]').props().itemType).toBe(`${itemTypeBase}${performerType}`);
+
+        const wrapper2 = shallow(<EventRow {...props} />);
+        expect(wrapper2.props().itemScope).toBe(true);
+        expect(wrapper2.props().itemType).toBe(`${itemTypeBase}${eventType}`);
+        expect(wrapper2.find('div[itemProp="performer"]').props().itemType).toBe(`${itemTypeBase}${performerType}`);
+    });
 });
