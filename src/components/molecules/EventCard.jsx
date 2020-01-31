@@ -14,47 +14,52 @@ const EventCard = ({
     minListPrice = 0,
     subtitle,
     title,
-    eventType,
-    venue,
+    eventType = 'Event',
+    venue = {},
     schemaDescription,
     ticketCount,
-    performer,
+    performer = {},
     ...htmlAttributes
-}) => (
-    <a className="vdp-event-card" href={href} {...htmlAttributes}>
-        <Card className="vdp-card--anchor">
-            <Card.Hero
-                {...{
-                    alt,
-                    imageSrc,
-                    loadImageViaCss: true
-                }}>
-                {minListPrice > 0 && (
-                    <Badge type="angled">
-                        from ${minListPrice} {isInternationalVenue ? 'USD' : ''}
-                    </Badge>
-                )}
-            </Card.Hero>
-            <EventRow
-                {...{
-                    date,
-                    isTimeTbd,
-                    title,
-                    subtitle,
-                    hasButton: false,
-                    eventType,
-                    venue,
-                    imageUrl: imageSrc,
-                    schemaDescription,
-                    ticketCount,
-                    performerType: performer.performerType,
-                    performerName: performer.performerName,
-                    performerUrl: performer.performerUrl
-                }}
-            />
-        </Card>
-    </a>
-);
+}) => {
+    const { performerType, performerName, performerUrl } = performer;
+    return (
+        <a className="vdp-event-card" href={href} {...htmlAttributes}>
+            <Card className="vdp-card--anchor">
+                <Card.Hero
+                    {...{
+                        alt,
+                        imageSrc,
+                        loadImageViaCss: true
+                    }}>
+                    {minListPrice > 0 && (
+                        <Badge type="angled">
+                            from ${minListPrice} {isInternationalVenue ? 'USD' : ''}
+                        </Badge>
+                    )}
+                </Card.Hero>
+                <EventRow
+                    {...{
+                        href,
+                        venue,
+                        title,
+                        subtitle,
+                        date,
+                        isTimeTbd,
+                        imageUrl: imageSrc,
+                        minListPrice,
+                        schemaDescription,
+                        ticketCount,
+                        performerType: performerType,
+                        performerName: performerName,
+                        performerUrl: performerUrl,
+                        hasButton: false,
+                        eventType
+                    }}
+                />
+            </Card>
+        </a>
+    );
+};
 
 EventCard.propTypes = {
     alt: PropTypes.string.isRequired,
@@ -66,7 +71,7 @@ EventCard.propTypes = {
     minListPrice: PropTypes.number.isRequired,
     subtitle: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    eventType: PropTypes.string.isRequired,
+    eventType: PropTypes.string,
     venue: PropTypes.shape({
         name: PropTypes.string.isRequired,
         city: PropTypes.string.isRequired,

@@ -108,23 +108,44 @@ describe('<EventRow />', () => {
 
     it('renders a event row with schema data', () => {
         const itemTypeBase = 'http://schema.org/';
-        const eventType = 'MusicEvent';
-        const performerType = 'MusicGroup';
+
         const props = {
-            title,
-            subtitle,
-            eventType,
-            performerType
+            alt: 'Maroon 5 Tickets',
+            date: new Date().toUTCString(),
+            href: 'https://www.vividseats.com/concerts/maroon-5-tickets/maroon-5-wrigley-field-6-13-3360655.html',
+            imageSrc: 'https://a.vsstatic.com/banner/event/concerts/maroon-5.jpg',
+            minListPrice: 25,
+            subtitle: 'Wrigley Field - Chicago, IL',
+            title: 'Chicago Blackhawks',
+            eventType: 'MusicEvent',
+            venue: {
+                name: 'Wrigley Field',
+                city: 'Chicago',
+                regionCode: 'IL'
+            },
+            schemaDescription: 'Ticket listings for Maroon 5 at Wrigley Field in Chicago, IL on 6/13/2020',
+            ticketCount: 10,
+            isTimeTbd: false,
+            performerType: 'MusicGroup',
+            performerName: 'Maroon 5',
+            performerUrl: 'https://www.vividseats.com/concerts/maroon-5-tickets.html'
         };
 
         const wrapper1 = shallow(<EventRow href={href} {...props} />);
         expect(wrapper1.props().itemScope).toBe(true);
-        expect(wrapper1.props().itemType).toBe(`${itemTypeBase}${eventType}`);
-        expect(wrapper1.find('div[itemProp="performer"]').props().itemType).toBe(`${itemTypeBase}${performerType}`);
+        expect(wrapper1.props().itemType).toBe(`${itemTypeBase}${props.eventType}`);
+        expect(wrapper1.find('div[itemProp="performer"]').props().itemType).toBe(`${itemTypeBase}${props.performerType}`);
+        expect(wrapper1.find("meta[itemProp='description']").props().content).toBe(props.schemaDescription);
+        expect(
+            wrapper1
+                .find("span[itemProp='addressLocality']")
+                .text()
+                .trim()
+        ).toBe(props.venue.city);
 
         const wrapper2 = shallow(<EventRow {...props} />);
         expect(wrapper2.props().itemScope).toBe(true);
-        expect(wrapper2.props().itemType).toBe(`${itemTypeBase}${eventType}`);
-        expect(wrapper2.find('div[itemProp="performer"]').props().itemType).toBe(`${itemTypeBase}${performerType}`);
+        expect(wrapper2.props().itemType).toBe(`${itemTypeBase}${props.eventType}`);
+        expect(wrapper2.find('div[itemProp="performer"]').props().itemType).toBe(`${itemTypeBase}${props.performerType}`);
     });
 });

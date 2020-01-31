@@ -100,6 +100,7 @@ const EventRow = ({
     const thumbnailDate = getThumbnailDate(date);
 
     const [checkboxState, setCheckboxState] = useState(false);
+    const hrefWithUtmTracking = href + eventUtmTracking(href);
 
     const getEventRowContent = () => (
         <Fragment>
@@ -166,12 +167,12 @@ const EventRow = ({
             )}
             {/* Mobile Col for Min List Price */}
             {!!minListPrice && <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />}
-            <link className="schema-url" itemProp="url" href={href + eventUtmTracking(href)} />
-            <meta itemProp="sameAs" content={href + eventUtmTracking(href)} />
+            <link className="schema-url" itemProp="url" href={hrefWithUtmTracking} />
+            <meta itemProp="sameAs" content={hrefWithUtmTracking} />
             {!!imageUrl && <meta itemProp="image" content={imageUrl} />}
             {!!schemaDescription && <meta itemProp="description" content={schemaDescription} />}
             <div itemProp="offers" itemScope itemType="http://schema.org/AggregateOffer">
-                <link itemProp="url" href={href + eventUtmTracking(href)} />
+                <link itemProp="url" href={hrefWithUtmTracking} />
                 <meta itemProp="priceCurrency" content="USD" />
                 {ticketCount > 0 ? (
                     <link itemProp="availability" href="http://schema.org/InStock" />
