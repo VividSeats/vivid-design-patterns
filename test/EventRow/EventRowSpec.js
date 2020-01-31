@@ -1,7 +1,8 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount, shallow, render } from 'enzyme';
 import EventRow from '../../src/components/molecules/EventRow';
 import DateColumn from '../../src/components/atoms/DateColumn';
+import moment from 'moment';
 
 /* eslint no-script-url: 0 */
 
@@ -9,6 +10,30 @@ describe('<EventRow />', () => {
     const href = "javascript:alert('click')";
     const title = 'Los Angeles Kings at Washington Capitals';
     const subtitle = 'Capital One Arena - Washington, DC';
+
+    const itemTypeBase = 'http://schema.org/';
+    const props = {
+        alt: 'Maroon 5 Tickets',
+        date: '2020-06-19',
+        href: 'https://www.vividseats.com/concerts/maroon-5-tickets/maroon-5-wrigley-field-6-13-3360655.html',
+        imageUrl: 'https://a.vsstatic.com/banner/event/concerts/maroon-5.jpg',
+        subtitle: 'Wrigley Field - Chicago, IL',
+        title: 'Maroon 5',
+        eventType: 'MusicEvent',
+        venue: {
+            name: 'Wrigley Field',
+            city: 'Chicago',
+            regionCode: 'IL'
+        },
+        ticketCount: 10,
+        minListPrice: 25,
+        schemaDescription: 'Ticket listings for Maroon 5 at Wrigley Field in Chicago, IL on 6/13/2020',
+        isTimeTbd: false,
+        performerType: 'MusicGroup',
+        performerName: 'Maroon 5',
+        performerUrl: 'https://www.vividseats.com/concerts/maroon-5-tickets.html',
+        showPrice: false
+    };
 
     const { getColClassName, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
     const { BUTTON, DATE_RANGE, INFO, THUMBNAIL } = COL_CLASSNAMES;
@@ -106,46 +131,53 @@ describe('<EventRow />', () => {
         expect(wrapper.getElement().type).toBe('div');
     });
 
-    it('renders a event row with schema data', () => {
-        const itemTypeBase = 'http://schema.org/';
+    it('verify event with schema data', () => {
+        const wrapper = render(<EventRow {...props} />);
 
-        const props = {
-            alt: 'Maroon 5 Tickets',
-            date: new Date().toUTCString(),
-            href: 'https://www.vividseats.com/concerts/maroon-5-tickets/maroon-5-wrigley-field-6-13-3360655.html',
-            imageSrc: 'https://a.vsstatic.com/banner/event/concerts/maroon-5.jpg',
-            minListPrice: 25,
-            subtitle: 'Wrigley Field - Chicago, IL',
-            title: 'Chicago Blackhawks',
-            eventType: 'MusicEvent',
-            venue: {
-                name: 'Wrigley Field',
-                city: 'Chicago',
-                regionCode: 'IL'
-            },
-            schemaDescription: 'Ticket listings for Maroon 5 at Wrigley Field in Chicago, IL on 6/13/2020',
-            ticketCount: 10,
-            isTimeTbd: false,
-            performerType: 'MusicGroup',
-            performerName: 'Maroon 5',
-            performerUrl: 'https://www.vividseats.com/concerts/maroon-5-tickets.html'
-        };
+        expect(wrapper.attr('itemtype')).toBe(`${itemTypeBase}${props.eventType}`);
+        expect(wrapper.attr('href')).toBe(props.href);
+        expect(wrapper.find("meta[itemProp='startDate']").attr('content')).toBe(props.date);
+        expect(wrapper.find("meta[itemProp='endDate']").attr('content')).toBe(props.date);
 
-        const wrapper1 = shallow(<EventRow href={href} {...props} />);
-        expect(wrapper1.props().itemScope).toBe(true);
-        expect(wrapper1.props().itemType).toBe(`${itemTypeBase}${props.eventType}`);
-        expect(wrapper1.find('div[itemProp="performer"]').props().itemType).toBe(`${itemTypeBase}${props.performerType}`);
-        expect(wrapper1.find("meta[itemProp='description']").props().content).toBe(props.schemaDescription);
-        expect(
-            wrapper1
-                .find("span[itemProp='addressLocality']")
-                .text()
-                .trim()
-        ).toBe(props.venue.city);
+        expect(wrapper.find("p[itemProp='name']").text()).toBe(props.title);
 
-        const wrapper2 = shallow(<EventRow {...props} />);
-        expect(wrapper2.props().itemScope).toBe(true);
-        expect(wrapper2.props().itemType).toBe(`${itemTypeBase}${props.eventType}`);
-        expect(wrapper2.find('div[itemProp="performer"]').props().itemType).toBe(`${itemTypeBase}${props.performerType}`);
+        const location = wrapper.find("p[itemProp='location']");
+        expect(location.attr('itemtype')).toBe('http://schema.org/Place');
+        expect(location.find("span[itemProp='name']").text()).toBe(props.venue.name);
+
+        const address = location.find("span[itemProp='address']");
+        expect(address.attr('itemtype')).toBe('http://schema.org/PostalAddress');
+        expect(address.find("span[itemProp='addressLocality']").text()).toBe(props.venue.city);
+        expect(address.find("span[itemProp='addressRegion']").text()).toBe(props.venue.regionCode);
+        expect(address.find("meta[itemProp='addressCountry']").attr('content')).toBe('US');
+
+        expect(wrapper.find("link[itemProp='url']").attr('href')).toContain(props.href);
+
+        expect(wrapper.find("meta[itemProp='sameAs']").attr('content')).toContain(props.href);
+        expect(wrapper.find("meta[itemProp='image']").attr('content')).toBe(props.imageUrl);
+        expect(wrapper.find("meta[itemProp='description']").attr('content')).toBe(props.schemaDescription);
+    });
+
+    it('verify offers with schema data', () => {
+        const wrapper1 = shallow(<EventRow {...props} />);
+
+        const perfomer = wrapper1.find("div[itemProp='offers']");
+        expect(perfomer.exists()).toBeTruthy();
+        expect(perfomer.find("link[itemProp='url']").props().href).toContain(props.href);
+        expect(perfomer.find("meta[itemProp='priceCurrency']").props().content).toBe('USD');
+        expect(perfomer.find("link[itemProp='availability']").props().href).toBe('http://schema.org/InStock');
+        expect(perfomer.find("meta[itemProp='validFrom']").props().content).toBe(moment().format('YYYY-MM-DD'));
+        expect(perfomer.find("meta[itemProp='validThrough']").props().content).toBe(props.date);
+        expect(perfomer.find("meta[itemProp='price']").props().content).toBe(props.minListPrice);
+    });
+
+    it('verify perfomer with schema data', () => {
+        const wrapper1 = shallow(<EventRow {...props} />);
+
+        const perfomer = wrapper1.find("div[itemProp='performer']");
+        expect(perfomer.exists()).toBeTruthy();
+        expect(perfomer.props().itemType).toBe(`${itemTypeBase}${props.performerType}`);
+        expect(perfomer.find("meta[itemProp='name']").props().content).toBe(props.performerName);
+        expect(perfomer.find("meta[itemProp='sameAs']").props().content).toBe(props.performerUrl);
     });
 });

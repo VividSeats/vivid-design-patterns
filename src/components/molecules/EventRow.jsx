@@ -86,6 +86,7 @@ const EventRow = ({
     performerName,
     performerType,
     performerUrl,
+    showPrice = true,
     onChange = () => {},
     onClick = () => {},
     isInternationalVenue = false,
@@ -158,7 +159,7 @@ const EventRow = ({
             {/* Button */}
             {!!hasButton && !hasCheckbox && (
                 <div className={`${getColClassName(BUTTON)}`}>
-                    {!!minListPrice ? (
+                    {!!minListPrice && showPrice ? (
                         <MinListPriceButton minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />
                     ) : (
                         <Button>{!!dateRange ? BUTTON_TEXT.DATE_RANGE : BUTTON_TEXT.DATE}</Button>
@@ -166,7 +167,7 @@ const EventRow = ({
                 </div>
             )}
             {/* Mobile Col for Min List Price */}
-            {!!minListPrice && <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />}
+            {!!minListPrice && showPrice && <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />}
             <link className="schema-url" itemProp="url" href={hrefWithUtmTracking} />
             <meta itemProp="sameAs" content={hrefWithUtmTracking} />
             {!!imageUrl && <meta itemProp="image" content={imageUrl} />}
@@ -265,7 +266,8 @@ EventRow.propTypes = {
     /** onChange is passed a boolean indicating the new checkbox state */
     onChange: PropTypes.func,
     onClick: PropTypes.func,
-    eventType: PropTypes.string
+    eventType: PropTypes.string,
+    showPrice: PropTypes.bool
 };
 
 export default EventRow;

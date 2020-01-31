@@ -46,14 +46,14 @@ const EventCard = ({
                         date,
                         isTimeTbd,
                         imageUrl: imageSrc,
-                        minListPrice,
                         schemaDescription,
                         ticketCount,
                         performerType: performerType,
                         performerName: performerName,
                         performerUrl: performerUrl,
                         hasButton: false,
-                        eventType
+                        eventType,
+                        showPrice: false
                     }}
                 />
             </Card>
