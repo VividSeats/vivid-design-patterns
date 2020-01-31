@@ -53,7 +53,8 @@ const EventCard = ({
                         performerUrl: performerUrl,
                         hasButton: false,
                         eventType,
-                        showPrice: false
+                        showPrice: false,
+                        minListPrice
                     }}
                 />
             </Card>
