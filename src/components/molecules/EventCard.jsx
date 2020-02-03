@@ -51,7 +51,7 @@ const EventCard = ({
                     performerUrl,
                     hasButton: false,
                     eventType,
-                    showPrice: false,
+                    showMinListPrice: false,
                     minListPrice
                 }}
             />
