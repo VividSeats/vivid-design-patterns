@@ -23,7 +23,8 @@ describe('<EventRow />', () => {
         venue: {
             name: 'Wrigley Field',
             city: 'Chicago',
-            regionCode: 'IL'
+            regionCode: 'IL',
+            countryCode: 'US'
         },
         ticketCount: 10,
         minListPrice: 25,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CardHero = ({ className = '', loadImageViaCss = false, imageSrc, alt, ...htmlAttributes }) => {
+const CardHero = ({ className = '', loadImageViaCss = false, imageSrc, alt, children, ...htmlAttributes }) => {
     if (loadImageViaCss) {
         return (
             <div
@@ -17,6 +17,7 @@ const CardHero = ({ className = '', loadImageViaCss = false, imageSrc, alt, ...h
     return (
         <div className={`vdp-card__hero ${className}`}>
             <img className="vdp-card__hero__image" src={imageSrc} {...htmlAttributes} alt={alt} />
+            {children}
         </div>
     );
 };
@@ -28,7 +29,8 @@ CardHero.propTypes = {
     /** Hero image url */
     imageSrc: PropTypes.string.isRequired,
     /** Defines whether the hero image is loaded  via an image tag or a backgroundImage style property via css */
-    loadImageViaCss: PropTypes.bool
+    loadImageViaCss: PropTypes.bool,
+    children: PropTypes.node
 };
 
 export default CardHero;

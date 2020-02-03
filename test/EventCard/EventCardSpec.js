@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render, shallow } from 'enzyme';
+import { mount, render } from 'enzyme';
 import EventCard from '../../src/components/molecules/EventCard';
 import moment from 'moment';
 
@@ -16,17 +16,16 @@ describe('<EventCard />', () => {
         venue: {
             name: 'Wrigley Field',
             city: 'Chicago',
-            regionCode: 'IL'
+            regionCode: 'IL',
+            countryCode: 'US'
         },
         ticketCount: 10,
         minListPrice: 25,
         schemaDescription: 'Ticket listings for Maroon 5 at Wrigley Field in Chicago, IL on 6/13/2020',
         isTimeTbd: false,
-        performer: {
-            performerType: 'MusicGroup',
-            performerName: 'Maroon 5',
-            performerUrl: 'https://www.vividseats.com/concerts/maroon-5-tickets.html'
-        }
+        performerType: 'MusicGroup',
+        performerName: 'Maroon 5',
+        performerUrl: 'https://www.vividseats.com/concerts/maroon-5-tickets.html'
     };
 
     it('renders a default event card', () => {
@@ -52,9 +51,9 @@ describe('<EventCard />', () => {
         );
 
         expect(wrapper.exists()).toBe(true);
-        expect(wrapper.find('.vdp-card__hero').getElement().props['aria-label']).toBe(alt);
         expect(wrapper.getElement().props.href).toBe(href);
-        expect(wrapper.find('.vdp-card__hero').getElement().props.style.backgroundImage).toBe(`url('${imageSrc}')`);
+        expect(wrapper.find('.vdp-card__hero__image').getElement().props['alt']).toBe(alt);
+        expect(wrapper.find('.vdp-card__hero__image').getElement().props.src).toBe(imageSrc);
         expect(
             wrapper
                 .find('.vdp-badge')
@@ -129,7 +128,6 @@ describe('<EventCard />', () => {
 
     it('verify event with schema data', () => {
         const wrapper = render(<EventCard {...props} />);
-        console.log(wrapper.html());
 
         expect(wrapper.find('.vdp-badge').text()).toContain(props.minListPrice);
 
@@ -174,8 +172,8 @@ describe('<EventCard />', () => {
         const eventCard = render(<EventCard {...props} />);
 
         const perfomer = eventCard.find("div[itemProp='performer']");
-        expect(perfomer.attr('itemtype')).toBe(`${itemTypeBase}${props.performer.performerType}`);
-        expect(perfomer.find("meta[itemProp='name']").attr('content')).toBe(props.performer.performerName);
-        expect(perfomer.find("meta[itemProp='sameAs']").attr('content')).toBe(props.performer.performerUrl);
+        expect(perfomer.attr('itemtype')).toBe(`${itemTypeBase}${props.performerType}`);
+        expect(perfomer.find("meta[itemProp='name']").attr('content')).toBe(props.performerName);
+        expect(perfomer.find("meta[itemProp='sameAs']").attr('content')).toBe(props.performerUrl);
     });
 });

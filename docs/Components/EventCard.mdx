@@ -28,13 +28,26 @@ Using the react components:
     <div style={{ display: 'flex' }}>
         <EventCard
             {...{
-                alt: 'Taylor Switft Tickets',
-                date: new Date().toUTCString(),
-                href: 'https://www.vividseats.com/concerts/taylor-swift-tickets/taylor-swift-gillette-stadium-8-1-3260759.html',
-                title: 'Chicago Blackhawks',
-                subtitle: 'United Center - Chicago, IL',
-                imageSrc: 'https://a.vsstatic.com/event/concerts/taylor-swift.jpg',
-                minListPrice: 25
+                alt: 'Maroon 5 Tickets',
+                date: '2020-06-19',
+                href: 'https://www.vividseats.com/concerts/maroon-5-tickets/maroon-5-wrigley-field-6-13-3360655.html',
+                imageSrc: 'https://a.vsstatic.com/banner/event/concerts/maroon-5.jpg',
+                subtitle: 'Wrigley Field - Chicago, IL',
+                title: 'Maroon 5',
+                eventType: 'MusicEvent',
+                venue: {
+                    name: 'Wrigley Field',
+                    city: 'Chicago',
+                    regionCode: 'IL',
+                    countryCode: 'US'
+                },
+                ticketCount: 10,
+                minListPrice: 25,
+                schemaDescription: 'Ticket listings for Maroon 5 at Wrigley Field in Chicago, IL on 6/13/2020',
+                isTimeTbd: false,
+                performerType: 'MusicGroup',
+                performerName: 'Maroon 5',
+                performerUrl: 'https://www.vividseats.com/concerts/maroon-5-tickets.html'
             }}
         />
     </div>
