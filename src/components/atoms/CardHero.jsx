@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazy-load';
 
 const CardHero = ({ className = '', loadImageViaCss = false, imageSrc, alt, children, ...htmlAttributes }) => {
     if (loadImageViaCss) {
@@ -16,7 +17,10 @@ const CardHero = ({ className = '', loadImageViaCss = false, imageSrc, alt, chil
 
     return (
         <div className={`vdp-card__hero ${className}`}>
-            <img className="vdp-card__hero__image" src={imageSrc} {...htmlAttributes} alt={alt} />
+            {/* height same as $card-hero-height */}
+            <LazyLoad height="128px">
+                <img className="vdp-card__hero__image" src={imageSrc} {...htmlAttributes} alt={alt} />
+            </LazyLoad>
             {children}
         </div>
     );

@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazy-load';
 import moment from 'moment';
 import Image from '../atoms/Image';
 import BodyText from '../atoms/BodyText';
@@ -112,6 +113,7 @@ const EventRow = ({
                 </div>
             )}
             {/* Thumbnail Image */}
+            {/* See &[class*='--thumb'] height and width in _eventRow.scss */}
             {hasThumbnail && (
                 <Image
                     loadImageViaCss

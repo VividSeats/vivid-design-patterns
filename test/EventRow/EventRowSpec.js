@@ -1,8 +1,8 @@
 import React from 'react';
+import moment from 'moment';
 import { mount, shallow, render } from 'enzyme';
 import EventRow from '../../src/components/molecules/EventRow';
 import DateColumn from '../../src/components/atoms/DateColumn';
-import moment from 'moment';
 
 /* eslint no-script-url: 0 */
 
