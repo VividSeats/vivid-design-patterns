@@ -66,7 +66,7 @@ EventCard.propTypes = {
     imageSrc: PropTypes.string.isRequired,
     isInternationalVenue: PropTypes.bool,
     isTimeTbd: PropTypes.bool,
-    minListPrice: PropTypes.number.isRequired,
+    minListPrice: PropTypes.number,
     subtitle: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     eventType: PropTypes.string,
