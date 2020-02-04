@@ -27,7 +27,8 @@ const EventCard = ({
             <Card.Hero
                 {...{
                     alt,
-                    imageSrc
+                    imageSrc,
+                    style: { objectFit: 'cover' }
                 }}>
                 {minListPrice > 0 && (
                     <Badge type="angled">
