@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import EventCard from '../../src/components/molecules/EventCard';
 import moment from 'moment';
+import EventCard from '../../src/components/molecules/EventCard';
 
 describe('<EventCard />', () => {
     const itemTypeBase = 'http://schema.org/';
@@ -52,8 +52,10 @@ describe('<EventCard />', () => {
 
         expect(wrapper.exists()).toBe(true);
         expect(wrapper.getElement().props.href).toBe(href);
-        expect(wrapper.find('.vdp-card__hero__image').getElement().props['alt']).toBe(alt);
-        expect(wrapper.find('.vdp-card__hero__image').getElement().props.src).toBe(imageSrc);
+        /* can only access img props from parent of LazyLoad component */
+        const lazyLoadedImg = wrapper.find('.vdp-card__hero').props().children[0].props.children;
+        expect(lazyLoadedImg.props.alt).toBe(alt);
+        expect(lazyLoadedImg.props.src).toBe(imageSrc);
         expect(
             wrapper
                 .find('.vdp-badge')

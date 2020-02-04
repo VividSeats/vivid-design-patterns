@@ -29,7 +29,8 @@ describe('<Card />', () => {
         it('renders a div with an img child element', () => {
             const imageSrc = 'https://a.vsstatic.com/mobile/app/mlb/washington-nationals.jpg';
             const wrapper = mount(<Card.Hero imageSrc={imageSrc} alt="Quite the vivid picture, no?" />);
-            expect(wrapper.find('img').props().src).toBe(imageSrc);
+            /* can only access img props from parent of LazyLoad component */
+            expect(wrapper.find('.vdp-card__hero').props().children[0].props.children.props.src).toBe(imageSrc);
         });
 
         it('renders a div with a styled background image', () => {
