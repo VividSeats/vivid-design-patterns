@@ -105,6 +105,9 @@ $row-height: 4.5rem;
             margin-left: auto;
             margin-right: auto;
         }
+        > *:not(:last-child) {
+            margin-bottom: $sizing-2XS;
+        }
         + .vdp-event-row__col--info {
             max-width: calc(100% - #{$column-date-width});
         }
@@ -118,6 +121,10 @@ $row-height: 4.5rem;
         @include flex-grow(1);
         @include flex-shrink(1);
         padding: $sizing-2XS $sizing-LG;
+
+        > *:not(:last-child) {
+            margin-bottom: $sizing-XS;
+        }
     }
     &[class*='--range'] {
         padding: 0 $sizing-LG;
