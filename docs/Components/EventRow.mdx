@@ -183,3 +183,21 @@ To allow the user to check and uncheck the event, add the `hasCheckbox` and `onC
         }}
     />
 </Playground>
+
+## To use div instead of a tag
+
+If you'd like the the EventRow to be wrapped in a div instead of an a tag (e.g. in the case of an EventCard), don't pass the `href` prop
+
+<Playground>
+    <EventRow
+        {...{
+            title: 'Chicago Blackhawks',
+            subtitle: 'United Center - Chicago, IL',
+            date: new Date().setFullYear(new Date().getFullYear() + 1),
+            thumbnail: {
+                src: 'https://a.vsstatic.com/event/concerts/taylor-swift.jpg',
+                alt: 'Taylor Swift Tickets'
+            }
+        }}
+    />
+</Playground>
