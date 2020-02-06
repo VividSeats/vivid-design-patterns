@@ -56,10 +56,7 @@ const CssImage = ({ src: srcFromProps, alt, fallback, height, width, ...htmlAttr
     const style = {
         backgroundImage: `url(${hasError ? fallback : src})`,
         width,
-        height,
-        backgroundSize: 'contain',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat'
+        height
     };
 
     if (!src) {
