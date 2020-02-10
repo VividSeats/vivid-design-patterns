@@ -23,41 +23,39 @@ const EventCard = ({
     performerUrl
 }) => {
     return (
-        <a href={href}>
-            <Card className="vdp-card--anchor mt-md-m">
-                <Card.Hero
-                    {...{
-                        alt,
-                        imageSrc,
-                        style: { objectFit: 'cover' }
-                    }}>
-                    {minListPrice > 0 && (
-                        <Badge type="angled">
-                            from ${minListPrice} {isInternationalVenue ? 'USD' : ''}
-                        </Badge>
-                    )}
-                </Card.Hero>
-                <EventRow
-                    {...{
-                        venue,
-                        title,
-                        subtitle,
-                        date,
-                        isTimeTbd,
-                        imageUrl: imageSrc,
-                        schemaDescription,
-                        ticketCount,
-                        performerType,
-                        performerName,
-                        performerUrl,
-                        hasButton: false,
-                        eventType,
-                        showMinListPrice: false,
-                        minListPrice
-                    }}
-                />
-            </Card>
-        </a>
+        <Card className="mt-md-m" type="anchor" role="link" onClick={() => (window.location = `${href}`)}>
+            <Card.Hero
+                {...{
+                    alt,
+                    imageSrc,
+                    style: { objectFit: 'cover' }
+                }}>
+                {minListPrice > 0 && (
+                    <Badge type="angled">
+                        from ${minListPrice} {isInternationalVenue ? 'USD' : ''}
+                    </Badge>
+                )}
+            </Card.Hero>
+            <EventRow
+                {...{
+                    venue,
+                    title,
+                    subtitle,
+                    date,
+                    isTimeTbd,
+                    imageUrl: imageSrc,
+                    schemaDescription,
+                    ticketCount,
+                    performerType,
+                    performerName,
+                    performerUrl,
+                    hasButton: false,
+                    eventType,
+                    showMinListPrice: false,
+                    minListPrice
+                }}
+            />
+        </Card>
     );
 };
 
