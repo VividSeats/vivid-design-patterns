@@ -23,40 +23,41 @@ const EventCard = ({
     performerUrl
 }) => {
     return (
-        <Card className="vdp-card--anchor mt-md-m">
-            <Card.Hero
-                {...{
-                    alt,
-                    imageSrc,
-                    style: { objectFit: 'cover' }
-                }}>
-                {minListPrice > 0 && (
-                    <Badge type="angled">
-                        from ${minListPrice} {isInternationalVenue ? 'USD' : ''}
-                    </Badge>
-                )}
-            </Card.Hero>
-            <EventRow
-                {...{
-                    href,
-                    venue,
-                    title,
-                    subtitle,
-                    date,
-                    isTimeTbd,
-                    imageUrl: imageSrc,
-                    schemaDescription,
-                    ticketCount,
-                    performerType,
-                    performerName,
-                    performerUrl,
-                    hasButton: false,
-                    eventType,
-                    showMinListPrice: false,
-                    minListPrice
-                }}
-            />
-        </Card>
+        <a href={href}>
+            <Card className="vdp-card--anchor mt-md-m">
+                <Card.Hero
+                    {...{
+                        alt,
+                        imageSrc,
+                        style: { objectFit: 'cover' }
+                    }}>
+                    {minListPrice > 0 && (
+                        <Badge type="angled">
+                            from ${minListPrice} {isInternationalVenue ? 'USD' : ''}
+                        </Badge>
+                    )}
+                </Card.Hero>
+                <EventRow
+                    {...{
+                        venue,
+                        title,
+                        subtitle,
+                        date,
+                        isTimeTbd,
+                        imageUrl: imageSrc,
+                        schemaDescription,
+                        ticketCount,
+                        performerType,
+                        performerName,
+                        performerUrl,
+                        hasButton: false,
+                        eventType,
+                        showMinListPrice: false,
+                        minListPrice
+                    }}
+                />
+            </Card>
+        </a>
     );
 };
 
