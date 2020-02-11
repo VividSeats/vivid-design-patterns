@@ -1,7 +1,7 @@
 {
     "name": "@vividseats/vivid-design-patterns",
     "Author": "Vivid Seats",
-    "version": "0.0.0-COM-1039-1581462430",
+    "version": "5.15.1",
     "repository": {
         "type": "git",
         "url": "https://github.com/VividSeats/vivid-design-patterns.git"
@@ -74,6 +74,7 @@
         "classnames": "^2.2.6",
         "core-js": "2.5.7",
         "moment": "^2.24.0",
+        "react-lazy-load": "^3.0.13",
         "react-slidedown": "^2.0.7",
         "react-spring": "8.0.27",
         "use-media": "^1.4.0"

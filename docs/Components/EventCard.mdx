@@ -1,0 +1,54 @@
+---
+name: EventCard
+menu: Components
+route: /components/event-card
+---
+
+import { Props, Playground } from 'docz';
+import EventCard from '../../src/components/molecules/EventCard';
+import '../docz.scss';
+
+# EventCard
+
+## Installation
+
+Using the react components:
+
+    import EventCard from '@vividseats/vivid-design-patterns/dist/molecules/EventCard';
+
+## EventCard Props
+
+<Props of={EventCard} />
+
+# Examples
+
+## Default
+
+<Playground>
+    <div style={{ display: 'flex' }}>
+        <EventCard
+            {...{
+                alt: 'Maroon 5 Tickets',
+                date: '2020-06-19',
+                href: 'https://www.vividseats.com/concerts/maroon-5-tickets/maroon-5-wrigley-field-6-13-3360655.html',
+                imageSrc: 'https://a.vsstatic.com/banner/event/concerts/maroon-5.jpg',
+                subtitle: 'Wrigley Field - Chicago, IL',
+                title: 'Maroon 5',
+                eventType: 'MusicEvent',
+                venue: {
+                    name: 'Wrigley Field',
+                    city: 'Chicago',
+                    regionCode: 'IL',
+                    countryCode: 'US'
+                },
+                ticketCount: 10,
+                minListPrice: 25,
+                schemaDescription: 'Ticket listings for Maroon 5 at Wrigley Field in Chicago, IL on 6/13/2020',
+                isTimeTbd: false,
+                performerType: 'MusicGroup',
+                performerName: 'Maroon 5',
+                performerUrl: 'https://www.vividseats.com/concerts/maroon-5-tickets.html'
+            }}
+        />
+    </div>
+</Playground>

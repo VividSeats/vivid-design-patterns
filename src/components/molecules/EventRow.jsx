@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Image from '../atoms/Image';
@@ -8,6 +8,8 @@ import Link from '../atoms/Link';
 import SmallText from '../atoms/SmallText';
 import DateColumn from '../atoms/DateColumn';
 import Icon from '../atoms/Icon';
+
+/* es-lint click-events-have-key-events: 0 */
 
 const MinListPriceButton = ({ minListPrice = 0, isInternationalVenue }) => (
     <Button>
@@ -67,7 +69,7 @@ const getThumbnailDate = date => {
 };
 
 const EventRow = ({
-    href,
+    href = '',
     subtitle,
     title,
     venue = {},
@@ -84,6 +86,7 @@ const EventRow = ({
     performerName,
     performerType,
     performerUrl,
+    showMinListPrice = true,
     onChange = () => {},
     onClick = () => {},
     isInternationalVenue = false,
@@ -98,21 +101,10 @@ const EventRow = ({
     const thumbnailDate = getThumbnailDate(date);
 
     const [checkboxState, setCheckboxState] = useState(false);
+    const hrefWithUtmTracking = href + eventUtmTracking(href);
 
-    return (
-        <Link
-            className={BASE_CLASSNAME}
-            href={href}
-            type="anchor"
-            itemScope
-            itemType={`http://schema.org/${eventType}`}
-            role="row"
-            onClick={e => {
-                onChange(!checkboxState);
-                setCheckboxState(!checkboxState);
-                onClick(e);
-            }}
-            {...htmlAttributes}>
+    const getEventRowContent = () => (
+        <Fragment>
             {/* Checkbox */}
             {hasCheckbox && (
                 <div className={getColClassName(CHECKBOX)}>
@@ -168,7 +160,7 @@ const EventRow = ({
             {/* Button */}
             {!!hasButton && !hasCheckbox && (
                 <div className={`${getColClassName(BUTTON)}`}>
-                    {!!minListPrice ? (
+                    {!!minListPrice && showMinListPrice ? (
                         <MinListPriceButton minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />
                     ) : (
                         <Button>{!!dateRange ? BUTTON_TEXT.DATE_RANGE : BUTTON_TEXT.DATE}</Button>
@@ -176,13 +168,15 @@ const EventRow = ({
                 </div>
             )}
             {/* Mobile Col for Min List Price */}
-            {!!minListPrice && <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />}
-            <link className="schema-url" itemProp="url" href={href + eventUtmTracking(href)} />
-            <meta itemProp="sameAs" content={href + eventUtmTracking(href)} />
+            {!!minListPrice && showMinListPrice && (
+                <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />
+            )}
+            <link className="schema-url" itemProp="url" href={hrefWithUtmTracking} />
+            <meta itemProp="sameAs" content={hrefWithUtmTracking} />
             {!!imageUrl && <meta itemProp="image" content={imageUrl} />}
             {!!schemaDescription && <meta itemProp="description" content={schemaDescription} />}
             <div itemProp="offers" itemScope itemType="http://schema.org/AggregateOffer">
-                <link itemProp="url" href={href + eventUtmTracking(href)} />
+                <link itemProp="url" href={hrefWithUtmTracking} />
                 <meta itemProp="priceCurrency" content="USD" />
                 {ticketCount > 0 ? (
                     <link itemProp="availability" href="http://schema.org/InStock" />
@@ -203,7 +197,28 @@ const EventRow = ({
                     <meta itemProp="sameAs" content={performerUrl} />
                 </div>
             )}
+        </Fragment>
+    );
+
+    const eventRowProps = {
+        className: BASE_CLASSNAME,
+        itemScope: true,
+        itemType: `http://schema.org/${eventType}`,
+        role: 'row',
+        onClick: e => {
+            onChange(!checkboxState);
+            setCheckboxState(!checkboxState);
+            onClick(e);
+        },
+        ...htmlAttributes
+    };
+
+    return !!href.length ? (
+        <Link href={href} type="anchor" {...eventRowProps}>
+            {getEventRowContent()}
         </Link>
+    ) : (
+        <div {...eventRowProps}>{getEventRowContent()}</div>
     );
 };
 
@@ -224,7 +239,7 @@ EventRow.BUTTON_TEXT = {
 };
 
 EventRow.propTypes = {
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     venue: PropTypes.shape({
         name: PropTypes.string.isRequired,
         city: PropTypes.string.isRequired,
@@ -254,7 +269,8 @@ EventRow.propTypes = {
     /** onChange is passed a boolean indicating the new checkbox state */
     onChange: PropTypes.func,
     onClick: PropTypes.func,
-    eventType: PropTypes.string
+    eventType: PropTypes.string,
+    showMinListPrice: PropTypes.bool
 };
 
 export default EventRow;

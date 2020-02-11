@@ -1,10 +1,11 @@
 
-## Unreleased (2020-01-27)
+## Unreleased (2020-02-06)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#164](https://github.com/VividSeats/vivid-design-patterns/pull/164) Dot 1263 ([@pvogenthaler](https://github.com/pvogenthaler))
 * [#163](https://github.com/VividSeats/vivid-design-patterns/pull/163) Add Image Tag Componetn ([@ylin6](https://github.com/ylin6))
 * [#162](https://github.com/VividSeats/vivid-design-patterns/pull/162) DOT-1273 update event row with thumbnail ([@sgibson47](https://github.com/sgibson47))
 * [#149](https://github.com/VividSeats/vivid-design-patterns/pull/149) update grid components with more documentation and props ([@ylin6](https://github.com/ylin6))
@@ -27,6 +28,7 @@
 * [#102](https://github.com/VividSeats/vivid-design-patterns/pull/102) [COM-476] Add lead pricing to EventRows component ([@ealmiladi](https://github.com/ealmiladi))
 
 #### :bug: Bug Fix
+* [#169](https://github.com/VividSeats/vivid-design-patterns/pull/169) DOT-1749 remove background style attributes from image component ([@mgorman87](https://github.com/mgorman87))
 * [#161](https://github.com/VividSeats/vivid-design-patterns/pull/161) DOT-1536 hide horizontal scrollbar for hero tabs ([@pvogenthaler](https://github.com/pvogenthaler))
 * [#156](https://github.com/VividSeats/vivid-design-patterns/pull/156) DOT-1393 adds hero breadcrumb margin ([@mgorman87](https://github.com/mgorman87))
 * [#155](https://github.com/VividSeats/vivid-design-patterns/pull/155) DOT-865 adjust breakpoints ([@mgorman87](https://github.com/mgorman87))
