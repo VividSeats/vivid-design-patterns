@@ -123,6 +123,7 @@ const EventRow = ({
             {hasThumbnail && (
                 <Image
                     loadImageViaCss
+                    backgroundSize="cover"
                     className={getColClassName(THUMBNAIL)}
                     alt={thumbnail.alt}
                     src={thumbnail.src}
