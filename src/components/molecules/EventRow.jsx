@@ -12,7 +12,7 @@ import Icon from '../atoms/Icon';
 /* es-lint click-events-have-key-events: 0 */
 
 const MinListPriceButton = ({ minListPrice = 0, isInternationalVenue }) => (
-    <Button>
+    <Button className={'price-length-' + minListPrice.toString().length}>
         <i>from</i>&nbsp;
         <strong>
             ${minListPrice}
