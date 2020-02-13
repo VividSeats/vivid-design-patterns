@@ -34,8 +34,6 @@ class Select extends React.Component {
         disabled: false
     };
 
-    static Option = SelectOption;
-
     state = {
         value: this.props.value || '',
         error: this.props.error || '',
@@ -71,6 +69,8 @@ class Select extends React.Component {
 
         this.props.onBlur(e);
     };
+
+    static Option = SelectOption;
 
     isControlled(propName) {
         return this.props[propName] !== undefined;

@@ -23,7 +23,13 @@ const EventCard = ({
     performerUrl
 }) => {
     return (
-        <Card className="vdp-card--anchor mt-md-m">
+        <Card
+            className="mt-md-m"
+            type="anchor"
+            role="link"
+            onClick={() => {
+                window.location.href = href;
+            }}>
             <Card.Hero
                 {...{
                     alt,
