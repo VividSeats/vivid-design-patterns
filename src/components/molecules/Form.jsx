@@ -23,6 +23,8 @@ FormContextConsumer.propTypes = {
 };
 
 class Form extends React.Component {
+    static ContextConsumer = FormContextConsumer;
+
     inputs = [];
 
     static propTypes = {
@@ -93,8 +95,6 @@ class Form extends React.Component {
         e.preventDefault();
         this.validate();
     };
-
-    static ContextConsumer = FormContextConsumer;
 
     render() {
         const { props, setForm } = this;
