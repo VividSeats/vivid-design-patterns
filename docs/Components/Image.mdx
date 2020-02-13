@@ -28,17 +28,17 @@ To provide a fallback image if the provided src fails to load, pass in the fallb
 </Playground>
 
 ## Lazy load image via CSS
-If you want to lazy load your images via css, add the loadImageViaCss prop. A width and height need to be provided either through props or through a stylesheet.
+If you want to lazy load your images via css, add the loadImageViaCss prop. A width and height need to be provided either through props or through a stylesheet, as well as other configuration for background size, etc
 
 <Playground>
-        <Image height="200px" loadImageViaCss src="//a.vsstatic.com/banner/event/concerts/lana-del-rey.jpg" fallback={"//a.vsstatic.com/banner/generic.jpg"} alt={"Image with fallback"}/>
+        <Image style={{"background-size": "contain"}} height="200px" loadImageViaCss src="//a.vsstatic.com/banner/event/concerts/lana-del-rey.jpg" fallback={"//a.vsstatic.com/banner/generic.jpg"} alt={"Image with fallback"}/>
 </Playground>
 
 ## Lazy load image via CSS with fallback
 A fallback can be provided here as well
 
 <Playground>
-      <Image height="200px" loadImageViaCss src="//a.vsstatic.com/banner/event/failure/lana-del-rey.jpg" fallback={"https://a.vsstatic.com/banner/event/category/pop.jpg"} alt={"Image with fallback"}/>
+    <Image style={{"background-size": "contain"}} height="200px" loadImageViaCss src="//a.vsstatic.com/banner/event/failure/lana-del-rey.jpg" fallback={"https://a.vsstatic.com/banner/event/category/pop.jpg"} alt={"Image with fallback"}/>
 </Playground>
 
 ## Props
