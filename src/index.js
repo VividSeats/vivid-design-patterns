@@ -32,6 +32,7 @@ export { default as Subtitle } from './components/atoms/Subtitle';
 export { default as Tab } from './components/atoms/Tab';
 export { default as TinyText } from './components/atoms/TinyText';
 export { default as Toggle } from './components/atoms/Toggle';
+export { default as Trigger } from './components/atoms/Trigger';
 export { default as VividSeatsLogo } from './components/atoms/VividSeatsLogo';
 export { default as DrawerFooter } from './components/atoms/DrawerFooter';
 export { default as DrawerBody } from './components/atoms/DrawerBody';
