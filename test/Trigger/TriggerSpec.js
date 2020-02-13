@@ -11,17 +11,16 @@ describe('<Trigger />', () => {
     });
 
     it('renders a dark trigger', () => {
-        const wrapper = shallow(<Trigger icon="refresh" dark />);
+        const wrapper = shallow(<Trigger icon="refresh" dark onClick={mockOnClick} />);
         expect(wrapper.find('button.vdp-trigger--dark').exists()).toBe(true);
     });
 
     it('renders a positioned trigger', () => {
-        const wrapper = shallow(<Trigger icon="refresh" position="tl" />);
+        const wrapper = shallow(<Trigger icon="refresh" position="tl" onClick={mockOnClick} />);
         expect(wrapper.find('button.vdp-trigger--tl').exists()).toBe(true);
     });
 
     it('handles onClick event', () => {
-        const mockOnClick = jest.fn();
         const wrapper = shallow(<Trigger icon="refresh" onClick={mockOnClick} />);
         wrapper.find('button.vdp-trigger').simulate('click');
         expect(mockOnClick).toHaveBeenCalledTimes(1);
