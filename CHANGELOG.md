@@ -1,10 +1,11 @@
 
-## Unreleased (2020-02-06)
+## Unreleased (2020-02-13)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#172](https://github.com/VividSeats/vivid-design-patterns/pull/172) DSYS-73 create trigger component ([@mgorman87](https://github.com/mgorman87))
 * [#164](https://github.com/VividSeats/vivid-design-patterns/pull/164) Dot 1263 ([@pvogenthaler](https://github.com/pvogenthaler))
 * [#163](https://github.com/VividSeats/vivid-design-patterns/pull/163) Add Image Tag Componetn ([@ylin6](https://github.com/ylin6))
 * [#162](https://github.com/VividSeats/vivid-design-patterns/pull/162) DOT-1273 update event row with thumbnail ([@sgibson47](https://github.com/sgibson47))
@@ -28,6 +29,9 @@
 * [#102](https://github.com/VividSeats/vivid-design-patterns/pull/102) [COM-476] Add lead pricing to EventRows component ([@ealmiladi](https://github.com/ealmiladi))
 
 #### :bug: Bug Fix
+* [#174](https://github.com/VividSeats/vivid-design-patterns/pull/174) eslint-changes to satisfy eslint when publishing ([@sgibson47](https://github.com/sgibson47))
+* [#170](https://github.com/VividSeats/vivid-design-patterns/pull/170) DOT-1774 make entire EventCard into a link ([@sgibson47](https://github.com/sgibson47))
+* [#171](https://github.com/VividSeats/vivid-design-patterns/pull/171) DSYS-72 fixes event row button width and large grouped buttons ([@mgorman87](https://github.com/mgorman87))
 * [#169](https://github.com/VividSeats/vivid-design-patterns/pull/169) DOT-1749 remove background style attributes from image component ([@mgorman87](https://github.com/mgorman87))
 * [#161](https://github.com/VividSeats/vivid-design-patterns/pull/161) DOT-1536 hide horizontal scrollbar for hero tabs ([@pvogenthaler](https://github.com/pvogenthaler))
 * [#156](https://github.com/VividSeats/vivid-design-patterns/pull/156) DOT-1393 adds hero breadcrumb margin ([@mgorman87](https://github.com/mgorman87))
@@ -45,6 +49,7 @@
 * [#101](https://github.com/VividSeats/vivid-design-patterns/pull/101) patches to ts declaration file ([@cmoog](https://github.com/cmoog))
 
 #### :memo: Documentation
+* [#167](https://github.com/VividSeats/vivid-design-patterns/pull/167) Update loading spinner import ([@oleksandra-holovina](https://github.com/oleksandra-holovina))
 * [#160](https://github.com/VividSeats/vivid-design-patterns/pull/160) Make className an optional type for Typeahead component ([@ylin6](https://github.com/ylin6))
 
 #### Committers: 14
