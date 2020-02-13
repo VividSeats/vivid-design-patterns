@@ -108,7 +108,7 @@
         @include button-size($font-size-SM, $button-height-small, $button-padding-small);
     }
     &[class*='--large'] {
-        @include button-size($button-height-large, $button-padding-large);
+        @include button-size($font-size-LG, $button-height-large, $button-padding-large);
     }
     &:hover {
         box-shadow: none;

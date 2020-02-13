@@ -1,0 +1,87 @@
+---
+name: Trigger
+menu: Components
+route: /components/trigger
+---
+
+import { Props, Playground } from 'docz';
+import Trigger from '../../src/components/atoms/Trigger';
+import '../docz.scss';
+
+# Trigger
+
+## Installation
+
+Using the react components:
+
+    import Trigger from '@vividseats/vivid-design-patterns/dist/atoms/Trigger';
+
+Using the scss files:
+
+    @import '@vividseats/vivid-design-patterns/src/styles/trigger.scss';
+
+## Basic Usage
+
+`class="vdp-trigger"`
+
+<Playground>
+    {
+        () => {
+            const mockClick = (e) => {
+                e.preventDefault();
+                alert('Clicked')
+            };
+            return (
+                <div>
+                    <div style={{display:'inline-block',height:'80px',width:'80px'}}>
+                        <Trigger icon="refresh" onClick={mockClick}/>
+                    </div>
+                    <div style={{display:'inline-block',height:'80px',width:'80px'}}>
+                        <Trigger icon="refresh" dark onClick={mockClick}/>
+                    </div>
+                </div>
+            )
+        }
+    } 
+</Playground>
+
+## Position
+<Playground>
+    {
+        () => {
+            const mockClick = (e) => {
+                e.preventDefault();
+                alert('Clicked')
+            };
+            return (
+                <div style={{height:'200px'}}>
+                     <Trigger icon="refresh" position="tl" onClick={mockClick}/>
+                     <Trigger icon="refresh" position="tr" onClick={mockClick}/>
+                     <Trigger icon="refresh" position="bl" onClick={mockClick}/>
+                     <Trigger icon="refresh" position="br" onClick={mockClick}/>
+                </div>
+            )
+        }
+    }
+</Playground>
+
+## Click Handler
+<Playground>
+    {
+        () => {
+            const mockClick = (e) => {
+                e.preventDefault();
+                alert('Clicked')
+            };
+            return (
+                <div style={{display:'inline-block',height:'80px',width:'80px'}}>
+                    <Trigger icon="refresh" onClick={mockClick}/>
+                </div>
+            )
+        }
+    }
+</Playground>
+
+## Props
+
+<Props of={Trigger} />

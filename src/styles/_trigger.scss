@@ -1,0 +1,45 @@
+@import 'tokens';
+@import 'mixins/mixins';
+@import 'mixins/prefixes';
+
+[class*='vdp-trigger'] {
+    @include transition(all $transition-2);
+    background: rgba($color-brand-blue, 0.1);
+    border: none;
+    border-radius: $border-radius-MD;
+    color: $text-color-link;
+    cursor: pointer;
+    outline: none !important;
+    padding: $sizing-XS;
+    position: absolute;
+    z-index: 3;
+
+    &:not([class*='--dark']):hover {
+        box-shadow: $elevation-1;
+    }
+    &[class*='--dark'] {
+        background: rgba($color-black, 0.75);
+        box-shadow: $elevation-1;
+        color: $color-off-white;
+
+        &:hover {
+            box-shadow: $elevation-2;
+        }
+    }
+    &[class*='--bl'] {
+        bottom: $sizing-MD;
+        left: $sizing-MD;
+    }
+    &[class*='--br'] {
+        bottom: $sizing-MD;
+        right: $sizing-MD;
+    }
+    &[class*='--tl'] {
+        top: $sizing-MD;
+        left: $sizing-MD;
+    }
+    &[class*='--tr'] {
+        top: $sizing-MD;
+        right: $sizing-MD;
+    }
+}
