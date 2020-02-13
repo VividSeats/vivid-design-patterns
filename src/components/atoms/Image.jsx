@@ -78,10 +78,7 @@ Image.propTypes = {
 };
 
 ImageElement.propTypes = {
-    alt: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
-    fallback: PropTypes.string,
-    loadImageViaCss: PropTypes.bool
+    ...Image.propTypes
 };
 
 CssImage.propTypes = {
