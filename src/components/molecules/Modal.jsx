@@ -20,6 +20,7 @@ import Backdrop from '../atoms/Backdrop';
 /* eslint-disable react/display-name */
 
 const Modal = ({
+    destroyOnClose = true,
     backgroundImage,
     className = '',
     disableBackdrop = false,
@@ -69,7 +70,7 @@ const Modal = ({
         [`--${size}`]: size,
         [className]: className
     });
-    const isIe11 = !!window.MSInputMethodContext && !!document.documentMode;
+    const isIe11 = typeof window !== 'undefined' && !!window.MSInputMethodContext && !!document.documentMode;
     const shouldAnimate = !isIe11 && animate;
     const backgroundStyle = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : null;
     const handleKeyDown = e => {
@@ -105,10 +106,15 @@ const Modal = ({
         <>
             <Transition native items={isOpen} onStart={onStart} onRest={onRest} immediate={!shouldAnimate} {...transitionProps}>
                 {show =>
-                    show &&
+                    (show || !destroyOnClose) &&
                     (animationProps => {
+                        const overrideStyles = !show && !destroyOnClose ? { display: 'none' } : {};
                         return (
-                            <animated.aside onClick={handleBackdropClick} className={modalClassNames} {...htmlAtrributes}>
+                            <animated.aside
+                                onClick={handleBackdropClick}
+                                className={modalClassNames}
+                                style={overrideStyles}
+                                {...htmlAtrributes}>
                                 <animated.div
                                     tabIndex="-1"
                                     ref={modalRef}
@@ -155,6 +161,7 @@ Modal.propTypes = {
     disableBackdrop: PropTypes.bool,
     type: PropTypes.oneOf([Modal.TYPES.SHEET, Modal.TYPES.FULL_SCREEN]),
     onClickBackdrop: PropTypes.func,
+    destroyOnClose: PropTypes.bool,
     onClose: PropTypes.func,
     canCloseWithBackdropClick: PropTypes.bool,
     closeWithEscapeKey: PropTypes.bool,

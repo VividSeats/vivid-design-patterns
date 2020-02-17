@@ -81,6 +81,31 @@ Using the scss files:
     </StatefulComponent>
 </Playground>
 
+## Keep modal mounted on close
+Sometimes, for SEO purposes, it might be beneficial to keep the modal mounted when its closed. Just pass in `false` for the `destroyOnClose` prop.
+
+<Playground style={{ minHeight: '400px', height: '100%' }}>
+    {
+        () => {
+            const [showModal, setShowModal] = React.useState(false);
+            return (
+                <>
+                    <Button onClick={() => setShowModal(true)}>Open Modal</Button>
+                    <Modal destroyOnClose={false} isOpen={showModal}>
+                        <Modal.Body>
+                            This HTML is still here even after closing the modal.
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button onClick={() => setShowModal(false)}>Close</Button>
+                        </Modal.Footer>
+                    </Modal>
+                </>
+            )
+        }
+    }
+</Playground>
+
+
 ## Modal Props
 
 <Props of={Modal} />
