@@ -295,6 +295,9 @@ a {
         margin: $sizing-LG 0 $sizing-XL;
         padding-left: $sizing-3XL;
     }
+    &[class*='--line-through'] {
+        text-decoration: line-through;
+    }
     &[class*='--underline'] {
         text-decoration: underline;
     }
