@@ -9,7 +9,10 @@ import React from 'react';
 
 const __dummyPropTypesComponent = () => React.createElement('div', null, `Hello`);
 
-function getTypeClassNames(baseClassName, { weight, height, state, alignment, capitalization, truncate, list, className, opaque }) {
+function getTypeClassNames(
+    baseClassName,
+    { weight, height, state, alignment, capitalization, decoration, truncate, list, className, opaque }
+) {
     return classNames(baseClassName, {
         [className]: className,
         '--blk': weight === 'blk' || weight === 'black',
@@ -22,7 +25,8 @@ function getTypeClassNames(baseClassName, { weight, height, state, alignment, ca
         [`--${height}`]: height,
         [`--${state}`]: state,
         [`--${alignment}`]: alignment,
-        [`--${capitalization}`]: capitalization
+        [`--${capitalization}`]: capitalization,
+        [`--${decoration}`]: decoration
     });
 }
 
@@ -39,12 +43,13 @@ const TYPOGRAPHY_PROP_TYPES = {
     alignment: PropTypes.oneOf(['left', 'center', 'right']),
     /** type casing */
     capitalization: PropTypes.oneOf(['uppercase', 'lowercase']),
+    decoration: PropTypes.oneOf(['line-through', 'underline']),
     /** Truncate text with ellipsis. */
     truncate: PropTypes.bool,
     /**  Add padding for list items. */
     list: PropTypes.bool,
     /** Underlying rendered element */
-    as: PropTypes.oneOf(['p', 'small', 'strong', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'div']),
+    as: PropTypes.oneOf(['p', 'small', 'strong', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'div', 'a']),
     opaque: PropTypes.bool
 };
 
