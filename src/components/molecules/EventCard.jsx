@@ -59,7 +59,8 @@ const EventCard = ({
                     hasButton: false,
                     eventType,
                     showMinListPrice: false,
-                    minListPrice
+                    minListPrice,
+                    truncate: true
                 }}
             />
         </Card>
