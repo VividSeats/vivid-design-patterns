@@ -125,7 +125,7 @@ const EventRow = ({
             {/* Date */}
             {!hasThumbnail && <DateColumn date={date} isTimeTbd={isTimeTbd} />}
             {/* Event Info */}
-            <div className={`${getColClassName(INFO)}${truncate ? ' truncate' : null}`}>
+            <div className={`${getColClassName(INFO)}${truncate ? ' truncate' : ''}`}>
                 <BodyText height="compressed" weight="black" importance={2} itemProp="name">
                     {title}
                 </BodyText>
