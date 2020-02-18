@@ -91,6 +91,7 @@ const EventRow = ({
     onClick = () => {},
     isInternationalVenue = false,
     eventType = 'Event',
+    truncate = false,
     ...htmlAttributes
 }) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
@@ -124,7 +125,7 @@ const EventRow = ({
             {/* Date */}
             {!hasThumbnail && <DateColumn date={date} isTimeTbd={isTimeTbd} />}
             {/* Event Info */}
-            <div className={getColClassName(INFO)}>
+            <div className={`${getColClassName(INFO)}${truncate ? ' truncate' : null}`}>
                 <BodyText height="compressed" weight="black" importance={2} itemProp="name">
                     {title}
                 </BodyText>
@@ -269,7 +270,8 @@ EventRow.propTypes = {
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     eventType: PropTypes.string,
-    showMinListPrice: PropTypes.bool
+    showMinListPrice: PropTypes.bool,
+    truncate: PropTypes.bool
 };
 
 export default EventRow;
