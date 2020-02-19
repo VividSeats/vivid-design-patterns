@@ -1,14 +1,11 @@
-import 'core-js/es6/string';
-import 'core-js/es6/object';
-import 'core-js/es7/object';
 import 'core-js/es6/array';
-import 'core-js/es7/array';
-import 'core-js/es6/set';
-import 'core-js/es7/set';
-import 'core-js/modules/es6.regexp.constructor';
+import 'core-js/es6/object';
+import 'core-js/es6/string';
+import 'core-js/es6/symbol';
+import 'core-js/es6/weak-set';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Transition, animated } from 'react-spring/renderprops.cjs';
+import { motion, AnimatePresence } from 'framer-motion';
 import useMedia from 'use-media';
 import classNames from 'classnames';
 
@@ -18,6 +15,55 @@ import ModalFooter from '../atoms/ModalFooter';
 import Backdrop from '../atoms/Backdrop';
 
 /* eslint-disable react/display-name */
+const getAnimationProps = ({ isMobile, isOpen, destroyOnClose, type }) => {
+    const isMobileSheetModal = isMobile && type === 'sheet';
+    const mobileSheetAnimation = {
+        enter: {
+            bottom: '0%'
+        },
+        exit: {
+            bottom: '-100%'
+        }
+    };
+
+    const defaultModalAnimation = {
+        enter: {
+            scale: 1,
+            opacity: 1
+        },
+        exit: {
+            scale: 0.3,
+            opacity: 0
+        }
+    };
+
+    const dontDestroyOnCloseMobileSheetAnimation = {
+        enter: {
+            bottom: isOpen ? '0%' : '-100%'
+        }
+    };
+
+    const dontDestroyOnCloseDefaultAnimation = {
+        enter: {
+            scale: isOpen ? 1 : 0.3,
+            opacity: isOpen ? 1 : 0
+        }
+    };
+
+    if (destroyOnClose) {
+        if (isMobileSheetModal) {
+            return mobileSheetAnimation;
+        }
+
+        return defaultModalAnimation;
+    }
+
+    if (isMobileSheetModal) {
+        return dontDestroyOnCloseMobileSheetAnimation;
+    }
+
+    return dontDestroyOnCloseDefaultAnimation;
+};
 
 const Modal = ({
     destroyOnClose = true,
@@ -42,6 +88,7 @@ const Modal = ({
     ...htmlAtrributes
 }) => {
     const modalRef = React.useRef();
+    const isMobile = useMedia({ maxWidth: 768 });
     const [isRested, setIsRested] = React.useState(false);
     // Focus on modal once animation is finished so user can hit escape
     React.useLayoutEffect(() => {
@@ -52,27 +99,7 @@ const Modal = ({
             }
         }
     }, [isOpen, isRested]);
-    const isMobile = useMedia({ maxWidth: 768 });
 
-    const sheet = {
-        open: { bottom: '0%' },
-        closed: { bottom: '-100%' }
-    };
-
-    const transitionProps = {
-        from: type === 'sheet' && isMobile ? sheet.closed : { opacity: 1, transform: 'scale(0.3)' },
-        enter: type === 'sheet' && isMobile ? sheet.open : { opacity: 1, transform: 'scale(1.0)' },
-        leave: type === 'sheet' && isMobile ? sheet.closed : { opacity: 0, transform: 'scale(0.3)' }
-    };
-
-    const modalClassNames = classNames('vdp-react-modal', {
-        [`--${type}`]: type,
-        [`--${size}`]: size,
-        [className]: className
-    });
-    const isIe11 = typeof window !== 'undefined' && !!window.MSInputMethodContext && !!document.documentMode;
-    const shouldAnimate = !isIe11 && animate;
-    const backgroundStyle = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : null;
     const handleKeyDown = e => {
         const { key, keyCode, which } = e;
         if (closeWithEscapeKey && (key === 'Escape' || which === 27 || keyCode === 27)) {
@@ -102,36 +129,54 @@ const Modal = ({
         }
     };
 
+    const isIe11 = typeof window !== 'undefined' && !!window.MSInputMethodContext && !!document.documentMode;
+    const shouldAnimate = !isIe11 && animate;
+    const modalClassNames = classNames('vdp-react-modal', {
+        [`--${type}`]: type,
+        [`--${size}`]: size,
+        [className]: className
+    });
+
+    const animateProps = getAnimationProps({ isMobile, isOpen, destroyOnClose, type });
+    const backgroundStyle = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : {};
     return (
         <>
-            <Transition native items={isOpen} onStart={onStart} onRest={onRest} immediate={!shouldAnimate} {...transitionProps}>
-                {show =>
-                    (show || !destroyOnClose) &&
-                    (animationProps => {
-                        const overrideStyles = !show && !destroyOnClose ? { display: 'none' } : {};
-                        return (
-                            <animated.aside
-                                onClick={handleBackdropClick}
-                                className={modalClassNames}
-                                style={overrideStyles}
-                                {...htmlAtrributes}>
-                                <animated.div
-                                    tabIndex="-1"
-                                    ref={modalRef}
-                                    onKeyDown={handleKeyDown}
-                                    style={{ ...animationProps, ...backgroundStyle }}
-                                    onClick={e => e.stopPropagation()}
-                                    className={`vdp-react-modal__container ${isOpen ? '--open' : ''}`}>
-                                    {children}
-                                </animated.div>
-                            </animated.aside>
-                        );
-                    })
-                }
-            </Transition>
+            <AnimatedModal isOpen={isOpen} destroyOnClose={destroyOnClose} shouldAnimate={shouldAnimate}>
+                <aside onClick={handleBackdropClick} onKeyDown={handleKeyDown} className={modalClassNames} {...htmlAtrributes}>
+                    <motion.div
+                        style={backgroundStyle}
+                        onAnimationStart={onStart}
+                        onAnimationComplete={onRest}
+                        initial={animateProps.exit}
+                        exit={animateProps.exit}
+                        animate={animateProps.enter}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        tabIndex="-1"
+                        ref={modalRef}
+                        onKeyDown={handleKeyDown}
+                        onClick={e => e.stopPropagation()}
+                        className={`vdp-react-modal__container ${isOpen ? '--open' : ''}`}>
+                        {children}
+                    </motion.div>
+                </aside>
+            </AnimatedModal>
             {!disableBackdrop && <Backdrop isOpen={isOpen} />}
         </>
     );
+};
+
+const AnimatedModal = ({ isOpen, destroyOnClose, children }) => {
+    if (!destroyOnClose) {
+        return children;
+    }
+
+    return <AnimatePresence>{isOpen ? children : null}</AnimatePresence>;
+};
+
+AnimatedModal.propTypes = {
+    isOpen: PropTypes.bool,
+    destroyOnClose: PropTypes.bool,
+    children: PropTypes.node
 };
 
 Modal.Header = ModalHeader;
