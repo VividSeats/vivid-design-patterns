@@ -66,6 +66,43 @@ const getAnimationProps = ({ isMobile, isOpen, destroyOnClose, type }) => {
     return dontDestroyOnCloseDefaultAnimation;
 };
 
+const CoreModal = React.forwardRef(
+    (
+        {
+            handleBackdropClick,
+            handleKeyDown,
+            classNames,
+            backgroundStyle,
+            onStart,
+            onRest,
+            animateProps,
+            isOpen,
+            children,
+            overrideStyles = {},
+            ...htmlAttributes
+        },
+        modalRef
+    ) => (
+        <aside onClick={handleBackdropClick} onKeyDown={handleKeyDown} className={classNames} {...htmlAttributes}>
+            <motion.div
+                style={backgroundStyle}
+                onAnimationStart={onStart}
+                onAnimationComplete={onRest}
+                initial={animateProps.exit}
+                exit={animateProps.exit}
+                animate={animateProps.enter}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                tabIndex="-1"
+                ref={modalRef}
+                onKeyDown={handleKeyDown}
+                onClick={e => e.stopPropagation()}
+                className={`vdp-react-modal__container ${isOpen ? '--open' : ''}`}>
+                {children}
+            </motion.div>
+        </aside>
+    )
+);
+
 const Modal = ({
     destroyOnClose = true,
     backgroundImage,
@@ -137,44 +174,27 @@ const Modal = ({
 
     const animateProps = getAnimationProps({ isMobile, isOpen, destroyOnClose, type });
     const backgroundStyle = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : {};
+    const modalProps = {
+        handleBackdropClick,
+        handleKeyDown,
+        classNames: modalClassNames,
+        backgroundStyle,
+        onStart,
+        onRest,
+        animateProps,
+        isOpen,
+        ...htmlAttributes
+    };
     return (
         <>
-            <AnimatedModalWrapper isOpen={isOpen} destroyOnClose={destroyOnClose}>
-                <aside onClick={handleBackdropClick} onKeyDown={handleKeyDown} className={modalClassNames} {...htmlAttributes}>
-                    <motion.div
-                        style={backgroundStyle}
-                        onAnimationStart={onStart}
-                        onAnimationComplete={onRest}
-                        initial={animateProps.exit}
-                        exit={animateProps.exit}
-                        animate={animateProps.enter}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        tabIndex="-1"
-                        ref={modalRef}
-                        onKeyDown={handleKeyDown}
-                        onClick={e => e.stopPropagation()}
-                        className={`vdp-react-modal__container ${isOpen ? '--open' : ''}`}>
-                        {children}
-                    </motion.div>
-                </aside>
-            </AnimatedModalWrapper>
+            {!destroyOnClose ? (
+                <CoreModal {...modalProps}>{children}</CoreModal>
+            ) : (
+                <AnimatePresence>{isOpen && <CoreModal {...modalProps}>{children}</CoreModal>}</AnimatePresence>
+            )}
             {!disableBackdrop && <Backdrop isOpen={isOpen} />}
         </>
     );
-};
-
-const AnimatedModalWrapper = ({ isOpen, destroyOnClose, children }) => {
-    if (!destroyOnClose) {
-        return children;
-    }
-
-    return <AnimatePresence>{isOpen ? children : null}</AnimatePresence>;
-};
-
-AnimatedModalWrapper.propTypes = {
-    isOpen: PropTypes.bool,
-    destroyOnClose: PropTypes.bool,
-    children: PropTypes.node
 };
 
 Modal.Header = ModalHeader;
@@ -209,6 +229,10 @@ Modal.propTypes = {
     canCloseWithBackdropClick: PropTypes.bool,
     closeWithEscapeKey: PropTypes.bool,
     size: PropTypes.oneOf([Modal.SIZES.SMALL, Modal.SIZES.MEDIUM, Modal.SIZES.LARGE])
+};
+
+CoreModal.propTypes = {
+    ...Modal.propTypes
 };
 
 export default Modal;
