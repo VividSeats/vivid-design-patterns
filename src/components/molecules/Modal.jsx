@@ -1,5 +1,6 @@
 import 'core-js/es6/array';
 import 'core-js/es6/object';
+import 'core-js/es7/object';
 import 'core-js/es6/string';
 import 'core-js/es6/symbol';
 import 'core-js/es6/weak-set';
@@ -76,7 +77,6 @@ const Modal = ({
     /** Defaults to onClose */
     canCloseWithBackdropClick = true,
     onClickBackdrop,
-    animate = true,
     closeWithEscapeKey = true,
     /** Method called when user wants to close the Modal */
     onClose = () => {},
@@ -130,7 +130,6 @@ const Modal = ({
     };
 
     const isIe11 = typeof window !== 'undefined' && !!window.MSInputMethodContext && !!document.documentMode;
-    const shouldAnimate = !isIe11 && animate;
     const modalClassNames = classNames('vdp-react-modal', {
         [`--${type}`]: type,
         [`--${size}`]: size,
@@ -141,7 +140,7 @@ const Modal = ({
     const backgroundStyle = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : {};
     return (
         <>
-            <AnimatedModal isOpen={isOpen} destroyOnClose={destroyOnClose} shouldAnimate={shouldAnimate}>
+            <AnimatedModalWrapper isOpen={isOpen} destroyOnClose={destroyOnClose}>
                 <aside onClick={handleBackdropClick} onKeyDown={handleKeyDown} className={modalClassNames} {...htmlAtrributes}>
                     <motion.div
                         style={backgroundStyle}
@@ -159,13 +158,13 @@ const Modal = ({
                         {children}
                     </motion.div>
                 </aside>
-            </AnimatedModal>
+            </AnimatedModalWrapper>
             {!disableBackdrop && <Backdrop isOpen={isOpen} />}
         </>
     );
 };
 
-const AnimatedModal = ({ isOpen, destroyOnClose, children }) => {
+const AnimatedModalWrapper = ({ isOpen, destroyOnClose, children }) => {
     if (!destroyOnClose) {
         return children;
     }

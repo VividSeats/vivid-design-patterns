@@ -33,7 +33,7 @@ describe('<EventRow />', () => {
         performerType: 'MusicGroup',
         performerName: 'Maroon 5',
         performerUrl: 'https://www.vividseats.com/concerts/maroon-5-tickets.html',
-        showPrice: false
+        showMinListPrice: false
     };
 
     const { getColClassName, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
