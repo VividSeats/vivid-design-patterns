@@ -17,7 +17,7 @@ const mobileAnimation = {
 
 const defaultAnimation = {
     enter: { right: '0%' },
-    leave: { right: '-100%' }
+    exit: { right: '-100%' }
 };
 
 const Notification = ({ isOpen, children, className = '', onClickClose, hasBackdrop, onClickBackdrop, style = {}, ...htmlAttributes }) => {
@@ -31,6 +31,7 @@ const Notification = ({ isOpen, children, className = '', onClickClose, hasBackd
                         initial={animation.exit}
                         animate={animation.enter}
                         exit={animation.exit}
+                        style={style}
                         className={`vdp-notification ${className}`}
                         {...htmlAttributes}>
                         {typeof onClickClose !== 'undefined' && (
