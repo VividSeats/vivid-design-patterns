@@ -172,7 +172,7 @@ const AnimatedModalWrapper = ({ isOpen, destroyOnClose, children }) => {
     return <AnimatePresence>{isOpen ? children : null}</AnimatePresence>;
 };
 
-AnimatedModal.propTypes = {
+AnimatedModalWrapper.propTypes = {
     isOpen: PropTypes.bool,
     destroyOnClose: PropTypes.bool,
     children: PropTypes.node
