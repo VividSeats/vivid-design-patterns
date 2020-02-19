@@ -71,7 +71,7 @@ const CoreModal = React.forwardRef(
         {
             handleBackdropClick,
             handleKeyDown,
-            classNames,
+            className,
             backgroundStyle,
             onStart,
             onRest,
@@ -83,7 +83,7 @@ const CoreModal = React.forwardRef(
         },
         modalRef
     ) => (
-        <aside onClick={handleBackdropClick} onKeyDown={handleKeyDown} className={classNames} {...htmlAttributes}>
+        <aside onClick={handleBackdropClick} onKeyDown={handleKeyDown} className={className} {...htmlAttributes}>
             <motion.div
                 style={backgroundStyle}
                 onAnimationStart={onStart}
@@ -177,7 +177,7 @@ const Modal = ({
     const modalProps = {
         handleBackdropClick,
         handleKeyDown,
-        classNames: modalClassNames,
+        className: modalClassNames,
         backgroundStyle,
         onStart,
         onRest,
