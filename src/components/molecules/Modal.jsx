@@ -129,7 +129,6 @@ const Modal = ({
         }
     };
 
-    const isIe11 = typeof window !== 'undefined' && !!window.MSInputMethodContext && !!document.documentMode;
     const modalClassNames = classNames('vdp-react-modal', {
         [`--${type}`]: type,
         [`--${size}`]: size,
