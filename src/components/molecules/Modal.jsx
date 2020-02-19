@@ -47,10 +47,7 @@ const getAnimationProps = ({ isMobile, isOpen, destroyOnClose, type }) => {
 
     const dontDestroyOnCloseMobileSheetAnimation = {
         enter: {
-            bottom: isOpen ? '0%' : '-100%',
-            scale: 1, // Reset scale and opacity value since these are first rendered as 0s on the server for SSR
-            opacity: 1,
-            transitionEnd: !isOpen ? { scale: 0 } : { scale: 1 }
+            bottom: isOpen ? '0%' : '-100%'
         },
         initial: false
     };
@@ -58,8 +55,7 @@ const getAnimationProps = ({ isMobile, isOpen, destroyOnClose, type }) => {
     const dontDestroyOnCloseDefaultAnimation = {
         enter: {
             scale: isOpen ? 1 : 0.3,
-            opacity: isOpen ? 1 : 0,
-            transitionEnd: !isOpen ? { scale: 0 } : { scale: 1 }
+            opacity: isOpen ? 1 : 0
         },
         initial: false
     };
@@ -96,19 +92,14 @@ const CoreModal = React.forwardRef(
         },
         modalRef
     ) => (
-        <motion.aside
-            onAnimationStart={onStart}
-            onAnimationComplete={onRest}
-            initial={animateProps.initial}
-            exit={animateProps.exit}
-            animate={animateProps.enter}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            onClick={handleBackdropClick}
-            style={overrideStyles}
-            onKeyDown={handleKeyDown}
-            className={className}
-            {...htmlAttributes}>
-            <div
+        <aside onClick={handleBackdropClick} style={overrideStyles} onKeyDown={handleKeyDown} className={className} {...htmlAttributes}>
+            <motion.div
+                onAnimationStart={onStart}
+                onAnimationComplete={onRest}
+                initial={animateProps.initial}
+                exit={animateProps.exit}
+                animate={animateProps.enter}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
                 style={backgroundStyle}
                 tabIndex="-1"
                 ref={modalRef}
@@ -116,8 +107,8 @@ const CoreModal = React.forwardRef(
                 onClick={e => e.stopPropagation()}
                 className={`vdp-react-modal__container ${isOpen ? '--open' : ''}`}>
                 {children}
-            </div>
-        </motion.aside>
+            </motion.div>
+        </aside>
     )
 );
 
@@ -144,7 +135,7 @@ const Modal = ({
 }) => {
     const modalRef = React.useRef();
     const isMobile = useMedia({ maxWidth: 768 });
-    const [isRested, setIsRested] = React.useState(false);
+    const [isRested, setIsRested] = React.useState(true);
     // Focus on modal once animation is finished so user can hit escape
     React.useLayoutEffect(() => {
         if (isOpen && !!modalRef.current) {
@@ -191,16 +182,19 @@ const Modal = ({
     });
 
     const animateProps = getAnimationProps({ isMobile, isOpen, destroyOnClose, type });
+    const overrideStyles = isRested && !isOpen && !destroyOnClose ? { display: 'none' } : {};
     const backgroundStyle = !!backgroundImage ? { backgroundImage: `url('${backgroundImage}')` } : {};
     const modalProps = {
         handleBackdropClick,
         handleKeyDown,
-        className: modalClassNames,
         backgroundStyle,
+        overrideStyles,
         onStart,
         onRest,
         animateProps,
         isOpen,
+        ref: modalRef,
+        className: modalClassNames,
         ...htmlAttributes
     };
     return (
