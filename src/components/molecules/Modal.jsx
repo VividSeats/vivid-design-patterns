@@ -85,7 +85,7 @@ const Modal = ({
     /** Method called when modal is fully closed and animation is complete */
     onClosed = () => {},
     size,
-    ...htmlAtrributes
+    ...htmlAttributes
 }) => {
     const modalRef = React.useRef();
     const isMobile = useMedia({ maxWidth: 768 });
@@ -140,7 +140,7 @@ const Modal = ({
     return (
         <>
             <AnimatedModalWrapper isOpen={isOpen} destroyOnClose={destroyOnClose}>
-                <aside onClick={handleBackdropClick} onKeyDown={handleKeyDown} className={modalClassNames} {...htmlAtrributes}>
+                <aside onClick={handleBackdropClick} onKeyDown={handleKeyDown} className={modalClassNames} {...htmlAttributes}>
                     <motion.div
                         style={backgroundStyle}
                         onAnimationStart={onStart}
