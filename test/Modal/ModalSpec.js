@@ -73,7 +73,7 @@ describe('<Modal />', () => {
         expect(wrapper.exists('.vdp-modal__header')).toBe(true);
         expect(
             wrapper
-                .find('aside .vdp-react-modal__container')
+                .find('aside')
                 .hostNodes()
                 .props().style.opacity
         ).toBe(0);

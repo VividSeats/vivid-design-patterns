@@ -24,6 +24,9 @@ const getAnimationProps = ({ isMobile, isOpen, destroyOnClose, type }) => {
         },
         exit: {
             bottom: '-100%'
+        },
+        initial: {
+            bottom: '-100%'
         }
     };
 
@@ -35,20 +38,30 @@ const getAnimationProps = ({ isMobile, isOpen, destroyOnClose, type }) => {
         exit: {
             scale: 0.3,
             opacity: 0
+        },
+        initial: {
+            scale: 0.3,
+            opacity: 0
         }
     };
 
     const dontDestroyOnCloseMobileSheetAnimation = {
         enter: {
-            bottom: isOpen ? '0%' : '-100%'
-        }
+            bottom: isOpen ? '0%' : '-100%',
+            scale: 1, // Reset scale and opacity value since these are first rendered as 0s on the server for SSR
+            opacity: 1,
+            transitionEnd: !isOpen ? { scale: 0 } : { scale: 1 }
+        },
+        initial: false
     };
 
     const dontDestroyOnCloseDefaultAnimation = {
         enter: {
             scale: isOpen ? 1 : 0.3,
-            opacity: isOpen ? 1 : 0
-        }
+            opacity: isOpen ? 1 : 0,
+            transitionEnd: !isOpen ? { scale: 0 } : { scale: 1 }
+        },
+        initial: false
     };
 
     if (destroyOnClose) {
@@ -83,23 +96,28 @@ const CoreModal = React.forwardRef(
         },
         modalRef
     ) => (
-        <aside onClick={handleBackdropClick} onKeyDown={handleKeyDown} className={className} {...htmlAttributes}>
-            <motion.div
+        <motion.aside
+            onAnimationStart={onStart}
+            onAnimationComplete={onRest}
+            initial={animateProps.initial}
+            exit={animateProps.exit}
+            animate={animateProps.enter}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            onClick={handleBackdropClick}
+            style={overrideStyles}
+            onKeyDown={handleKeyDown}
+            className={className}
+            {...htmlAttributes}>
+            <div
                 style={backgroundStyle}
-                onAnimationStart={onStart}
-                onAnimationComplete={onRest}
-                initial={animateProps.exit}
-                exit={animateProps.exit}
-                animate={animateProps.enter}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
                 tabIndex="-1"
                 ref={modalRef}
                 onKeyDown={handleKeyDown}
                 onClick={e => e.stopPropagation()}
                 className={`vdp-react-modal__container ${isOpen ? '--open' : ''}`}>
                 {children}
-            </motion.div>
-        </aside>
+            </div>
+        </motion.aside>
     )
 );
 
