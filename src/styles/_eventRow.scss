@@ -156,6 +156,23 @@ $row-height: 4.5rem;
     }
 }
 
+// Truncate Info Column
+@include size-min-tablet {
+    .vdp-event-row__col--info.truncate {
+        overflow: hidden;
+
+        > * {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        &:hover > * {
+            overflow: auto;
+            white-space: normal;
+        }
+    }
+}
+
 // Skeleton Loader
 $animation-width: 752px;
 $gradient-size: 200px;
