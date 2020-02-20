@@ -195,6 +195,7 @@ const Modal = ({
         isOpen,
         ref: modalRef,
         className: modalClassNames,
+        key: `${isMobile ? 'mobile-' : 'desktop-'}${type}`,
         ...htmlAttributes
     };
     return (

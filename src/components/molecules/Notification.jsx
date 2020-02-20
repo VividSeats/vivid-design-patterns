@@ -32,6 +32,7 @@ const Notification = ({ isOpen, children, className = '', onClickClose, hasBackd
                         initial={animation.exit}
                         animate={animation.enter}
                         exit={animation.exit}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
                         style={style}
                         className={`vdp-notification ${className}`}
                         {...htmlAttributes}>

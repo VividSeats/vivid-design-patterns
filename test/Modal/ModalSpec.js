@@ -30,10 +30,18 @@ describe('<Modal />', () => {
         const wrapper = mount(<Modal isOpen disableBackdrop />);
         expect(wrapper.exists('.vdp-react-backdrop')).toBe(false);
     });
+
     it('calls onClickBackdrop when backdrop is clicked', async () => {
         const mockOnClose = jest.fn();
         const wrapper = mount(<Modal isOpen onClickBackdrop={mockOnClose} />);
         wrapper.find('aside.vdp-react-modal').simulate('click');
+        expect(mockOnClose).toHaveBeenCalled();
+    });
+
+    it('calls onClose when the escape key is hit', () => {
+        const mockOnClose = jest.fn();
+        const wrapper = mount(<Modal isOpen={true} onClose={mockOnClose} />);
+        wrapper.find('aside').simulate('keyDown', { key: 'Escape' });
         expect(mockOnClose).toHaveBeenCalled();
     });
 
@@ -75,8 +83,8 @@ describe('<Modal />', () => {
             wrapper
                 .find('aside')
                 .hostNodes()
-                .props().style.opacity
-        ).toBe(0);
+                .props().style.display
+        ).toBe('none');
     });
 
     it('works with SSR', () => {
