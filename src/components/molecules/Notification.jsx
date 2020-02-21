@@ -1,44 +1,48 @@
-import 'core-js/es6/string';
+import 'core-js/es6/array';
 import 'core-js/es6/object';
 import 'core-js/es7/object';
-import 'core-js/es6/array';
-import 'core-js/es7/array';
-import 'core-js/es6/set';
-import 'core-js/es7/set';
-import 'core-js/modules/es6.regexp.constructor';
+import 'core-js/es6/string';
+import 'core-js/es6/symbol';
+import 'core-js/es6/weak-set';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTransition, animated } from 'react-spring/web.cjs';
+import { AnimatePresence, motion } from 'framer-motion';
 import useMedia from 'use-media';
 import Backdrop from '../atoms/Backdrop';
 import Icon from '../atoms/Icon';
 
-const Notification = ({ isOpen, children, className = '', onClickClose, hasBackdrop, onClickBackdrop, style = {}, ...props }) => {
+const mobileAnimation = {
+    enter: { bottom: '0%' },
+    exit: { bottom: '-100%' }
+};
+
+const defaultAnimation = {
+    enter: { right: '0%' },
+    exit: { right: '-100%' }
+};
+
+const Notification = ({ isOpen, children, className = '', onClickClose, hasBackdrop, onClickBackdrop, style = {}, ...htmlAttributes }) => {
     const isMobile = useMedia({ maxWidth: 768 });
-
-    const transitions = useTransition(isOpen, null, {
-        from: isMobile ? { bottom: '-100%' } : { right: '-100%' },
-        enter: isMobile ? { bottom: '0%' } : { right: '0%' },
-        leave: isMobile ? { bottom: '-100%' } : { right: '-100%' }
-    });
-
+    const animation = isMobile ? mobileAnimation : defaultAnimation;
     return (
         <>
-            {transitions.map(
-                ({ item, props: animatedProps, key }) =>
-                    item && (
-                        <animated.div
-                            key={key}
-                            style={{ ...style, ...animatedProps }}
-                            className={`vdp-notification ${className}`}
-                            {...props}>
-                            {typeof onClickClose !== 'undefined' && (
-                                <Icon type="close" className="vdp-notification__dismiss" onClick={onClickClose} />
-                            )}
-                            {children}
-                        </animated.div>
-                    )
-            )}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={animation.exit}
+                        animate={animation.enter}
+                        exit={animation.exit}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        style={style}
+                        className={`vdp-notification ${className}`}
+                        {...htmlAttributes}>
+                        {typeof onClickClose !== 'undefined' && (
+                            <Icon type="close" className="vdp-notification__dismiss" onClick={onClickClose} />
+                        )}
+                        {children}
+                    </motion.div>
+                )}
+            </AnimatePresence>
             {hasBackdrop && <Backdrop isOpen={isOpen} onClick={onClickBackdrop} />}
         </>
     );

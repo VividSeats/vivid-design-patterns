@@ -73,10 +73,10 @@
     "dependencies": {
         "classnames": "^2.2.6",
         "core-js": "2.5.7",
+        "framer-motion": "^1.8.4",
         "moment": "^2.24.0",
         "react-lazy-load": "^3.0.13",
         "react-slidedown": "^2.0.7",
-        "react-spring": "8.0.27",
         "use-media": "^1.4.0"
     },
     "lint-staged": {
