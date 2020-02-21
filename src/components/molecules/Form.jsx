@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* eslint-disable react/sort-comp */
+
 const FormContext = React.createContext({});
 
 function FormContextConsumer(props) {
