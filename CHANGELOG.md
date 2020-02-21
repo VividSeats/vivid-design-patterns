@@ -1,10 +1,12 @@
 
-## Unreleased (2020-02-17)
+## Unreleased (2020-02-21)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#176](https://github.com/VividSeats/vivid-design-patterns/pull/176) DSYS-75 add truncate prop to event row ([@mgorman87](https://github.com/mgorman87))
+* [#175](https://github.com/VividSeats/vivid-design-patterns/pull/175) DSYS-74 add additional type props ([@mgorman87](https://github.com/mgorman87))
 * [#172](https://github.com/VividSeats/vivid-design-patterns/pull/172) DSYS-73 create trigger component ([@mgorman87](https://github.com/mgorman87))
 * [#164](https://github.com/VividSeats/vivid-design-patterns/pull/164) Dot 1263 ([@pvogenthaler](https://github.com/pvogenthaler))
 * [#163](https://github.com/VividSeats/vivid-design-patterns/pull/163) Add Image Tag Componetn ([@ylin6](https://github.com/ylin6))
@@ -29,6 +31,7 @@
 * [#102](https://github.com/VividSeats/vivid-design-patterns/pull/102) [COM-476] Add lead pricing to EventRows component ([@ealmiladi](https://github.com/ealmiladi))
 
 #### :bug: Bug Fix
+* [#177](https://github.com/VividSeats/vivid-design-patterns/pull/177) Com 1039 - remove react-spring in favor of framer-motion for better SSR support ([@ylin6](https://github.com/ylin6))
 * [#174](https://github.com/VividSeats/vivid-design-patterns/pull/174) eslint-changes to satisfy eslint when publishing ([@sgibson47](https://github.com/sgibson47))
 * [#170](https://github.com/VividSeats/vivid-design-patterns/pull/170) DOT-1774 make entire EventCard into a link ([@sgibson47](https://github.com/sgibson47))
 * [#171](https://github.com/VividSeats/vivid-design-patterns/pull/171) DSYS-72 fixes event row button width and large grouped buttons ([@mgorman87](https://github.com/mgorman87))
