@@ -167,7 +167,7 @@ $row-height: 4.5rem;
             white-space: nowrap;
         }
         &:hover > * {
-            overflow: auto;
+            overflow: visible;
             white-space: normal;
         }
     }
