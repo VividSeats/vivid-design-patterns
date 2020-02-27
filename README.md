@@ -57,7 +57,7 @@ Each time you make a change to vivid-design patterns, rerun `yarn run build:js` 
 ### Common Error Seen When Linking VDP to an Application
 
 ```
-Invariant Violateion: Invalid hook call. Hooks can only be called inside of the body of a function component.
+Uncaught Invariant Violation: Invalid hook call. Hooks can only be called inside of the body of a function component.
 ```
 This is a common error seen when linking VDP due to an issue with the generation of the `dist` directory or bundling of its files. 
 
