@@ -54,6 +54,24 @@ If you are using webpack in your other project, be sure to include this followin
 
 Each time you make a change to vivid-design patterns, rerun `yarn run build:js` to see the changes reflected in `your-other-project`
 
+### Common Error Seen When Linking VDP to an Application
+
+`Invariant Violateion: Invalid hook call. Hooks can only be called inside of the body of a function component.`
+This is a common error seen when linking VDP due to an issue with the generation of the `dist` directory or bundling of its files. 
+
+You can fix this error and rebuild the `dist` directory by running the following in VDP:
+
+```
+$ yarn run clean
+$ yarn run build:js
+$ yarn link
+```
+And by re-linking VDP in your application:
+```
+$ yarn link @vividseats/vivid-design-patterns
+```
+
+
 ## Feature Branches
 
 When developing with feature branches, you can publish to NPM using a tag. To publish the current branch, run `yarn run publish:branch`. This will publish the package with the branch name as the tag and `0.0.0-<BRANCH_NAME>-<TIME_STAMP>` as the version.
