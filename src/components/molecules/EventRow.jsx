@@ -125,14 +125,14 @@ const EventRow = ({
             {/* Date */}
             {!hasThumbnail && <DateColumn date={date} isTimeTbd={isTimeTbd} />}
             {/* Event Info */}
-            <div className={`${getColClassName(INFO)}${truncate ? ' truncate' : ''}`}>
-                <BodyText height="compressed" weight="black" importance={2} itemProp="name">
+            <div className={`${getColClassName(INFO)}`}>
+                <BodyText truncate={!!truncate} height="compressed" weight="black" importance={2} itemProp="name">
                     {title}
                 </BodyText>
                 {hasThumbnail && !!date && !isTimeTbd && <SmallText className="thumb-date">{thumbnailDate}</SmallText>}
                 {hasThumbnail && isTimeTbd && <SmallText className="thumb-date">TBD</SmallText>}
                 {!!Object.keys(venue).length ? (
-                    <SmallText state="muted" itemProp="location" itemScope itemType="http://schema.org/Place">
+                    <SmallText truncate={!!truncate} state="muted" itemProp="location" itemScope itemType="http://schema.org/Place">
                         <span itemProp="name">{venueName}</span>&nbsp;–&nbsp;
                         <span itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
                             <span itemProp="addressLocality">{city}</span>
