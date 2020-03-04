@@ -8,6 +8,7 @@ import CardHero from '../atoms/CardHero';
 import onEnterPress from '../../utils/onEnterPress';
 
 /* eslint react/no-array-index-key: 0 */
+/* eslint-disable react/sort-comp */
 
 class Card extends React.Component {
     static propTypes = {

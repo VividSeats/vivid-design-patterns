@@ -42,7 +42,7 @@ Row.propTypes = {
     justify: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between']),
     align: PropTypes.oneOf(['top', 'bottom', 'center']),
     /** sets flex-wrap css property. Use array for responsive breakpoint where the first item correspond to the smallest breakpoint. If you pass a value instead, will apply to all breakpoint  */
-    flexDirection: PropTypes.oneOf([
+    flexDirection: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.oneOf(['row', 'column', 'column-reverse', 'row-reverse']))
     ]),
