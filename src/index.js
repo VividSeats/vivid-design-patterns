@@ -63,3 +63,4 @@ export { default as Notification } from './components/molecules/Notification';
 export { default as Header } from './components/molecules/Header';
 export { default as Drawer } from './components/molecules/Drawer';
 export { default as EventCard } from './components/molecules/EventCard';
+export { default as Carousel } from './components/molecules/Carousel';

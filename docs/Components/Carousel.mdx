@@ -1,0 +1,53 @@
+---
+name: Carousel
+menu: Components
+route: /components/carousel
+---
+
+import { Props, Playground } from 'docz';
+import Carousel from '../../src/components/molecules/Carousel';
+import Button from '../../src/components/atoms/Button';
+import '../docz.scss';
+
+## Installation
+
+Using the react components:
+
+    import Carousel from '@vividseats/vivid-design-patterns/dist/molecule/Carousel';
+
+or
+    import { Carousel } from '@vividseats/vivid-design-patterns/dist/'
+
+## Basic Usage
+
+<Playground>
+    {() => {
+        const [panelIndex, setPanelIndex] = React.useState();
+        return (
+            <>
+                    <div>
+                        <Button onClick={() => setPanelIndex(0)}grouped>1</Button>
+                        <Button onClick={() => setPanelIndex(1)}grouped>2</Button>
+                        <Button onClick={() => setPanelIndex(2)}grouped>3</Button>
+                    </div>
+                    <Carousel activePanelIndex={panelIndex}>
+                        <Carousel.Panel>
+                            <img src="//a.vsstatic.com/slider/2017/concerts/post-malone.jpg"/>
+                        </Carousel.Panel>
+                        <Carousel.Panel>
+                            <img src="//a.vsstatic.com/slider/2019/concerts/george-strait.jpg"/>
+                        </Carousel.Panel>
+                        <Carousel.Panel>
+                            <img src="//a.vsstatic.com/slider/2019/concerts/celine-dion.jpg"/>
+                        </Carousel.Panel>
+                    </Carousel>
+            </>
+        )
+    }
+   }
+
+</Playground>
+
+## Props
+
+<Props of={Carousel} />
