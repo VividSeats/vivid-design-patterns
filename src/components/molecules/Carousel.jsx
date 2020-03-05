@@ -15,15 +15,13 @@ const Carousel = ({
 }) => {
     return (
         <div className={`ovf-h w-100 ${className}`} {...htmlAttributes}>
-            <div className="w-100 h-100">
-                {React.Children.map(children, (child, index) => {
-                    return React.cloneElement(child, {
-                        isActive: index === activePanelIndex,
-                        animate: getEnterAnimationProps(index, activePanelIndex),
-                        transition
-                    });
-                })}
-            </div>
+            {React.Children.map(children, (child, index) => {
+                return React.cloneElement(child, {
+                    isActive: index === activePanelIndex,
+                    animate: getEnterAnimationProps(index, activePanelIndex),
+                    transition
+                });
+            })}
         </div>
     );
 };
