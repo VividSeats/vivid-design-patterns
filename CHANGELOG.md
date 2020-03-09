@@ -1,10 +1,11 @@
 
-## Unreleased (2020-03-04)
+## Unreleased (2020-03-09)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
 
 #### :rocket: Enhancement
+* [#183](https://github.com/VividSeats/vivid-design-patterns/pull/183) Add Unit tests for Carousel component ([@ylin6](https://github.com/ylin6))
 * [#176](https://github.com/VividSeats/vivid-design-patterns/pull/176) DSYS-75 add truncate prop to event row ([@mgorman87](https://github.com/mgorman87))
 * [#175](https://github.com/VividSeats/vivid-design-patterns/pull/175) DSYS-74 add additional type props ([@mgorman87](https://github.com/mgorman87))
 * [#172](https://github.com/VividSeats/vivid-design-patterns/pull/172) DSYS-73 create trigger component ([@mgorman87](https://github.com/mgorman87))
