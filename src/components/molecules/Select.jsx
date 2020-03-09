@@ -6,6 +6,8 @@ import SelectOption from '../atoms/SelectOption';
 import Label from '../atoms/Label';
 import ErrorMessage from '../atoms/ErrorMessage';
 
+/* eslint-disable react/sort-comp */
+
 class Select extends React.Component {
     static propTypes = {
         id: PropTypes.string,
