@@ -11,12 +11,11 @@ const Carousel = ({
     activePanelIndex = 0,
     className = '',
     children,
-    transition = { duration: 10, easing: 'easeInOut' },
+    transition = { duration: 0.3, easing: 'easeInOut' },
     ...htmlAttributes
 }) => {
     const [animatedActiveIndex, setAnimatedActiveIndex] = React.useState(activePanelIndex);
     const [isAnimating, setIsAnimating] = React.useState(false);
-
     const onAnimationComplete = () => {
         setIsAnimating(false);
         setAnimatedActiveIndex(activePanelIndex);
@@ -56,7 +55,7 @@ const Panel = ({ className = '', children, isVisible = true, ...htmlAttributes }
 };
 
 Panel.propTypes = {
-    isHidden: PropTypes.bool,
+    isVisible: PropTypes.bool,
     className: PropTypes.string,
     children: PropTypes.node
 };
