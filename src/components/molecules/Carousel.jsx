@@ -11,21 +11,28 @@ const Carousel = ({
     activePanelIndex = 0,
     className = '',
     children,
-    transition = { duration: 0.3, easing: 'easeInOut' },
+    transition = { duration: 10, easing: 'easeInOut' },
     ...htmlAttributes
 }) => {
+    const [animatedActiveIndex, setAnimatedActiveIndex] = React.useState(activePanelIndex);
     const [isAnimating, setIsAnimating] = React.useState(false);
+
+    const onAnimationComplete = () => {
+        setIsAnimating(false);
+        setAnimatedActiveIndex(activePanelIndex);
+    };
+
     return (
         <div className={`vdp-carousel ${className}`} {...htmlAttributes}>
             <motion.div
                 className="vdp-carousel__container"
                 onAnimationStart={() => setIsAnimating(true)}
-                onAnimationComplete={() => setIsAnimating(false)}
+                onAnimationComplete={onAnimationComplete}
                 initial={false}
                 transition={transition}
                 animate={getEnterAnimationProps(activePanelIndex)}>
                 {React.Children.map(children, (child, index) => {
-                    const isActive = index === activePanelIndex;
+                    const isActive = index === animatedActiveIndex;
                     return React.cloneElement(child, {
                         isVisible: isAnimating ? true : isActive
                     });
@@ -49,7 +56,7 @@ const Panel = ({ className = '', children, isVisible = true, ...htmlAttributes }
 };
 
 Panel.propTypes = {
-    isVisible: PropTypes.bool,
+    isHidden: PropTypes.bool,
     className: PropTypes.string,
     children: PropTypes.node
 };
