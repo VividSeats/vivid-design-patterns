@@ -3,145 +3,24 @@
 @import 'mixins/prefixes';
 
 .vdp-carousel {
-    display: none; // just in case for mobile
-
-    @include size-min-tablet {
-        background-color: $color-black;
-        display: block;
-        height: $carousel-height;
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-    }
-}
-.vdp-carousel__slider {
-    height: 100%;
+    overflow-x: hidden;
     width: 100%;
 
-    figure {
-        @include align-items(center);
-        @include transition(all $transition-4);
-        display: none;
-        left: 100%;
-        margin: 0;
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        height: 100%;
+    .vdp-carousel__container {
+        @include flex();
         width: 100%;
-
-        &.active,
-        &.next,
-        &.prev {
-            @include flex;
-        }
-        &.prev {
-            left: -100%;
-        }
-        &.active {
-            left: 0;
-            opacity: 1;
-
-            figcaption {
-                opacity: 1;
-            }
-        }
-        &.next {
-            left: 100%;
-        }
-        img {
-            @include transform(translateX(-50%));
-            height: 100%;
-            left: 42%;
-            max-width: none;
-            position: absolute;
-            top: 0;
-            width: auto;
-            z-index: 1;
-
-            @include size-min-desktop {
-                left: 50%;
-            }
-        }
-        figcaption {
-            @include transition(opacity 1400ms ease-in-out);
-            margin-left: auto;
-            margin-right: auto;
-            max-width: $grid-max-width;
-            opacity: 0;
-            padding-left: $grid-container-padding;
-            padding-right: $grid-container-padding;
+        .vdp-carousel__slide {
+            flex: 1 0 100%;
+            min-height: 0;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 0;
             width: 100%;
-            position: relative;
-            z-index: 2;
-        }
-        .slide-copy {
-            color: $color-white;
-            font-family: $font-family-default;
-            padding-left: 48%;
-            padding-right: 8%;
-
-            @include size-min-desktop {
-                padding-left: 56%;
+            visibility: hidden;
+            &.--visible {
+                visibility: visible;
+                height: auto;
             }
-            h3 {
-                @include typography(
-                    $color: $color-white,
-                    $fontSize: $font-size-4XL,
-                    $fontWeight: $font-weight-blk,
-                    $lineHeight: $line-height-SM
-                );
-                margin: 0;
-
-                i {
-                    color: $color-brand-gold;
-                    font-style: normal;
-                }
-            }
-            p {
-                @include typography($color: $color-white, $fontSize: $font-size-MD, $lineHeight: $line-height-MD);
-                margin: 0 0 1rem;
-            }
-            a {
-                @include button-base;
-                @include button-size($font-size-SM, $button-height-small, $sizing-XL);
-                background: rgba($color-white, 0.4);
-                color: $color-white;
-
-                &:hover {
-                    box-shadow: $elevation-2;
-                }
-            }
-        }
-    }
-}
-.vdp-carousel__controls {
-    @include position(absolute, 0 0 0 0);
-    margin: auto;
-    max-width: $grid-max-width;
-    padding-left: $grid-container-padding;
-    padding-right: $grid-container-padding;
-    pointer-events: none;
-    width: 100%;
-    z-index: 3;
-
-    .control {
-        @include vertical-align(absolute, 50%);
-        color: rgba($color-white, 0.4);
-        cursor: pointer;
-        pointer-events: all;
-
-        &:hover {
-            color: $color-white;
-        }
-        &.next {
-            right: 0;
-        }
-        &.prev {
-            left: 0;
-        }
-        i {
-            font-size: $font-size-4XL;
         }
     }
 }

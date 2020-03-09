@@ -32,9 +32,10 @@ class Accordion extends React.Component {
     }
 
     render() {
-        const { children } = this.props;
+        const { children, isMobile } = this.props;
         return React.Children.map(children, (child, index) =>
             React.cloneElement(child, {
+                collapseOnMobileOnly: isMobile || child.props.collapseOnMobileOnly,
                 open: this.getOpenedIndex() === index,
                 onOpenChange: () => this.setOpenedIndex(index)
             })
@@ -47,6 +48,7 @@ Accordion.propTypes = {
     /** For controlled components. Use -1 to indicate no Collapse components are open. */
     openedIndex: PropTypes.number,
     children: PropTypes.node,
+    isMobile: PropTypes.bool,
     /** For use with controlled props. Fires when an accordion is open with the opened element's index */
     onAccordionOpen: PropTypes.func
 };
