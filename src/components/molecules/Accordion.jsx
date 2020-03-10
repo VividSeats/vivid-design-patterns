@@ -33,7 +33,7 @@ class Accordion extends React.Component {
 
     render() {
         const { children, isMobile } = this.props;
-        return React.Children.map(children, (child, index) =>
+        return React.Children.toArray(children).map((child, index) =>
             React.cloneElement(child, {
                 collapseOnMobileOnly: isMobile || child.props.collapseOnMobileOnly,
                 open: this.getOpenedIndex() === index,
