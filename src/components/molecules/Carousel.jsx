@@ -30,7 +30,7 @@ const Carousel = ({
                 initial={false}
                 transition={transition}
                 animate={getEnterAnimationProps(activePanelIndex)}>
-                {React.Children.map(children, (child, index) => {
+                {React.Children.toArray(children).map((child, index) => {
                     const isActive = index === animatedActiveIndex;
                     return React.cloneElement(child, {
                         isVisible: isAnimating ? true : isActive
