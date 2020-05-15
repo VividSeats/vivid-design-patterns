@@ -22,7 +22,7 @@ pipeline {
   stages {
     stage('Prepare git environment') {
         steps {
-            sendSlackNotification(buildStatus: "Publishing ${params.SEM_VER_TYPE} update to Vivid Design Patterns", channel: "#eng-team-web")
+            sendSlackNotification(buildStatus: "Publishing ${params.SEM_VER_TYPE} update to Vivid Design Patterns", channel: "#eng-team-b2c")
             withCredentials([
                       usernamePassword(
                       credentialsId: GIT_CREDENTIALS,
@@ -72,7 +72,7 @@ pipeline {
   post {
     always {
         script {
-            sendSlackNotification(buildStatus: currentBuild.currentResult, channel: "#eng-team-web")
+            sendSlackNotification(buildStatus: currentBuild.currentResult, channel: "#eng-team-b2c")
         }
     }
   }
