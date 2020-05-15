@@ -1,5 +1,5 @@
 
-## Unreleased (2020-04-15)
+## Unreleased (2020-05-15)
 
 #### :boom: Breaking Change
 * [#111](https://github.com/VividSeats/vivid-design-patterns/pull/111) animate-js ([@cmoog](https://github.com/cmoog))
@@ -56,13 +56,17 @@
 * [#167](https://github.com/VividSeats/vivid-design-patterns/pull/167) Update loading spinner import ([@oleksandra-holovina](https://github.com/oleksandra-holovina))
 * [#160](https://github.com/VividSeats/vivid-design-patterns/pull/160) Make className an optional type for Typeahead component ([@ylin6](https://github.com/ylin6))
 
-#### Committers: 14
+#### :house: Internal
+* [#190](https://github.com/VividSeats/vivid-design-patterns/pull/190) update slack publishing notifications eng-team-b2c instead of eng-team-web ([@sgibson47](https://github.com/sgibson47))
+
+#### Committers: 15
 - Bill Hinderman ([@billHinderman](https://github.com/billHinderman))
 - Charles Moog ([@cmoog](https://github.com/cmoog))
 - David Metzler ([@metzelhoff](https://github.com/metzelhoff))
 - Deepak Pradeep ([@dpac90](https://github.com/dpac90))
 - Jeff Borders ([@jeffborders](https://github.com/jeffborders))
 - Matt Gorman ([@mgorman87](https://github.com/mgorman87))
+- Nic Roth ([@nicroth](https://github.com/nicroth))
 - Paige Vogenthaler ([@pvogenthaler](https://github.com/pvogenthaler))
 - Sam Gibson ([@sgibson47](https://github.com/sgibson47))
 - Yucheng Lin ([@ylin6](https://github.com/ylin6))
