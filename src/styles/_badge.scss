@@ -4,7 +4,7 @@
 
 [class^='vdp-badge'] {
     @include typography($color: $color-white, $fontSize: $font-size-XS, $fontWeight: $font-weight-bld, $lineHeight: $line-height-LG);
-    background-color: $color-gray;
+    background-color: $color-brand-slate;
     border-radius: $border-radius-XS;
     display: inline-block;
     padding: 1px $sizing-SM;
