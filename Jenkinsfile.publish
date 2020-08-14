@@ -12,7 +12,7 @@ pipeline {
 
   environment {
     GITHUB_AUTH = vault path: "jenkins/master", key: "GITHUB_TOKEN", engineVersion: "1"
-    NPM_AUTH = vault path: "jenkins/master", key: "NPM_AUTH", engineVersion: "1"
+    NPM_AUTH = vault path: "jenkins/master/npm", key: "NPM_AUTH", engineVersion: "1"
   }
 
   parameters {
