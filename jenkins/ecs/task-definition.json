@@ -12,7 +12,7 @@
         }
       ],
       "essential": true,
-      "image": "vividseats/vivid-design-patterns:$IMAGE_TAG_LOWERs",
+      "image": "vividseats/vivid-design-patterns:$IMAGE_TAG_LOWER",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
