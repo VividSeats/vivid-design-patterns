@@ -1,32 +1,44 @@
 {
   "containerDefinitions": [
     {
-      "memoryReservation": 256,
+      "environment": [
+        {
+          "name": "ENVIRONMENT",
+          "value": "production"
+        },
+        {
+          "name": "APP_ENV",
+          "value": "production"
+        }
+      ],
+      "essential": true,
+      "image": "vividseats/vivid-design-patterns:$IMAGE_TAG_LOWER",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/patterns-service",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "master"
+        }
+      },
+      "name": "patterns-service",
       "portMappings": [
         {
           "containerPort": 80,
           "protocol": "tcp"
         }
       ],
-      "essential": true,
-      "name": "patterns-service",
-      "environment": [
-        {"name": "ENVIRONMENT", "value": "production"},
-        {"name": "APP_ENV", "value": "production"},
-        {"name": "BUILD_NUMBER", "value": "$BUILD_NUMBER"},
-        {"name": "BUILD_TIMESTAMP", "value": "$BUILD_TIMESTAMP"}
-      ],
-      "logConfiguration": {
-        "logDriver": "json-file",
-        "options": {
-          "max-size": "30m",
-          "max-file": "10"
-        }
-      },
-      "image": "$IMAGE_NAME:$IMAGE_TAG_LOWER",
-      "cpu": 512,
-      "privileged": true
+      "repositoryCredentials": {
+        "credentialsParameter": "platform/dockerhub/readonly"
+      }
     }
   ],
-  "family": "$ECS_TASK_FAMILY"
+  "cpu": "256",
+  "executionRoleArn": "arn:aws:iam::311857501036:role/fargate-task-execution-role",
+  "family": "patterns-service",
+  "memory": "512",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ]
 }
