@@ -205,7 +205,7 @@ const EventRow = ({
                     {...(includeSchemaData
                         ? { itemProp: 'performer', itemScope: true, itemType: `http://schema.org/${performerType}` }
                         : {})}>
-                    <meta {...(includeSchemaData ? { itemProp: 'name' } : {})} />
+                    <meta {...(includeSchemaData ? { itemProp: 'name' } : {})} content={performerName} />
                     <meta {...(includeSchemaData ? { itemProp: 'sameAs' } : {})} content={performerUrl} />
                 </div>
             )}
