@@ -92,6 +92,7 @@ const EventRow = ({
     isInternationalVenue = false,
     eventType = 'Event',
     truncate = false,
+    includeSchemaData = true,
     ...htmlAttributes
 }) => {
     const { getColClassName, BASE_CLASSNAME, COL_CLASSNAMES, BUTTON_TEXT } = EventRow;
@@ -123,26 +124,31 @@ const EventRow = ({
                 />
             )}
             {/* Date */}
-            {!hasThumbnail && <DateColumn date={date} isTimeTbd={isTimeTbd} />}
+            {!hasThumbnail && <DateColumn date={date} isTimeTbd={isTimeTbd} includeSchemaData={includeSchemaData} />}
             {/* Event Info */}
             <div className={`${getColClassName(INFO)}${truncate ? ' truncate' : ''}`}>
-                <BodyText height="compressed" weight="black" importance={2} itemProp="name">
+                <BodyText height="compressed" weight="black" importance={2} {...(includeSchemaData ? { itemProp: 'name' } : {})}>
                     {title}
                 </BodyText>
                 {hasThumbnail && !!date && !isTimeTbd && <SmallText className="thumb-date">{thumbnailDate}</SmallText>}
                 {hasThumbnail && isTimeTbd && <SmallText className="thumb-date">TBD</SmallText>}
                 {!!Object.keys(venue).length ? (
-                    <SmallText state="muted" itemProp="location" itemScope itemType="http://schema.org/Place">
-                        <span itemProp="name">{venueName}</span>&nbsp;–&nbsp;
-                        <span itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
-                            <span itemProp="addressLocality">{city}</span>
+                    <SmallText
+                        state="muted"
+                        {...(includeSchemaData ? { itemProp: 'location', itemScope: true, itemType: 'http://schema.org/Place' } : {})}>
+                        <span {...(includeSchemaData ? { itemProp: 'name' } : {})}>{venueName}</span>&nbsp;–&nbsp;
+                        <span
+                            {...(includeSchemaData
+                                ? { itemProp: 'address', itemScope: true, itemType: 'http://schema.org/PostalAddress' }
+                                : {})}>
+                            <span {...(includeSchemaData ? { itemProp: 'addressLocality' } : {})}>{city}</span>
                             {!!regionCode && (
                                 <React.Fragment>
-                                    , <span itemProp="addressRegion">{regionCode}</span>
+                                    , <span {...(includeSchemaData ? { itemProp: 'addressRegion' } : {})}>{regionCode}</span>
                                 </React.Fragment>
                             )}
                             {countryCodeString}
-                            <meta itemProp="addressCountry" content={countryCode || 'US'} />
+                            <meta {...(includeSchemaData ? { itemProp: 'addressCountry' } : {})} content={countryCode || 'US'} />
                         </span>
                     </SmallText>
                 ) : (
@@ -171,30 +177,36 @@ const EventRow = ({
             {!!minListPrice && showMinListPrice && (
                 <MobileMinListCol minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />
             )}
-            <link className="schema-url" itemProp="url" href={hrefWithUtmTracking} />
-            <meta itemProp="sameAs" content={hrefWithUtmTracking} />
-            {!!imageUrl && <meta itemProp="image" content={imageUrl} />}
-            {!!schemaDescription && <meta itemProp="description" content={schemaDescription} />}
-            <div itemProp="offers" itemScope itemType="http://schema.org/AggregateOffer">
-                <link itemProp="url" href={hrefWithUtmTracking} />
-                <meta itemProp="priceCurrency" content="USD" />
+            <link className="schema-url" {...(includeSchemaData ? { itemProp: 'url' } : {})} href={hrefWithUtmTracking} />
+            <meta {...(includeSchemaData ? { itemProp: 'sameAs' } : {})} content={hrefWithUtmTracking} />
+            {!!imageUrl && <meta {...(includeSchemaData ? { itemProp: 'image' } : {})} content={imageUrl} />}
+            {!!schemaDescription && <meta {...(includeSchemaData ? { itemProp: 'description' } : {})} content={schemaDescription} />}
+            <div {...(includeSchemaData ? { itemProp: 'offers', itemScope: true, itemType: 'http://schema.org/AggregateOffer' } : {})}>
+                <link {...(includeSchemaData ? { itemProp: 'url' } : {})} href={hrefWithUtmTracking} />
+                <meta {...(includeSchemaData ? { itemProp: 'priceCurrency' } : {})} content="USD" />
                 {ticketCount > 0 ? (
-                    <link itemProp="availability" href="http://schema.org/InStock" />
+                    <link {...(includeSchemaData ? { itemProp: 'availability' } : {})} href="http://schema.org/InStock" />
                 ) : (
-                    <link itemProp="availability" href="http://schema.org/SoldOut" />
+                    <link {...(includeSchemaData ? { itemProp: 'availability' } : {})} href="http://schema.org/SoldOut" />
                 )}
                 {!isTimeTbd && (
                     <React.Fragment>
-                        <meta itemProp="validFrom" content={`${moment().format('YYYY-MM-DD')}`} />
-                        <meta itemProp="validThrough" content={`${moment(date).format('YYYY-MM-DD')}`} />
+                        <meta {...(includeSchemaData ? { itemProp: 'validFrom' } : {})} content={`${moment().format('YYYY-MM-DD')}`} />
+                        <meta
+                            {...(includeSchemaData ? { itemProp: 'validThrough' } : {})}
+                            content={`${moment(date).format('YYYY-MM-DD')}`}
+                        />
                     </React.Fragment>
                 )}
-                {!!minListPrice && <meta itemProp="price" content={minListPrice} />}
+                {!!minListPrice && <meta {...(includeSchemaData ? { itemProp: 'price' } : {})} content={minListPrice} />}
             </div>
             {!!performerType && (
-                <div itemProp="performer" itemScope itemType={`http://schema.org/${performerType}`}>
-                    <meta itemProp="name" content={performerName} />
-                    <meta itemProp="sameAs" content={performerUrl} />
+                <div
+                    {...(includeSchemaData
+                        ? { itemProp: 'performer', itemScope: true, itemType: `http://schema.org/${performerType}` }
+                        : {})}>
+                    <meta {...(includeSchemaData ? { itemProp: 'name' } : {})} />
+                    <meta {...(includeSchemaData ? { itemProp: 'sameAs' } : {})} content={performerUrl} />
                 </div>
             )}
         </Fragment>
@@ -202,8 +214,6 @@ const EventRow = ({
 
     const eventRowProps = {
         className: BASE_CLASSNAME,
-        itemScope: true,
-        itemType: `http://schema.org/${eventType}`,
         role: 'row',
         onClick: e => {
             onChange(!checkboxState);
@@ -212,6 +222,11 @@ const EventRow = ({
         },
         ...htmlAttributes
     };
+
+    if (includeSchemaData) {
+        eventRowProps.itemScope = true;
+        eventRowProps.itemType = `http://schema.org/${eventType}`;
+    }
 
     return !!href.length ? (
         <Link href={href} type="anchor" {...eventRowProps}>
@@ -271,7 +286,8 @@ EventRow.propTypes = {
     onClick: PropTypes.func,
     eventType: PropTypes.string,
     showMinListPrice: PropTypes.bool,
-    truncate: PropTypes.bool
+    truncate: PropTypes.bool,
+    includeSchemaData: PropTypes.bool
 };
 
 export default EventRow;

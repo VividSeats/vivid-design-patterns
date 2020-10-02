@@ -5,7 +5,7 @@ import SmallText from './SmallText';
 import BodyText from './BodyText';
 import Badge from './Badge';
 
-export default function DateColumn({ date, isTimeTbd = false }) {
+export default function DateColumn({ date, isTimeTbd = false, includeSchemaData = true }) {
     const momentDate = moment(date);
     const eventRowClass = 'vdp-event-row__col--date';
 
@@ -21,8 +21,16 @@ export default function DateColumn({ date, isTimeTbd = false }) {
 
     return (
         <div className={eventRowClass}>
-            <meta itemProp="startDate" title={momentDate.unix()} content={`${momentDate.format('YYYY-MM-DD')}`} />
-            <meta itemProp="endDate" title={momentDate.unix()} content={`${momentDate.format('YYYY-MM-DD')}`} />
+            <meta
+                {...(includeSchemaData ? { itemProp: 'startDate' } : {})}
+                title={momentDate.unix()}
+                content={`${momentDate.format('YYYY-MM-DD')}`}
+            />
+            <meta
+                {...(includeSchemaData ? { itemProp: 'endDate' } : {})}
+                title={momentDate.unix()}
+                content={`${momentDate.format('YYYY-MM-DD')}`}
+            />
             <SmallText alignment="center" state="muted">
                 {momentDate.format('ddd')}
             </SmallText>
@@ -45,5 +53,6 @@ export default function DateColumn({ date, isTimeTbd = false }) {
 
 DateColumn.propTypes = {
     date: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.instanceOf(Date)]),
-    isTimeTbd: PropTypes.bool
+    isTimeTbd: PropTypes.bool,
+    includeSchemaData: PropTypes.bool
 };
