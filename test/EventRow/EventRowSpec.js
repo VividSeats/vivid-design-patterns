@@ -181,4 +181,12 @@ describe('<EventRow />', () => {
         expect(perfomer.find("meta[itemProp='name']").props().content).toBe(props.performerName);
         expect(perfomer.find("meta[itemProp='sameAs']").props().content).toBe(props.performerUrl);
     });
+
+    it('verify perfomer without schema data', () => {
+        const wrapper = shallow(<EventRow {...props} includeSchemaData={false} />);
+
+        expect(wrapper.find("div[itemProp='performer']").exists()).toBeFalsy();
+        expect(wrapper.find("meta[itemProp='name']").exists()).toBeFalsy();
+        expect(wrapper.find("meta[itemProp='sameAs']").exists()).toBeFalsy();
+    });
 });
