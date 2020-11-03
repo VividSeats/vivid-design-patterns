@@ -1,66 +1,73 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from './Icon';
 
-const Button = ({
-    children,
-    block,
-    muted,
-    size,
-    raised,
-    selected,
-    importance,
-    className,
-    href,
-    type = 'submit',
-    grouped,
-    disabled,
-    icon = null,
-    onClick = () => {},
-    onFocus = () => {},
-    onMouseEnter = () => {},
-    onMouseLeave = () => {},
-    onBlur = () => {},
-    ...htmlAttributes
-}) => {
-    const baseButtonClass = grouped ? 'vdp-grouped-button' : 'vdp-button';
-    const buttonClassNames = classNames(baseButtonClass, {
-        [`--${size}`]: size,
-        [`--${importance}`]: importance,
-        [`--disabled`]: disabled,
-        [`--selected`]: selected,
-        [`--muted`]: muted,
-        [`--raised`]: raised,
-        [`--block`]: block
-    });
+const Button = forwardRef(
+    (
+        {
+            children,
+            block,
+            muted,
+            size,
+            raised,
+            selected,
+            importance,
+            className,
+            href,
+            type = 'submit',
+            grouped,
+            disabled,
+            icon = null,
+            onClick = () => {},
+            onFocus = () => {},
+            onMouseEnter = () => {},
+            onMouseLeave = () => {},
+            onBlur = () => {},
+            ...htmlAttributes
+        },
+        ref
+    ) => {
+        const baseButtonClass = grouped ? 'vdp-grouped-button' : 'vdp-button';
+        const buttonClassNames = classNames(baseButtonClass, {
+            [`--${size}`]: size,
+            [`--${importance}`]: importance,
+            [`--disabled`]: disabled,
+            [`--selected`]: selected,
+            [`--muted`]: muted,
+            [`--raised`]: raised,
+            [`--block`]: block
+        });
 
-    const iconNode = icon ? <Icon className="vdp-button__icon" type={icon} /> : icon;
+        const iconNode = icon ? <Icon className="vdp-button__icon" type={icon} /> : icon;
 
-    const props = {
-        className: className ? `${buttonClassNames} ${className}` : buttonClassNames,
-        onMouseEnter,
-        onMouseLeave,
-        onClick,
-        onFocus,
-        onBlur,
-        ...htmlAttributes
-    };
+        const props = {
+            className: className ? `${buttonClassNames} ${className}` : buttonClassNames,
+            onMouseEnter,
+            onMouseLeave,
+            onClick,
+            onFocus,
+            onBlur,
+            ref,
+            ...htmlAttributes
+        };
 
-    return href ? (
-        <a {...{ ...props, href }}>
-            {iconNode}
-            {children}
-        </a>
-    ) : (
-        <button {...{ ...props, type, disabled }}>
-            {iconNode}
-            {children}
-        </button>
-    );
-};
+        return href ? (
+            <a {...{ ...props, href }}>
+                {iconNode}
+                {children}
+            </a>
+        ) : (
+            <button {...{ ...props, type, disabled }}>
+                {iconNode}
+                {children}
+            </button>
+        );
+    }
+);
 
 Button.propTypes = {
+    ref: PropTypes.func,
     children: PropTypes.node,
     /** html button types eg submit, reset, button` */
     type: PropTypes.string,
