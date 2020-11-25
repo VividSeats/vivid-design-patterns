@@ -9,6 +9,7 @@ pipeline {
       label 'vivid-design-patterns-2018-12-27-3'
       idleMinutes 2
       yamlFile 'jenkins/kubernetes/build-pod.yaml'
+      inheritFrom 'base'
     }
   }
 
