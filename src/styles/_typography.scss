@@ -8,33 +8,33 @@ $fontFaces: (
         normal,
         Regular
     ),
-    RobotoRegular: (
-        'roboto',
+    PoppinsRegular: (
+        'poppins',
         400,
         normal,
         regular
     ),
-    RobotoItalic: (
-        'roboto',
+    PoppinsItalic: (
+        'poppins',
         400,
         italic,
         italic
     ),
-    RobotoMedium: (
-        'roboto',
-        500,
+    PoppinsMedium: (
+        'poppins',
+        600,
         normal,
         medium
     ),
-    RobotoBold: (
-        'roboto',
+    PoppinsBold: (
+        'poppins',
         700,
         normal,
         bold
     ),
-    RobotoBlack: (
-        'roboto',
-        900,
+    PoppinsBlack: (
+        'poppins',
+        800,
         normal,
         'black'
     )
@@ -108,7 +108,7 @@ $typeStyles: (
     ),
     subhead: (
         $font-size-SM,
-        $font-weight-blk,
+        $font-weight-bld,
         $line-height-MD,
         uppercase
     ),
@@ -236,7 +236,7 @@ a {
 // Type Modifiers
 [class^='vdp-type'] {
     &[class*='--blk'] {
-        font-weight: $font-weight-blk !important;
+        font-weight: $font-weight-bld !important;
     }
     &[class*='--bld'] {
         font-weight: $font-weight-bld !important;
