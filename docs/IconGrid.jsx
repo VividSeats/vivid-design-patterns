@@ -102,6 +102,7 @@ const tickets = [
     { type: 'ticket-electronic', entity: '&#xe94d;' },
     { type: 'ticket-guarantee-filled', entity: '&#xe94e;' },
     { type: 'ticket-guarantee', entity: '&#xe94f;' },
+    { type: 'ticket-instant-filled', entity: '&#xe952;' },
     { type: 'ticket-instant', entity: '&#xe950;' },
     { type: 'ticket-mobile', entity: '&#xe951;' },
     { type: 'ticket-note', entity: '&#xe952;' },
@@ -109,6 +110,7 @@ const tickets = [
     { type: 'ticket-pick-up', entity: '&#xe954;' },
     { type: 'ticket-preferred', entity: '&#xe955;' },
     { type: 'ticket-print', entity: '&#xe956;' },
+    { type: 'ticket-super-seller', entity: '&#xe95c;' },
     { type: 'ticket-transfer', entity: '&#xe957;' },
     { type: 'ticket-truck', entity: '&#xe958;' },
     { type: 'ticket-zone', entity: '&#xe959;' }
