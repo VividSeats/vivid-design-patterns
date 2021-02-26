@@ -102,7 +102,7 @@ const tickets = [
     { type: 'ticket-electronic', entity: '&#xe94d;' },
     { type: 'ticket-guarantee-filled', entity: '&#xe94e;' },
     { type: 'ticket-guarantee', entity: '&#xe94f;' },
-    { type: 'ticket-instant-filled', entity: '&#xe952;' },
+    { type: 'ticket-instant-filled', entity: '&#xe95b;' },
     { type: 'ticket-instant', entity: '&#xe950;' },
     { type: 'ticket-mobile', entity: '&#xe951;' },
     { type: 'ticket-note', entity: '&#xe952;' },
