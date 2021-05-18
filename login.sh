@@ -3,7 +3,7 @@
 FILE=".npmrc"
 
 /bin/cat <<EOM >$FILE
-email=itsupport@vividseats.com
+username=vsadmin
 always-auth=true
 _auth=$NPM_AUTH
 EOM
