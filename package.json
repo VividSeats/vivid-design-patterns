@@ -98,7 +98,7 @@
         "watch:js": "NODE_ENV=dev ./node_modules/.bin/gulp bundle_js watch_js",
         "prepublishOnly": "yarn run format && yarn run test && yarn run lint && yarn run build:js",
         "changelog": "node ./generate-changelog.js",
-        "publish:branch": "yarn publish --tag $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) --new-version 0.0.0-$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)-$(date +%s) --no-git-tag-version",
+        "publish:branch": "yarn publish --tag $(git rev-parse --symbolic-full-name --abbrev-ref HEAD) --new-version 0.0.1-$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)-$(date +%s) --no-git-tag-version",
         "format": "./node_modules/.bin/prettier --write **/*/*.{js,jsx}",
         "lint": "./node_modules/.bin/eslint --ext .js,.jsx ./src",
         "lint:ci": "./node_modules/.bin/eslint --format junit --output-file ./reports/eslint.xml --ext .js,.jsx ./src",
