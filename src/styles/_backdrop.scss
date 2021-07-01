@@ -5,7 +5,7 @@
 [class^='vdp-backdrop'] {
     @include position(fixed, 0 null null 0);
     @include transition(opacity $transition-2);
-    background-color: rgba($color-black, 0.75);
+    background-color: rgba($color-neutral-800, 0.75);
     display: none;
     height: 100%;
     opacity: 0;
@@ -29,7 +29,7 @@
 
 .vdp-react-backdrop {
     @include position(fixed, 0 null null 0);
-    background-color: rgba($color-black, 0.75);
+    background-color: rgba($color-neutral-800, 0.75);
     height: 100%;
     pointer-events: none;
     width: 100%;

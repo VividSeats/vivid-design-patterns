@@ -9,8 +9,11 @@
 .vdp-menu {
     @include transition(all $transition-2);
     background: $color-white;
+    list-style: none;
+    margin-top: 0;
     min-width: 100%;
     opacity: 0;
+    padding-left: 0;
     visibility: hidden;
     width: 100%;
     z-index: 1;
@@ -25,19 +28,17 @@
         @include flex;
         @include flex-direction(column);
         @include flex-wrap(wrap);
-        @include position(absolute, 0 null null 0);
         @include transition(all $transition-2);
-        padding-top: $sizing-4XL;
         height: 100%;
         width: 100%;
     }
     .vdp-menu__item > a:first-of-type:before {
-        @include position(absolute, $sizing-MD $sizing-SM null null);
+        @include position(absolute, $sizing-md $sizing-sm null null);
         @include pseudo-icon('\e90d');
     }
     .vdp-menu__divider {
         @include border(top);
-        margin: $sizing-2XS 0;
+        margin: $sizing-2xs 0;
     }
 }
 @include size-min-tablet {
@@ -46,7 +47,7 @@
     }
     .vdp-menu__divider {
         @include border(left);
-        height: $sizing-XL;
-        margin: auto $sizing-XS;
+        height: $sizing-xl;
+        margin: auto $sizing-xs;
     }
 }

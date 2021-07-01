@@ -4,13 +4,13 @@
 
 [class*='vdp-trigger'] {
     @include transition(all $transition-2);
-    background: rgba($color-brand-blue, 0.1);
+    background: rgba($color-brand-primary, 0.1);
     border: none;
-    border-radius: $border-radius-MD;
+    border-radius: $border-radius-md;
     color: $text-color-link;
     cursor: pointer;
     outline: none !important;
-    padding: $sizing-XS;
+    padding: $sizing-xs;
     position: absolute;
     z-index: 3;
 
@@ -18,28 +18,28 @@
         box-shadow: $elevation-1;
     }
     &[class*='--dark'] {
-        background: rgba($color-black, 0.75);
+        background: rgba($color-neutral-800, 0.75);
         box-shadow: $elevation-1;
-        color: $color-off-white;
+        color: $color-neutral-100;
 
         &:hover {
             box-shadow: $elevation-2;
         }
     }
     &[class*='--bl'] {
-        bottom: $sizing-MD;
-        left: $sizing-MD;
+        bottom: $sizing-md;
+        left: $sizing-md;
     }
     &[class*='--br'] {
-        bottom: $sizing-MD;
-        right: $sizing-MD;
+        bottom: $sizing-md;
+        right: $sizing-md;
     }
     &[class*='--tl'] {
-        top: $sizing-MD;
-        left: $sizing-MD;
+        top: $sizing-md;
+        left: $sizing-md;
     }
     &[class*='--tr'] {
-        top: $sizing-MD;
-        right: $sizing-MD;
+        top: $sizing-md;
+        right: $sizing-md;
     }
 }

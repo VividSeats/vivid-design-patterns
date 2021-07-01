@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Banner from '../../src/components/molecules/Banner';
 import BodyText from '../../src/components/atoms/BodyText';
-import Subhead from '../../src/components/atoms/Subhead';
-import TinyText from '../../src/components/atoms/TinyText';
+import Overline from '../../src/components/atoms/Overline';
+import Caption from '../../src/components/atoms/Caption';
 
 describe('<Banner />', () => {
     it('renders a banner that displays a child', () => {
@@ -18,12 +18,12 @@ describe('<Banner />', () => {
 
     it('displays details on carat click', () => {
         const wrapper = mount(
-            <Banner className="bg-slate">
-                <Subhead className="--gold">Offer Type</Subhead>
-                <Subhead state="inverted">Offer Headline</Subhead>
-                <Subhead state="inverted">Offer Subheadline</Subhead>
+            <Banner className="bg-neutral-800">
+                <Overline className="--gold">Offer Type</Overline>
+                <Overline state="inverted">Offer Headline</Overline>
+                <Overline state="inverted">Offer Overlineline</Overline>
                 <Banner.Details>
-                    <TinyText state="muted">Legal Text</TinyText>
+                    <Caption state="muted">Legal Text</Caption>
                 </Banner.Details>
             </Banner>
         );

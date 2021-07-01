@@ -3,15 +3,14 @@
 @import 'mixins/prefixes';
 
 .vdp-fab {
-    @include border(bottom);
     @include flex;
     @include align-items(center);
     @include justify-content(stretch);
-    height: $sizing-5XL;
+    height: $sizing-3xl;
     text-align: center;
 
     .vdp-fab__child {
-        @include typography($fontSize: $font-size-MD, $fontWeight: $font-weight-bld);
+        @include typography($fontSize: $font-size-md, $fontWeight: $font-weight-med);
         cursor: pointer;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -19,33 +18,29 @@
 
         i {
             color: $text-color-link;
-            margin-right: $sizing-2XS;
+            margin-right: $sizing-2xs;
         }
         &--divider {
             flex: none;
             margin: 0;
             width: 1px;
-            height: $sizing-3XL;
-            background-color: $color-gray-light;
+            height: $sizing-3xl;
+            background-color: $color-neutral-300;
         }
     }
 }
 
 @include size-min-tablet {
+    .vdp-fab {
+        justify-content: flex-end;
+    }
     .vdp-fab__child {
-        -ms-flex: 1;
-        flex: 1;
-        border-radius: $border-radius-SM;
-        line-height: $sizing-3XL + $sizing-2XS !important;
-        margin: $sizing-XS;
+        border-radius: $border-radius-sm;
+        padding: $sizing-xs $sizing-sm;
+        line-height: $sizing-3xl !important;
 
         &:hover {
-            background-color: $color-gray-highlight;
-        }
-        &:only-child {
-            padding: 0 $sizing-LG;
-            -ms-flex: none;
-            flex: none;
+            background-color: $color-neutral-100;
         }
     }
 }
@@ -53,30 +48,33 @@
 // only appears on mobile
 @include size-only-mobile {
     .vdp-fab {
-        @include border;
-        @include position(fixed, null null #{-$sizing-6XL} 50%);
+        @include position(fixed, null null #{-$sizing-5xl} 50%);
         @include transition(all $transition-2);
-        background-color: $color-white;
+        background-color: $color-neutral-800;
         box-shadow: $elevation-3;
-        border-radius: $border-radius-XL;
-        max-width: calc(100% - #{$sizing-6XL});
+        border-radius: $border-radius-xl;
+        max-width: calc(100% - #{$sizing-5xl});
         z-index: $z-index-fab;
         transform: translateX(-50%);
 
         .vdp-fab__child {
-            padding: $sizing-MD;
+            padding: $sizing-md;
             white-space: nowrap;
+            color: $color-white !important;
 
             &:first-child {
-                padding-left: $sizing-LG;
+                padding-left: $sizing-lg;
             }
             &:last-child,
             &:only-child {
-                padding-right: $sizing-LG;
+                padding-right: $sizing-lg;
+            }
+            i {
+                color: $color-white;
             }
         }
         &[data-state='visible'] {
-            bottom: $sizing-XL;
+            bottom: $sizing-2xl;
         }
     }
 }

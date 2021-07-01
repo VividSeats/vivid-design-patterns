@@ -3,7 +3,7 @@ import React from 'react';
 import BodyText from '../src/components/atoms/BodyText';
 import Modal from '../src/components/molecules/Modal';
 import Button from '../src/components/atoms/Button';
-import Headline from '../src/components/atoms/Headline';
+import Title from '../src/components/atoms/Title';
 
 class ModalButtonExample extends React.Component {
     state = {
@@ -22,7 +22,7 @@ class ModalButtonExample extends React.Component {
                 <Button onClick={() => onClick(true)}>Click</Button>
                 <Modal dataState={!!state.opened ? 'opened' : 'closed'}>
                     <Modal.Header>
-                        <Headline importance={6}>Modal Header</Headline>
+                        <Title>Modal Header</Title>
                     </Modal.Header>
                     <Modal.Body>
                         <BodyText importance={2}>

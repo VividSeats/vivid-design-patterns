@@ -1,46 +1,37 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Headline from '../../src/components/atoms/Headline';
+import Title from '../../src/components/atoms/Title';
 import Subtitle from '../../src/components/atoms/Subtitle';
 import BodyText from '../../src/components/atoms/BodyText';
-import Subhead from '../../src/components/atoms/Subhead';
-import TinyText from '../../src/components/atoms/TinyText';
+import Overline from '../../src/components/atoms/Overline';
+import Caption from '../../src/components/atoms/Caption';
 import SmallText from '../../src/components/atoms/SmallText';
 
 const typographyBaseStyle = 'vdp-type-';
 const typographyPropTests = [
-    { describes: 'Headline', component: Headline, defaultElement: 'h1', defaultStyle: 'headline1' },
-    { describes: 'Subtitle', component: Subtitle, defaultElement: 'p', defaultStyle: 'subtitle1' },
-    { describes: 'BodyText', component: BodyText, defaultElement: 'p', defaultStyle: 'body1' },
-    { describes: 'Subhead', component: Subhead, defaultElement: 'p', defaultStyle: 'subhead' },
+    { describes: 'Title', component: Title, defaultElement: 'h3', defaultStyle: 'title-sm' },
+    { describes: 'Subtitle', component: Subtitle, defaultElement: 'p', defaultStyle: 'subtitle-sm' },
+    { describes: 'BodyText', component: BodyText, defaultElement: 'p', defaultStyle: 'body' },
+    { describes: 'Overline', component: Overline, defaultElement: 'p', defaultStyle: 'overline' },
     { describes: 'SmallText', component: SmallText, defaultElement: 'p', defaultStyle: 'small' },
-    { describes: 'TinyText', component: TinyText, defaultElement: 'p', defaultStyle: 'tiny' }
+    { describes: 'Caption', component: Caption, defaultElement: 'p', defaultStyle: 'caption' }
 ];
 
 // Component-specific tests
-describe('<Headline />', () => {
-    [1, 2, 3, 4, 5, 6].forEach(importance => {
-        it(`renders h1 tag with the style 'vdp-type-headline${importance}'`, () => {
-            const wrapper = mount(<Headline importance={importance} />);
-            expect(wrapper.find(`h${importance}.vdp-type-headline${importance}`).exists()).toBe(true);
+describe('<Title />', () => {
+    ['sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
+        it(`renders h1 tag with the style 'vdp-type-title-${size}'`, () => {
+            const wrapper = mount(<Title size={size} />);
+            expect(wrapper.find(`.vdp-type-title-${size}`).exists()).toBe(true);
         });
     });
 });
 
 describe('<Subtitle />', () => {
-    [1, 2].forEach(importance => {
-        it(`renders p tag with the style 'vdp-type-subtitle${importance}'`, () => {
-            const wrapper = mount(<Subtitle importance={importance} />);
-            expect(wrapper.find(`p.vdp-type-subtitle${importance}`).exists()).toBe(true);
-        });
-    });
-});
-
-describe('<BodyText />', () => {
-    [1, 2].forEach(importance => {
-        it(`renders p tag with the style 'vdp-type-body${importance}'`, () => {
-            const wrapper = mount(<BodyText importance={importance} />);
-            expect(wrapper.find(`p.vdp-type-body${importance}`).exists()).toBe(true);
+    ['sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
+        it(`renders p tag with the style 'vdp-type-subtitle-${size}'`, () => {
+            const wrapper = mount(<Subtitle size={size} />);
+            expect(wrapper.find(`p.vdp-type-subtitle-${size}`).exists()).toBe(true);
         });
     });
 });
@@ -79,11 +70,7 @@ typographyPropTests.forEach(({ describes, component, defaultElement, defaultStyl
             });
         });
 
-        [
-            ['blk', 'black'],
-            ['bld', 'bold'],
-            ['med', 'medium']
-        ].forEach(weight => {
+        [['blk', 'black'], ['bld', 'bold'], ['med', 'medium']].forEach(weight => {
             it(`renders ${defaultElement} tag with the style '--${weight[0]}'`, () => {
                 const wrapper = mount(<constructedComponent.component weight={weight[1]} />);
                 const searchQuery = wrapper.find(`${defaultElement}.${typographyBaseStyle}${defaultStyle}`);

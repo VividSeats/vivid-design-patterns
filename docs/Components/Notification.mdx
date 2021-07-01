@@ -7,7 +7,7 @@ route: /components/Notification
 import { Fragment } from 'react';
 import { Props, Playground } from 'docz';
 import Notification from '../../src/components/molecules/Notification';
-import Headline from '../../src/components/atoms/Headline';
+import Title from '../../src/components/atoms/Title';
 import Button from '../../src/components/atoms/Button';
 import StatefulComponent from '../StatefulComponent';
 import '../docz.scss';
@@ -48,9 +48,9 @@ Using the scss files:
                 <Fragment>
                     <Button onClick={toggleNotification}>Toggle Notification</Button>
                     <Notification hasBackdrop isOpen={open} onClickClose={handleClose}>
-                        <Headline state="inverted" importance={3}>Vivid Seats </Headline>
-                        <Headline state="inverted" importance={3}>Buy In-App,</Headline>
-                        <Headline state="inverted" importance={3}>Earn Credit Back</Headline>
+                        <Title state="inverted" importance={3}>Vivid Seats </Title>
+                        <Title state="inverted" importance={3}>Buy In-App,</Title>
+                        <Title state="inverted" importance={3}>Earn Credit Back</Title>
                     </Notification>
                 </Fragment>
             )
@@ -81,9 +81,9 @@ If no `onClickClose` callback is passed, the notification component will not ren
                         <Fragment>
                             <Button onClick={toggleNotification}>Toggle Notification</Button>
                             <Notification isOpen={open}>
-                                <Headline state="inverted" importance={3}>Vivid Seats </Headline>
-                                <Headline state="inverted" importance={3}>Buy In-App,</Headline>
-                                <Headline state="inverted" importance={3}>Earn Credit Back</Headline>
+                                <Title state="inverted">Vivid Seats </Title>
+                                <Title state="inverted">Buy In-App,</Title>
+                                <Title state="inverted">Earn Credit Back</Title>
                                 <Button onClick={handleClose}> Close </Button>
                     </Notification>
                 </Fragment>

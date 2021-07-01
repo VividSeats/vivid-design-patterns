@@ -3,16 +3,16 @@
 @import 'mixins/prefixes';
 
 [class^='vdp-badge'] {
-    @include typography($color: $color-white, $fontSize: $font-size-XS, $fontWeight: $font-weight-bld, $lineHeight: $line-height-LG);
-    background-color: $color-brand-slate;
-    border-radius: $border-radius-XS;
+    @include typography($color: $color-white, $fontSize: $font-size-xs, $fontWeight: $font-weight-med, $lineHeight: $line-height-lg);
+    background-color: $color-teal-600;
+    border-radius: $border-radius-xl;
     display: inline-block;
-    padding: 1px $sizing-SM;
+    padding: 1px $sizing-sm;
 
     &[class*='--lg'] {
-        font-size: $font-size-SM;
-        line-height: $font-size-XL;
-        padding: 0 $sizing-SM;
+        font-size: $font-size-sm;
+        line-height: $font-size-xl;
+        padding: 0 $sizing-sm;
     }
     &[class*='--error'] {
         background-color: $color-state-error;
@@ -23,45 +23,14 @@
     &[class*='--warning'] {
         background-color: $color-state-warning;
     }
-    &[class*='--rounded'] {
-        border-radius: $border-radius-LG;
-    }
-    &[class*='--angled'] {
-        background-color: $color-brand-red;
-        border-radius: 0;
-        bottom: 0;
-        font-size: $font-size-SM;
-        height: $sizing-XL;
-        line-height: $sizing-XL;
-        margin-left: $sizing-MD;
-        padding: 0 $sizing-MD 0 $sizing-XS;
-        position: absolute;
-        right: 0;
-        z-index: 1;
-
-        &:before {
-            @include linear-gradient(to left, $color-gradient-red);
-            border-radius: $sizing-2XS 0 0 0;
-            content: '';
-            height: $sizing-XL;
-            left: -$sizing-SM;
-            padding: 0 $sizing-MD;
-            position: absolute;
-            top: 0;
-            transform: skew(-16deg);
-            transform-origin: 100%;
-            width: 50%;
-            z-index: -1;
-        }
-    }
     &[class*='--count'] {
-        @include linear-gradient(to left, $color-gradient-red);
-        @include position(relative, #{-$sizing-XS} null null null);
+        @include position(relative, #{-$sizing-xs} null null null);
+        background-color: $color-brand-primary;
         border-radius: $border-radius-round;
-        height: $sizing-LG;
-        line-height: $sizing-LG;
+        height: $sizing-lg;
+        line-height: $sizing-lg;
         padding: 0 0;
         text-align: center;
-        width: $sizing-LG;
+        width: $sizing-lg;
     }
 }

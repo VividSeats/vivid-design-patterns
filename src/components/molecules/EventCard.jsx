@@ -37,7 +37,7 @@ const EventCard = ({
                     style: { objectFit: 'cover' }
                 }}>
                 {minListPrice > 0 && (
-                    <Badge type="angled">
+                    <Badge>
                         from ${minListPrice} {isInternationalVenue ? 'USD' : ''}
                     </Badge>
                 )}

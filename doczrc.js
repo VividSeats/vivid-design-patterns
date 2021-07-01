@@ -21,8 +21,8 @@ export default {
     menu: ['Home', 'Foundation', 'Components', 'Guidelines'],
     themeConfig: {
         logo: {
-            src: '//a.vsstatic.com/common/logo/logo.svg',
-            width: 140
+            src: '//a.vsstatic.com/common/logo/vs-full-logo.png',
+            width: 220
         },
         fonts: {
             display: '"Roboto", sans-serif',

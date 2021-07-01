@@ -232,8 +232,8 @@ declare const SkeletonBone: FC<SkeletonBone>;
 interface SmallText extends TypographyProps<HTMLParagraphElement> {}
 declare const SmallText: FC<SmallText>;
 
-interface Subhead extends TypographyProps<HTMLParagraphElement> {}
-declare const Subhead: FC<Subhead>;
+interface Overline extends TypographyProps<HTMLParagraphElement> {}
+declare const Overline: FC<Overline>;
 
 interface Subtitle extends TypographyProps<HTMLParagraphElement> {
     importance?: 1 | 2;
@@ -245,8 +245,8 @@ interface Tab extends TypographyProps<HTMLLIElement> {
 }
 declare const Tab: FC<Tab>;
 
-interface TinyText extends TypographyProps<HTMLLIElement> {}
-declare const TinyText: FC<TinyText>;
+interface Caption extends TypographyProps<HTMLLIElement> {}
+declare const Caption: FC<Caption>;
 
 interface Toggle extends HTMLAttributes<HTMLLabelElement> {
     title?: string;

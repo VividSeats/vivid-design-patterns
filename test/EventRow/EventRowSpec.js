@@ -119,7 +119,7 @@ describe('<EventRow />', () => {
     it('renders a date with a year badge if the event date is not the current year', () => {
         const date = new Date().setFullYear(new Date().getFullYear() + 1);
         const wrapper = mount(<EventRow href={href} title={title} subtitle={subtitle} date={date} />);
-        expect(wrapper.find('.vdp-badge').text()).toEqual(new Date(date).getFullYear().toString());
+        expect(wrapper.find('.event-row-year').text()).toContain(new Date(date).getFullYear().toString());
     });
 
     it('renders a an a tag when an href prop is passed', () => {

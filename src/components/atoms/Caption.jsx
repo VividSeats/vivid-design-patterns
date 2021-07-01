@@ -1,7 +1,7 @@
 import React from 'react';
 import { getTypeClassNames, TYPOGRAPHY_PROP_TYPES } from '../../utils/typographyUtils';
 
-const Subhead = ({
+const Caption = ({
     children,
     className,
     weight,
@@ -15,7 +15,7 @@ const Subhead = ({
     as = 'p',
     ...htmlAttributes
 }) => {
-    const classNames = getTypeClassNames('vdp-type-subhead', {
+    const classNames = getTypeClassNames('vdp-type-caption', {
         weight,
         height,
         state,
@@ -23,8 +23,8 @@ const Subhead = ({
         capitalization,
         truncate,
         list,
-        className,
-        opaque
+        opaque,
+        className
     });
     const attributes = {
         className: classNames,
@@ -34,6 +34,6 @@ const Subhead = ({
     return React.createElement(as, { ...attributes }, children);
 };
 
-Subhead.propTypes = TYPOGRAPHY_PROP_TYPES;
+Caption.propTypes = TYPOGRAPHY_PROP_TYPES;
 
-export default Subhead;
+export default Caption;

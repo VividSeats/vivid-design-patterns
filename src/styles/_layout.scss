@@ -36,25 +36,21 @@ table {
     border-spacing: 0;
 }
 hr {
-    border-color: $color-gray-light;
+    border-color: $color-neutral-200;
     border-style: solid;
     border-width: 1px 0 0 0;
 }
 .vdp-main-content {
-    margin-top: $sizing-LG;
-    margin-bottom: $sizing-3XL;
+    margin-top: $sizing-lg;
+    margin-bottom: $sizing-3xl;
 }
 [class^='vdp-wrapper'] {
     @include flex;
     @include flex-direction(column);
-    background-color: $color-off-white;
     min-height: 100vh;
 
     &[class*='--row'] {
         @include flex-direction(row);
-    }
-    &[class*='--white'] {
-        background-color: $color-white;
     }
 }
 [class^='vdp-container'] {
@@ -80,8 +76,8 @@ hr {
     }
 }
 [class^='vdp-col'] [class^='vdp-container'] {
-    padding-left: $sizing-XS;
-    padding-right: $sizing-XS;
+    padding-left: $sizing-xs;
+    padding-right: $sizing-xs;
 }
 .flex-center {
     @include flex;

@@ -7,12 +7,12 @@
     @include flex;
     @include flex-wrap(wrap);
     @include justify-content(center);
-    box-shadow: 0 1px 0 rgba($color-black, 0.15);
+    box-shadow: 0 1px 0 rgba($color-neutral-800, 0.15);
     position: relative;
     z-index: $z-index-banner;
 
     > p {
-        padding: 0 $sizing-2XS;
+        padding: 0 $sizing-2xs;
     }
 }
 [class^='vdp-banner__trigger'] {
@@ -21,14 +21,14 @@
     color: $text-color-muted;
     cursor: pointer;
     outline: none;
-    padding: 0 $sizing-SM;
+    padding: 0 $sizing-sm;
 
     &[class*='--inverted'] {
         color: $color-white;
     }
     .vdp-icon {
-        font-size: $font-size-XL !important;
-        line-height: $sizing-3XL !important;
+        font-size: $font-size-xl !important;
+        line-height: $sizing-3xl !important;
     }
 }
 .vdp-banner__details {
@@ -37,7 +37,7 @@
     @include flex(1 0 100%);
     @include flex-direction(column);
     background-color: $color-white;
-    padding: $sizing-MD $sizing-MD $sizing-LG;
+    padding: $sizing-md $sizing-md $sizing-lg;
     text-align: center;
 }
 
@@ -50,7 +50,7 @@
     border-left: 2px solid;
     border-right: 2px solid;
     border-top: 0;
-    height: $sizing-4XL;
+    height: $sizing-4xl;
 
     .vdp-banner__image {
         background-position: bottom center;
@@ -65,7 +65,7 @@
     @include flex;
     @include justify-content(center);
     max-width: $grid-max-width;
-    padding: 0 $sizing-LG;
+    padding: 0 $sizing-lg;
     position: relative;
     width: 100%;
 
@@ -87,13 +87,13 @@
         &:after {
             @include position(absolute, 0 52% 0 null);
             @include transform(skewX(10deg));
-            background: rgba($color-black, 0.1);
+            background: rgba($color-neutral-800, 0.1);
             content: '';
             width: 100%;
             z-index: 1;
         }
         &.bg-white:after {
-            background: rgba($color-black, 0.05);
+            background: rgba($color-neutral-800, 0.05);
         }
     }
 }

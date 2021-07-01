@@ -5,7 +5,7 @@ import { getTypeClassNames, TYPOGRAPHY_PROP_TYPES } from '../../utils/typography
 const Subtitle = ({
     children,
     className,
-    importance = 1,
+    size = 'sm',
     weight,
     height,
     state,
@@ -17,7 +17,7 @@ const Subtitle = ({
     as = 'p',
     ...htmlAttributes
 }) => {
-    const classNames = getTypeClassNames(`vdp-type-subtitle${importance}`, {
+    const classNames = getTypeClassNames(`vdp-type-subtitle-${size}`, {
         weight,
         height,
         state,
@@ -37,7 +37,7 @@ const Subtitle = ({
 };
 
 Subtitle.propTypes = {
-    importance: PropTypes.oneOf([1, 2]),
+    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl']),
     ...TYPOGRAPHY_PROP_TYPES
 };
 

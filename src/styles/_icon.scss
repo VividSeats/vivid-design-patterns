@@ -12,7 +12,7 @@
 [class*='vdp-icon'] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: $font-family-icons !important;
-    font-size: $font-size-2XL; /* Preferred icon size */
+    font-size: $font-size-2xl; /* Preferred icon size */
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -25,14 +25,14 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
+    &[class*='--sm'] {
+        font-size: $font-size-md;
+    }
     &[class*='--lg'] {
-        font-size: $font-size-4XL;
+        font-size: $font-size-3xl;
     }
     &[class*='--xl'] {
-        font-size: $font-size-6XL;
-    }
-    &[class*='--sm'] {
-        font-size: $font-size-LG;
+        font-size: $font-size-4xl;
     }
 }
 

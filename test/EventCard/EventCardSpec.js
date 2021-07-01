@@ -62,7 +62,7 @@ describe('<EventCard />', () => {
                 .text()
                 .trim()
         ).toBe(`from $${minListPrice}`);
-        expect(wrapper.find('.vdp-event-row__col--info .vdp-type-body2').text()).toBe(title);
+        expect(wrapper.find('.vdp-event-row__col--info .vdp-type-body').text()).toBe(title);
         expect(wrapper.find('.vdp-event-row__col--info .vdp-type-small').text()).toBe(subtitle);
     });
 
@@ -82,7 +82,7 @@ describe('<EventCard />', () => {
         );
 
         expect(wrapper.exists()).toBe(true);
-        expect(wrapper.find('.vdp-event-row__col--date .vdp-type-body2').text()).toBe('TBD');
+        expect(wrapper.find('.vdp-event-row__col--date .vdp-type-body').text()).toBe('Date TBD');
     });
 
     it('renders a tbd event card when no date passed', () => {
@@ -100,7 +100,7 @@ describe('<EventCard />', () => {
         );
 
         expect(wrapper.exists()).toBe(true);
-        expect(wrapper.find('.vdp-event-row__col--date .vdp-type-body2').text()).toBe('TBD');
+        expect(wrapper.find('.vdp-event-row__col--date .vdp-type-body').text()).toBe('Date TBD');
     });
 
     it('renders currency for international venue', () => {

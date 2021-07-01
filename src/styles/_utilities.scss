@@ -1,30 +1,30 @@
 $positiveSizes: (
-    '2xs' $sizing-2XS,
-    'xs' $sizing-XS,
-    'sm' $sizing-SM,
-    'md' $sizing-MD,
-    'lg' $sizing-LG,
-    'xl' $sizing-XL,
-    '2xl' $sizing-2XL,
-    '3xl' $sizing-3XL,
-    '4xl' $sizing-4XL,
-    '5xl' $sizing-5XL,
-    '6xl' $sizing-6XL,
+    '2xs' $sizing-2xs,
+    'xs' $sizing-xs,
+    'sm' $sizing-sm,
+    'md' $sizing-md,
+    'lg' $sizing-lg,
+    'xl' $sizing-xl,
+    '2xl' $sizing-2xl,
+    '3xl' $sizing-3xl,
+    '4xl' $sizing-4xl,
+    '5xl' $sizing-5xl,
+    '6xl' $sizing-6xl,
     '100' 100%,
     'n' 0
 );
 $negativeSizes: (
-    'neg-2xs' (-$sizing-2XS),
-    'neg-xs' (-$sizing-XS),
-    'neg-sm' (-$sizing-SM),
-    'neg-md' (-$sizing-MD),
-    'neg-lg' (-$sizing-LG),
-    'neg-xl' (-$sizing-XL),
-    'neg-2xl' (-$sizing-2XL),
-    'neg-3xl' (-$sizing-3XL),
-    'neg-4xl' (-$sizing-4XL),
-    'neg-5xl' (-$sizing-5XL),
-    'neg-6xl' (-$sizing-6XL)
+    'neg-2xs' (-$sizing-2xs),
+    'neg-xs' (-$sizing-xs),
+    'neg-sm' (-$sizing-sm),
+    'neg-md' (-$sizing-md),
+    'neg-lg' (-$sizing-lg),
+    'neg-xl' (-$sizing-xl),
+    'neg-2xl' (-$sizing-2xl),
+    'neg-3xl' (-$sizing-3xl),
+    'neg-4xl' (-$sizing-4xl),
+    'neg-5xl' (-$sizing-5xl),
+    'neg-6xl' (-$sizing-6xl)
 );
 $layoutUtils: (
     border: (
@@ -93,11 +93,10 @@ $customNamedClasses: (
         bg-sz-ct 'contain'
     ),
     border-radius: (
-        br-xs $border-radius-XS,
-        br-sm $border-radius-SM,
-        br-md $border-radius-MD,
-        br-lg $border-radius-LG,
-        br-xl $border-radius-XL,
+        br-sm $border-radius-sm,
+        br-md $border-radius-md,
+        br-lg $border-radius-lg,
+        br-xl $border-radius-xl,
         br-round $border-radius-round
     ),
     overflow: (

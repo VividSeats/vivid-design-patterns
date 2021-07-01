@@ -5,12 +5,12 @@ route: /components/typography
 ---
 
 import { Props, Playground } from 'docz';
-import Headline from '../../src/components/atoms/Headline';
+import Title from '../../src/components/atoms/Title';
 import Subtitle from '../../src/components/atoms/Subtitle';
 import BodyText from '../../src/components/atoms/BodyText';
 import { __dummyPropTypesComponent } from '../../src/utils/typographyUtils';
-import Subhead from '../../src/components/atoms/Subhead';
-import TinyText from '../../src/components/atoms/TinyText';
+import Overline from '../../src/components/atoms/Overline';
+import Caption from '../../src/components/atoms/Caption';
 import SmallText from '../../src/components/atoms/SmallText';
 import '../docz.scss';
 
@@ -65,40 +65,44 @@ All typography components can consume the following props
     </div>
 </Playground>
 
-## Headlines
+## Titles
 
 Using the react components:
 
-    import Headline from '@vividseats/vivid-design-patterns/dist/atoms/Headline'
+    import Title from '@vividseats/vivid-design-patterns/dist/atoms/Title'
 
-`class="vdp-type-headline1"`
-`class="vdp-type-headline2"`
+`class="vdp-type-title-sm"`
+`class="vdp-type-title-md"`
 ...
-`class="vdp-type-headline6"`
+`class="vdp-type-title-xxl"`
 
 <Playground>
-    <Headline importance={1}>Headline 1</Headline>
-    <Headline importance={2}>Headline 2</Headline>
-    <Headline importance={3}>Headline 3</Headline>
-    <Headline importance={4}>Headline 4</Headline>
-    <Headline importance={5}>Headline 5</Headline>
-    <Headline importance={6}>Headline 6</Headline>
+    <Title size={'xxl'}>Title XXL</Title>
+    <Title size={'xl'}>Title XL</Title>
+    <Title size={'lg'}>Title LG</Title>
+    <Title size={'md'}>Title MD</Title>
+    <Title size={'sm'}>Title SM</Title>
 </Playground>
 
 ### Props
 
-<Props of={Headline} />
+<Props of={Title} />
 
 ## Subtitle
 
     import Subtitle from '@vividseats/vivid-design-patterns/dist/atoms/Subtitle'
 
-`class="vdp-type-subtitle1"`
-`class="vdp-type-subtitle2"`
+`class="vdp-type-subtitle-sm"`
+`class="vdp-type-subtitle-md"`
+...
+`class="vdp-type-subtitle-xxl"`
 
 <Playground>
-    <Subtitle importance={1}>Subtitle 1</Subtitle>
-    <Subtitle importance={2}>Subtitle 2</Subtitle>
+    <Subtitle size={'xxl'}>Subtitle XXL</Subtitle>
+    <Subtitle size={'xl'}>Subtitle XL</Subtitle>
+    <Subtitle size={'lg'}>Subtitle LG</Subtitle>
+    <Subtitle size={'md'}>Subtitle MD</Subtitle>
+    <Subtitle size={'sm'}>Subtitle SM</Subtitle>
 </Playground>
 
 ### Props
@@ -109,12 +113,10 @@ Using the react components:
 
     import BodyText from '@vividseats/vivid-design-patterns/dist/atoms/BodyText'
 
-`class="vdp-type-body1"`
-`class="vdp-type-body2"`
+`class="vdp-type-body"`
 
 <Playground>
-    <BodyText importance={1}>Body Text 1</BodyText>
-    <BodyText importance={2}>Body Text 2</BodyText>
+    <BodyText>Body Text</BodyText>
 </Playground>
 
 ### Props
@@ -123,23 +125,23 @@ Using the react components:
 
 ## Other Typography
 
-    import Subhead from '@vividseats/vivid-design-patterns/dist/atoms/Subhead';
+    import Overline from '@vividseats/vivid-design-patterns/dist/atoms/Overline';
     import SmallText from '@vividseats/vivid-design-patterns/dist/atoms/SmallText';
-    import TinyText from '@vividseats/vivid-design-patterns/dist/atoms/TinyText';
+    import Caption from '@vividseats/vivid-design-patterns/dist/atoms/Caption';
 
-`class="vdp-type-subhead"` `class="vdp-type-small"` `class="vdp-type-tiny"`
+`class="vdp-type-overline"` `class="vdp-type-small"` `class="vdp-type-tiny"`
 
 <Playground>
-    <Subhead>Subhead</Subhead>
+    <Overline>Overline</Overline>
     <SmallText>Small Text</SmallText>
-    <TinyText>Tiny Text</TinyText>
+    <Caption>Caption Text</Caption>
 </Playground>
 
 ## Specifying the rendered DOM element
 If you want the component to be rendered as a DOM element other than the default element use the `as` prop.
 
 <Playground>
-    <Subhead as='div'>Subhead</Subhead>
-    <SmallText as='span'>Small Text</SmallText>
-    <TinyText as='span'>Tiny Text</TinyText>
+    <BodyText as='span'>Body Text as span</BodyText>
+    <BodyText as='div'>Body Text as div</BodyText>
+    <BodyText as='a'>Body Text as a</BodyText>
 </Playground>

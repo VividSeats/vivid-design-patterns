@@ -3,19 +3,19 @@
 @import 'mixins/prefixes';
 
 // Mixins
-@mixin button-base($fontWeight: $font-weight-med) {
+@mixin button-base() {
     @include transition(all $transition-2);
-    border-radius: $border-radius-SM;
+    border-radius: $border-radius-sm;
     cursor: pointer;
     display: inline-block;
     font-family: $font-family-default;
-    font-weight: $fontWeight;
+    font-weight: $font-weight-med;
     outline: none !important;
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
 }
-@mixin button-size($fontSize: $font-size-MD, $lineHeight: $button-height-default, $padding: $button-padding-default) {
+@mixin button-size($fontSize: $font-size-md, $lineHeight: $button-height-default, $padding: $button-padding-default) {
     font-size: $fontSize;
     height: $lineHeight;
     line-height: $lineHeight;
@@ -26,42 +26,69 @@
 [class^='vdp-button']:not([class*='__']) {
     @include button-base;
     @include button-size;
-    @include linear-gradient(to bottom, $color-gradient-red);
+    background-color: $color-brand-primary;
     border: none;
     color: $color-white;
 
+    &:hover {
+        background-color: $color-magenta-600;
+    }
+
     &[class*='--disabled'] {
-        background: $color_gray_light;
-        background-image: none;
+        background-color: $color-neutral-200;
+        box-shadow: none !important;
         color: $text-color-muted;
+        cursor: not-allowed;
     }
     &[class*='--secondary'] {
-        @include linear-gradient(to bottom, $color-gradient-blue);
+        @include border($color: $color-neutral-300);
+        background-color: $color-white;
+        color: $text-color-default;
+
+        &:hover {
+            background-color: $color-neutral-100;
+        }
     }
     &[class*='--tertiary'] {
-        @include border($color: $color-brand-slate);
-        background: $color-white;
-        background-image: none;
-        color: $text-color-slate;
+        background-color: transparent;
+        color: $text-color-default;
+
+        &:hover {
+            background-color: $color-magenta-100;
+            color: $text-color-link;
+        }
+    }
+    &[class*='--inverted'] {
+        @include border($color: $color-white);
+        background-color: $color-white;
+        color: $text-color-default;
+    }
+    &[class*='--inverted--outlined'] {
+        @include border($color: $color-white);
+        background-color: transparent;
+        color: $color-white;
+
+        &:hover {
+            background-color: $color-magenta-100;
+            color: $text-color-link;
+        }
     }
     &[class*='--text'] {
-        @include button-size($fontSize: $font-size-SM, $lineHeight: $button-height-small, $padding: $sizing-SM);
-        font-weight: $font-weight-bld;
+        @include button-size($fontSize: $font-size-sm, $lineHeight: $button-height-small, $padding: $sizing-sm);
         background: none;
-        border: none;
         color: $text-color-link;
         text-transform: uppercase;
 
         &:hover {
-            background: $color-brand-blue-light;
-            box-shadow: none;
+            background-color: $color-magenta-100;
+            color: $text-color-link;
         }
         &[class*='--muted'] {
             color: $text-color-muted;
         }
     }
     &[class*='--small'] {
-        @include button-size($fontSize: $font-size-SM, $lineHeight: $button-height-small, $padding: $button-padding-small);
+        @include button-size($fontSize: $font-size-sm, $lineHeight: $button-height-small, $padding: $button-padding-small);
     }
     &[class*='--large'] {
         @include button-size($lineHeight: $button-height-large, $padding: $button-padding-large);
@@ -75,56 +102,60 @@
     &[class*='--with-icon'] {
         padding-left: 0;
     }
-    &:hover {
-        box-shadow: $elevation-2;
+    &[class*='--facebook'] {
+        background-color: $color-third-party-facebook;
+
+        &:hover {
+            background-color: darken($color-third-party-facebook, 5%);
+        }
     }
 }
 
 // Button Group
 [class^='vdp-grouped-button'] {
+    @include border($color: $color-neutral-300);
     @include button-base;
     @include button-size;
     background: $color-white;
-    border: 1px solid $color-gray-light;
     border-left: none;
     border-radius: 0;
-    color: $text-color-muted;
+    color: $text-color-default;
     margin: 0 0;
 
     &:first-child {
-        border-left: 1px solid $color-gray-light;
-        border-radius: $border-radius-SM 0 0 $border-radius-SM;
+        border-left: 1px solid $color-neutral-300;
+        border-radius: $border-radius-sm 0 0 $border-radius-sm;
     }
     &:last-child {
-        border-radius: 0 $border-radius-SM $border-radius-SM 0;
+        border-radius: 0 $border-radius-sm $border-radius-sm 0;
     }
     &[class*='--selected'] {
+        background-color: $color-teal-400;
         border: 1px solid transparent;
         color: $color-white;
         cursor: default;
-        @include linear-gradient(to bottom, $color-gradient-blue);
     }
     &[class*='--small'] {
-        @include button-size($font-size-SM, $button-height-small, $button-padding-small);
+        @include button-size($font-size-sm, $button-height-small, $button-padding-small);
     }
     &[class*='--large'] {
-        @include button-size($font-size-LG, $button-height-large, $button-padding-large);
+        @include button-size($font-size-lg, $button-height-large, $button-padding-large);
     }
     &:hover {
         box-shadow: none;
     }
     &:not([class*='--selected']):hover {
-        background: $color-gray-highlight;
+        background: $color-neutral-100;
     }
 }
 
 // Button Elements
 .vdp-button__icon {
-    margin-right: $sizing-XS;
-    margin-left: -$sizing-SM;
+    margin-right: $sizing-xs;
+    margin-left: -$sizing-sm;
 
     [class^='vdp-button'][class*='--small'] & {
-        font-size: $font-size-XL;
+        font-size: $font-size-xl;
         margin-right: 0;
     }
 }
