@@ -35,7 +35,7 @@ SkeletonLoader.propTypes = {
 
 SkeletonLoader.defaultProps = {
     rowCount: 25,
-    firstColumnLineCount: 3,
+    firstColumnLineCount: 2,
     secondColumnLineCount: 2
 };
 

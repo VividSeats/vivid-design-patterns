@@ -121,7 +121,7 @@
     @include flex-basis(auto);
 }
 
-$gridBreakpoints: sm null, md $breakpoint-tablet, lg $breakpoint-desktop, xl $breakpoint-desktop-XL;
+$gridBreakpoints: sm null, md $breakpoint-tablet, lg $breakpoint-desktop, xl $breakpoint-desktop-xl;
 
 @each $gridBreakpoint in $gridBreakpoints {
     $name: nth($gridBreakpoint, 1);

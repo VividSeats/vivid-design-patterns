@@ -12,12 +12,9 @@ import Icon from '../atoms/Icon';
 /* es-lint click-events-have-key-events: 0 */
 
 const MinListPriceButton = ({ minListPrice = 0, isInternationalVenue }) => (
-    <Button className={`price-length-${minListPrice.toString().length}`}>
-        <i>from</i>&nbsp;
-        <strong>
-            ${minListPrice}
-            {!!isInternationalVenue && ' USD'}
-        </strong>
+    <Button importance="secondary" className={`price-length-${minListPrice.toString().length}`}>
+        from&nbsp;${minListPrice}
+        {!!isInternationalVenue && ' USD'}
     </Button>
 );
 
@@ -28,10 +25,8 @@ MinListPriceButton.propTypes = {
 
 const MobileMinListCol = ({ minListPrice = 0, isInternationalVenue }) => (
     <div className="vdp-event-row__col--mobile-min-price">
-        <SmallText>
-            <i>from</i>
-        </SmallText>
-        <BodyText height="compressed" className="lead-price" importance={2}>
+        <SmallText>from</SmallText>
+        <BodyText height="compressed" className="lead-price">
             ${minListPrice}
             {!!isInternationalVenue && <p className="usd">USD</p>}
         </BodyText>
@@ -127,14 +122,13 @@ const EventRow = ({
             {!hasThumbnail && <DateColumn date={date} isTimeTbd={isTimeTbd} includeSchemaData={includeSchemaData} />}
             {/* Event Info */}
             <div className={`${getColClassName(INFO)}${truncate ? ' truncate' : ''}`}>
-                <BodyText height="compressed" weight="black" importance={2} {...(includeSchemaData ? { itemProp: 'name' } : {})}>
+                <BodyText weight="medium" {...(includeSchemaData ? { itemProp: 'name' } : {})}>
                     {title}
                 </BodyText>
                 {hasThumbnail && !!date && !isTimeTbd && <SmallText className="thumb-date">{thumbnailDate}</SmallText>}
                 {hasThumbnail && isTimeTbd && <SmallText className="thumb-date">TBD</SmallText>}
                 {!!Object.keys(venue).length ? (
                     <SmallText
-                        state="muted"
                         {...(includeSchemaData ? { itemProp: 'location', itemScope: true, itemType: 'http://schema.org/Place' } : {})}>
                         <span {...(includeSchemaData ? { itemProp: 'name' } : {})}>{venueName}</span>&nbsp;–&nbsp;
                         <span
@@ -152,15 +146,13 @@ const EventRow = ({
                         </span>
                     </SmallText>
                 ) : (
-                    <SmallText state="muted">{subtitle}</SmallText>
+                    <SmallText>{subtitle}</SmallText>
                 )}
             </div>
             {/* Date Range */}
             {!!dateRange && (
                 <div className={getColClassName(DATE_RANGE)}>
-                    <SmallText alignment="right" state="muted">
-                        {dateRange}
-                    </SmallText>
+                    <SmallText alignment="right">{dateRange}</SmallText>
                 </div>
             )}
             {/* Button */}
@@ -169,7 +161,7 @@ const EventRow = ({
                     {!!minListPrice && showMinListPrice ? (
                         <MinListPriceButton minListPrice={minListPrice} isInternationalVenue={isInternationalVenue} />
                     ) : (
-                        <Button>{!!dateRange ? BUTTON_TEXT.DATE_RANGE : BUTTON_TEXT.DATE}</Button>
+                        <Button importance="secondary">{!!dateRange ? BUTTON_TEXT.DATE_RANGE : BUTTON_TEXT.DATE}</Button>
                     )}
                 </div>
             )}
@@ -249,7 +241,7 @@ EventRow.COL_CLASSNAMES = {
 };
 
 EventRow.BUTTON_TEXT = {
-    DATE: 'Tickets',
+    DATE: 'Find Tickets',
     DATE_RANGE: 'View Event'
 };
 

@@ -8,114 +8,114 @@ $fontFaces: (
         normal,
         Regular
     ),
-    RobotoRegular: (
-        'roboto',
+    GTWalsheimRegular: (
+        'GT-Walsheim',
         400,
         normal,
-        regular
+        'Regular'
     ),
-    RobotoItalic: (
-        'roboto',
-        400,
-        italic,
-        italic
-    ),
-    RobotoMedium: (
-        'roboto',
+    GTWalsheimMedium: (
+        'GT-Walsheim',
         500,
         normal,
-        medium
+        'Medium'
     ),
-    RobotoBold: (
-        'roboto',
-        700,
+    GTWalsheimBold: (
+        'GT-Walsheim',
+        600,
         normal,
-        bold
+        'Bold'
     ),
-    RobotoBlack: (
-        'roboto',
-        900,
+    GTWalsheimBlack: (
+        'GT-Walsheim',
+        800,
         normal,
-        'black'
+        'Black'
     )
 );
 $typeStyles: (
-    headline1: (
-        $font-size-6XL,
-        $font-weight-blk,
-        $line-height-XS,
-        null
-    ),
-    headline2: (
-        $font-size-5XL,
-        $font-weight-blk,
-        $line-height-XS,
-        null
-    ),
-    headline3: (
-        $font-size-4XL,
-        $font-weight-blk,
-        $line-height-XS,
-        null
-    ),
-    headline4: (
-        $font-size-3XL,
-        $font-weight-blk,
-        $line-height-XS,
-        null
-    ),
-    headline5: (
-        $font-size-2XL,
-        $font-weight-blk,
-        $line-height-XS,
-        null
-    ),
-    headline6: (
-        $font-size-XL,
-        $font-weight-blk,
-        $sizing-XL,
-        null
-    ),
-    subtitle1: (
-        $font-size-2XL,
+    body: (
+        $font-size-md,
         $font-weight-reg,
-        $line-height-SM,
+        $line-height-lg,
         null
     ),
-    subtitle2: (
-        $font-size-XL,
+    caption: (
+        $font-size-xs,
         $font-weight-reg,
-        $line-height-MD,
+        $line-height-lg,
         null
     ),
-    body1: (
-        $font-size-LG,
-        $font-weight-reg,
-        $line-height-LG,
-        null
-    ),
-    body2: (
-        $font-size-MD,
-        $font-weight-reg,
-        $line-height-LG,
-        null
-    ),
-    small: (
-        $font-size-SM,
-        $font-weight-reg,
-        $line-height-SM,
-        null
-    ),
-    subhead: (
-        $font-size-SM,
-        $font-weight-blk,
-        $line-height-MD,
+    overline: (
+        $font-size-xs,
+        $font-weight-bld,
+        $line-height-md,
         uppercase
     ),
-    tiny: (
-        $font-size-XS,
+    small: (
+        $font-size-sm,
         $font-weight-reg,
-        $line-height-SM,
+        $line-height-lg,
+        null
+    ),
+    subtitle-sm: (
+        $font-size-md,
+        $font-weight-reg,
+        $line-height-md,
+        null
+    ),
+    subtitle-md: (
+        $font-size-lg,
+        $font-weight-reg,
+        $line-height-md,
+        null
+    ),
+    subtitle-lg: (
+        $font-size-xl,
+        $font-weight-reg,
+        $line-height-md,
+        null
+    ),
+    subtitle-xl: (
+        $font-size-2xl,
+        $font-weight-reg,
+        $line-height-md,
+        null
+    ),
+    subtitle-xxl: (
+        $font-size-3xl,
+        $font-weight-reg,
+        $line-height-md,
+        null
+    ),
+    title-sm: (
+        $font-size-lg,
+        $font-weight-bld,
+        $line-height-md,
+        null
+    ),
+    title-md: (
+        $font-size-xl,
+        $font-weight-bld,
+        $line-height-md,
+        null
+    ),
+    title-lg: (
+        $font-size-2xl,
+        $font-weight-blk,
+        $line-height-md,
+        null
+    ),
+    title-xl: (
+        $font-size-3xl,
+        $font-weight-blk,
+        $line-height-md,
+        null
+    ),
+    title-xxl: (
+        $font-size-4xl,
+        $font-weight-blk,
+        $line-height-md,
         null
     )
 );
@@ -128,12 +128,9 @@ $typeStyles: (
         font-weight: nth($attr, 2);
         font-style: nth($attr, 3);
         font-display: swap;
-        src: url('https://a.vsstatic.com/font/#{$fontName}.eot');
-        src: url('https://a.vsstatic.com/font/#{$fontName}.eot?#iefix') format('embedded-opentype'),
-            url('https://a.vsstatic.com/font/#{$fontName}.woff2') format('woff2'),
+        src: url('https://a.vsstatic.com/font/#{$fontName}.woff2') format('woff2'),
             url('https://a.vsstatic.com/font/#{$fontName}.woff') format('woff'),
-            url('https://a.vsstatic.com/font/#{$fontName}.ttf') format('ttf'),
-            url('https://a.vsstatic.com/font/#{$fontName}.svg##{$fontName}') format('svg');
+            url('https://a.vsstatic.com/font/#{$fontName}.ttf') format('ttf');
     }
 }
 
@@ -142,7 +139,7 @@ $typeStyles: (
     display: inline-block;
     font-family: 'MaterialIcons' !important;
     font-feature-settings: 'liga';
-    font-size: $font-size-2XL; /* Preferred icon size */
+    font-size: $font-size-2xl; /* Preferred icon size */
     font-style: normal;
     font-weight: normal;
     letter-spacing: normal;
@@ -196,7 +193,7 @@ a {
     cursor: pointer;
     hyphens: auto;
     font-size: inherit;
-    font-weight: $font-weight-bld;
+    font-weight: $font-weight-med;
     outline: none;
     text-decoration: none;
 
@@ -210,10 +207,10 @@ a {
         display: block;
     }
     &[class*='--inverted']:hover {
-        color: $color-off-white;
+        color: $color-neutral-100;
     }
     &[class*='--muted']:hover {
-        color: $color-gray-dark;
+        color: $color-neutral-600;
     }
     &[class*='--hover'] {
         color: $text-color-default;
@@ -230,7 +227,7 @@ a {
 .vdp-type-list-item {
     color: inherit;
     font-size: inherit;
-    margin-bottom: $sizing-SM;
+    margin-bottom: $sizing-sm;
 }
 
 // Type Modifiers
@@ -248,10 +245,10 @@ a {
         font-weight: $font-weight-reg !important;
     }
     &[class*='--compressed'] {
-        line-height: $line-height-SM;
+        line-height: $line-height-sm;
     }
     &[class*='--expanded'] {
-        line-height: $line-height-XL;
+        line-height: $line-height-xl;
     }
     &[class*='--disabled'] {
         color: $text-color-disabled;
@@ -264,9 +261,6 @@ a {
     }
     &[class*='--muted'] {
         color: $text-color-muted;
-    }
-    &[class*='--gold'] {
-        color: $color-brand-gold;
     }
     &[class*='--success'] {
         color: $color-state-success;
@@ -292,8 +286,8 @@ a {
         white-space: nowrap;
     }
     &[class*='--list'] {
-        margin: $sizing-LG 0 $sizing-XL;
-        padding-left: $sizing-3XL;
+        margin: $sizing-lg 0 $sizing-xl;
+        padding-left: $sizing-3xl;
     }
     &[class*='--line-through'] {
         text-decoration: line-through;
@@ -304,4 +298,11 @@ a {
     &[class*='--opaque'] {
         opacity: 0.5;
     }
+    &[class*='--highlight'] {
+        color: $text-color-highlight;
+    }
+}
+strong,
+b {
+    font-weight: $font-weight-bld;
 }

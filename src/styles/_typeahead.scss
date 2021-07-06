@@ -14,14 +14,14 @@
     }
 
     .vdp-typeahead__section {
-        padding-top: $sizing-2XS;
+        padding-top: $sizing-2xs;
         &:first-child {
             padding-top: 0.75em;
         }
 
         .vdp-typeahead__section__header {
-            @include linear-gradient(to right, $color-gradient-slate);
-            padding: $sizing-XS $sizing-LG;
+            background-color: $color-neutral-800;
+            padding: $sizing-xs $sizing-lg;
         }
     }
     .vdp-typeahead__dropdown {
@@ -39,38 +39,38 @@
             @include border(top);
             bottom: 0;
             overflow: auto;
-            padding-bottom: $sizing-XL;
+            padding-bottom: $sizing-xl;
             position: fixed !important;
             right: 0 !important;
-            top: $sizing-4XL !important;
+            top: $sizing-4xl !important;
             width: 100vw !important;
         }
         @include size-min-tablet {
-            border-radius: $border-radius-LG;
+            border-radius: $border-radius-lg;
             box-shadow: $elevation-2;
             min-width: 360px;
-            top: calc(100% + #{$sizing-LG}) !important;
+            top: calc(100% + #{$sizing-lg}) !important;
             z-index: $z-index-nav !important;
         }
     }
 
     .vdp-typeahead__suggestion {
-        @include typography($fontSize: $font-size-MD, $lineHeight: $sizing-LG);
-        border-radius: $border-radius-SM;
+        @include typography($fontSize: $font-size-md, $lineHeight: $sizing-lg);
+        border-radius: $border-radius-sm;
         cursor: pointer;
-        margin: 0 $sizing-SM;
-        padding: $sizing-SM;
+        margin: 0 $sizing-sm;
+        padding: $sizing-sm;
         list-style: none;
         &[class*='--highlight'] {
-            background-color: $color-brand-blue-light !important;
-            color: $color-brand-blue;
+            background-color: $color-magenta-100 !important;
+            color: $color-brand-primary;
         }
 
         &:first-child {
-            margin-top: $sizing-SM;
+            margin-top: $sizing-sm;
         }
         &:last-child {
-            margin-bottom: $sizing-LG;
+            margin-bottom: $sizing-lg;
         }
     }
 }

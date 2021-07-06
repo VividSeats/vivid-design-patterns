@@ -5,10 +5,10 @@ $hero-height: 200px;
 $hero-height-tablet: 280px;
 $hero-height-desktop: 320px;
 $hero-tab-height-adjuster: 56px;
-$hero-overlay-gradient: rgba($color-black, 0), $color-black;
+$hero-overlay-gradient: rgba($color-neutral-800, 0), $color-neutral-800;
 
 [class^='vdp-page-hero']:not([class*='__']) {
-    background-color: $color-black;
+    background-color: $color-neutral-800;
     height: $hero-height;
     overflow: hidden;
     position: relative;
@@ -27,14 +27,14 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         height: 100%;
     }
     .vdp-page-hero__breadcrumbs {
-        font-size: $font-size-SM;
+        font-size: $font-size-sm;
         font-weight: $font-weight-med;
         list-style: none;
-        margin: 0 0 $sizing-SM $sizing-SM;
-        padding: 0 0 $sizing-XS;
+        margin: 0 0 $sizing-sm $sizing-sm;
+        padding: 0 0 $sizing-xs;
 
         li {
-            color: $color-gray;
+            color: $color-neutral-400;
             display: inline;
 
             &:not(:last-of-type)::after {
@@ -58,11 +58,11 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
     .vdp-page-hero__subtitle {
         @include typography($color-white);
         display: block;
-        margin: $sizing-SM 0 0 0;
-        padding: 0 $sizing-SM;
+        margin: $sizing-sm 0 0 0;
+        padding: 0 $sizing-sm;
 
         @include size-min-tablet {
-            font-size: $font-size-XL;
+            font-size: $font-size-xl;
         }
     }
     .vdp-page-hero__tabs {
@@ -90,21 +90,21 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
             @include position(absolute, null 0 0 null);
 
             img {
-                width: $sizing-5XL;
-                height: $sizing-5XL;
+                width: $sizing-5xl;
+                height: $sizing-5xl;
             }
         }
         @include size-min-tablet {
-            margin-right: $sizing-SM;
+            margin-right: $sizing-sm;
         }
     }
     .vdp-page-hero__title {
-        @include typography($color: $color-white, $fontSize: $sizing-XL, $fontWeight: $font-weight-blk, $lineHeight: $line-height-XS);
+        @include typography($color: $color-white, $fontSize: $sizing-xl, $fontWeight: $font-weight-blk, $lineHeight: $line-height-xs);
         margin: -5px 0 0 0;
-        padding: 0 $sizing-SM;
+        padding: 0 $sizing-sm;
 
         @include size-min-tablet {
-            font-size: $font-size-4XL;
+            font-size: $font-size-4xl;
         }
     }
 }
@@ -183,7 +183,7 @@ $hero-overlay-gradient: rgba($color-black, 0), $color-black;
         @include flex-wrap(wrap);
         @include justify-content(center);
         margin: 0 auto;
-        max-width: 680px;
+        max-width: 760px;
         text-align: center;
     }
     @include size-min-tablet {

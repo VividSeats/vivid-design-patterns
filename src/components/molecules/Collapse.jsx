@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Subhead from '../atoms/Subhead';
+import Overline from '../atoms/Overline';
 import onEnterPress from '../../utils/onEnterPress';
 
 class Collapse extends React.Component {
@@ -11,7 +11,7 @@ class Collapse extends React.Component {
                 if (typeof child.type === 'function') {
                     return child;
                 }
-                return <Subhead state="muted">{child}</Subhead>;
+                return <Overline state="muted">{child}</Overline>;
             })}
         </div>
     );

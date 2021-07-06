@@ -1,7 +1,7 @@
 import React from 'react';
 import { getTypeClassNames, TYPOGRAPHY_PROP_TYPES } from '../../utils/typographyUtils';
 
-const TinyText = ({
+const Overline = ({
     children,
     className,
     weight,
@@ -15,7 +15,7 @@ const TinyText = ({
     as = 'p',
     ...htmlAttributes
 }) => {
-    const classNames = getTypeClassNames('vdp-type-tiny', {
+    const classNames = getTypeClassNames('vdp-type-overline', {
         weight,
         height,
         state,
@@ -23,8 +23,8 @@ const TinyText = ({
         capitalization,
         truncate,
         list,
-        opaque,
-        className
+        className,
+        opaque
     });
     const attributes = {
         className: classNames,
@@ -34,6 +34,6 @@ const TinyText = ({
     return React.createElement(as, { ...attributes }, children);
 };
 
-TinyText.propTypes = TYPOGRAPHY_PROP_TYPES;
+Overline.propTypes = TYPOGRAPHY_PROP_TYPES;
 
-export default TinyText;
+export default Overline;

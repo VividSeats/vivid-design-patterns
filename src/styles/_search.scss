@@ -2,39 +2,42 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 
+$mobileSearchHeight: 4rem;
+
 .vdp-search-field {
     @include border;
     @include flex;
     @include justify-content(center);
-    @include typography($fontSize: $font-size-MD);
+    @include typography($fontSize: $font-size-md);
     background-color: $color-white;
-    border-radius: $border-radius-XL;
+    border-radius: $border-radius-xl;
     cursor: text;
-    margin: 0 $sizing-LG;
-    padding: 0 $sizing-LG;
+    margin: 0 $sizing-lg;
+    padding: 0 $sizing-lg;
     position: relative;
 
     [class*='vdp-search-field__icon'] {
-        color: $color-gray-medium;
-        line-height: 36px;
+        color: $text-color-default;
+        line-height: $sizing-3xl;
         z-index: 2;
     }
     .vdp-search-field__icon-search {
         pointer-events: none;
+        margin-right: $sizing-xs;
     }
     .vdp-search-field__icon-close {
         cursor: pointer;
-        padding: 0 $sizing-SM;
+        padding: 0 $sizing-sm;
         position: absolute;
         right: 0;
     }
     .vdp-search-field__input {
-        @include typography($color: $text-color-muted, $fontSize: $font-size-MD);
+        @include typography($color: $text-color-muted, $fontSize: $font-size-md);
         background: none;
         border: none;
         box-shadow: none;
         display: block;
-        height: 36px;
+        height: $sizing-3xl;
         outline: none;
         position: relative;
         width: 100%;
@@ -57,27 +60,28 @@
     @include size-only-mobile {
         &[data-state='active'] {
             @include position(fixed, 0 0 null 0);
-            height: $sizing-4XL;
+            height: $mobileSearchHeight;
             width: 100%;
         }
         [class*='vdp-search-field__icon'] {
-            line-height: $sizing-4XL;
+            line-height: $mobileSearchHeight;
         }
         .vdp-search-field__input {
-            height: $sizing-4XL;
+            height: $mobileSearchHeight;
         }
     }
 }
 .vdp-search-result {
-    @include typography($fontSize: $font-size-MD, $lineHeight: $sizing-LG);
-    border-radius: $border-radius-SM;
+    @include typography($fontSize: $font-size-md, $lineHeight: $sizing-lg);
+    border-radius: $border-radius-sm;
     color: $text-color-default;
     cursor: pointer;
-    margin: 0 $sizing-SM;
-    padding: $sizing-SM;
+    margin: 0 $sizing-sm;
+    padding: $sizing-sm;
+    white-space: normal !important;
 
     &.tt-is-under-cursor {
-        background-color: $color-brand-blue-light !important;
+        background-color: $color-magenta-100 !important;
         color: $text-color-link;
 
         * {
@@ -85,10 +89,10 @@
         }
     }
     &:first-child {
-        margin-top: $sizing-SM;
+        margin-top: $sizing-sm;
     }
     &:last-child {
-        margin-bottom: $sizing-LG;
+        margin-bottom: $sizing-lg;
     }
     &.vdp-event-row {
         border-bottom: none;
@@ -102,25 +106,29 @@
     }
     .tt-dropdown-menu {
         background: $color-white;
+        padding: $sizing-md;
         z-index: $z-index-nav !important;
 
+        .tt-dataset-event-results .tt-suggestions {
+            padding: 0 $sizing-md;
+        }
         @include size-only-mobile {
             @include border(top);
             bottom: 0;
             overflow: auto;
-            padding-bottom: $sizing-XL;
+            padding-bottom: $sizing-xl;
             position: fixed !important;
             right: 0 !important;
-            top: $sizing-4XL !important;
+            top: $sizing-4xl !important;
             width: 100vw !important;
         }
         @include size-min-tablet {
-            border-radius: $border-radius-LG;
+            border-radius: $border-radius-lg;
             box-shadow: $elevation-2;
-            left: -$sizing-3XL !important;
+            left: -$sizing-3xl !important;
             min-width: 360px;
-            top: calc(100% + #{$sizing-LG}) !important;
-            width: calc(100% + #{$sizing-5XL});
+            top: calc(100% + #{$sizing-2xl}) !important;
+            width: calc(100% + #{$sizing-5xl});
             z-index: $z-index-nav !important;
         }
     }
@@ -129,10 +137,10 @@
 // Tablet Breakpoint Adjustment
 @media screen and (min-width: 960px) {
     .vdp-search-field {
-        min-width: 320px;
+        min-width: 360px;
 
         .twitter-typeahead {
-            width: 262px; // based off of placeholder: Search by team, artist, event or venue
+            width: 100%;
         }
     }
 }

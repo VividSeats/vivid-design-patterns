@@ -15,27 +15,27 @@ select::-ms-expand {
 @mixin input-base() {
     @include appearance(none);
     @include transition(all $transition-1);
-    @include typography($fontSize: $font-size-MD, $fontWeight: $font-weight-med);
+    @include typography($fontSize: $font-size-md, $fontWeight: $font-weight-med);
     background-color: inherit;
-    border-color: $color-gray-light;
+    border-color: $color-neutral-300;
     border-radius: 0;
     border-style: solid;
     border-width: 0 0 1px 0;
     box-shadow: none;
-    height: $sizing-4XL;
+    height: $sizing-4xl;
     outline: none;
-    padding: 0 $sizing-XS;
+    padding: 0 $sizing-xs;
     width: 100%;
 }
 @mixin outlined-input-base() {
-    border-radius: $border-radius-SM;
+    border-radius: $border-radius-sm;
     border-width: 1px;
-    padding: 0 $sizing-MD;
+    padding: 0 $sizing-md;
 }
 @mixin active-label() {
-    @include typography($fontSize: $font-size-SM, $fontWeight: $font-weight-med, $lineHeight: $sizing-LG !important);
+    @include typography($fontSize: $font-size-sm, $fontWeight: $font-weight-med, $lineHeight: $sizing-lg !important);
     background-color: inherit;
-    top: -$sizing-SM !important;
+    top: -$sizing-sm !important;
 
     &:after,
     &:before {
@@ -49,7 +49,7 @@ select::-ms-expand {
     }
     &:after {
         height: calc(50% - 1px);
-        top: calc(#{$sizing-SM} + 1px);
+        top: calc(#{$sizing-sm} + 1px);
     }
     &:before {
         height: 50%;
@@ -61,21 +61,21 @@ select::-ms-expand {
 [class^='vdp-select']:not([class*='__']),
 [class^='vdp-textfield']:not([class*='__']) {
     background-color: $color-white;
-    margin: $sizing-XL 0 $sizing-MD;
+    margin: $sizing-xl 0 $sizing-md;
     position: relative;
     width: 100%;
 
     &[class*='--outlined'] {
-        border-radius: $border-radius-SM;
+        border-radius: $border-radius-sm;
     }
     &[data-validate] {
         &[data-state*='error']:after {
-            @include position(absolute, 0 $sizing-SM 0 null);
-            @include pseudo-icon('\e945', $text-color-error, $margin: $sizing-MD auto 0);
+            @include position(absolute, 0 $sizing-sm 0 null);
+            @include pseudo-icon('\e945', $text-color-error, $margin: $sizing-md auto 0);
         }
         &[data-state*='success']:after {
-            @include position(absolute, 0 $sizing-SM 0 null);
-            @include pseudo-icon('\e944', $text-color-success, $margin: $sizing-MD auto 0);
+            @include position(absolute, 0 $sizing-sm 0 null);
+            @include pseudo-icon('\e944', $text-color-success, $margin: $sizing-md auto 0);
         }
     }
     [class^='vdp-textfield__input'] {
@@ -84,7 +84,7 @@ select::-ms-expand {
 }
 [class^='vdp-select']:not([class*='__']) {
     &:after {
-        @include position(absolute, 0 $sizing-SM 0 null);
+        @include position(absolute, 0 $sizing-sm 0 null);
         @include pseudo-icon('\e908');
     }
     &[data-state*='error']:after {
@@ -94,16 +94,16 @@ select::-ms-expand {
 
 // Elements
 .vdp-floating-label {
-    @include position(absolute, $sizing-SM null null $sizing-XS);
+    @include position(absolute, $sizing-md null null $sizing-xs);
     @include transition(all $transition-1);
-    @include typography($color: $text-color-muted, $fontSize: $font-size-MD, $lineHeight: $sizing-2XL);
+    @include typography($color: $text-color-muted, $fontSize: $font-size-md, $lineHeight: $sizing-2xl);
     background-color: transparent;
     pointer-events: none;
     z-index: 1;
 
     [class*='--outlined'] & {
-        left: $sizing-SM;
-        padding: 0 $sizing-XS;
+        left: $sizing-sm;
+        padding: 0 $sizing-xs;
     }
     [data-state*='error'] & {
         color: $text-color-error !important;
@@ -121,7 +121,7 @@ select::-ms-expand {
     cursor: pointer;
 
     &:required:invalid {
-        color: $color-gray-medium;
+        color: $color-neutral-800;
 
         [data-state*='error'] & {
             color: $text-color-error !important;
@@ -132,19 +132,19 @@ select::-ms-expand {
         @include outlined-input-base;
     }
     &[class*='--medium'] {
-        height: $sizing-3XL;
+        height: $sizing-3xl;
 
         + .vdp-floating-label {
-            top: $sizing-XS;
+            top: $sizing-xs;
         }
     }
     &[class*='--small'] {
-        font-size: $font-size-SM;
-        height: $sizing-2XL;
+        font-size: $font-size-sm;
+        height: $sizing-2xl;
 
         + .vdp-floating-label {
-            top: $sizing-XS;
-            line-height: $sizing-XL;
+            top: $sizing-xs;
+            line-height: $sizing-xl;
         }
     }
 }
@@ -158,25 +158,25 @@ select::-ms-expand {
 }
 textarea[class^='vdp-textfield__input'] {
     height: auto;
-    min-height: calc(#{$sizing-4XL} * 2);
-    padding: $sizing-MD !important;
+    min-height: calc(#{$sizing-4xl} * 2);
+    padding: $sizing-md !important;
     resize: vertical;
 }
 [class^='vdp-textfield__trailing-icon'] {
-    @include position(absolute, 0 $sizing-SM 0 null);
-    color: $color-gray;
+    @include position(absolute, 0 $sizing-sm 0 null);
+    color: $color-neutral-800;
     cursor: pointer;
-    height: $sizing-4XL;
-    line-height: $sizing-4XL;
+    height: $sizing-4xl;
+    line-height: $sizing-4xl;
     margin: initial;
 
     span {
-        @include typography($color: $text-color-muted, $fontSize: $font-size-SM, $fontWeight: $font-weight-med);
+        @include typography($color: $text-color-muted, $fontSize: $font-size-sm, $fontWeight: $font-weight-med);
     }
 
     [data-state*='success'] &,
     [data-state*='error'] & {
-        right: $sizing-3XL;
+        right: $sizing-3xl;
     }
 }
 
@@ -184,9 +184,9 @@ textarea[class^='vdp-textfield__input'] {
 [class^='vdp-select__control'],
 [class^='vdp-textfield__input'] {
     &:disabled {
-        border-color: $color-gray;
+        border-color: $color-neutral-300;
         border-style: dashed;
-        color: $color-gray;
+        color: $text-color-disabled;
         cursor: not-allowed;
     }
     [data-state*='error'] & {
@@ -198,12 +198,12 @@ textarea[class^='vdp-textfield__input'] {
         color: $color-state-success !important;
     }
     &:focus {
-        border-color: $color-brand-blue;
+        border-color: $color-brand-primary;
         color: $text-color-default;
 
         + .vdp-floating-label {
             @include active-label;
-            color: $color-brand-blue;
+            color: $color-brand-primary;
         }
         ~ .vdp-helper-text:not([class*='--validation']) {
             @include active-helper-text;
@@ -223,11 +223,11 @@ textarea[class^='vdp-textfield__input'] {
 // Outlined Input Modifiers
 [class*='--outlined'] {
     [class^='vdp-select__control']:disabled {
-        box-shadow: 0 0 0 1000px $color-gray-highlight inset;
-        color: $color-gray-medium;
+        box-shadow: 0 0 0 1000px $color-neutral-200 inset;
+        color: $color-neutral-400;
 
         + .vdp-floating-label:after {
-            background-color: $color-gray-highlight !important;
+            background-color: $color-neutral-200 !important;
         }
     }
 }
@@ -241,18 +241,18 @@ textarea[class^='vdp-textfield__input'] {
         background-color: inherit;
 
         &:after {
-            color: $color-gray-light;
+            color: $color-neutral-300;
         }
     }
 
     [class^='vdp-select__control'],
     [class^='vdp-textfield__input'] {
-        border-color: $color-gray-light;
+        border-color: $color-neutral-300;
         color: $color-white;
 
         &:disabled {
             border-color: rgba($color-white, 0.35);
-            color: $color-gray;
+            color: $text-color-disabled;
         }
         &:-webkit-autofill {
             background-color: inherit !important;
@@ -265,18 +265,18 @@ textarea[class^='vdp-textfield__input'] {
 
     [class*='--outlined'] {
         [class^='vdp-select__control']:disabled {
-            box-shadow: 0 0 0 1000px rgba($color-black, 0.3) inset;
+            box-shadow: 0 0 0 1000px rgba($color-neutral-800, 0.3) inset;
             color: rgba($color-white, 0.5);
 
             + .vdp-floating-label {
                 color: rgba($color-white, 0.5);
                 &:after {
-                    background-color: rgba($color-black, 0.3) !important;
+                    background-color: rgba($color-neutral-800, 0.3) !important;
                 }
             }
         }
     }
 }
 .vdp-textfield--nested-button [type='submit'] {
-    @include position(absolute, $sizing-SM $sizing-SM null null);
+    @include position(absolute, $sizing-md $sizing-sm null null);
 }

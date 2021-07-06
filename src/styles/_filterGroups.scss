@@ -9,36 +9,36 @@
 }
 .vdp-filter-group {
     @include flex(1 0 100%);
-    padding: $sizing-LG 0 $sizing-SM 0;
+    padding: $sizing-lg 0 $sizing-sm 0;
 
     ul {
         list-style: none;
-        margin: $sizing-XS 0 0 0;
+        margin: $sizing-xs 0 0 0;
         padding: 0;
     }
     .vdp-filter-group__item {
-        @include typography($fontSize: $font-size-MD);
-        border-radius: $border-radius-SM;
+        @include typography($fontSize: $font-size-md);
+        border-radius: $border-radius-sm;
         cursor: pointer;
-        padding: $sizing-XS $sizing-SM;
+        padding: $sizing-xs $sizing-sm;
         position: relative;
-        margin: 0 0 0 #{-$sizing-SM};
+        margin: 0 0 0 #{-$sizing-sm};
 
         &:hover {
-            background-color: $color-brand-blue-light;
+            background-color: $color-magenta-100;
             color: $text-color-link;
         }
     }
     button {
-        margin-top: $sizing-XS;
-        margin-left: #{-$sizing-SM};
+        margin-top: $sizing-xs;
+        margin-left: #{-$sizing-sm};
     }
 }
 @include size-min-tablet {
     .vdp-modal__body {
         .vdp-filter-group {
             @include flex-basis(auto);
-            padding: $sizing-LG;
+            padding: $sizing-lg;
 
             &:first-of-type {
                 padding-left: 0;

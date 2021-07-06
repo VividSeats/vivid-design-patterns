@@ -1,8 +1,8 @@
-import Headline from './Headline';
-import Subhead from './Subhead';
+import Title from './Title';
+import Overline from './Overline';
 import Subtitle from './Subtitle';
 import SmallText from './SmallText';
-import TinyText from './TinyText';
+import Caption from './Caption';
 import BodyText from './BodyText';
 
-export default { Headline, Subhead, Subtitle, SmallText, TinyText, BodyText };
+export default { Title, Overline, Subtitle, SmallText, Caption, BodyText };

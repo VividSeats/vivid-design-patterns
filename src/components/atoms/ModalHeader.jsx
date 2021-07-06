@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Headline from './Headline';
+import Title from './Title';
 
-const ModalHeader = ({ children, className = '', importance = 6, title, ...htmlAttributes }) => (
+const ModalHeader = ({ children, className = '', title, ...htmlAttributes }) => (
     <div className={`vdp-modal__header ${className}`} {...htmlAttributes}>
-        {!!title && <Headline importance={importance}>{title}</Headline>}
+        {!!title && <Title>{title}</Title>}
         {children}
     </div>
 );
@@ -14,7 +14,6 @@ ModalHeader.displayName = 'ModalHeader';
 ModalHeader.propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
-    importance: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
     title: PropTypes.string
 };
 

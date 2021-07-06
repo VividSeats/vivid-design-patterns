@@ -8,7 +8,7 @@ import Collapse from '../../src/components/molecules/Collapse';
 import { Props, Playground } from 'docz';
 import LinkGroup from '../../src/components/molecules/LinkGroup';
 import Link from '../../src/components/atoms/Link';
-import Headline from '../../src/components/atoms/Headline';
+import Title from '../../src/components/atoms/Title';
 import StatefulComponent from '../StatefulComponent';
 import '../docz.scss';
 
@@ -108,7 +108,7 @@ When passing in the mobile option, the collapse component will only collase on m
 If you want to use other components for the title instead of the default `<Subtitle/>` component, you can pass them in the title prop.
 
 <Playground>
-    <Collapse title={<Headline importance={3}>Custom title</Headline>}>
+    <Collapse title={<Title>Custom title</Title>}>
         <LinkGroup type="muted">
             <Link state="muted" weight="regular" href="/about.html">
                 About Us

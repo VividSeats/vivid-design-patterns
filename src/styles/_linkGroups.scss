@@ -9,14 +9,23 @@
     padding: 0;
 }
 [class^='vdp-link-group'][class*='--striped'] {
-    margin-left: -$sizing-SM;
-    margin-right: -$sizing-SM;
+    margin-left: -$sizing-sm;
+    margin-right: -$sizing-sm;
 
     .vdp-link-group__item:nth-child(odd) {
-        background-color: $color-gray-highlight;
+        background-color: $color-neutral-100;
     }
     .vdp-link-group__item a {
-        padding: $sizing-SM $sizing-SM #{$sizing-SM + $sizing-2XS};
+        color: $text-color-default;
+        padding: $sizing-md $sizing-sm;
+    }
+    .vdp-link-group__item:hover {
+        background-color: $color-magenta-100;
+
+        a {
+            color: $text-color-link;
+            text-decoration: none;
+        }
     }
 }
 [class^='vdp-link-group'][class*='--partitioned'] {
@@ -25,55 +34,56 @@
 
     @include size-only-mobile {
         &[data-partition='first'] {
-            margin-top: $sizing-MD;
+            margin-top: $sizing-md;
         }
         &[data-partition='last'] {
-            margin-bottom: $sizing-LG;
+            margin-bottom: $sizing-lg;
         }
     }
     @include size-min-tablet {
-        margin-top: $sizing-MD;
-        margin-bottom: $sizing-LG;
+        margin-top: $sizing-md;
+        margin-bottom: $sizing-lg;
     }
 }
 
 [class^='vdp-link-group__item'] {
     @include transition(all $transition-1);
-    font-size: $font-size-MD;
-    border-radius: $border-radius-SM;
+    font-size: $font-size-md;
+    border-radius: $border-radius-sm;
 
     &[class*='--featured'] a {
         font-weight: $font-weight-bld;
     }
     a {
         display: block;
-        padding: $sizing-SM 0;
+        padding: $sizing-sm 0;
     }
 }
 .vdp-link-group--hover {
     [class^='vdp-link-group__item']:hover {
-        background-color: $color-brand-blue-light;
+        background-color: $color-magenta-100;
 
         * {
             color: $text-color-link;
         }
     }
     [class^='vdp-link-group__item'] * {
-        padding: #{$sizing-XS + $sizing-2XS} $sizing-SM;
+        padding: #{$sizing-xs + $sizing-2xs} $sizing-sm;
     }
 }
 [class^='vdp-link-group'][class*='--muted'] {
     [class^='vdp-link-group__item'] {
-        font-size: $font-size-SM;
+        font-size: $font-size-sm;
+        color: $text-color-muted;
 
         @include size-min-tablet {
             a {
-                padding: $sizing-XS 0;
+                padding: $sizing-xs 0;
             }
         }
     }
 }
 .vdp-link-group__divider {
     @include border(top);
-    margin: $sizing-MD -#{$sizing-SM} $sizing-SM;
+    margin: $sizing-md -#{$sizing-sm} $sizing-sm;
 }

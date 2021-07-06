@@ -51,21 +51,22 @@
 
 // Color
 .swatch {
-    height: 5rem;
+    height: 6rem;
+    margin-bottom: $sizing-lg;
 }
 
 // Icons
 .icon-docs {
-    margin-top: $sizing-2XL;
-    margin-bottom: $sizing-2XL;
+    margin-top: $sizing-2xl;
+    margin-bottom: $sizing-2xl;
     text-align: center;
 
     i:hover {
-        color: $color-brand-blue;
+        color: $color-brand-primary;
         cursor: pointer;
     }
     p {
-        margin-top: $sizing-MD;
+        margin-top: $sizing-md;
     }
 }
 
@@ -150,7 +151,7 @@ form {
 
     .inverted {
         background-color: #333;
-        border-radius: $border-radius-XS;
+        border-radius: $border-radius-sm;
     }
 }
 

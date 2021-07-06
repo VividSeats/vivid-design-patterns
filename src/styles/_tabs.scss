@@ -13,7 +13,7 @@
         background-color: $color-white;
     }
     &[class*='--inverted'] .vdp-tab {
-        color: $color-gray;
+        color: $color-neutral-100;
 
         &:hover,
         &[data-state='active'] {
@@ -25,7 +25,7 @@
             @include justify-content(center);
         }
         &[class*='--compressed'] .vdp-tab {
-            line-height: $sizing-4XL;
+            line-height: $sizing-4xl;
         }
     }
 }
@@ -35,16 +35,16 @@
     @include align-self(flex-end);
     @include flex(0 0 auto);
     @include transition(all $transition-1);
-    @include typography($color: $text-color-muted, $fontSize: $font-size-SM, $fontWeight: $font-weight-bld, $lineHeight: $sizing-4XL);
+    @include typography($color: $text-color-muted, $fontSize: $font-size-sm, $fontWeight: $font-weight-med, $lineHeight: $sizing-4xl);
     cursor: pointer;
     overflow: hidden;
-    padding: 0 $sizing-MD;
+    padding: 0 $sizing-md;
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
 
     @include size-min-tablet {
-        line-height: $font-size-6XL;
+        line-height: $sizing-4xl;
     }
     i {
         line-height: inherit !important;
@@ -55,8 +55,8 @@
         @include transition(all $transition-1);
         @include transform(scale(0));
         content: '';
-        background: $color-brand-red;
-        height: $sizing-XS;
+        background: $color-brand-primary;
+        height: $sizing-xs;
         opacity: 0;
         transform-style: preserve-3d;
         width: 100%;

@@ -5,23 +5,23 @@
 @mixin active-helper-text() {
     height: auto;
     opacity: 1;
-    padding-top: $sizing-SM;
+    padding-top: $sizing-sm;
     visibility: visible;
 }
 
 [class^='vdp-helper-text'] {
     @include transition(all $transition-1);
-    @include typography($color: $text-color-muted, $fontSize: $font-size-SM, $lineHeight: $line-height-XS);
+    @include typography($color: $text-color-muted, $fontSize: $font-size-sm, $lineHeight: $line-height-xs);
     display: block;
     height: 0;
     opacity: 0;
-    padding-left: $sizing-XS;
-    padding-right: $sizing-XS;
+    padding-left: $sizing-xs;
+    padding-right: $sizing-xs;
     visibility: hidden;
 
     [class*='--outlined'] & {
-        padding-left: $sizing-MD;
-        padding-right: $sizing-MD;
+        padding-left: $sizing-md;
+        padding-right: $sizing-md;
     }
     &[class*='--validation'] {
         [data-state*='error'] & {

@@ -961,7 +961,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime@7.5.5", "@babel/runtime@^7.0.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5":
+"@babel/runtime@7.5.5", "@babel/runtime@^7.0.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
   integrity sha512-28QvEGyQyNkB0/m2B4FU7IEZGK2NUrcMtT6BZEFALTguLk+AUT6ofsHtPk5QyjAdUkpMJ+/Em+quwz4HOt30AQ==
@@ -4153,7 +4153,7 @@ css-parse@1.7.x:
 css-select-base-adapter@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/css-select-base-adapter/-/css-select-base-adapter-0.1.1.tgz#3b2ff4972cc362ab88561507a95408a1432135d7"
-  integrity sha512-jQVeeRG70QI08vSTwf1jHxp74JoZsr2XSgETae8/xC8ovSnL2WF87GTLO86Sbwdt2lK4Umg4HnnwMO4YF3Ce7w==
+  integrity sha512-jQVeeRG70QI08vSTwf1jHxp74JoZsr2xsgETae8/xC8ovSnL2WF87GTLO86Sbwdt2lK4Umg4HnnwMO4YF3Ce7w==
 
 css-select@^2.0.0:
   version "2.0.2"
@@ -12309,14 +12309,6 @@ react-slidedown@^2.0.7:
   integrity sha512-8uNDuTYUGXpdqa1FprNmqaLeoUN2pRFLIhRKzbjzkLeNC6iLS4+g9UIRkjhHRYOM9ezzwgwtE9YYs7tL2Yq59A==
   dependencies:
     tslib "^1.9.0"
-
-react-spring@8.0.27:
-  version "8.0.27"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.27.tgz#97d4dee677f41e0b2adcb696f3839680a3aa356a"
-  integrity sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
-  dependencies:
-    "@babel/runtime" "^7.3.1"
-    prop-types "^15.5.8"
 
 react-test-renderer@^16.0.0-0:
   version "16.9.0"

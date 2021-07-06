@@ -5,36 +5,31 @@
 @import 'mixins/prefixes';
 @import '_badge.scss';
 
-$column-date-width: 5rem;
+$column-date-width: 6rem;
 $column-thumb-width: 4.25rem;
-$column-thumb-margin: $sizing-MD;
-$row-height: 4.5rem;
+$column-thumb-margin: $sizing-md;
 
 [class*='vdp-event-row']:not([class*='__']) {
-    @include align-items(center);
-    @include border(bottom);
     @include flex(0 1 auto);
     @include flex-wrap(wrap);
     @include transition(all $transition-1);
+    border-radius: $border-radius-sm;
     cursor: pointer;
-    min-height: $row-height;
-    padding: $sizing-SM 0;
+    margin-left: -$sizing-md;
+    margin-right: -$sizing-md;
+    padding: $sizing-md;
 
-    @include size-min-tablet {
-        padding: $sizing-MD 0;
-    }
     &:hover {
-        background-color: $color-gray-highlight;
+        background-color: $color-neutral-100;
     }
     &[data-row='last'] {
         border-bottom: none;
-        padding-bottom: $sizing-XS;
+        padding-bottom: $sizing-xs;
     }
 }
 [class*='vdp-event-row__col'] {
     @include flex(0 0 auto);
     @include flex-direction(column);
-    @include justify-content(center);
     box-sizing: border-box;
     max-width: 100%;
 
@@ -43,16 +38,16 @@ $row-height: 4.5rem;
 
         @include size-min-tablet {
             display: inherit;
-            padding-right: $sizing-MD;
             text-align: right;
-            i {
-                font-size: 0.9em;
+
+            button {
+                margin: 0 0;
             }
             .price-length-3 {
-                padding: 0 $sizing-LG;
+                padding: 0 $sizing-lg;
             }
             .price-length-4 {
-                padding: 0 $sizing-MD;
+                padding: 0 $sizing-md;
             }
         }
     }
@@ -70,25 +65,21 @@ $row-height: 4.5rem;
 
         @include size-min-tablet {
             display: inherit;
-            padding-left: $sizing-MD;
+            padding-left: $sizing-md;
         }
     }
 
     &[class*='--mobile-min-price'] {
         text-align: right;
-        padding-right: $sizing-SM;
-
-        i {
-            color: #888b93;
-        }
+        padding-right: $sizing-sm;
 
         .usd {
             margin: 0;
         }
 
         .lead-price {
-            color: $color-brand-blue;
-            font-weight: bold;
+            color: $color-brand-primary;
+            font-weight: $font-weight-med;
         }
 
         @include size-min-tablet {
@@ -97,38 +88,27 @@ $row-height: 4.5rem;
     }
 
     &[class*='--date'] {
-        @include border(right);
-        padding: $sizing-2XS $sizing-SM;
-        text-align: center;
         width: $column-date-width;
 
-        > * {
-            margin-left: auto;
-            margin-right: auto;
-        }
         > *:not(:last-child) {
-            margin-bottom: $sizing-2XS;
+            margin-bottom: $sizing-2xs;
         }
         + .vdp-event-row__col--info {
             max-width: calc(100% - #{$column-date-width});
-        }
-
-        .vdp-badge {
-            margin-top: $sizing-XS;
         }
     }
     &[class*='--info'] {
         @include flex-basis(0%);
         @include flex-grow(1);
         @include flex-shrink(1);
-        padding: $sizing-2XS $sizing-LG;
+        padding: 0 $sizing-lg;
 
         > *:not(:last-child) {
-            margin-bottom: $sizing-XS;
+            margin-bottom: $sizing-xs;
         }
     }
     &[class*='--range'] {
-        padding: 0 $sizing-LG;
+        padding: 0 $sizing-lg;
 
         + .vdp-event-row__col--button {
             width: auto;
@@ -141,17 +121,16 @@ $row-height: 4.5rem;
         }
     }
     &[class*='--thumb'] {
-        border-radius: $border-radius-SM;
-        margin-left: $column-thumb-margin;
+        border-radius: $border-radius-round;
         overflow: hidden;
-        width: $sizing-5XL;
-        height: $sizing-5XL;
+        width: $sizing-4xl;
+        height: $sizing-4xl;
         background-size: cover;
         background-position: center center;
 
         + .vdp-event-row__col--info {
-            max-width: calc(100% - #{$column-thumb-width + $column-thumb-margin});
-            padding-left: $sizing-MD;
+            max-width: calc(100% - #{$column-thumb-width});
+            padding-left: $sizing-md;
         }
     }
 }
@@ -185,28 +164,28 @@ $gradient-size: 200px;
         cursor: default;
     }
     > * {
-        border-color: $color-gray-highlight;
+        border-color: $color-neutral-200;
     }
     .skeleton__line {
         animation: loading 2s infinite ease-in-out;
-        background-color: $color-gray-highlight;
+        background-color: $color-neutral-200;
         background-image: linear-gradient(
             90deg,
-            $color-gray-highlight 0px,
-            $color-gray-light #{$gradient-size / 2},
-            $color-gray-highlight $gradient-size
+            $color-neutral-200 0px,
+            $color-neutral-300 #{$gradient-size / 2},
+            $color-neutral-200 $gradient-size
         );
         background-repeat: no-repeat;
         background-size: $gradient-size;
-        border-radius: $border-radius-SM;
-        height: $sizing-MD;
+        border-radius: $border-radius-sm;
+        height: $sizing-md;
         width: 100%;
 
         &:nth-child(even) {
             width: 80%;
         }
         &:not(:last-child) {
-            margin-bottom: $sizing-XS;
+            margin-bottom: $sizing-xs;
         }
     }
     .vdp-event-row__col--date .skeleton__line:nth-child(odd) {
@@ -227,7 +206,9 @@ $gradient-size: 200px;
 // • Background color doesn't change on hover
 .vdp-event-row {
     .vdp-card--anchor & {
-        padding: $sizing-SM 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: $sizing-lg;
 
         &:hover {
             background: $color-white !important;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Row from '../src/components/molecules/Row';
 import IconExample from './IconExample';
-import Headline from '../src/components/atoms/Headline';
+import Title from '../src/components/atoms/Title';
 import BodyText from '../src/components/atoms/BodyText';
 import './docz.scss';
 import Notification from '../src/components/molecules/Notification';
@@ -153,37 +153,37 @@ const IconGrid = () => {
                     value={query}
                 />
             </div>
-            {!!inputIcons.length && <Headline importance={6}>Inputs</Headline>}
+            {!!inputIcons.length && <Title>Inputs</Title>}
             <Row>
                 {inputIcons.map(({ type, entity }) => (
                     <IconExample onCopy={onCopyText} type={type} entity={entity} />
                 ))}
             </Row>
-            {!!interactionIcons.length && <Headline importance={6}>Interaction</Headline>}
+            {!!interactionIcons.length && <Title>Interaction</Title>}
             <Row>
                 {interactionIcons.map(({ type, entity }) => (
                     <IconExample onCopy={onCopyText} type={type} entity={entity} />
                 ))}
             </Row>
-            {!!objectIcons.length && <Headline importance={6}>Objects</Headline>}
+            {!!objectIcons.length && <Title>Objects</Title>}
             <Row>
                 {objectIcons.map(({ type, entity }) => (
                     <IconExample onCopy={onCopyText} type={type} entity={entity} />
                 ))}
             </Row>
-            {!!stateIcons.length && <Headline importance={6}>States</Headline>}
+            {!!stateIcons.length && <Title>States</Title>}
             <Row>
                 {stateIcons.map(({ type, entity }) => (
                     <IconExample onCopy={onCopyText} type={type} entity={entity} />
                 ))}
             </Row>
-            {!!thirdPartyIcons.length && <Headline importance={6}>Third Party</Headline>}
+            {!!thirdPartyIcons.length && <Title>Third Party</Title>}
             <Row>
                 {thirdPartyIcons.map(({ type, entity }) => (
                     <IconExample onCopy={onCopyText} type={type} entity={entity} />
                 ))}
             </Row>
-            {!!ticketIcons.length && <Headline importance={6}>Tickets</Headline>}
+            {!!ticketIcons.length && <Title>Tickets</Title>}
             <Row>
                 {ticketIcons.map(({ type, entity }) => (
                     <IconExample onCopy={onCopyText} type={type} entity={entity} />

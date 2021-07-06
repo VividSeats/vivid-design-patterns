@@ -33,7 +33,7 @@
         height: 100%;
         left: 100%;
         opacity: 0;
-        padding: $sizing-4XL 0 $sizing-5XL;
+        padding: 64px 0;
         position: absolute;
         top: 0;
         visibility: hidden;
@@ -61,26 +61,27 @@
         @include flex;
         @include justify-content(space-between);
         @include position(fixed, 0 0 null 0);
-        background-color: $color-white;
-        height: $sizing-4XL;
-        padding: 0 $sizing-MD;
+        background-color: $color-brand-secondary;
+        height: 64px;
+        padding: 0 $sizing-lg;
         z-index: 2;
+
+        * {
+            color: $color-white !important;
+        }
     }
     [class^='vdp-drawer__body'] {
         max-height: 100%;
 
-        [class^='vdp-drawer']:not([class*='__']) {
-            @include border(left);
-        }
         .vdp-drawer__scroller {
             @include flex-direction(column);
-            padding: $sizing-MD 0 $sizing-3XL;
+            padding: $sizing-md 0 $sizing-3xl;
         }
     }
     .vdp-drawer__footer {
         @include position(fixed, null 0 0 0);
         background-color: $color-white;
-        padding: $sizing-SM $sizing-LG $sizing-LG;
+        padding: $sizing-sm $sizing-lg $sizing-lg;
         text-align: center;
     }
 }
@@ -94,12 +95,12 @@
     }
     [class^='vdp-drawer__body'] {
         &:not([class*='--compressed']) {
-            padding: $sizing-LG $sizing-LG $sizing-XL;
+            padding: $sizing-lg $sizing-lg $sizing-xl;
         }
         // nested drawer
         [class^='vdp-drawer']:not([class*='__']) {
             @include border(top);
-            border-radius: 0 0 $border-radius-LG $border-radius-LG;
+            border-radius: 0 0 $border-radius-lg $border-radius-lg;
             position: absolute;
             right: 0;
             top: 100%;
@@ -109,14 +110,14 @@
                 width: 172px;
 
                 .vdp-drawer__body {
-                    padding: $sizing-LG $sizing-SM $sizing-MD;
+                    padding: $sizing-lg $sizing-sm $sizing-md;
                 }
             }
         }
     }
     .vdp-drawer__footer {
         @include flex-basis(100%);
-        padding: $sizing-MD $sizing-LG;
+        padding: $sizing-md $sizing-lg;
         text-align: right;
     }
 }

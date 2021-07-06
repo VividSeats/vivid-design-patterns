@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchField from './SearchField';
-import Subhead from '../atoms/Subhead';
+import Overline from '../atoms/Overline';
 
 function defaultRenderSuggestion({ isHighlighted, suggestion, suggestionProps }) {
     if (typeof suggestion === 'string') {
@@ -56,7 +56,7 @@ class Typeahead extends React.Component {
 
     static DropdownHeader = ({ className = '', children, ...htmlProps }) => (
         <div className={`vdp-typeahead__section__header ${className}`} {...htmlProps}>
-            <Subhead state="inverted">{children}</Subhead>
+            <Overline state="inverted">{children}</Overline>
         </div>
     );
 

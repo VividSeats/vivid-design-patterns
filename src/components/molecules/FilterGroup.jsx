@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { SlideDown } from 'react-slidedown';
 import Button from '../atoms/Button';
-import Subhead from '../atoms/Subhead';
+import Overline from '../atoms/Overline';
 import FilterGroupItem from '../atoms/FilterGroupItem';
 
 /* eslint-disable */
@@ -49,7 +49,7 @@ class FilterGroup extends React.Component {
         return (
             <div {...htmlAttributes} className={classNames}>
                 <SlideDown>
-                    <Subhead state="muted">{groupName}</Subhead>
+                    <Overline>{groupName}</Overline>
                     <ul>
                         {React.Children.map(children, (child, index) =>
                             index < filterLimit

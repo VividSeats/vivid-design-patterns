@@ -7,7 +7,7 @@ route: /components/card
 import { Props, Playground } from 'docz';
 import Card from '../../src/components/molecules/Card';
 import Button from '../../src/components/atoms/Button';
-import Headline from '../../src/components/atoms/Headline';
+import Title from '../../src/components/atoms/Title';
 import BodyText from '../../src/components/atoms/BodyText';
 import '../docz.scss';
 
@@ -43,7 +43,7 @@ Using the scss files:
 <Playground>
     <Card>
         <Card.Header>
-            <Headline importance={6}>Bandersnatch</Headline>
+            <Title>Bandersnatch</Title>
         </Card.Header>
         <Card.Body>
             <BodyText>
@@ -121,7 +121,7 @@ Adds a border on the title to match borders within list items.
 <Playground>
     <Card type="list">
         <Card.Header>
-            <Headline importance={6}>List Card</Headline>
+            <Title>List Card</Title>
         </Card.Header>
         <Card.Body>
             <ul>
@@ -142,7 +142,7 @@ Cards that are clickable with navigation and presents a hover effect.
 <Playground>
     <Card type="anchor" role="link">
         <Card.Header>
-            <Headline importance={6}>Anchor card</Headline>
+            <Title>Anchor card</Title>
         </Card.Header>
         <Card.Body>Anchor</Card.Body>
     </Card>

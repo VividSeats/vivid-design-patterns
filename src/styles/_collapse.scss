@@ -2,7 +2,7 @@
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
 
-@mixin collapse-base($titlePadding: $sizing-MD, $indicatorPos: $sizing-SM, $indicatorDisplay: none) {
+@mixin collapse-base($titlePadding: $sizing-md, $indicatorPos: $sizing-sm, $indicatorDisplay: none) {
     &[data-state='closed'] {
         .vdp-collapse__content {
             max-height: 0;
@@ -34,7 +34,7 @@
 }
 .vdp-collapse__title {
     display: block;
-    padding: $sizing-MD 0;
+    padding: $sizing-md 0;
     position: relative;
 }
 .vdp-collapse__content {
@@ -44,16 +44,16 @@
 }
 @include size-only-mobile {
     .vdp-collapse-wrap {
-        margin-left: -$sizing-MD;
-        margin-right: -$sizing-MD;
+        margin-left: -$sizing-md;
+        margin-right: -$sizing-md;
         width: auto;
     }
     .vdp-collapse__content > * {
-        padding-bottom: $sizing-XL !important;
+        padding-bottom: $sizing-xl !important;
     }
     .vdp-collapse--mobile {
         @include border(top);
-        padding: 0 $sizing-LG;
-        @include collapse-base($titlePadding: $sizing-LG, $indicatorPos: $sizing-MD, $indicatorDisplay: inline-block);
+        padding: 0 $sizing-lg;
+        @include collapse-base($titlePadding: $sizing-lg, $indicatorPos: $sizing-md, $indicatorDisplay: inline-block);
     }
 }

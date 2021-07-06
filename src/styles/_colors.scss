@@ -1,49 +1,24 @@
 @import 'tokens';
 @import 'mixins/mixins';
 @import 'mixins/prefixes';
-$gradients: (
-    blue: $color-gradient-blue,
-    gold: $color-gradient-gold,
-    red: $color-gradient-red,
-    slate: $color-gradient-slate,
-    teal: (
-        #2376a8,
-        #21c8a7
-    )
-);
-
-@mixin text-gradient($gradient: $color-gradient-red) {
-    background-image: -webkit-linear-gradient(0deg, $gradient); /* Chrome 10+, Saf5.1+, iOS 5+ */
-    color: nth($gradient, 1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.text-gradient {
-    @each $name, $attr in $gradients {
-        &-#{$name} {
-            @include text-gradient($attr);
-        }
-    }
-}
 
 // Overlays
 $overlays: (
     black--to-right: (
         to right,
-        $color-black
+        $color-neutral-800
     ),
     black--to-left: (
         to left,
-        $color-black
+        $color-neutral-800
     ),
     black--to-top: (
         to top,
-        $color-black
+        $color-neutral-800
     ),
     black--to-bottom: (
         to bottom,
-        $color-black
+        $color-neutral-800
     )
 );
 .overlay {
@@ -55,74 +30,87 @@ $overlays: (
     }
 }
 
-.bg {
+$backgrounds: (
     // Brand
-    &-brand-black {
-        background-color: $color-brand-black;
-    }
-    &-brand-red {
-        background-color: $color-brand-red;
-    }
-    &-blue {
-        background-color: $color-brand-blue;
-    }
-    &-gold {
-        background-color: $color-brand-gold;
-    }
-    &-slate {
-        background-color: $color-brand-slate;
-    }
-    // Neutrals
-    &-black {
-        background-color: $color-black;
-    }
-    &-gray-dark {
-        background-color: $color-gray-dark;
-    }
-    &-gray-medium {
-        background-color: $color-gray-medium;
-    }
-    &-gray {
-        background-color: $color-gray;
-    }
-    &-gray-light {
-        background-color: $color-gray-light;
-    }
-    &-gray-highlight {
-        background-color: $color-gray-highlight;
-    }
-    &-off-white {
-        background-color: $color-off-white;
-    }
-    &-white {
-        background-color: $color-white;
-    }
-    // States
-    &-state-success {
-        background-color: $color-state-success;
-    }
-    &-state-warning {
-        background-color: $color-state-warning;
-    }
-    &-state-error {
-        background-color: $color-state-error;
-    }
-    // Marketing Colors
-    &-marketing-teal {
-        background-color: $color-marketing-teal;
-    }
-    &-marketing-yellow {
-        background-color: $color-marketing-yellow;
-    }
-    // Gradients
-    &-gradient {
-        @each $name, $attr in $gradients {
-            &-#{$name}--horz {
-                @include linear-gradient(to right, $attr);
-            }
-            &-#{$name}--vert {
-                @include linear-gradient(to bottom, $attr);
-            }
-        }
+        bg-brand-primary $color-brand-primary,
+    bg-brand-secondary $color-brand-secondary,
+    // Neutral
+        bg-neutral-100 $color-neutral-100,
+    bg-neutral-200 $color-neutral-200,
+    bg-neutral-300 $color-neutral-300,
+    bg-neutral-400 $color-neutral-400,
+    bg-neutral-600 $color-neutral-600,
+    bg-neutral-800 $color-neutral-800,
+    bg-white $color-white,
+    // Secondary
+        bg-blue-100 $color-blue-100,
+    bg-blue-200 $color-blue-200,
+    bg-blue-300 $color-blue-300,
+    bg-blue-400 $color-blue-400,
+    bg-blue-600 $color-blue-600,
+    bg-blue-800 $color-blue-800,
+    bg-cobalt-100 $color-cobalt-100,
+    bg-cobalt-200 $color-cobalt-200,
+    bg-cobalt-300 $color-cobalt-300,
+    bg-cobalt-400 $color-cobalt-400,
+    bg-cobalt-600 $color-cobalt-600,
+    bg-cobalt-800 $color-cobalt-800,
+    bg-green-100 $color-green-100,
+    bg-green-200 $color-green-200,
+    bg-green-300 $color-green-300,
+    bg-green-400 $color-green-400,
+    bg-green-600 $color-green-600,
+    bg-green-800 $color-green-800,
+    bg-indigo-100 $color-indigo-100,
+    bg-indigo-200 $color-indigo-200,
+    bg-indigo-300 $color-indigo-300,
+    bg-indigo-400 $color-indigo-400,
+    bg-indigo-600 $color-indigo-600,
+    bg-indigo-800 $color-indigo-800,
+    bg-lime-100 $color-lime-100,
+    bg-lime-200 $color-lime-200,
+    bg-lime-300 $color-lime-300,
+    bg-lime-400 $color-lime-400,
+    bg-lime-600 $color-lime-600,
+    bg-lime-800 $color-lime-800,
+    bg-magenta-100 $color-magenta-100,
+    bg-magenta-200 $color-magenta-200,
+    bg-magenta-300 $color-magenta-300,
+    bg-magenta-400 $color-magenta-400,
+    bg-magenta-600 $color-magenta-600,
+    bg-magenta-800 $color-magenta-800,
+    bg-orange-100 $color-orange-100,
+    bg-orange-200 $color-orange-200,
+    bg-orange-300 $color-orange-300,
+    bg-orange-400 $color-orange-400,
+    bg-orange-600 $color-orange-600,
+    bg-orange-800 $color-orange-800,
+    bg-red-100 $color-red-100,
+    bg-red-200 $color-red-200,
+    bg-red-300 $color-red-300,
+    bg-red-400 $color-red-400,
+    bg-red-600 $color-red-600,
+    bg-red-800 $color-red-800,
+    bg-teal-100 $color-teal-100,
+    bg-teal-200 $color-teal-200,
+    bg-teal-300 $color-teal-300,
+    bg-teal-400 $color-teal-400,
+    bg-teal-600 $color-teal-600,
+    bg-teal-800 $color-teal-800,
+    bg-yellow-100 $color-yellow-100,
+    bg-yellow-200 $color-yellow-200,
+    bg-yellow-300 $color-yellow-300,
+    bg-yellow-400 $color-yellow-400,
+    bg-yellow-600 $color-yellow-600,
+    bg-yellow-800 $color-yellow-800,
+    // State
+        bg-state-error $color-state-error,
+    bg-state-success $color-state-success,
+    bg-state-warning $color-state-warning
+);
+
+@each $background in $backgrounds {
+    .#{nth($background, 1)} {
+        background-color: #{nth($background, 2)};
     }
 }

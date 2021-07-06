@@ -1,114 +1,174 @@
 // Border Radius
-$border-radius-XS: 0.125rem; // 2px
-$border-radius-SM: 0.1875rem; // 3px
-$border-radius-MD: 0.375rem; // 6px
-$border-radius-LG: 0.75rem; // 12px
-$border-radius-XL: 4rem; // 64px
+$border-radius-sm: 0.25rem; // 4px
+$border-radius-md: 0.5rem; // 8px
+$border-radius-lg: 1rem; // 16px
+$border-radius-xl: 4rem; // 64px (for full rounded rectangles)
 $border-radius-round: 50%;
+
 // Breakpoints
 $breakpoint-tablet: 769px;
 $breakpoint-desktop: 1024px;
-$breakpoint-desktop-XL: 1440px;
-// Colors - Brand
-$color-brand-black: #333333;
-$color-brand-red: #dc1f26;
-$color-brand-slate: #454f62;
-$color-brand-gold: #cca677;
-$color-brand-blue: #398cd7;
-$color-brand-blue-light: lighten($color-brand-blue, 42%);
-// Colors - Gradients
-$color-gradient-blue: ($color-brand-blue, #38a6cf);
-$color-gradient-gold: ($color-brand-gold, #eac08c);
-$color-gradient-red: ($color-brand-red, #f42659);
-$color-gradient-slate: ($color-brand-slate, #41587a);
-// Colors - Neutrals
-$color-black: #32313d;
-$color-gray-dark: #4c4e56;
-$color-gray-medium: #888b93;
-$color-gray: #bcbfc3;
-$color-gray-light: #e0e0e4;
-$color-gray-highlight: #f0f1f4;
-$color-off-white: #f5f5f6;
+$breakpoint-desktop-xl: 1440px;
+
+// Color - Brand
+$color-brand-primary: #ce3197;
+$color-brand-secondary: #04092c;
+
+// Color - Neutral
+$color-neutral-100: #f6f6fb;
+$color-neutral-200: #d3d3dc;
+$color-neutral-300: #a0a2b3;
+$color-neutral-400: #717488;
+$color-neutral-600: #474b5e;
+$color-neutral-800: #04092c;
 $color-white: #ffffff;
-// Colors - Marketing
-$color-marketing-teal: #30b0a6;
-$color-marketing-yellow: #f8bd2b;
+
+// Color - Secondary
+$color-blue-100: #d9f2fc;
+$color-blue-200: #b3e4f9;
+$color-blue-300: #7ad0f5;
+$color-blue-400: #27b2ef;
+$color-blue-600: #0983b6;
+$color-blue-800: #065474;
+$color-cobalt-100: #d6e6fd;
+$color-cobalt-200: #afcefb;
+$color-cobalt-300: #75aaf6;
+$color-cobalt-400: #277cf4;
+$color-cobalt-600: #0951b6;
+$color-cobalt-800: #003b90;
+$color-green-100: #e6ffed;
+$color-green-200: #c0eab7;
+$color-green-300: #8be475;
+$color-green-400: #4ac76d;
+$color-green-600: #19aa61;
+$color-green-800: #008f67;
+$color-indigo-100: #f2f0ff;
+$color-indigo-200: #d9d6fd;
+$color-indigo-300: #a69fe2;
+$color-indigo-400: #5d50cb;
+$color-indigo-600: #312784;
+$color-indigo-800: #211a58;
+$color-lime-100: #f3f7de;
+$color-lime-200: #e8ef9f;
+$color-lime-300: #c4d75d;
+$color-lime-400: #94be24;
+$color-lime-600: #62a10a;
+$color-lime-800: #2d6d1b;
+$color-magenta-100: #fbe5f3;
+$color-magenta-200: #f7b4df;
+$color-magenta-300: #e07bbd;
+$color-magenta-400: #ce3197;
+$color-magenta-600: #8f1564;
+$color-magenta-800: #440c36;
+$color-orange-100: #fff5f0;
+$color-orange-200: #ffd5c0;
+$color-orange-300: #fea071;
+$color-orange-400: #fe894e;
+$color-orange-600: #f76e27;
+$color-orange-800: #d54700;
+$color-red-100: #feecec;
+$color-red-200: #ffb1ba;
+$color-red-300: #ff7079;
+$color-red-400: #f93c3a;
+$color-red-600: #dc1818;
+$color-red-800: #9d0706;
+$color-teal-100: #dafafb;
+$color-teal-200: #b5f5f8;
+$color-teal-300: #78e4e8;
+$color-teal-400: #13bdc3;
+$color-teal-600: #1c94a5;
+$color-teal-800: #086e88;
+$color-yellow-100: #fff9d6;
+$color-yellow-200: #fff099;
+$color-yellow-300: #ffe75c;
+$color-yellow-400: #fcd72d;
+$color-yellow-600: #ffc000;
+$color-yellow-800: #e8a93a;
+
 // Colors - States
-$color-state-success: #5abc76;
-$color-state-warning: #eead40;
-$color-state-error: #f02c2c;
+$color-state-success: $color-green-400;
+$color-state-warning: $color-yellow-600;
+$color-state-error: $color-red-400;
+
 // Colors - Third Party
 $color-third-party-facebook: #3b5998;
 $color-third-party-linkedin: #0077b5;
 $color-third-party-pinterest: #bd081c;
 $color-third-party-twitter: #55acee;
 $color-third-party-youtube: #b31217;
+
 // Elevations
-$elevation-1: 0 2px 4px 0 rgba($color-black, 0.25);
-$elevation-2: 0 4px 8px 0 rgba($color-black, 0.3);
-$elevation-3: 0 6px 12px 0 rgba($color-black, 0.35);
-$elevation-4: 0 8px 16px 0 rgba($color-black, 0.4);
+$elevation-1: 0 2px 4px 0 rgba($color-neutral-800, 0.25);
+$elevation-2: 0 4px 8px 0 rgba($color-neutral-800, 0.3);
+$elevation-3: 0 6px 12px 0 rgba($color-neutral-800, 0.35);
+$elevation-4: 0 8px 16px 0 rgba($color-neutral-800, 0.4);
+
 // Font Family
-$font-family-default: 'roboto', sans-serif;
+$font-family-default: 'GT-Walsheim', sans-serif;
 $font-family-icons: 'vivid-icons';
 $font-family-path: 'https://a.vsstatic.com/font/'; /* change to '../fonts/' for local changes */
 
 // Font Sizes
 $font-size-base: 16px;
-$font-size-XS: ($font-size-base * 0.6875); // 11px
-$font-size-SM: ($font-size-base * 0.8125); // 13px
-$font-size-MD: ($font-size-base * 0.9375); // 15px
-$font-size-LG: ($font-size-base * 1); // 16px
-$font-size-XL: ($font-size-base * 1.25); // 20px
-$font-size-2XL: ($font-size-base * 1.5); // 24px
-$font-size-3XL: ($font-size-base * 2); // 32px
-$font-size-4XL: ($font-size-base * 2.5); // 40px
-$font-size-5XL: ($font-size-base * 3); // 48px
-$font-size-6XL: ($font-size-base * 3.5); // 56px
+$font-size-xs: ($font-size-base * 0.75); // 12px
+$font-size-sm: ($font-size-base * 0.875); // 14px
+$font-size-md: ($font-size-base * 1); // 16px
+$font-size-lg: ($font-size-base * 1.125); // 18px
+$font-size-xl: ($font-size-base * 1.25); // 20px
+$font-size-2xl: ($font-size-base * 1.5); // 24px
+$font-size-3xl: ($font-size-base * 2); // 32px
+$font-size-4xl: ($font-size-base * 2.5); // 40px
+
 // Font Weights
 $font-weight-reg: 400;
 $font-weight-med: 500;
-$font-weight-bld: 700;
-$font-weight-blk: 900;
+$font-weight-bld: 600;
+$font-weight-blk: 800;
+
 // Grid
 $grid-columns: 12;
-$grid-container-padding: 0.75rem; // 12px
-$grid-gutter: 1rem; // 16px
-$grid-max-width: ($grid-container-padding * 2) + 71rem; // 1160px
+$grid-container-padding: 1rem; // 16px
+$grid-gutter: 1.5rem; // 24px
+$grid-max-width: ($grid-container-padding * 2) + 82.5rem; // 1320px
+
 // Line Heights
-$line-height-XS: 1;
-$line-height-SM: 1.125;
-$line-height-MD: 1.25;
-$line-height-LG: 1.5;
-$line-height-XL: 2;
+$line-height-xs: 1;
+$line-height-sm: 1.125;
+$line-height-md: 1.25;
+$line-height-lg: 1.5;
+$line-height-xl: 2;
+
 // Sizing
 $sizing-base: 1rem; // 16px
-$sizing-2XS: ($sizing-base * 0.125); // 2px
-$sizing-XS: ($sizing-base * 0.25); // 4px
-$sizing-SM: ($sizing-base * 0.5); // 8px
-$sizing-MD: ($sizing-base * 0.75); // 12px
-$sizing-LG: ($sizing-base * 1); // 16px
-$sizing-XL: ($sizing-base * 1.5); // 24px
-$sizing-2XL: ($sizing-base * 2); // 32px
-$sizing-3XL: ($sizing-base * 2.5); // 40px
-$sizing-4XL: ($sizing-base * 3); // 48px
-$sizing-5XL: ($sizing-base * 3.5); // 56px
-$sizing-6XL: ($sizing-base * 4); // 64px
+$sizing-2xs: ($sizing-base * 0.125); // 2px
+$sizing-xs: ($sizing-base * 0.25); // 4px
+$sizing-sm: ($sizing-base * 0.5); // 8px
+$sizing-md: ($sizing-base * 0.75); // 12px
+$sizing-lg: ($sizing-base * 1); // 16px
+$sizing-xl: ($sizing-base * 1.5); // 24px
+$sizing-2xl: ($sizing-base * 2); // 32px
+$sizing-3xl: ($sizing-base * 2.5); // 40px
+$sizing-4xl: ($sizing-base * 3.5); // 56px
+$sizing-5xl: ($sizing-base * 4.5); // 72px
+$sizing-6xl: ($sizing-base * 5.5); // 88px
+
 // Text Color
-$text-color-default: $color-gray-dark;
-$text-color-disabled: $color-gray;
+$text-color-default: $color-neutral-800;
+$text-color-disabled: $color-neutral-300;
 $text-color-error: $color-state-error;
-$text-color-link: $color-brand-blue;
-$text-color-link-hover: darken($text-color-link, 12%);
-$text-color-muted: $color-gray-medium;
-$text-color-slate: $color-brand-slate;
+$text-color-highlight: $color-teal-600;
+$text-color-link: $color-brand-primary;
+$text-color-link-hover: $color-magenta-600;
+$text-color-muted: $color-neutral-400;
 $text-color-success: $color-state-success;
 $text-color-warning: $color-state-warning;
+
 // Transitions
 $transition-1: 200ms ease-in-out;
 $transition-2: 300ms ease-in-out;
 $transition-3: 500ms ease-in-out;
 $transition-4: 750ms ease-in-out;
+
 // Z-Index
 $z-index-fab: 1000;
 $z-index-tooltip: 2000;
@@ -126,15 +186,15 @@ $z-index-alert: 9000;
 //////////////////////////////////////////////////
 
 // Buttons
-$button-height-default: $sizing-3XL;
-$button-height-small: $sizing-2XL;
-$button-height-large: $sizing-4XL;
+$button-height-default: $sizing-3xl;
+$button-height-small: $sizing-2xl;
+$button-height-large: $sizing-4xl;
 $button-padding-default: $button-height-default / 2;
 $button-padding-small: $button-height-small / 2;
 $button-padding-large: $button-height-large / 2;
 
 // Cards
-$card-hero-height: 128px;
+$card-hero-height: 15rem;
 
 // Carousel
 $carousel-height: 280px;

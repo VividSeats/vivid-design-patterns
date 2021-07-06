@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getTypeClassNames, TYPOGRAPHY_PROP_TYPES } from '../../utils/typographyUtils';
 
-const Headline = ({
+const Title = ({
     children,
     className,
-    importance = 1,
+    size = 'sm',
     weight,
     height,
     state,
@@ -17,7 +17,7 @@ const Headline = ({
     as,
     ...htmlAttributes
 }) => {
-    const classNames = getTypeClassNames(`vdp-type-headline${importance}`, {
+    const classNames = getTypeClassNames(`vdp-type-title-${size}`, {
         weight,
         height,
         state,
@@ -37,29 +37,12 @@ const Headline = ({
         return React.createElement(as, { ...attributes }, children);
     }
 
-    switch (importance) {
-        case 1: {
-            return <h1 {...attributes}>{children}</h1>;
-        }
-
-        case 2: {
+    switch (size) {
+        case 'md': {
             return <h2 {...attributes}>{children}</h2>;
         }
-
-        case 3: {
+        case 'sm': {
             return <h3 {...attributes}>{children}</h3>;
-        }
-
-        case 4: {
-            return <h4 {...attributes}>{children}</h4>;
-        }
-
-        case 5: {
-            return <h5 {...attributes}>{children}</h5>;
-        }
-
-        case 6: {
-            return <h6 {...attributes}>{children}</h6>;
         }
         default: {
             return <h1 {...attributes}>{children}</h1>;
@@ -67,9 +50,9 @@ const Headline = ({
     }
 };
 
-Headline.propTypes = {
-    importance: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+Title.propTypes = {
+    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl']),
     ...TYPOGRAPHY_PROP_TYPES
 };
 
-export default Headline;
+export default Title;
